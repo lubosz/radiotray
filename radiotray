@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+import sys, os, string
+from radiotraylib.RadioTray import RadioTray
+
+
+if string.find(os.path.abspath(sys.argv[0]), os.sep+'radiotray') != -1:
+    sys.path.insert(0, os.path.normpath(os.path.join(os.path.abspath(sys.argv[0]), os.pardir, os.pardir)))
+if hasattr(os, "getuid") and os.getuid() != 0:
+    sys.path.insert(0, os.path.abspath(os.getcwd()))
+
+
+
+if __name__ == "__main__":
+        RadioTray()

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.3
+Encoding=UTF-8
+Name=Radio Tray
+Comment=Streaming music player
+Exec=/usr/local/bin/radiotray
+Terminal=false
+Icon=/usr/local/share/radiotray/icons/radiotray.png
+Type=Application
+Categories=AudioVideo;Audio;Player;GTK;

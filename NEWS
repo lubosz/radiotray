@@ -1,0 +1,20 @@
+Radio Tray 0.3 - 30/01/2010
+===========================
+
+* Fixed support for apostrophes in radio names
+* Fixed scrollbar issue
+* Added support for M3U playlist format
+* Added support for ASX,WAX and WVX playlist formats
+
+
+Radio Tray 0.2 - 17/01/2010
+===========================
+
+* Added support for shoutcast/icecast playlists
+* Added desktop entry file
+
+
+Radio Tray 0.1 - 09/01/2010
+===========================
+
+* Initial release
