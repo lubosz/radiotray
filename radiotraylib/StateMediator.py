@@ -29,6 +29,7 @@ class StateMediator:
 		self.isPlaying = False
 		self.isNotified = False
 		self.currentRadio = ''
+		self.currentMetaData = ''
 
 
 	def setAudioPlayer(self, audioPlayer):
@@ -43,6 +44,7 @@ class StateMediator:
 
 		if(self.isPlaying):
 			self.audioPlayer.stop()
+			self.currentMetaData = ''
 
 		url = self.provider.getRadioUrl(radio)
 		self.audioPlayer.start(url)
@@ -78,4 +80,13 @@ class StateMediator:
 		self.systray.setStoppedState()
 		self.isPlaying = False
 
+	def notifySong(self, data):
+		self.currentMetaData = data
+		self.systray.updateRadioMetadata(data)
+
+	def getCurrentRadio(self):
+		return self.currentRadio
+
+	def getCurrentMetaData(self):
+		return self.currentMetaData
 

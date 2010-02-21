@@ -37,12 +37,15 @@ class M3uPlaylistDecoder:
             print "Decoding playlist..."
             
             lines = str.split("\n")
+	    playlist = []
+
             for line in lines:
 
                 if line.startswith("#") == False and len(line) > 0:
+			
+			playlist.append(line)
+                        
 
-                        return line
-            
-            return None
+            return playlist
             
             

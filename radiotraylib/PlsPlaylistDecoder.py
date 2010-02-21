@@ -36,15 +36,16 @@ class PlsPlaylistDecoder:
             print "Playlist downloaded"
             print "Decoding playlist..."
             
+	    playlist = []
             lines = str.split("\n")
             for line in lines:
 
-                if line.startswith("File1=") == True:
+                if line.startswith("File") == True:
 
                         list = line.split("=")
-                        value = list[1]
-                        return value
+                        playlist.append(list[1])
+      
             
-            return None
+            return playlist
             
             

@@ -65,6 +65,8 @@ class BookmarkConfiguration:
 			dic = { "on_newBookmarkButton_clicked" : self.on_add_bookmark,
 				"on_editBookmarkButton_clicked" : self.on_edit_bookmark,
 				"on_delBookmarkButton_clicked" : self.on_remove_bookmark,
+				"on_moveUpButton_clicked" : self.on_moveup_bookmark,
+				"on_moveDownButton_clicked" : self.on_movedown_bookmark,
 				"on_closeButton_clicked" : self.on_close}
 			self.wTree.signal_autoconnect(dic)
 
@@ -144,6 +146,43 @@ class BookmarkConfiguration:
 				
 
 			confirmation.hide()
+
+	def on_moveup_bookmark(self, widget):
+
+		#get current selected element
+		selection = self.list.get_selection()
+		(model, iter) = selection.get_selected()
+
+		if type(iter).__name__=='TreeIter':
+
+			selectedRadioName = model.get_value(iter,0)
+
+			if (self.dataProvider.moveUp(selectedRadioName) == True):
+
+				path = model.get_path(iter)
+				row = path[0]
+				previous = model.get_iter(row -1)
+				model.move_before(iter, previous)
+
+			
+
+	def on_movedown_bookmark(self, widget):
+
+		#get current selected element
+		selection = self.list.get_selection()
+		(model, iter) = selection.get_selected()
+
+		if type(iter).__name__=='TreeIter':
+
+			selectedRadioName = model.get_value(iter,0)
+
+			if (self.dataProvider.moveDown(selectedRadioName) == True):
+
+				path = model.get_path(iter)
+				row = path[0]
+				next = model.get_iter(row + 1)
+				model.move_after(iter, next)
+
 
 	def on_close(self, widget):
 

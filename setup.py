@@ -4,7 +4,7 @@ from distutils.core import setup
 
 
 setup(name='radiotray',
-      version='0.3',
+      version='0.4',
       author='Carlos Ribeiro',
       author_email='carlosmribeiro1@gmail.com',
       url='http://radiotray.sourceforge.net',

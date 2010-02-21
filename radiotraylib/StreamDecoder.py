@@ -34,9 +34,9 @@ class StreamDecoder:
         
         if url.startswith("http") == False:
             print "Not an HTTP url. Maybe direct stream..."
-            return url
+            return [url]
             
-        print "Requesting stream..."
+        print "Requesting stream... " + url
         myHeaders = {'Range':'bytes=0-9'}
         req = urllib2.Request(url, headers=myHeaders)
         f = urllib2.urlopen(req)
@@ -51,15 +51,14 @@ class StreamDecoder:
             format = self.formats[contentType]
             if format == None:
                 print "No known formats found. Maybe direct stream..."
-                return url
+                return [url]
             else:
                 print "Format detected"
 		mediaUrl = format.extractStream(url)
-		print "url: " + mediaUrl
                 return mediaUrl
                 
         except:
             print "Couldn't read content-type"
-            return url
+            return [url]
                     
                 

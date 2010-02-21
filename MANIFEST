@@ -12,6 +12,8 @@ radiotraylib/utils.py
 radiotraylib/__init__.py
 radiotraylib/StreamDecoder.py
 radiotraylib/PlsPlaylistDecoder.py
+radiotraylib/M3uPlaylistDecoder.py
+radiotraylib/AsxPlaylistDecoder.py
 COPYING
 README
 NEWS

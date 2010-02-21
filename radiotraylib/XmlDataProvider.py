@@ -71,6 +71,34 @@ class XmlDataProvider:
 		self.root.remove(radio)
 		self.saveToFile()
 
+	def moveUp(self, name):
+
+		radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
+		previous = radio.getprevious()
+		if ( previous != None):
+			index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
+			self.root.remove(radio)
+			self.root.insert(int(index)-2,radio)
+			self.saveToFile()
+
+			return True
+		else:
+			return False
+		
+	def moveDown(self, name):
+
+		radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
+		next = radio.getnext()
+		if ( next != None):
+			index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
+			self.root.remove(radio)
+			self.root.insert(int(index),radio)
+			self.saveToFile()
+
+			return True
+		else:
+			return False
+	
 #if __name__ == "__main__":
 #	try:
 #		provider = XmlDataProvider('lixo.xml')

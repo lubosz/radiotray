@@ -9,7 +9,7 @@ if string.find(os.path.abspath(sys.argv[0]), os.sep+'radiotray') != -1:
 if hasattr(os, "getuid") and os.getuid() != 0:
     sys.path.insert(0, os.path.abspath(os.getcwd()))
 
-
+sys.path.insert(0,os.path.normpath('/usr/local/lib/python2.6/dist-packages/radiotraylib'))
 
 if __name__ == "__main__":
         RadioTray()

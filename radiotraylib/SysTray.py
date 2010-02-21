@@ -41,7 +41,7 @@ class SysTray:
 
 	def __init__(self, mediator, provider, log):
 		
-		self.version='0.3'
+		self.version='0.4'
 		self.mediator = mediator
 
 		# initialize data provider
@@ -72,11 +72,11 @@ class SysTray:
 		menu_item3.connect('activate', self.on_about)
 
 		self.icon = gtk.status_icon_new_from_file(findfile('icons/radiotray.png'))
-		self.icon.set_tooltip('Radio Tray: idle')
+		self.icon.set_tooltip_markup('<i>Idle</i>')
 		self.icon.connect('button_press_event', self.button_press)
 
 	def button_press(self,widget,event):
-		print "show menu"
+
 		if(event.button == 1):
 			self.radioMenu.popup(None, None, gtk.status_icon_position_menu, 0, event.get_time(), widget)
 		else:
@@ -84,7 +84,6 @@ class SysTray:
 
 
 	def on_preferences(self, data):
-		print 'preferences'
 		config = BookmarkConfiguration(self.provider, self.update_radios)
 
 	def on_quit(self, data):
@@ -92,7 +91,6 @@ class SysTray:
 		gtk.main_quit()
 
 	def on_about(self, data):
-		print 'About...'
 		about = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO, gtk.BUTTONS_CLOSE, 'Radio Tray v'+self.version+'\n\nhttp://radiotray.sourceforge.net\n\nCopyright 2009 Carlos Ribeiro')
 		about.run()
 		about.hide()
@@ -107,19 +105,25 @@ class SysTray:
 
 	def setStoppedState(self):
 		self.turnOff.set_sensitive(False)
-		self.icon.set_tooltip("Radio Tray: idle")
+		self.icon.set_tooltip_markup("<i>Idle</i>")
 
 	def setPlayingState(self, radio):
 		self.turnOff.set_sensitive(True)
-		self.icon.set_tooltip("Playing " + radio)
+		if(len(self.mediator.getCurrentMetaData()) > 0):
+			self.icon.set_tooltip_markup("Playing <b>" + radio + "</b>\n<i>" + self.mediator.getCurrentMetaData() + "</i>")
+		else:
+			self.icon.set_tooltip_markup("Playing <b>" + radio + "</b>")
 
 	def setConnectingState(self, radio):
 		self.turnOff.set_sensitive(True)
-		self.icon.set_tooltip("Connecting to " + radio)
+		self.icon.set_tooltip_markup("Connecting to " + radio)
 
+	def updateRadioMetadata(self, data):
+		print self.mediator.getCurrentRadio()
+		print data
+		self.icon.set_tooltip_markup("Playing <b>" + self.mediator.getCurrentRadio() + "</b>\n<i>" + data + "</i>")
 
 	def update_radios(self):
-		print 'update'
 		
 		for child in self.radioMenu.get_children():
 			self.radioMenu.remove(child)

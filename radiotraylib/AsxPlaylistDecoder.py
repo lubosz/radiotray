@@ -44,7 +44,7 @@ class AsxPlaylistDecoder:
 	    result = root.xpath("//ref/@href")
 
 	    if (len(result) > 0):
-		return result[0]
+		return result
    	    else:
             	return None
             

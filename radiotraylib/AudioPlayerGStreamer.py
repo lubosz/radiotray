@@ -30,6 +30,7 @@ class AudioPlayerGStreamer:
         self.mediator = mediator
         self.log = log
         self.decoder = StreamDecoder()
+	self.playlist = []
         
         # init player
         self.player = gst.element_factory_make("playbin", "player")
@@ -41,10 +42,20 @@ class AudioPlayerGStreamer:
 
 
     def start(self, uri):
-        realUrl = self.decoder.extractStream(uri)
-        self.player.set_property("uri", realUrl)
-        self.player.set_state(gst.STATE_PLAYING)
+        self.playlist = self.decoder.extractStream(uri)
+	self.playNextStream()
 
+
+    def playNextStream(self):
+	if(len(self.playlist) > 0):
+		stream = self.playlist.pop(0)
+		print "Play " + stream
+        	self.player.set_property("uri", stream)
+        	self.player.set_state(gst.STATE_PLAYING)
+	else:
+		self.stop()
+		self.mediator.notifyStopped()
+	
 
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
@@ -56,13 +67,16 @@ class AudioPlayerGStreamer:
         if t == gst.MESSAGE_EOS:
             self.log.log("Received MESSAGE_EOS") 
             self.player.set_state(gst.STATE_NULL)
-            self.mediator.notifyStopped()
+            self.playNextStream()
 
         elif t == gst.MESSAGE_ERROR:
             self.log.log("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
             err, debug = message.parse_error()
-            self.mediator.notifyError(err, debug)			
+	    if(len(self.playlist)>0):
+		self.playNextStream()
+	    else:
+                self.mediator.notifyError(err, debug)			
 
         elif t == gst.MESSAGE_STATE_CHANGED:
             self.log.log("Received MESSAGE_STATE_CHANGED")
@@ -77,8 +91,9 @@ class AudioPlayerGStreamer:
 
             taglist = message.parse_tag()
             for key in taglist.keys():
-                print key
-                print taglist[key]
+                if (key == 'title'):
+	                print "TITLE: " + taglist[key]
+			self.mediator.notifySong(taglist[key])
 
         return True
 
