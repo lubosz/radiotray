@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys, os, string
-from radiotray.RadioTray import RadioTray
+from RadioTray import RadioTray
 
 current_path = os.path.realpath(__file__)
 basedir = os.path.dirname(os.path.realpath(__file__))

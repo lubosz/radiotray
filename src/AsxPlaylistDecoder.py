@@ -29,15 +29,15 @@ class AsxPlaylistDecoder:
         
     def extractStream(self,  url):
 
-            print "Downloading playlist..."
+        print "Downloading playlist..."
 
-            req = urllib2.Request(url)
-            f = urllib2.urlopen(req)
-            str = f.read()
-            f.close()
+        req = urllib2.Request(url)
+        f = urllib2.urlopen(req)
+        str = f.read()
+        f.close()
 
-            print "Playlist downloaded"
-            print "Decoding playlist..."
+        print "Playlist downloaded"
+        print "Decoding playlist..."
 
         parser = etree.XMLParser(recover=True)
         root = etree.parse(StringIO(str),parser)

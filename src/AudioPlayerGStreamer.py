@@ -43,18 +43,17 @@ class AudioPlayerGStreamer:
 
     def start(self, uri):
         self.playlist = self.decoder.extractStream(uri)
-    self.playNextStream()
-
+        self.playNextStream()
 
     def playNextStream(self):
-    if(len(self.playlist) > 0):
-        stream = self.playlist.pop(0)
-        print "Play " + stream
+        if(len(self.playlist) > 0):
+            stream = self.playlist.pop(0)
+            print "Play " + stream
             self.player.set_property("uri", stream)
             self.player.set_state(gst.STATE_PLAYING)
-    else:
-        self.stop()
-        self.mediator.notifyStopped()
+        else:
+            self.stop()
+            self.mediator.notifyStopped()
 
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
@@ -72,11 +71,11 @@ class AudioPlayerGStreamer:
             self.log.log("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
             err, debug = message.parse_error()
-        if(len(self.playlist)>0):
-            self.playNextStream()
-        else:
-            self.mediator.notifyError(err, debug)
 
+            if(len(self.playlist)>0):
+                self.playNextStream()
+            else:
+                self.mediator.notifyError(err, debug)
         elif t == gst.MESSAGE_STATE_CHANGED:
             self.log.log("Received MESSAGE_STATE_CHANGED")
             oldstate, newstate, pending = message.parse_state_changed()
