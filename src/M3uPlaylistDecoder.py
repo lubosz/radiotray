@@ -23,29 +23,23 @@ class M3uPlaylistDecoder:
 
     def __init__(self):
         print "M3U playlist decoder"
-        
+
     def extractStream(self,  url):
-            
-            print "Downloading playlist..."
-            
-            req = urllib2.Request(url)
-            f = urllib2.urlopen(req)
-            str = f.read()
-            f.close()
-            
-            print "Playlist downloaded"
-            print "Decoding playlist..."
-            
-            lines = str.split("\n")
-	    playlist = []
+        print "Downloading playlist..."
 
-            for line in lines:
+        req = urllib2.Request(url)
+        f = urllib2.urlopen(req)
+        str = f.read()
+        f.close()
 
-                if line.startswith("#") == False and len(line) > 0:
-			
-			playlist.append(line)
-                        
+        print "Playlist downloaded"
+        print "Decoding playlist..."
 
-            return playlist
-            
-            
+        lines = str.split("\n")
+        playlist = []
+
+        for line in lines:
+            if line.startswith("#") == False and len(line) > 0:
+                playlist.append(line)
+
+        return playlist

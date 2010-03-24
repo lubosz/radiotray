@@ -1,0 +1,22 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+
+[encoding: UTF-8]
+[type: gettext/glade]data/configBookmarks.glade
+src/AsxPlaylistDecoder.py
+src/AudioPlayerGStreamer.py
+src/BookmarkConfiguration.py
+src/ConsoleLog.py
+src/__init__.py
+src/lib/common.py
+src/lib/i18n.py
+src/lib/utils.py
+src/M3uPlaylistDecoder.py
+src/Notification.py
+src/PlsPlaylistDecoder.py
+src/radiotray
+src/RadioTray.py
+src/StateMediator.py
+src/StreamDecoder.py
+src/SysTray.py
+src/XmlDataProvider.py

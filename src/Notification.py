@@ -25,11 +25,11 @@ class Notification:
 
     def notify(self, title, message):
         if pynotify.init("Radio Tray"):
-                n = pynotify.Notification(title, message)
-                n.set_urgency(pynotify.URGENCY_LOW)
-                pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
-                n.set_icon_from_pixbuf(pixbuf)
-                n.set_timeout(pynotify.EXPIRES_DEFAULT)
-                n.show()
+            n = pynotify.Notification(title, message)
+            n.set_urgency(pynotify.URGENCY_LOW)
+            pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
+            n.set_icon_from_pixbuf(pixbuf)
+            n.set_timeout(pynotify.EXPIRES_DEFAULT)
+            n.show()
         else:
-                print "Error: there was a problem initializing the pynotify module"
+            print "Error: there was a problem initializing the pynotify module"

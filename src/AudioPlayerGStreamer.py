@@ -30,8 +30,8 @@ class AudioPlayerGStreamer:
         self.mediator = mediator
         self.log = log
         self.decoder = StreamDecoder()
-	self.playlist = []
-        
+        self.playlist = []
+
         # init player
         self.player = gst.element_factory_make("playbin", "player")
         fakesink = gst.element_factory_make("fakesink", "fakesink")
@@ -43,19 +43,18 @@ class AudioPlayerGStreamer:
 
     def start(self, uri):
         self.playlist = self.decoder.extractStream(uri)
-	self.playNextStream()
+    self.playNextStream()
 
 
     def playNextStream(self):
-	if(len(self.playlist) > 0):
-		stream = self.playlist.pop(0)
-		print "Play " + stream
-        	self.player.set_property("uri", stream)
-        	self.player.set_state(gst.STATE_PLAYING)
-	else:
-		self.stop()
-		self.mediator.notifyStopped()
-	
+    if(len(self.playlist) > 0):
+        stream = self.playlist.pop(0)
+        print "Play " + stream
+            self.player.set_property("uri", stream)
+            self.player.set_state(gst.STATE_PLAYING)
+    else:
+        self.stop()
+        self.mediator.notifyStopped()
 
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
@@ -65,7 +64,7 @@ class AudioPlayerGStreamer:
     def on_message(self, bus, message):
         t = message.type
         if t == gst.MESSAGE_EOS:
-            self.log.log("Received MESSAGE_EOS") 
+            self.log.log("Received MESSAGE_EOS")
             self.player.set_state(gst.STATE_NULL)
             self.playNextStream()
 
@@ -73,10 +72,10 @@ class AudioPlayerGStreamer:
             self.log.log("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
             err, debug = message.parse_error()
-	    if(len(self.playlist)>0):
-		self.playNextStream()
-	    else:
-                self.mediator.notifyError(err, debug)			
+        if(len(self.playlist)>0):
+            self.playNextStream()
+        else:
+            self.mediator.notifyError(err, debug)
 
         elif t == gst.MESSAGE_STATE_CHANGED:
             self.log.log("Received MESSAGE_STATE_CHANGED")
@@ -92,8 +91,7 @@ class AudioPlayerGStreamer:
             taglist = message.parse_tag()
             for key in taglist.keys():
                 if (key == 'title'):
-	                print "TITLE: " + taglist[key]
-			self.mediator.notifySong(taglist[key])
+                    print "TITLE: " + taglist[key]
+            self.mediator.notifySong(taglist[key])
 
         return True
-

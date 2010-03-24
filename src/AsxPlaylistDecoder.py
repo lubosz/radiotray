@@ -28,24 +28,22 @@ class AsxPlaylistDecoder:
         print "ASX-familiy playlist decoder"
         
     def extractStream(self,  url):
-            
+
             print "Downloading playlist..."
-            
+
             req = urllib2.Request(url)
             f = urllib2.urlopen(req)
             str = f.read()
             f.close()
-            
+
             print "Playlist downloaded"
             print "Decoding playlist..."
 
-	    parser = etree.XMLParser(recover=True)
-	    root = etree.parse(StringIO(str),parser)
-	    result = root.xpath("//ref/@href")
+        parser = etree.XMLParser(recover=True)
+        root = etree.parse(StringIO(str),parser)
+        result = root.xpath("//ref/@href")
 
-	    if (len(result) > 0):
-		return result
-   	    else:
-            	return None
-            
-            
+        if (len(result) > 0):
+            return result
+        else:
+            return None

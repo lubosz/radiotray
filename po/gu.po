@@ -1,0 +1,108 @@
+# translation of radiotray.trunk.radiotray.gu.po to Gujarati
+# RadioTray language file
+# Copyright (C) 2009-2010
+# This file is distributed under the same license as the radiotray package.
+#
+# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+# Ankit Patel <ankit@redhat.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: radiotray.trunk.radiotray.gu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-24 13:28-0400\n"
+"PO-Revision-Date: 2010-03-23 23:39+0530\n"
+"Last-Translator: Ankit Patel <ankit@redhat.com>\n"
+"Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n!=1);\n"
+"\n"
+
+#: ../data/configBookmarks.glade.h:1
+#, fuzzy
+msgid "Configure Radios"
+msgstr "રેડિયો રૂપરેખાંકિત કરો"
+
+#: ../data/configBookmarks.glade.h:2
+#, fuzzy
+msgid "Radio name:"
+msgstr "રેડિયો નામ"
+
+#: ../data/configBookmarks.glade.h:3
+#, fuzzy
+msgid "URL :"
+msgstr "URL"
+
+#: ../src/BookmarkConfiguration.py:62
+msgid "Radio Name"
+msgstr "રેડિયો નામ"
+
+#: ../src/BookmarkConfiguration.py:142
+#, fuzzy, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "શું તમે ખરેખર કાઢી નાંખવા માંગો છો"
+
+#: ../src/SysTray.py:54
+msgid "Turn Off Radio"
+msgstr "રેડિયો બંધ કરો"
+
+#: ../src/SysTray.py:62
+#, fuzzy
+msgid "Configure radios..."
+msgstr "રેડિયો રૂપરેખાંકિત કરો"
+
+#: ../src/SysTray.py:63
+msgid "About"
+msgstr "વિશે"
+
+#: ../src/SysTray.py:64
+msgid "Quit"
+msgstr "બહાર નીકળો"
+
+#: ../src/SysTray.py:76 ../src/SysTray.py:113
+msgid "<i>Idle</i>"
+msgstr ""
+
+#: ../src/SysTray.py:100
+#, python-format
+msgid ""
+"%s v%s \n"
+"\n"
+"http://radiotray.sourceforge.net\n"
+"\n"
+"Copyright 2009 Carlos Ribeiro"
+msgstr ""
+
+#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#, python-format
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+
+#: ../src/SysTray.py:120
+#, python-format
+msgid "Playing <b>%s</b>"
+msgstr ""
+
+#: ../src/SysTray.py:124
+#, fuzzy, python-format
+msgid "Connecting to %s"
+msgstr "સાથે જોડાઈ રહ્યા છીએ"
+
+#~ msgid "Radio Tray"
+#~ msgstr "રેડિયો ટ્રે"
+
+#~ msgid "Radio Error"
+#~ msgstr "રેડિયો ભૂલ"
+
+#~ msgid "Radio Playing"
+#~ msgstr "રેડિયો વગાડી રહ્યા છીએ"
+
+#~ msgid "Idle"
+#~ msgstr "ફાજલ"
+
+#~ msgid "Playing"
+#~ msgstr "વગાડી રહ્યા છીએ"
