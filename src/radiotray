@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys, os, string
-from radiotraylib.RadioTray import RadioTray
+from RadioTray import RadioTray
 
 
 if string.find(os.path.abspath(sys.argv[0]), os.sep+'radiotray') != -1:

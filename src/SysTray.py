@@ -36,6 +36,7 @@ from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
 from utils import findfile
+from lib.common import APP_ICON
 
 class SysTray:
 
@@ -71,7 +72,7 @@ class SysTray:
 		menu_item2.connect('activate', self.on_quit)
 		menu_item3.connect('activate', self.on_about)
 
-		self.icon = gtk.status_icon_new_from_file(findfile('icons/radiotray.png'))
+		self.icon = gtk.status_icon_new_from_file(APP_ICON)
 		self.icon.set_tooltip_markup('<i>Idle</i>')
 		self.icon.connect('button_press_event', self.button_press)
 

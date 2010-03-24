@@ -24,58 +24,58 @@ from SysTray import SysTray
 from StateMediator import StateMediator
 from Notification import Notification
 import os
+from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME
 
 class RadioTray:
 
-	def __init__(self):
-		
-		# load configuration
-		self.loadConfiguration()
-		
-		# load notification engine
-		notification = Notification()
+    def __init__(self):
 
-		# load log engine
-		self.log = ConsoleLog()
+        # load configuration
+        self.loadConfiguration()
 
-		# load bookmarks data provider and initializes it
-		self.provider = XmlDataProvider(self.filename)
-		self.provider.loadFromFile()
+        # load notification engine
+        notification = Notification()
 
-		# mediator
-		self.mediator = StateMediator(self.provider, notification)
+        # load log engine
+        self.log = ConsoleLog()
 
-		# load audio player
-		self.audio = AudioPlayerGStreamer(self.mediator, self.log)
+        # load bookmarks data provider and initializes it
+        self.provider = XmlDataProvider(self.filename)
+        self.provider.loadFromFile()
 
-		# load gui
-		self.systray = SysTray(self.mediator, self.provider, self.log)
+        # mediator
+        self.mediator = StateMediator(self.provider, notification)
 
-		# config mediator
-		self.mediator.setAudioPlayer(self.audio)
-		self.mediator.setSystray(self.systray)
+        # load audio player
+        self.audio = AudioPlayerGStreamer(self.mediator, self.log)
 
-		# start app
-		self.systray.run()
+        # load gui
+        self.systray = SysTray(self.mediator, self.provider, self.log)
+
+        # config mediator
+        self.mediator.setAudioPlayer(self.audio)
+        self.mediator.setSystray(self.systray)
+
+        # start app
+        self.systray.run()
 
 
-	def loadConfiguration(self):
-		print "Loading configuration..."
-		self.user_dir = os.environ['HOME'] + "/.radiotray/"
+    def loadConfiguration(self):
+        print "Loading configuration..."
 
-		#check if user's directory exists
-		if(os.access(self.user_dir, os.X_OK|os.R_OK) == False):
-						
-			os.mkdir(self.user_dir)
-			print "user's directory created"
+        data_dir = os.path.join(USER_CFG_PATH, APPDIRNAME)
+        if not os.path.isdir(data_dir):
+            print "user's directory created"
+            os.mkdir(data_dir)
 
-		self.filename = self.user_dir + "bookmarks.xml"
-		
-		if(os.access(self.filename, os.R_OK|os.W_OK) == False):
-		
-			f = open(self.filename, 'w')
-			f.write("<bookmarks></bookmarks>")
-			f.close()
+        self.filename = os.path.join(USER_CFG_PATH, CFG_NAME)
+        print self.filename
+
+        if(os.access(self.filename, os.R_OK|os.W_OK) == False):
+
+            f = open(self.filename, 'w')
+            f.write("<bookmarks></bookmarks>")
+            f.close()
 
 if __name__ == "__main__":
         radio = RadioTray()
