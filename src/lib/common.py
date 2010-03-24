@@ -18,6 +18,11 @@ COPYRIGHT_YEAR = '2009 - 2010'
 COPYRIGHTS = "%s - Copyright (c) %s\n" \
              "Carlos Ribeiro <carlosmribeiro1@gmail.com>" % (APPNAME, COPYRIGHT_YEAR)
 WEBSITE = "http://radiotray.sourceforge.net/"
+AUTHORS = [
+    _('Developers:'),
+    "Carlos Ribeiro <carlosmribeiro1@gmail.com>",
+    _('Contributors:'),
+    'Og Maciel <ogmaciel@gnome.com>',
 
 # Media path
 if os.path.exists(os.path.abspath('../data/images/')):
