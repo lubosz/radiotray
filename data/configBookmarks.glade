@@ -1,62 +1,61 @@
 <?xml version="1.0"?>
-<glade-interface>
-  <!-- interface-requires gtk+ 2.16 -->
+<interface>
+  <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
-  <widget class="GtkWindow" id="window1">
+  <object class="GtkWindow" id="window1">
     <property name="width_request">500</property>
     <property name="height_request">300</property>
     <property name="visible">True</property>
     <property name="title" translatable="yes">Config Radios</property>
-    <signal name="destroy" handler="gtk_main_quit"/>
+    <signal name="delete_event" handler="on_delete_event"/>
     <child>
-      <widget class="GtkVBox" id="vbox1">
+      <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <widget class="GtkHBox" id="hbox1">
+          <object class="GtkHBox" id="hbox1">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkScrolledWindow" id="scrolledwindow1">
+              <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hscrollbar_policy">automatic</property>
                 <property name="vscrollbar_policy">automatic</property>
                 <child>
-                  <widget class="GtkTreeView" id="treeview1">
+                  <object class="GtkTreeView" id="treeview1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                  </widget>
+                  </object>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkVSeparator" id="vseparator1">
+              <object class="GtkVSeparator" id="vseparator1">
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkVButtonBox" id="vbuttonbox1">
+              <object class="GtkVButtonBox" id="vbuttonbox1">
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <property name="layout_style">start</property>
                 <child>
-                  <widget class="GtkButton" id="newBookmarkButton">
+                  <object class="GtkButton" id="newBookmarkButton">
                     <property name="label">gtk-add</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
-                    <signal name="clicked" handler="on_newBookmarkButton_clicked"/>
-                    <signal name="activate" handler="on_newBookmarkButton_activate"/>
-                  </widget>
+                    <signal name="clicked" handler="on_add_bookmark_clicked"/>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -64,14 +63,14 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkButton" id="editBookmarkButton">
+                  <object class="GtkButton" id="editBookmarkButton">
                     <property name="label">gtk-edit</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
-                    <signal name="clicked" handler="on_editBookmarkButton_clicked"/>
-                  </widget>
+                    <signal name="clicked" handler="on_edit_bookmark_clicked"/>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -79,14 +78,14 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkButton" id="delBookmarkButton">
+                  <object class="GtkButton" id="delBookmarkButton">
                     <property name="label">gtk-remove</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
-                    <signal name="clicked" handler="on_delBookmarkButton_clicked"/>
-                  </widget>
+                    <signal name="clicked" handler="on_remove_bookmark_clicked"/>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -94,14 +93,14 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkButton" id="moveUpButton">
+                  <object class="GtkButton" id="moveUpButton">
                     <property name="label">gtk-go-up</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
-                    <signal name="clicked" handler="on_moveUpButton_clicked"/>
-                  </widget>
+                    <signal name="clicked" handler="on_moveup_bookmark_clicked"/>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -109,92 +108,92 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkButton" id="moveDownButton">
+                  <object class="GtkButton" id="moveDownButton">
                     <property name="label">gtk-go-down</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
-                    <signal name="clicked" handler="on_moveDownButton_clicked"/>
-                  </widget>
+                    <signal name="clicked" handler="on_movedown_bookmark_clicked"/>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
                     <property name="position">4</property>
                   </packing>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="position">2</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkHSeparator" id="hseparator1">
+          <object class="GtkHSeparator" id="hseparator1">
             <property name="visible">True</property>
-          </widget>
+          </object>
           <packing>
             <property name="expand">False</property>
             <property name="position">1</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkHButtonBox" id="hbuttonbox1">
+          <object class="GtkHButtonBox" id="hbuttonbox1">
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <widget class="GtkButton" id="closeButton">
+              <object class="GtkButton" id="closeButton">
                 <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_closeButton_clicked"/>
-              </widget>
+                <signal name="clicked" handler="on_close_clicked"/>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="expand">False</property>
             <property name="pack_type">end</property>
             <property name="position">2</property>
           </packing>
         </child>
-      </widget>
+      </object>
     </child>
-  </widget>
-  <widget class="GtkDialog" id="editBookmark">
+  </object>
+  <object class="GtkDialog" id="editBookmark">
     <property name="width_request">500</property>
     <property name="border_width">5</property>
     <property name="type_hint">normal</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
-      <widget class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <widget class="GtkVBox" id="vbox2">
+          <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <widget class="GtkHBox" id="hbox2">
+              <object class="GtkHBox" id="hbox2">
                 <property name="visible">True</property>
                 <child>
-                  <widget class="GtkLabel" id="label1">
+                  <object class="GtkLabel" id="label1">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Radio name:</property>
                     <property name="track_visited_links">False</property>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -204,30 +203,30 @@
                 <child>
                   <placeholder/>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkEntry" id="nameEntry">
+              <object class="GtkEntry" id="nameEntry">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkHBox" id="hbox3">
+              <object class="GtkHBox" id="hbox3">
                 <property name="visible">True</property>
                 <child>
-                  <widget class="GtkLabel" id="label2">
+                  <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">URL :</property>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -237,41 +236,39 @@
                 <child>
                   <placeholder/>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="position">2</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkEntry" id="urlEntry">
+              <object class="GtkEntry" id="urlEntry">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="position">3</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="position">1</property>
           </packing>
         </child>
         <child internal-child="action_area">
-          <widget class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <widget class="GtkButton" id="cancelButton">
+              <object class="GtkButton" id="cancelButton">
                 <property name="label">gtk-cancel</property>
-                <property name="response_id">1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="gtk_false"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
@@ -279,29 +276,31 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="okButton">
+              <object class="GtkButton" id="okButton">
                 <property name="label">gtk-ok</property>
-                <property name="response_id">2</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_okButton_clicked"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="expand">False</property>
             <property name="pack_type">end</property>
             <property name="position">0</property>
           </packing>
         </child>
-      </widget>
+      </object>
     </child>
-  </widget>
-</glade-interface>
+    <action-widgets>
+      <action-widget response="1">cancelButton</action-widget>
+      <action-widget response="2">okButton</action-widget>
+    </action-widgets>
+  </object>
+</interface>
