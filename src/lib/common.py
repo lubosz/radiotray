@@ -23,6 +23,7 @@ AUTHORS = [
     "Carlos Ribeiro <carlosmribeiro1@gmail.com>",
     _('Contributors:'),
     'Og Maciel <ogmaciel@gnome.com>',
+]
 
 # Media path
 if os.path.exists(os.path.abspath('../data/images/')):
