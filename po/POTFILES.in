@@ -14,7 +14,7 @@ src/lib/utils.py
 src/M3uPlaylistDecoder.py
 src/Notification.py
 src/PlsPlaylistDecoder.py
-src/radiotray
+src/radiotray.py
 src/RadioTray.py
 src/StateMediator.py
 src/StreamDecoder.py
