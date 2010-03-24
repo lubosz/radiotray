@@ -3,3 +3,5 @@ syntax: glob
 *.pyo
 *~
 build/*
+dist/*
+*.pot
