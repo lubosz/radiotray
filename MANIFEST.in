@@ -1,0 +1,13 @@
+graft data
+graft po
+graft src
+
+include COPYING
+include dist
+include NEWS
+include radiotray
+include README
+
+global-exclude */*~
+global-exclude */*.pyc
+global-exclude */*.hg*

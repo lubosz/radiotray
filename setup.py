@@ -43,7 +43,7 @@ class BuildData(build):
         os.makedirs(directory)
 
       if newer(po, mo):
-        info('compiling %s -> %s' % (po, mo)) 
+        info('compiling %s -> %s' % (po, mo))
         try:
           rc = subprocess.call(['msgfmt', '-o', mo, po])
           if rc != 0:
