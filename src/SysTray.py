@@ -35,7 +35,6 @@ except:
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
-from utils import findfile
 from lib.common import APPNAME, APPVERSION, APP_ICON
 from lib import i18n
 
