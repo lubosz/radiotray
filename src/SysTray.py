@@ -37,8 +37,32 @@ from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
 from lib.common import APPNAME, APPVERSION, APP_ICON
 from lib import i18n
+from about import AboutDialog
 
-class SysTray:
+class OneWindow(object):
+    def __init__(self, dialog_class):
+        self.dialog = None
+        self.dialog_class = dialog_class
+
+    def on_dialog_destroy(self):
+        self.dialog = None
+
+    def show(self, parent = None):
+        if self.dialog:
+            self.dialog.present()
+        else:
+            if parent:
+                self.dialog = self.dialog_class(parent)
+            else:
+                self.dialog = self.dialog_class()
+            self.dialog.connect("destroy", lambda *args: self.on_dialog_destroy())
+
+about = OneWindow(AboutDialog)
+
+def about_dialog(parent=None):
+    about.show(parent)
+
+class SysTray(object):
 
     def __init__(self, mediator, provider, log):
 
@@ -91,15 +115,7 @@ class SysTray:
         gtk.main_quit()
 
     def on_about(self, data):
-        about = gtk.MessageDialog(
-            None,
-            0,
-            gtk.MESSAGE_INFO,
-            gtk.BUTTONS_CLOSE,
-            _('%s v%s \n\nhttp://radiotray.sourceforge.net\n\nCopyright 2009 Carlos Ribeiro') % (APPNAME, APPVERSION)
-        )
-        about.run()
-        about.hide()
+        about_dialog(parent=None)
 
     def on_turn_off(self, data):
         self.mediator.stop()

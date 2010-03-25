@@ -3,6 +3,7 @@
 
 [encoding: UTF-8]
 [type: gettext/glade]data/configBookmarks.glade
+src/about.py
 src/AsxPlaylistDecoder.py
 src/AudioPlayerGStreamer.py
 src/BookmarkConfiguration.py

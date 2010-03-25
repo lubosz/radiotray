@@ -40,7 +40,6 @@ def load_ui_file(name):
     ui.add_from_file(join(common.DEFAULT_CFG_PATH, name))
     return ui
 
-
 paths = ("/usr/local/share/radiotray","/usr/share/radiotray")
 
 def tryopen(filename):
