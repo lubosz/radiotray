@@ -63,10 +63,9 @@ class RadioTray:
     def loadConfiguration(self):
         print "Loading configuration..."
 
-        data_dir = os.path.join(USER_CFG_PATH, APPDIRNAME)
-        if not os.path.isdir(data_dir):
+        if not os.path.isdir(USER_CFG_PATH):
             print "user's directory created"
-            os.mkdir(data_dir)
+            os.mkdir(USER_CFG_PATH)
 
         self.filename = os.path.join(USER_CFG_PATH, CFG_NAME)
         print self.filename
