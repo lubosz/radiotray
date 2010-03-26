@@ -26,7 +26,7 @@ from Notification import Notification
 import os
 from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME
 
-class RadioTray:
+class RadioTray(object):
 
     def __init__(self):
 
