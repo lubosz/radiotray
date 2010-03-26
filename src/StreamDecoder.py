@@ -25,25 +25,39 @@ from AsxPlaylistDecoder import AsxPlaylistDecoder
 class StreamDecoder:
 
     def __init__(self):
-	plsDecoder = PlsPlaylistDecoder()
-	m3uDecoder = M3uPlaylistDecoder()
-	asxDecoder = AsxPlaylistDecoder()
-        self.formats = {'audio/x-scpls':plsDecoder, 'audio/mpegurl':m3uDecoder, 'audio/x-mpegurl':m3uDecoder, 'video/x-ms-asf':asxDecoder, 'audio/x-ms-wax':asxDecoder, 'video/x-ms-wvx':asxDecoder}
-        
+        plsDecoder = PlsPlaylistDecoder()
+        m3uDecoder = M3uPlaylistDecoder()
+        asxDecoder = AsxPlaylistDecoder()
+        self.formats = {
+            'audio/x-scpls': plsDecoder,
+            'audio/mpegurl': m3uDecoder,
+            'audio/x-mpegurl': m3uDecoder,
+            'video/x-ms-asf': asxDecoder,
+            'audio/x-ms-wax': asxDecoder,
+            'video/x-ms-wvx': asxDecoder,
+        }
+
     def extractStream(self, url):
-        
         if url.startswith("http") == False:
             print "Not an HTTP url. Maybe direct stream..."
             return [url]
-            
+
         print "Requesting stream... " + url
         myHeaders = {'Range':'bytes=0-9'}
         req = urllib2.Request(url, headers=myHeaders)
-        f = urllib2.urlopen(req)
+        try:
+            f = urllib2.urlopen(req)
+        except urllib2.URLError, e:
+            print "No radio stream found for %s" % url
+            return [url]
+        except Exception, e:
+            print "No radio stream found. Error: %s" % str(e)
+            return [url]
+
         metadata = f.info()
         f.close()
         print "Metadata obtained..."
-        
+
         try:
             contentType = metadata["Content-Type"]
             print "Content-Type: " + contentType
@@ -54,11 +68,8 @@ class StreamDecoder:
                 return [url]
             else:
                 print "Format detected"
-		mediaUrl = format.extractStream(url)
+                mediaUrl = format.extractStream(url)
                 return mediaUrl
-                
         except:
             print "Couldn't read content-type"
             return [url]
-                    
-                
