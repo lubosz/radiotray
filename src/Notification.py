@@ -19,12 +19,12 @@
 ##########################################################################
 import pynotify
 import gtk
-from lib.common import APP_ICON
+from lib.common import APP_ICON, APPNAME
 
 class Notification:
 
     def notify(self, title, message):
-        if pynotify.init("Radio Tray"):
+        if pynotify.init(APPNAME):
             n = pynotify.Notification(title, message)
             n.set_urgency(pynotify.URGENCY_LOW)
             pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)

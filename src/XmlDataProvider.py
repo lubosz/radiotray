@@ -99,15 +99,3 @@ class XmlDataProvider:
 		else:
 			return False
 	
-#if __name__ == "__main__":
-#	try:
-#		provider = XmlDataProvider('lixo.xml')
-#		provider.loadFromFile()
-#		list = provider.listRadioNames()
-#		print "ooooo"
-#		print list[0]
-#		print provider.getRadioUrl(list[0])
-#		#provider.addRadio('este2', 'http://teste')
-#
-#	except Exception as error:
-#		print error
