@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-24 13:28-0400\n"
-"PO-Revision-Date: 2010-03-22 16:44-0500\n"
+"POT-Creation-Date: 2010-04-02 10:41-0400\n"
+"PO-Revision-Date: 2010-04-02 10:44-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,15 @@ msgstr "Nome da estação de rádio:"
 msgid "URL :"
 msgstr "URL :"
 
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Og Maciel <ogmaciel@gnome.org>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "Website do %s"
+
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "Nome da estação de rádio"
@@ -37,42 +46,43 @@ msgstr "Nome da estação de rádio"
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Você tem certeza que deseja excluir \"%s\"?"
 
-#: ../src/SysTray.py:54
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Desenvolvedores:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Contribuidores:"
+
+#: ../src/StateMediator.py:68
+msgid "Radio Error"
+msgstr "Erro da estação de rádio"
+
+#: ../src/StateMediator.py:76
+msgid "Radio Playing"
+msgstr "Reproduzindo estação de rádio"
+
+#: ../src/SysTray.py:77
 msgid "Turn Off Radio"
 msgstr "Desligar rádio"
 
-#: ../src/SysTray.py:62
+#: ../src/SysTray.py:85
 msgid "Configure radios..."
 msgstr "Configurar estações de rádio..."
 
-#: ../src/SysTray.py:63
+#: ../src/SysTray.py:86
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/SysTray.py:64
+#: ../src/SysTray.py:87
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/SysTray.py:76 ../src/SysTray.py:113
+#: ../src/SysTray.py:99 ../src/SysTray.py:128
 msgid "<i>Idle</i>"
 msgstr "<i>Inativo</i>"
 
-#: ../src/SysTray.py:100
-#, python-format
-msgid ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-msgstr ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-
-#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#: ../src/SysTray.py:133 ../src/SysTray.py:144
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
@@ -81,12 +91,25 @@ msgstr ""
 "Reproduzindo <b>%s</b>\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:120
+#: ../src/SysTray.py:135
 #, python-format
 msgid "Playing <b>%s</b>"
 msgstr "Reproduzindo <b>%s</b>"
 
-#: ../src/SysTray.py:124
+#: ../src/SysTray.py:139
 #, python-format
 msgid "Connecting to %s"
 msgstr "Conectando a %s"
+
+#~ msgid ""
+#~ "%s v%s \n"
+#~ "\n"
+#~ "http://radiotray.sourceforge.net\n"
+#~ "\n"
+#~ "Copyright 2009 Carlos Ribeiro"
+#~ msgstr ""
+#~ "%s v%s \n"
+#~ "\n"
+#~ "http://radiotray.sourceforge.net\n"
+#~ "\n"
+#~ "Copyright 2009 Carlos Ribeiro"
