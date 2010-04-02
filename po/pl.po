@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-02 10:14-0400\n"
+"POT-Creation-Date: 2010-04-02 10:33-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -10,8 +11,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Polish\n"
-"X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: POLAND\n"
 
 #: ../data/configBookmarks.glade.h:1
 #, fuzzy
@@ -29,8 +30,9 @@ msgid "URL :"
 msgstr "Adres"
 
 #: ../src/about.py:16
+#, fuzzy
 msgid "translator-credits"
-msgstr ""
+msgstr "Przetłumaczyli"
 
 #: ../src/about.py:30
 #, python-format
