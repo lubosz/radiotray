@@ -2,14 +2,14 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 # Vilmantas Ramonas <vilmantasr@gmail.com>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-24 14:45-0400\n"
+"POT-Creation-Date: 2010-04-02 14:49+0000\n"
 "PO-Revision-Date: 2010-03-25 10:36+0200\n"
 "Last-Translator: Vilmantas Ramonas <vilmantasr@gmail.com>\n"
 "Language-Team: Lithuanian\n"
@@ -18,93 +18,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
-msgstr "Tvarkyti Radio Stotis"
+msgstr "Tvarkyti radijo stotis"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Radio name:"
-msgstr "Radio Stoties pavadinimas"
+msgstr "Radijo stoties pavadinimas:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "URL :"
-msgstr "URL adresas"
+msgstr "URL adresas :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Vilmantas Ramonas <vilmantasr@gmail.com>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s Tinklalapis"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "Radio Stoties pavadinimas"
 
 #: ../src/BookmarkConfiguration.py:142
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Ar tikrai norite pašalinti Stotį"
+msgstr "Ar tikrai norite pašalinti \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr ""
+msgstr "Programos autoriai:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "Pagalbininkai:"
 
-#: ../src/SysTray.py:54
+#: ../src/StateMediator.py:68
+msgid "Radio Error"
+msgstr "Radio Stoties klaida"
+
+#: ../src/StateMediator.py:76
+msgid "Radio Playing"
+msgstr "Radija groja"
+
+#: ../src/SysTray.py:77
 msgid "Turn Off Radio"
 msgstr "Išjungti Radio Stotį"
 
-#: ../src/SysTray.py:62
-#, fuzzy
+#: ../src/SysTray.py:85
 msgid "Configure radios..."
-msgstr "Tvarkyti Radio Stotis"
+msgstr "Tvarkyti radijo stotis..."
 
-#: ../src/SysTray.py:63
+#: ../src/SysTray.py:86
 msgid "About"
 msgstr "Apie"
 
-#: ../src/SysTray.py:64
+#: ../src/SysTray.py:87
 msgid "Quit"
 msgstr "Išjungti"
 
-#: ../src/SysTray.py:76 ../src/SysTray.py:113
+#: ../src/SysTray.py:99 ../src/SysTray.py:128
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Nepasiekiama</i>"
 
-#: ../src/SysTray.py:100
-#, python-format
-msgid ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-msgstr ""
-
-#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#: ../src/SysTray.py:133 ../src/SysTray.py:144
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Groja <b>%s</b>\n"
+"<i>%s</i>"
 
-#: ../src/SysTray.py:120
+#: ../src/SysTray.py:135
 #, python-format
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "Groja <b>%s</b>"
 
-#: ../src/SysTray.py:124
-#, fuzzy, python-format
+#: ../src/SysTray.py:139
+#, python-format
 msgid "Connecting to %s"
-msgstr "Jungiasi prie"
+msgstr "Jungiasi prie %s"
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"
-
-#~ msgid "Radio Error"
-#~ msgstr "Radio Stoties klaida"
-
-#~ msgid "Radio Playing"
-#~ msgstr "Radija groja"
 
 #~ msgid "Idle"
 #~ msgstr "Nepasiekiama"
