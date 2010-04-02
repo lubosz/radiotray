@@ -129,7 +129,7 @@ class SysTray(object):
 
     def setPlayingState(self, radio):
         self.turnOff.set_sensitive(True)
-        if(len(self.mediator.getCurrentMetaData()) > 0):
+        if(self.mediator.getCurrentMetaData() and len(self.mediator.getCurrentMetaData()) > 0):
             self.icon.set_tooltip_markup(_("Playing <b>%s</b>\n<i>%s</i>") % (radio, self.mediator.getCurrentMetaData()))
         else:
             self.icon.set_tooltip_markup(_("Playing <b>%s</b>") % radio)
