@@ -76,7 +76,7 @@ else:
   man_dir = 'share/man'
 
 
-setup(name=APPNAME,
+setup(name='radiotray',
     version=APPVERSION,
     author='Carlos Ribeiro',
     author_email='carlosmribeiro1@gmail.com',
@@ -85,14 +85,15 @@ setup(name=APPNAME,
     license='GPL',
     scripts=['radiotray'],
     data_files = [
-      ('share/applications', ['data/images/radiotray.png',]),
+      ('share/applications', ['data/images/radiotray.png','data/radiotray.desktop']),
       ('share/doc/radiotray-%s' % APPVERSION,
           ['AUTHORS', 'CONTRIBUTORS', 'COPYING', 'NEWS', 'README']),
       ('share/radiotray/images', ['data/images/radiotray.png',]),
       ('share/pixmaps', ['data/images/radiotray.png',]),
+      ('share/radiotray', ['data/configBookmarks.glade']),
     ],
     package_dir={'radiotray': 'src'},
-    packages = ['radiotray'],
+    packages = ['radiotray', 'radiotray.lib'],
     cmdclass={'build': BuildData, 'install_data': InstallData,},
     distclass=RadioTrayDist,
  )
