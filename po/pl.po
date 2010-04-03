@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 07:58+0000\n"
+"POT-Creation-Date: 2010-04-03 18:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -54,7 +54,7 @@ msgstr "Programiści:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "Wydawcy:"
 
 #: ../src/StateMediator.py:68
 msgid "Radio Error"
@@ -83,7 +83,7 @@ msgstr "Zakończ"
 
 #: ../src/SysTray.py:99 ../src/SysTray.py:128
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Cisza...</i>"
 
 #: ../src/SysTray.py:133 ../src/SysTray.py:144
 #, python-format
@@ -91,11 +91,13 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Odtwarzam <b>%s</b>\n"
+"<i>%s</i>"
 
 #: ../src/SysTray.py:135
 #, python-format
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "Teraz gra <b>%s</b>"
 
 #: ../src/SysTray.py:139
 #, fuzzy, python-format
