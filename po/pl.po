@@ -1,9 +1,9 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-02 10:33-0400\n"
+"POT-Creation-Date: 2010-04-02 17:14+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -35,9 +35,9 @@ msgid "translator-credits"
 msgstr "Przetłumaczyli"
 
 #: ../src/about.py:30
-#, python-format
+#, python-format, fuzzy
 msgid "%s's Website"
-msgstr ""
+msgstr "%s's Strona WWW"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
