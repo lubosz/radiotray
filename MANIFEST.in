@@ -7,6 +7,8 @@ include dist
 include NEWS
 include radiotray
 include README
+include AUTHORS
+include CONTRIBUTORS
 
 global-exclude */*~
 global-exclude */*.pyc

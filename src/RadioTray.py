@@ -24,8 +24,8 @@ from SysTray import SysTray
 from StateMediator import StateMediator
 from Notification import Notification
 import os
-from shutil import move
-from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH
+from shutil import move, copy2
+from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST
 
 class RadioTray(object):
 
@@ -73,7 +73,7 @@ class RadioTray(object):
 
         if(os.access(self.filename, os.R_OK|os.W_OK) == False):
 
-            #check if ti exists an old bookmark file, and then move it to the new location
+            #check if it exists an old bookmark file, and then move it to the new location
             oldfilename = os.path.join(OLD_USER_CFG_PATH, CFG_NAME)
             if(os.access(oldfilename, os.R_OK|os.W_OK) == True):
 
@@ -82,9 +82,7 @@ class RadioTray(object):
                 os.rmdir(OLD_USER_CFG_PATH)
 
             else:
-                f = open(self.filename, 'w')
-                f.write("<bookmarks></bookmarks>")
-                f.close()
+                copy2(DEFAULT_RADIO_LIST, self.filename)
 
 if __name__ == "__main__":
         radio = RadioTray()

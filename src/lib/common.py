@@ -7,7 +7,7 @@ from xdg.BaseDirectory import xdg_data_home
 try:
     from defs import *
 except:
-    APPVERSION = "0.5"
+    APPVERSION = "0.5.1"
     datadir = "/usr/share"
 
 # Application info
@@ -58,7 +58,10 @@ APP_ICON_OFF = os.path.join(IMAGE_PATH, 'radiotray_off.png')
 CFG_NAME = 'bookmarks.xml'
 USER_CFG_PATH =  os.path.join(xdg_data_home, APPDIRNAME)
 OLD_USER_CFG_PATH = os.environ['HOME'] + "/.radiotray/"
+
 if os.path.exists(os.path.abspath('../data/')):
     DEFAULT_CFG_PATH = os.path.abspath('../data/')
 else:
     DEFAULT_CFG_PATH = '%s/%s/' % (datadir, APPDIRNAME)
+
+DEFAULT_RADIO_LIST = os.path.join(DEFAULT_CFG_PATH, CFG_NAME)

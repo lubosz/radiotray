@@ -100,7 +100,7 @@ setup(name='radiotray',
       ('share/pixmaps',
         ['data/images/radiotray.png', 'data/images/radiotray_on.png', 'data/images/radiotray_off.png']
       ),
-      ('share/radiotray', ['data/configBookmarks.glade']),
+      ('share/radiotray', ['data/configBookmarks.glade', 'data/bookmarks.xml']),
     ],
     package_dir={'radiotray': 'src'},
     packages = ['radiotray', 'radiotray.lib'],
