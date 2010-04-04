@@ -87,10 +87,10 @@ class AudioPlayerGStreamer:
 
         elif t == gst.MESSAGE_TAG:
 
-            taglist = message.parse_tag()
-            for key in taglist.keys():
-                if (key == 'title'):
-                    print "TITLE: " + taglist[key]
-            self.mediator.notifySong(taglist[key])
+           taglist = message.parse_tag()
+           for key in taglist.keys():
+           	if (key == 'title'):
+                	print "TITLE: " + taglist[key]
+            		self.mediator.notifySong(taglist[key])
 
         return True
