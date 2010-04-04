@@ -61,7 +61,7 @@ class XmlDataProvider:
 	def updateRadio(self, oldName, newName, url):	
 
 		radioXml = self.root.xpath("//bookmark[@name=$var]", var=oldName)[0]
-		radioXml.set("name", newName)
+		radioXml.set("name", unicode(newName))
 		radioXml.set("url", url)
 		self.saveToFile()
 
