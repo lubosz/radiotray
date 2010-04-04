@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 18:26+0000\n"
+"POT-Creation-Date: 2010-04-03 21:38+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -15,27 +15,23 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
 msgstr "Konfiguracja stacji"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Radio name:"
-msgstr "Nazwa stacji"
+msgstr "Nazwa stacji:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "URL :"
-msgstr "Adres"
+msgstr "Adres stacji:"
 
 #: ../src/about.py:16
-#, fuzzy
 msgid "translator-credits"
 msgstr "Przetłumaczyli"
 
 #: ../src/about.py:30
-#, fuzzy, python-format
+#, python-format
 msgid "%s's Website"
 msgstr "%s's Strona WWW"
 
@@ -44,9 +40,9 @@ msgid "Radio Name"
 msgstr "Nazwa stacji"
 
 #: ../src/BookmarkConfiguration.py:142
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Na pewno usunąć"
+msgstr "Na pewno usunąć \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -69,7 +65,6 @@ msgid "Turn Off Radio"
 msgstr "Zatrzymaj odtwarzanie"
 
 #: ../src/SysTray.py:85
-#, fuzzy
 msgid "Configure radios..."
 msgstr "Konfiguracja stacji"
 
@@ -100,9 +95,9 @@ msgid "Playing <b>%s</b>"
 msgstr "Teraz gra <b>%s</b>"
 
 #: ../src/SysTray.py:139
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to %s"
-msgstr "Łączenie z"
+msgstr "Łączenie z %s"
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"
