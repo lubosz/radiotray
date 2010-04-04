@@ -35,7 +35,7 @@ except:
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
-from lib.common import APPNAME, APPVERSION, APP_ICON
+from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF
 from lib import i18n
 from about import AboutDialog
 
@@ -95,7 +95,7 @@ class SysTray(object):
         menu_item2.connect('activate', self.on_quit)
         menu_item3.connect('activate', self.on_about)
 
-        self.icon = gtk.status_icon_new_from_file(APP_ICON)
+        self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_('<i>Idle</i>'))
         self.icon.connect('button_press_event', self.button_press)
 
@@ -105,7 +105,6 @@ class SysTray(object):
             self.radioMenu.popup(None, None, gtk.status_icon_position_menu, 0, event.get_time(), widget)
         else:
             self.menu.popup(None, None, gtk.status_icon_position_menu, 2, event.get_time(), widget)
-
 
     def on_preferences(self, data):
         config = BookmarkConfiguration(self.provider, self.update_radios)
@@ -125,6 +124,7 @@ class SysTray(object):
 
     def setStoppedState(self):
         self.turnOff.set_sensitive(False)
+        self.icon.set_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_("<i>Idle</i>"))
 
     def setPlayingState(self, radio):
@@ -133,6 +133,7 @@ class SysTray(object):
             self.icon.set_tooltip_markup(_("Playing <b>%s</b>\n<i>%s</i>") % (radio, self.mediator.getCurrentMetaData()))
         else:
             self.icon.set_tooltip_markup(_("Playing <b>%s</b>") % radio)
+        self.icon.set_from_file(APP_ICON_ON)
 
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)

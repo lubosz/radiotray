@@ -51,6 +51,8 @@ else:
 
 # Images
 APP_ICON = os.path.join(IMAGE_PATH, 'radiotray.png')
+APP_ICON_ON = os.path.join(IMAGE_PATH, 'radiotray_on.png')
+APP_ICON_OFF = os.path.join(IMAGE_PATH, 'radiotray_off.png')
 
 # Config info
 CFG_NAME = 'bookmarks.xml'
