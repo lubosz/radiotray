@@ -139,7 +139,7 @@ class BookmarkConfiguration:
                 gtk.DIALOG_MODAL,
                 gtk.MESSAGE_QUESTION,
                 gtk.BUTTONS_YES_NO,
-                _("Are you sure you want to delete \"%s\"?") % +selectedRadioName
+                _("Are you sure you want to delete \"%s\"?") % selectedRadioName
             )
 
             result = confirmation.run()
