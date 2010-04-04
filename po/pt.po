@@ -1,83 +1,94 @@
+# 
+msgid ""
+msgstr ""
+
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
 msgstr "Configurar radios"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Radio name:"
-msgstr "Nome da Radio"
+msgstr "Nome da Radio:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "URL :"
-msgstr "URL"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Carlos Ribeiro <carlosmribeiro1@gmail.com>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "Website do %s"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "Nome da Radio"
 
 #: ../src/BookmarkConfiguration.py:142
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Tem a certeza que deseja remover"
+msgstr "Tem a certeza que deseja remover \"%s\" ?"
 
-#: ../src/SysTray.py:54
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Criadores:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Contribuidores:"
+
+#: ../src/StateMediator.py:68
+msgid "Radio Error"
+msgstr "Erro"
+
+#: ../src/StateMediator.py:76
+msgid "Radio Playing"
+msgstr "Radio a reproduzir"
+
+#: ../src/SysTray.py:77
 msgid "Turn Off Radio"
 msgstr "Desligar Radio"
 
-#: ../src/SysTray.py:62
-#, fuzzy
+#: ../src/SysTray.py:85
 msgid "Configure radios..."
-msgstr "Configurar radios"
+msgstr "Configurar radios..."
 
-#: ../src/SysTray.py:63
+#: ../src/SysTray.py:86
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/SysTray.py:64
+#: ../src/SysTray.py:87
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/SysTray.py:76 ../src/SysTray.py:113
+#: ../src/SysTray.py:99 ../src/SysTray.py:128
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Inactivo</i>"
 
-#: ../src/SysTray.py:100
-#, python-format
-msgid ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-msgstr ""
-
-#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#: ../src/SysTray.py:133 ../src/SysTray.py:144
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Reproduzindo <b>%s</b>\n"
+"<i>%s</i>"
 
-#: ../src/SysTray.py:120
+#: ../src/SysTray.py:135
 #, python-format
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "Reproduzindo <b>%s</b>"
 
-#: ../src/SysTray.py:124
-#, fuzzy, python-format
+#: ../src/SysTray.py:139
+#, python-format
 msgid "Connecting to %s"
-msgstr "Conectando-se a"
+msgstr "A conectar-se a %s"
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"
-
-#~ msgid "Radio Error"
-#~ msgstr "Erro"
-
-#~ msgid "Radio Playing"
-#~ msgstr "Radio a Tocar"
 
 #~ msgid "Idle"
 #~ msgstr "Inactivo"
