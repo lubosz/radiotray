@@ -158,9 +158,13 @@ class SysTray(object):
 
         #add configured radios
 
+        # We need a "group" for RadioMenuItems so that only one radiobutton gets selected
+        radioMenuGroup = gtk.RadioMenuItem()
+        self.radioMenu.append(radioMenuGroup)
+
         for radio in self.provider.listRadioNames():
 
-            radio1 = gtk.MenuItem(radio)
+            radio1 = gtk.RadioMenuItem(group=radioMenuGroup, label=radio)
             self.radioMenu.append(radio1)
             radio1.show()
             radio1.connect('activate', self.on_start, radio)
