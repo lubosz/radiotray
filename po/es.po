@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-04 23:24+0000\n"
+"POT-Creation-Date: 2010-04-06 14:50+0000\n"
 "PO-Revision-Date: 2010-03-23 13:59-0500\n"
 "Last-Translator: Carlos Arenas <carlos.arenass@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -19,7 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
 msgstr "Configurar radios"
 
@@ -41,7 +40,7 @@ msgstr ""
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "Pagina web de %s"
+msgstr "Página web de %s"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
@@ -54,7 +53,7 @@ msgstr "Está seguro que desea eliminar \"%s\" ?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Creadores:"
+msgstr "Desarrolladores:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
