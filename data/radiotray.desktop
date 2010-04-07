@@ -2,7 +2,8 @@
 Version=0.5.1
 Encoding=UTF-8
 Name=Radio Tray
-Comment=Streaming music player
+_Comment=A simple yet powerful streaming music player
+_GenericName=Streaming music player
 Exec=radiotray
 Terminal=false
 Icon=radiotray.png

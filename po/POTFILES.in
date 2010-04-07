@@ -1,7 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-
+# List of source files containing translatable strings.
 [encoding: UTF-8]
+data/radiotray.desktop
 [type: gettext/glade]data/configBookmarks.glade
 src/about.py
 src/AsxPlaylistDecoder.py
