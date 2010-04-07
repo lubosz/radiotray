@@ -2,10 +2,12 @@
 Version=0.5.1
 Encoding=UTF-8
 Name=Radio Tray
-_Comment=A simple yet powerful streaming music player
 _GenericName=Streaming music player
-Exec=radiotray
+_X-GNOME-FullName=Streaming music player
+_Comment=A simple yet powerful streaming music player
 Terminal=false
-Icon=radiotray.png
+Exec=radiotray
+Icon=radiotray
 Type=Application
 Categories=AudioVideo;Audio;Player;GTK;
+X-GNOME-Gettext-Domain=radiotray
