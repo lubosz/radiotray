@@ -86,6 +86,7 @@ setup(name='radiotray',
     scripts=['radiotray'],
     data_files = [
       ('share/applications', glob.glob('data/images/*.png')),
+      ('share/applications', glob.glob('data/*.desktop')),
       ('share/doc/radiotray-%s' % APPVERSION,
           ['AUTHORS', 'CONTRIBUTORS', 'COPYING', 'NEWS', 'README']),
       ('share/radiotray/images', glob.glob('data/images/*.png')),
