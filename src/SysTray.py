@@ -74,7 +74,7 @@ class SysTray(object):
 
         # radios menu
         self.radioMenu = gtk.Menu()
-        self.turnOff = gtk.MenuItem(_("Turn Off Radio"))
+        self.turnOff = gtk.MenuItem(_("Turned Off"))
         self.turnOff.connect('activate', self.on_turn_off)
         self.turnOff.set_sensitive(False)
         self.update_radios()
@@ -123,11 +123,13 @@ class SysTray(object):
         self.mediator.play(radio)
 
     def setStoppedState(self):
+        self.turnOff.set_label(_('Turned Off'))
         self.turnOff.set_sensitive(False)
         self.icon.set_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_("<i>Idle</i>"))
 
     def setPlayingState(self, radio):
+        self.turnOff.set_label(_('Turn Off "%s"') % radio)
         self.turnOff.set_sensitive(True)
         if(self.mediator.getCurrentMetaData() and len(self.mediator.getCurrentMetaData()) > 0):
             self.icon.set_tooltip_markup(_("Playing <b>%s</b>\n<i>%s</i>") % (radio, self.mediator.getCurrentMetaData()))
@@ -158,13 +160,9 @@ class SysTray(object):
 
         #add configured radios
 
-        # We need a "group" for RadioMenuItems so that only one radiobutton gets selected
-        radioMenuGroup = gtk.RadioMenuItem()
-        self.radioMenu.append(radioMenuGroup)
-
         for radio in self.provider.listRadioNames():
 
-            radio1 = gtk.RadioMenuItem(group=radioMenuGroup, label=radio)
+            radio1 = gtk.MenuItem(radio)
             self.radioMenu.append(radio1)
             radio1.show()
             radio1.connect('activate', self.on_start, radio)
