@@ -2,14 +2,14 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 # Felix Kaechele <heffer@fedoraproject.org>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-24 13:28-0400\n"
+"POT-Creation-Date: 2010-04-08 18:41+0000\n"
 "PO-Revision-Date: 2010-03-23 08:59+0100\n"
 "Last-Translator: Felix Kaechele <heffer@fedoraproject.org>\n"
 "Language-Team: \n"
@@ -34,6 +34,15 @@ msgstr "Sendername"
 msgid "URL :"
 msgstr "URL"
 
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Übersetzung von"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s Webseite"
+
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "Sendername"
@@ -43,62 +52,70 @@ msgstr "Sendername"
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Soll folgender Sender wirklich gelöscht werden:"
 
-#: ../src/SysTray.py:54
-msgid "Turn Off Radio"
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Entwickler:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Mitwirkende:"
+
+#: ../src/StateMediator.py:68
+msgid "Radio Error"
+msgstr "Radio Fehler"
+
+#: ../src/StateMediator.py:76
+msgid "Radio Playing"
+msgstr "Radio läuft"
+
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#, fuzzy
+msgid "Turned Off"
 msgstr "Radio ausschalten"
 
-#: ../src/SysTray.py:62
+#: ../src/SysTray.py:85
 #, fuzzy
 msgid "Configure radios..."
 msgstr "Sender einstellen"
 
-#: ../src/SysTray.py:63
+#: ../src/SysTray.py:86
 msgid "About"
 msgstr "Über"
 
-#: ../src/SysTray.py:64
+#: ../src/SysTray.py:87
 msgid "Quit"
 msgstr "Beenden"
 
-#: ../src/SysTray.py:76 ../src/SysTray.py:113
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Untätig</i>"
 
-#: ../src/SysTray.py:100
-#, python-format
-msgid ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-msgstr ""
+#: ../src/SysTray.py:132
+#, fuzzy, python-format
+msgid "Turn Off \"%s\""
+msgstr "Radio ausschalten"
 
-#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#: ../src/SysTray.py:135 ../src/SysTray.py:147
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Wiedergabe <b>%s</b>\n"
+"<i>%s</i>"
 
-#: ../src/SysTray.py:120
+#: ../src/SysTray.py:137
 #, python-format
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "Wiedergabe <b>%s</b>"
 
-#: ../src/SysTray.py:124
+#: ../src/SysTray.py:142
 #, fuzzy, python-format
 msgid "Connecting to %s"
 msgstr "Verbinden mit"
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"
-
-#~ msgid "Radio Error"
-#~ msgstr "Radio Fehler"
-
-#~ msgid "Radio Playing"
-#~ msgstr "Radio läuft"
 
 #~ msgid "Idle"
 #~ msgstr "Untätig"
