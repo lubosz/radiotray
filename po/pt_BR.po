@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-02 10:41-0400\n"
-"PO-Revision-Date: 2010-04-02 10:44-0400\n"
+"POT-Creation-Date: 2010-04-07 22:07-0400\n"
+"PO-Revision-Date: 2010-04-07 22:07-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,9 +62,9 @@ msgstr "Erro da estação de rádio"
 msgid "Radio Playing"
 msgstr "Reproduzindo estação de rádio"
 
-#: ../src/SysTray.py:77
-msgid "Turn Off Radio"
-msgstr "Desligar rádio"
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+msgid "Turned Off"
+msgstr "Desligado"
 
 #: ../src/SysTray.py:85
 msgid "Configure radios..."
@@ -78,11 +78,16 @@ msgstr "Sobre"
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:128
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr "<i>Inativo</i>"
 
-#: ../src/SysTray.py:133 ../src/SysTray.py:144
+#: ../src/SysTray.py:132
+#, python-format
+msgid "Turn Off \"%s\""
+msgstr "Desligar \"%s\""
+
+#: ../src/SysTray.py:135 ../src/SysTray.py:147
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
@@ -91,12 +96,12 @@ msgstr ""
 "Reproduzindo <b>%s</b>\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:137
 #, python-format
 msgid "Playing <b>%s</b>"
 msgstr "Reproduzindo <b>%s</b>"
 
-#: ../src/SysTray.py:139
+#: ../src/SysTray.py:142
 #, python-format
 msgid "Connecting to %s"
 msgstr "Conectando a %s"
