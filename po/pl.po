@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-06 07:51+0000\n"
+"POT-Creation-Date: 2010-04-08 07:55+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -60,9 +60,9 @@ msgstr "Błąd odtwarzania"
 msgid "Radio Playing"
 msgstr "Odtwarzanie"
 
-#: ../src/SysTray.py:77
-msgid "Turn Off Radio"
-msgstr "Zatrzymaj odtwarzanie"
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+msgid "Turned Off"
+msgstr "Zatrzymano"
 
 #: ../src/SysTray.py:85
 msgid "Configure radios..."
@@ -76,11 +76,16 @@ msgstr "O programie"
 msgid "Quit"
 msgstr "Zakończ"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:128
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr "<i>Cisza</i>"
 
-#: ../src/SysTray.py:133 ../src/SysTray.py:145
+#: ../src/SysTray.py:132
+#, python-format
+msgid "Turn Off \"%s\""
+msgstr "Zatrzymaj \"%s\""
+
+#: ../src/SysTray.py:135 ../src/SysTray.py:147
 #, python-format
 msgid ""
 "Playing <b>%s</b>\n"
@@ -89,12 +94,12 @@ msgstr ""
 "Teraz gra <b>%s</b>\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:137
 #, python-format
 msgid "Playing <b>%s</b>"
 msgstr "Teraz gra <b>%s</b>"
 
-#: ../src/SysTray.py:140
+#: ../src/SysTray.py:142
 #, python-format
 msgid "Connecting to %s"
 msgstr "Łączenie z %s"
