@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ['_', 'ngettext']
+__all__ = ['_', 'C_', 'ngettext']
 
 program = 'radiotray'
 
@@ -21,3 +21,13 @@ except ImportError:
     import __builtin__
     __builtin__.__dict__['_'] = lambda x: x
     __builtin__.__dict__['ngettext'] = lambda x, y, n: (n == 1) and x or y
+
+def C_(ctx, s):
+    """Provide qualified translatable strings via context.
+        Taken from gnome-games.
+    """
+    translated = gettext.gettext('%s\x04%s' % (ctx, s))
+    if '\x04' in translated:
+        # no translation found, return input string
+        return s
+    return translated
