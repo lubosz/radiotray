@@ -20,73 +20,69 @@
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from SysTray import SysTray
 from Notification import Notification
+from lib.common import APPNAME
 
-class StateMediator:
+class StateMediator(object):
 
-	def __init__(self, provider, notification):
-		self.provider = provider
-		self.notification = notification
-		self.isPlaying = False
-		self.isNotified = False
-		self.currentRadio = ''
-		self.currentMetaData = ''
+    def __init__(self, provider, notification):
+        self.provider = provider
+        self.notification = notification
+        self.isPlaying = False
+        self.isNotified = False
+        self.currentRadio = ''
+        self.currentMetaData = ''
 
+    def setAudioPlayer(self, audioPlayer):
+        self.audioPlayer = audioPlayer
 
-	def setAudioPlayer(self, audioPlayer):
-		self.audioPlayer = audioPlayer
+    def setSystray(self, systray):
+        self.systray = systray
 
+    def play(self, radio):
 
-	def setSystray(self, systray):
-		self.systray = systray
+        if(self.isPlaying):
+            self.audioPlayer.stop()
+            self.currentMetaData = ''
 
+        url = self.provider.getRadioUrl(radio)
+        self.audioPlayer.start(url)
+        self.systray.setConnectingState(radio)
+        self.currentRadio = radio
+        self.isNotified = False
 
-	def play(self, radio):
+    def stop(self):
+        self.audioPlayer.stop()
+        self.systray.setStoppedState()
+        self.isPlaying = False
+        self.isNotified = False
 
-		if(self.isPlaying):
-			self.audioPlayer.stop()
-			self.currentMetaData = ''
+    def notifyError(self, error, message):
+        print "Error: " + str(error)
+        print "Error: " + message
+        self.systray.setStoppedState()
+        self.isPlaying = False
+        self.notification.notify(_("Radio Error"), str(error))
 
-		url = self.provider.getRadioUrl(radio)
-		self.audioPlayer.start(url)
-		self.systray.setConnectingState(radio)
-		self.currentRadio = radio
-		self.isNotified = False
-		
+    def notifyPlaying(self):
+        if (self.isNotified == False):
+            self.isNotified = True
+            self.systray.setPlayingState(self.currentRadio)
+            self.isPlaying = True
+            self.notification.notify(_("Radio Playing"), self.currentRadio)
 
-	def stop(self):
-		self.audioPlayer.stop()
-		self.systray.setStoppedState()
-		self.isPlaying = False
-		self.isNotified = False
+    def notifyStopped(self):
+        self.systray.setStoppedState()
+        self.isPlaying = False
 
+    def notifySong(self, data):
+        self.currentMetaData = str(data)
+        self.systray.updateRadioMetadata(data)
 
-	def notifyError(self, error, message):
-		print "Error: " + str(error)
-		print "Error: " + message
-		self.systray.setStoppedState()
-		self.isPlaying = False
-		self.notification.notify(_("Radio Error"), str(error))
+        if self.currentMetaData:
+            self.notification.notify(APPNAME, self.currentMetaData)
 
+    def getCurrentRadio(self):
+        return self.currentRadio
 
-	def notifyPlaying(self):
-		if (self.isNotified == False):
-			self.isNotified = True
-			self.systray.setPlayingState(self.currentRadio)
-			self.isPlaying = True
-			self.notification.notify(_("Radio Playing"), self.currentRadio)
-
-
-	def notifyStopped(self):
-		self.systray.setStoppedState()
-		self.isPlaying = False
-
-	def notifySong(self, data):
-		self.currentMetaData = str(data)
-		self.systray.updateRadioMetadata(data)
-
-	def getCurrentRadio(self):
-		return self.currentRadio
-
-	def getCurrentMetaData(self):
-		return self.currentMetaData
-
+    def getCurrentMetaData(self):
+        return self.currentMetaData
