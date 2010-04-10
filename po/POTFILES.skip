@@ -1,0 +1,5 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+# List of source files containing translatable strings.
+[encoding: UTF-8]
+src/lib/i18n.py

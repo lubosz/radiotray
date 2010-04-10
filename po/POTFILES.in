@@ -11,7 +11,6 @@ src/BookmarkConfiguration.py
 src/ConsoleLog.py
 src/__init__.py
 src/lib/common.py
-src/lib/i18n.py
 src/lib/utils.py
 src/M3uPlaylistDecoder.py
 src/Notification.py

@@ -61,14 +61,14 @@ class StateMediator(object):
         print "Error: " + message
         self.systray.setStoppedState()
         self.isPlaying = False
-        self.notification.notify(_("Radio Error"), str(error))
+        self.notification.notify(C_("An error notification.", "Radio Error"), str(error))
 
     def notifyPlaying(self):
         if (self.isNotified == False):
             self.isNotified = True
             self.systray.setPlayingState(self.currentRadio)
             self.isPlaying = True
-            self.notification.notify(_("Radio Playing"), self.currentRadio)
+            self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Playing"), self.currentRadio)
 
     def notifyStopped(self):
         self.systray.setStoppedState()
