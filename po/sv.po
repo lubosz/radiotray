@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 13:17+0000\n"
+"POT-Creation-Date: 2010-04-10 08:38-0400\n"
 "PO-Revision-Date: 2010-04-10 00:19+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -57,16 +57,17 @@ msgstr "Utvecklare:"
 msgid "Contributors:"
 msgstr "Bidragsgivare:"
 
-#: ../src/StateMediator.py:68
+#: ../src/StateMediator.py:64
+msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Radiofel"
 
-#: ../src/StateMediator.py:76
+#: ../src/StateMediator.py:71
+msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio spelar"
 
-#: ../src/SysTray.py:77
-#: ../src/SysTray.py:126
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
 msgid "Turned Off"
 msgstr "Avstängd"
 
@@ -82,19 +83,19 @@ msgstr "Om"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: ../src/SysTray.py:99
-#: ../src/SysTray.py:129
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr "<i>Overksam</i>"
 
 #: ../src/SysTray.py:132
 #, python-format
+msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Stäng av \"%s\""
 
 #: ../src/SysTray.py:135
-#: ../src/SysTray.py:147
 #, python-format
+msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
@@ -104,18 +105,31 @@ msgstr ""
 
 #: ../src/SysTray.py:137
 #, python-format
+msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
 msgstr "Spelar <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
+msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Ansluter till %s"
 
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"Spelar <b>%s</b>\n"
+"<i>%s</i>"
+
 #~ msgid "Radio Tray"
 #~ msgstr "Radioikon"
+
 #~ msgid "Idle"
 #~ msgstr "Overksam"
+
 #~ msgid "Playing"
 #~ msgstr "Spelar"
-

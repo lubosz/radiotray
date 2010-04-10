@@ -4,14 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 07:55+0000\n"
+"POT-Creation-Date: 2010-04-10 08:38-0400\n"
 "PO-Revision-Date: 2010-04-07 09:27+0200\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian <translation@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\\n\\nX-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\\n\\nX-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: UKRAINE\n"
@@ -54,11 +55,13 @@ msgstr "Розробники:"
 msgid "Contributors:"
 msgstr "Помічники:"
 
-#: ../src/StateMediator.py:68
+#: ../src/StateMediator.py:64
+msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Помилка радіо"
 
-#: ../src/StateMediator.py:76
+#: ../src/StateMediator.py:71
+msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Радіопрогравання"
 
@@ -84,11 +87,13 @@ msgstr "<i>Очікування</i>"
 
 #: ../src/SysTray.py:132
 #, python-format
+msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Виключити \"%s\""
 
-#: ../src/SysTray.py:135 ../src/SysTray.py:147
+#: ../src/SysTray.py:135
 #, python-format
+msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
@@ -98,10 +103,22 @@ msgstr ""
 
 #: ../src/SysTray.py:137
 #, python-format
+msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
 msgstr "Програвання <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
+msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "З’єднуюся з %s"
+
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"Програвання <b>%s</b>\n"
+"<i>%s</i>"

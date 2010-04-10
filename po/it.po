@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radio-tray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 21:38+0000\n"
+"POT-Creation-Date: 2010-04-10 08:38-0400\n"
 "PO-Revision-Date: 2010-04-04 00:19+0200\n"
 "Last-Translator: Daniele Napolitano <dnax88@gmail.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -53,16 +53,19 @@ msgstr "Sviluppatori:"
 msgid "Contributors:"
 msgstr "Contributi:"
 
-#: ../src/StateMediator.py:68
+#: ../src/StateMediator.py:64
+msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Errore radio"
 
-#: ../src/StateMediator.py:76
+#: ../src/StateMediator.py:71
+msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio in riproduzione"
 
-#: ../src/SysTray.py:77
-msgid "Turn Off Radio"
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#, fuzzy
+msgid "Turned Off"
 msgstr "Spegni la radio"
 
 #: ../src/SysTray.py:85
@@ -77,12 +80,19 @@ msgstr "Informazioni"
 msgid "Quit"
 msgstr "Esci"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:128
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr "<i>In pausa</i>"
 
-#: ../src/SysTray.py:133 ../src/SysTray.py:144
+#: ../src/SysTray.py:132
+#, fuzzy, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "Spegni la radio"
+
+#: ../src/SysTray.py:135
 #, python-format
+msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
@@ -90,12 +100,24 @@ msgstr ""
 "In riproduzione <b>%s</b>\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:137
 #, python-format
+msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
 msgstr "In riproduzione <b>%s</b>"
 
-#: ../src/SysTray.py:139
+#: ../src/SysTray.py:142
 #, python-format
+msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Connessione a %s"
+
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"In riproduzione <b>%s</b>\n"
+"<i>%s</i>"

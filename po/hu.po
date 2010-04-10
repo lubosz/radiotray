@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-02 10:17-0400\n"
+"POT-Creation-Date: 2010-04-10 08:38-0400\n"
 "PO-Revision-Date: 2010-03-26 12:10+0100\n"
 "Last-Translator: LGB Z <lgb@lgb.hu>\n"
 "Language-Team: Hungarian <lgb@lgb.hu>\n"
@@ -59,16 +59,21 @@ msgstr ""
 msgid "Contributors:"
 msgstr ""
 
-#: ../src/StateMediator.py:68
+#: ../src/StateMediator.py:64
+#, fuzzy
+msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Rádió hiba"
 
-#: ../src/StateMediator.py:76
+#: ../src/StateMediator.py:71
+#, fuzzy
+msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Állomás lejátszása"
 
-#: ../src/SysTray.py:77
-msgid "Turn Off Radio"
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#, fuzzy
+msgid "Turned Off"
 msgstr "Rádió kikapcsolása"
 
 #: ../src/SysTray.py:85
@@ -84,26 +89,43 @@ msgstr "Információ"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:128
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr ""
 
-#: ../src/SysTray.py:133 ../src/SysTray.py:144
+#: ../src/SysTray.py:132
+#, fuzzy, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "Rádió kikapcsolása"
+
+#: ../src/SysTray.py:135
 #, python-format
+msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:137
 #, python-format
+msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
 msgstr ""
 
-#: ../src/SysTray.py:139
+#: ../src/SysTray.py:142
 #, fuzzy, python-format
+msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Kapcsolódás:"
+
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"

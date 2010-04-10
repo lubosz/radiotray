@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray.trunk.radiotray.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-24 13:28-0400\n"
+"POT-Creation-Date: 2010-04-10 08:38-0400\n"
 "PO-Revision-Date: 2010-03-23 23:39+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
@@ -35,6 +35,15 @@ msgstr "રેડિયો નામ"
 msgid "URL :"
 msgstr "URL"
 
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr ""
+
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "રેડિયો નામ"
@@ -44,62 +53,84 @@ msgstr "રેડિયો નામ"
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "શું તમે ખરેખર કાઢી નાંખવા માંગો છો"
 
-#: ../src/SysTray.py:54
-msgid "Turn Off Radio"
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr ""
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr ""
+
+#: ../src/StateMediator.py:64
+#, fuzzy
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "રેડિયો ભૂલ"
+
+#: ../src/StateMediator.py:71
+#, fuzzy
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Playing"
+msgstr "રેડિયો વગાડી રહ્યા છીએ"
+
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#, fuzzy
+msgid "Turned Off"
 msgstr "રેડિયો બંધ કરો"
 
-#: ../src/SysTray.py:62
+#: ../src/SysTray.py:85
 #, fuzzy
 msgid "Configure radios..."
 msgstr "રેડિયો રૂપરેખાંકિત કરો"
 
-#: ../src/SysTray.py:63
+#: ../src/SysTray.py:86
 msgid "About"
 msgstr "વિશે"
 
-#: ../src/SysTray.py:64
+#: ../src/SysTray.py:87
 msgid "Quit"
 msgstr "બહાર નીકળો"
 
-#: ../src/SysTray.py:76 ../src/SysTray.py:113
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr ""
 
-#: ../src/SysTray.py:100
-#, python-format
-msgid ""
-"%s v%s \n"
-"\n"
-"http://radiotray.sourceforge.net\n"
-"\n"
-"Copyright 2009 Carlos Ribeiro"
-msgstr ""
+#: ../src/SysTray.py:132
+#, fuzzy, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "રેડિયો બંધ કરો"
 
-#: ../src/SysTray.py:118 ../src/SysTray.py:129
+#: ../src/SysTray.py:135
 #, python-format
+msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
 
-#: ../src/SysTray.py:120
+#: ../src/SysTray.py:137
 #, python-format
+msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
 msgstr ""
 
-#: ../src/SysTray.py:124
+#: ../src/SysTray.py:142
 #, fuzzy, python-format
+msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "સાથે જોડાઈ રહ્યા છીએ"
 
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+
 #~ msgid "Radio Tray"
 #~ msgstr "રેડિયો ટ્રે"
-
-#~ msgid "Radio Error"
-#~ msgstr "રેડિયો ભૂલ"
-
-#~ msgid "Radio Playing"
-#~ msgstr "રેડિયો વગાડી રહ્યા છીએ"
 
 #~ msgid "Idle"
 #~ msgstr "ફાજલ"
