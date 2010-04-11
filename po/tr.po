@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Mehmet Nur Olcay <mnurolcay@gmail.com>, YEAR.
 #
 msgid ""
 msgstr ""
@@ -56,12 +56,12 @@ msgstr "Katkıda Bulunanlar:"
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Radyo Hatalı"
+msgstr "Hatalı Radyo"
 
 #: ../src/StateMediator.py:71
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "Radyo Çalıyor"
+msgstr "Çalan Radyo"
 
 #: ../src/SysTray.py:77
 #: ../src/SysTray.py:126
