@@ -82,7 +82,7 @@ class StateMediator(object):
             self.systray.updateRadioMetadata(newMetadata)
 
             if self.currentMetaData:
-                self.notification.notify(APPNAME + " - " + self.currentRadio, self.currentMetaData)
+                self.notification.notify("%s - %s" % (APPNAME , self.currentRadio), self.currentMetaData)
 
     def getCurrentRadio(self):
         return self.currentRadio
