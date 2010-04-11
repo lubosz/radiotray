@@ -1,11 +1,11 @@
-RadioTray 0.4
-=============
+RadioTray 0.5.1
+===============
 
 This is a simple music streaming player that lives on the system tray. By clicking on the RadioTray icon, 
 you'll be presented with a list of pre-configured online radios. By selecting one of those radios, it 
 will start playing.
 
-Right now, Radio Tray doesn't bundle with any pre-configured radio. You should add them manually.
+Right now, Radio Tray bundles with pre-configured radios. But you can and should add more manually.
 Adding online radios to the list is very simple. By right-clicking the RadioTray icon and selecting 
 "Config radios...", you may add the name and URL of an online radio.
 This version allows you to add direct URLs (to media streams or files) and URLs pointing at playlist formats (pls, m3u, asx, wax, wvx).

@@ -1,3 +1,16 @@
+Radio Tray 0.5.1 - 11/04/2010
+=============================
+
+* Added contributed translation language files
+* Improved gui feedback
+* Several small fixes
+
+Radio Tray 0.5 - 20/03/2010
+===========================
+
+* Fixed radiotray startup bugs, by reorganizing application structure
+* Added translation support 
+
 Radio Tray 0.4 - 16/02/2010
 ===========================
 
