@@ -2,14 +2,14 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 # Alexandre Franke <alexandre.franke@gmail.com>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 08:38-0400\n"
+"POT-Creation-Date: 2010-04-11 07:45+0000\n"
 "PO-Revision-Date: 2010-03-24 14:34+0100\n"
 "Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -18,67 +18,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
 msgstr "Configurer les radios"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Radio name:"
-msgstr "Nom de la radio"
+msgstr "Nom de la radio:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "URL :"
-msgstr "URL"
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr ""
+msgstr "Crédits de traduction"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr ""
+msgstr "Le site web de %s"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
 msgstr "Nom de la radio"
 
 #: ../src/BookmarkConfiguration.py:142
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir effacer"
+msgstr "Êtes-vous sûr de vouloir supprimer \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr ""
+msgstr "Développeurs:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "Contributeurs:"
 
 #: ../src/StateMediator.py:64
-#, fuzzy
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Erreur de la radio"
+msgstr "Erreur"
 
 #: ../src/StateMediator.py:71
-#, fuzzy
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "Radio en écoute"
+msgstr "En lecture"
 
 #: ../src/SysTray.py:77 ../src/SysTray.py:126
-#, fuzzy
 msgid "Turned Off"
-msgstr "Éteindre la radio"
+msgstr "Arrêté"
 
 #: ../src/SysTray.py:85
-#, fuzzy
 msgid "Configure radios..."
-msgstr "Configurer les radios"
+msgstr "Configurer les radios..."
 
 #: ../src/SysTray.py:86
 msgid "About"
@@ -90,13 +83,13 @@ msgstr "Quitter"
 
 #: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Inactif</i>"
 
 #: ../src/SysTray.py:132
-#, fuzzy, python-format
+#, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Éteindre la radio"
+msgstr "Arréter \"%s\""
 
 #: ../src/SysTray.py:135
 #, python-format
@@ -105,18 +98,20 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"En lecture <b>%s</b>\n"
+"<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "En lecture <b>%s</b>"
 
 #: ../src/SysTray.py:142
-#, fuzzy, python-format
+#, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Connexion à"
+msgstr "Connexion à %s"
 
 #: ../src/SysTray.py:148
 #, python-format
