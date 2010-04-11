@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-11 07:45+0000\n"
+"PO-Revision-Date: 2010-04-11 16:10+0200\n"
+"Last-Translator: Mehmet Nur Olcay <mnurolcay@gmail.com>\n"
+"Language-Team: Turkish <mnurolcay@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Configure Radios"
+msgstr "Radyoları Düzenle"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Radio name:"
+msgstr "Radyo adı:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "URL :"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "çeviren:"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s Sitesi"
+
+#: ../src/BookmarkConfiguration.py:62
+msgid "Radio Name"
+msgstr "Radyo Adı"
+
+#: ../src/BookmarkConfiguration.py:142
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "\"%s\" radyosunu silmek istediğinize emin misiniz ?"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Geliştiriciler:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Katkıda Bulunanlar:"
+
+#: ../src/StateMediator.py:64
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Radyo Hatalı"
+
+#: ../src/StateMediator.py:71
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Playing"
+msgstr "Radyo Çalıyor"
+
+#: ../src/SysTray.py:77
+#: ../src/SysTray.py:126
+msgid "Turned Off"
+msgstr "Kapatıldı"
+
+#: ../src/SysTray.py:85
+msgid "Configure radios..."
+msgstr "Radyoları düzenle..."
+
+#: ../src/SysTray.py:86
+msgid "About"
+msgstr "Hakkında"
+
+#: ../src/SysTray.py:87
+msgid "Quit"
+msgstr "Çıkış"
+
+#: ../src/SysTray.py:99
+#: ../src/SysTray.py:129
+msgid "<i>Idle</i>"
+msgstr "<i>Boşta</i>"
+
+#: ../src/SysTray.py:132
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "\"%s\" Radyosunu Kapat"
+
+#: ../src/SysTray.py:135
+#, python-format
+msgctxt "Informs what radio and music is being played."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"<b>%s</b>\n"
+"<i>%s</i> Çalınıyor"
+
+#: ../src/SysTray.py:137
+#, python-format
+msgctxt "Informs what radio is being played."
+msgid "Playing <b>%s</b>"
+msgstr "<b>%s</b> Çalınıyor"
+
+#: ../src/SysTray.py:142
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "%s radyosuna bağlanıyor"
+
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"<b>%s</b>\n"
+"<i>%s</i> Çalınıyor"
+
