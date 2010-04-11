@@ -75,11 +75,14 @@ class StateMediator(object):
         self.isPlaying = False
 
     def notifySong(self, data):
-        self.currentMetaData = str(data)
-        self.systray.updateRadioMetadata(data)
+        newMetadata = str(data)
 
-        if self.currentMetaData:
-            self.notification.notify(APPNAME, self.currentMetaData)
+        if (self.currentMetaData != newMetadata):
+            self.currentMetaData = newMetadata
+            self.systray.updateRadioMetadata(newMetadata)
+
+            if self.currentMetaData:
+                self.notification.notify(APPNAME + " - " + self.currentRadio, self.currentMetaData)
 
     def getCurrentRadio(self):
         return self.currentRadio

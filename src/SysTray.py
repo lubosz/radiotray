@@ -140,7 +140,7 @@ class SysTray(object):
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)
         self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio)
-        self.icon.set_from_file(APP_ICON_CONNECT)
+        #self.icon.set_from_file(APP_ICON_CONNECT)
 
     def updateRadioMetadata(self, data):
         print self.mediator.getCurrentRadio()
