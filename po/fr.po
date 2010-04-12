@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-11 07:45+0000\n"
+"POT-Creation-Date: 2010-04-12 07:56+0000\n"
 "PO-Revision-Date: 2010-03-24 14:34+0100\n"
 "Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -23,15 +23,15 @@ msgstr "Configurer les radios"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Radio name:"
-msgstr "Nom de la radio:"
+msgstr "Nom de la radio :"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Crédits de traduction"
+msgstr "Alexandre Franke <alexandre.franke@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
@@ -45,15 +45,15 @@ msgstr "Nom de la radio"
 #: ../src/BookmarkConfiguration.py:142
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer \"%s\"?"
+msgstr "Êtes-vous sûr de vouloir supprimer « %s » ?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Développeurs:"
+msgstr "Développeurs :"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Contributeurs:"
+msgstr "Contributeurs :"
 
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
@@ -89,7 +89,7 @@ msgstr "<i>Inactif</i>"
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Arréter \"%s\""
+msgstr "Arrêter « %s »"
 
 #: ../src/SysTray.py:135
 #, python-format
@@ -98,14 +98,14 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-"En lecture <b>%s</b>\n"
+"Lecture de <b>%s</b>\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr "En lecture <b>%s</b>"
+msgstr "Lecture de <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
