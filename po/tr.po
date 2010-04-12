@@ -56,12 +56,12 @@ msgstr "Katkıda Bulunanlar:"
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Radyo Hatalı"
+msgstr "Hatalı Radyo "
 
 #: ../src/StateMediator.py:71
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "Radyo Çalıyor"
+msgstr "Çalan Radyo"
 
 #: ../src/SysTray.py:77 ../src/SysTray.py:126
 msgid "Turned Off"
