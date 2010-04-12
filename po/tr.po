@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Mehmet Nur Olcay <mnurolcay@gmail.com>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-11 07:45+0000\n"
+"POT-Creation-Date: 2010-04-12 07:56+0000\n"
 "PO-Revision-Date: 2010-04-11 16:10+0200\n"
 "Last-Translator: Mehmet Nur Olcay <mnurolcay@gmail.com>\n"
 "Language-Team: Turkish <mnurolcay@gmail.com>\n"
@@ -29,7 +29,7 @@ msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "çeviren:"
+msgstr "Çeviren:"
 
 #: ../src/about.py:30
 #, python-format
@@ -56,17 +56,16 @@ msgstr "Katkıda Bulunanlar:"
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Hatalı Radyo"
+msgstr "Radyo Hatalı"
 
 #: ../src/StateMediator.py:71
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "Çalan Radyo"
+msgstr "Radyo Çalıyor"
 
-#: ../src/SysTray.py:77
-#: ../src/SysTray.py:126
+#: ../src/SysTray.py:77 ../src/SysTray.py:126
 msgid "Turned Off"
-msgstr "Kapatıldı"
+msgstr "Kapalı"
 
 #: ../src/SysTray.py:85
 msgid "Configure radios..."
@@ -80,8 +79,7 @@ msgstr "Hakkında"
 msgid "Quit"
 msgstr "Çıkış"
 
-#: ../src/SysTray.py:99
-#: ../src/SysTray.py:129
+#: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
 msgstr "<i>Boşta</i>"
 
@@ -122,4 +120,3 @@ msgid ""
 msgstr ""
 "<b>%s</b>\n"
 "<i>%s</i> Çalınıyor"
-
