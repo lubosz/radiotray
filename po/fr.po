@@ -98,14 +98,14 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-"Playing <b>%s</b>\n"
+"En lecture: <b>%s</b>\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr "Lecture de <b>%s</b>"
+msgstr "En lecture: <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
