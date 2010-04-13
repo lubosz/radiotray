@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-13 08:15+0000\n"
+"PO-Revision-Date: 2010-04-13 12:52-0000\n"
+"Last-Translator: Robert Readman <Robert_Readman@Hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Configure Radios"
+msgstr "Configure Radios"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Radio name:"
+msgstr "Radio name:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "URL :"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Robert Readman <robert_readman@hotmail.com>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s's Website"
+
+#: ../src/BookmarkConfiguration.py:62
+msgid "Radio Name"
+msgstr "Radio Name"
+
+#: ../src/BookmarkConfiguration.py:142
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Are you sure you want to delete \"%s\"?"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Developers:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Contributors:"
+
+#: ../src/StateMediator.py:64
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Radio Error"
+
+#: ../src/StateMediator.py:71
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Playing"
+msgstr "Radio Playing"
+
+#: ../src/SysTray.py:77
+#: ../src/SysTray.py:126
+msgid "Turned Off"
+msgstr "Turned Off"
+
+#: ../src/SysTray.py:85
+msgid "Configure radios..."
+msgstr "Configure radios..."
+
+#: ../src/SysTray.py:86
+msgid "About"
+msgstr "About"
+
+#: ../src/SysTray.py:87
+msgid "Quit"
+msgstr "Quit"
+
+#: ../src/SysTray.py:99
+#: ../src/SysTray.py:129
+msgid "<i>Idle</i>"
+msgstr "<i>Idle</i>"
+
+#: ../src/SysTray.py:132
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "Turn Off \"%s\""
+
+#: ../src/SysTray.py:135
+#, python-format
+msgctxt "Informs what radio and music is being played."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:137
+#, python-format
+msgctxt "Informs what radio is being played."
+msgid "Playing <b>%s</b>"
+msgstr "Playing <b>%s</b>"
+
+#: ../src/SysTray.py:142
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "Connecting to %s"
+
+#: ../src/SysTray.py:148
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+msgstr ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
+
