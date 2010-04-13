@@ -19,23 +19,20 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
 msgid "Configure Radios"
 msgstr "Állomások beállítása"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Radio name:"
-msgstr "Rádióállomás neve"
+msgstr "Rádióállomás neve:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "URL :"
-msgstr "URL"
+msgstr "URL:"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr ""
+msgstr "Gábor Lénárt"
 
 #: ../src/about.py:30
 #, python-format
@@ -47,9 +44,9 @@ msgid "Radio Name"
 msgstr "Rádióállomás neve"
 
 #: ../src/BookmarkConfiguration.py:142
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Biztos benne, hogy törli"
+msgstr "Biztos benne, hogy törli: \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -60,26 +57,22 @@ msgid "Contributors:"
 msgstr "Hozzájárulók:"
 
 #: ../src/StateMediator.py:64
-#, fuzzy
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Rádió hiba"
 
 #: ../src/StateMediator.py:71
-#, fuzzy
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Állomás lejátszása"
 
 #: ../src/SysTray.py:77 ../src/SysTray.py:126
-#, fuzzy
 msgid "Turned Off"
 msgstr "Rádió kikapcsolása"
 
 #: ../src/SysTray.py:85
-#, fuzzy
 msgid "Configure radios..."
-msgstr "Állomások beállítása"
+msgstr "Állomások beállítása ..."
 
 #: ../src/SysTray.py:86
 msgid "About"
