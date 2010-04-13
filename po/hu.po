@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Configure Radios"
@@ -32,7 +32,7 @@ msgstr "URL:"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Gábor Lénárt"
+msgstr "Gábor Lénárt <lgb@lgb.hu>"
 
 #: ../src/about.py:30
 #, python-format
