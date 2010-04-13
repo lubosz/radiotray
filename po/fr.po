@@ -98,7 +98,7 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-"En lecture: <b>%s</b>\n"
+"Playing <b>%s</b>\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:137
