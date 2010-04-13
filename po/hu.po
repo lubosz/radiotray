@@ -1,14 +1,14 @@
 # RadioTray language file
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
-#
+# 
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 # LGB Z, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 08:38-0400\n"
+"POT-Creation-Date: 2010-04-13 08:15+0000\n"
 "PO-Revision-Date: 2010-03-26 12:10+0100\n"
 "Last-Translator: LGB Z <lgb@lgb.hu>\n"
 "Language-Team: Hungarian <lgb@lgb.hu>\n"
@@ -40,7 +40,7 @@ msgstr ""
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr ""
+msgstr "%s weboldal"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
@@ -53,11 +53,11 @@ msgstr "Biztos benne, hogy törli"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr ""
+msgstr "Fejlesztők:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "Hozzájárulók:"
 
 #: ../src/StateMediator.py:64
 #, fuzzy
@@ -91,13 +91,13 @@ msgstr "Kilépés"
 
 #: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
-msgstr ""
+msgstr "<i>Készenlét</i>"
 
 #: ../src/SysTray.py:132
-#, fuzzy, python-format
+#, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Rádió kikapcsolása"
+msgstr "Rádió kikapcsolása \"%s\""
 
 #: ../src/SysTray.py:135
 #, python-format
@@ -106,18 +106,20 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Lejátszás <b>%s</b>\n"
+"<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr ""
+msgstr "Lejátszás <b>%s</b>"
 
 #: ../src/SysTray.py:142
-#, fuzzy, python-format
+#, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Kapcsolódás:"
+msgstr "Kapcsolódás: %s"
 
 #: ../src/SysTray.py:148
 #, python-format
