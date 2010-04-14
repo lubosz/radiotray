@@ -105,7 +105,7 @@ msgstr ""
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr "En lecture: <b>%s</b>"
+msgstr "Lecture de <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
