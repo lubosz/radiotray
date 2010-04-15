@@ -56,6 +56,12 @@ class StateMediator(object):
         self.isPlaying = False
         self.isNotified = False
 
+    def volume_up(self):
+        self.audioPlayer.volume_up()
+
+    def volume_down(self):
+        self.audioPlayer.volume_down()
+
     def notifyError(self, error, message):
         print "Error: " + str(error)
         print "Error: " + message

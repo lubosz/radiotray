@@ -98,8 +98,24 @@ class SysTray(object):
         self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_('<i>Idle</i>'))
         self.icon.connect('button_press_event', self.button_press)
+        self.icon.connect('scroll_event', self.scroll)
+
+    def scroll(self,widget, event):
+        if event.direction == gtk.gdk.SCROLL_UP:
+            self.mediator.volume_up()
+            
+        if event.direction == gtk.gdk.SCROLL_DOWN:
+            self.mediator.volume_down()
 
     def button_press(self,widget,event):
+
+        if event.button == 2:
+            if (self.mediator.isPlaying):
+                self.mediator.stop()
+            else:
+                if self.mediator.currentRadio:
+                    self.mediator.play(self.mediator.currentRadio)
+            return
 
         if(event.button == 1):
             self.radioMenu.popup(None, None, gtk.status_icon_position_menu, 0, event.get_time(), widget)
