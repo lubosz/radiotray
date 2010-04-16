@@ -35,14 +35,15 @@ except:
 from XmlDataProvider import XmlDataProvider
 from lib import utils
 from lib import i18n
-
+import uuid
 
 class BookmarkConfiguration:
 
-    def __init__(self, dataProvider, updateFunc):
+    def __init__(self, dataProvider, updateFunc, standalone=False):
 
         self.dataProvider = dataProvider
         self.updateFunc = updateFunc
+        self.standalone = standalone
 
         # get gui objects
         gladefile = utils.load_ui_file("configBookmarks.glade")
@@ -66,12 +67,20 @@ class BookmarkConfiguration:
         # connect events
         if (self.window):
             dic = { "on_newBookmarkButton_clicked" : self.on_add_bookmark_clicked,
+                "on_newSeparatorButton_clicked" : self.on_add_separator_clicked,
                 "on_editBookmarkButton_clicked" : self.on_edit_bookmark_clicked,
                 "on_delBookmarkButton_clicked" : self.on_remove_bookmark_clicked,
                 "on_moveUpButton_clicked" : self.on_moveup_bookmark_clicked,
                 "on_moveDownButton_clicked" : self.on_movedown_bookmark_clicked,
                 "on_close_clickedButton_clicked" : self.on_close_clicked}
             self.wTree.connect_signals(self)
+
+    def on_add_separator_clicked(self, widget):
+        # hack: generate a unique name
+        # todo: hide uuid from list
+        name = '[separator-' + str(uuid.uuid4()) + ']'
+        self.dataProvider.addRadio(name, name)
+        self.list.get_model().append([name])
 
     def on_add_bookmark_clicked(self, widget):
 
@@ -195,11 +204,12 @@ class BookmarkConfiguration:
 
     # close the window and quit
     def on_delete_event(self, widget, event, data=None):
-        gtk.main_quit()
+        if self.standalone:
+            gtk.main_quit()
         return False
 
 if __name__ == "__main__":
     provider = XmlDataProvider('lixo.xml')
     provider.loadFromFile()
-    config = BookmarkConfiguration(provider)
+    config = BookmarkConfiguration(provider,standalone=True)
     gtk.main()

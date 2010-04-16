@@ -156,7 +156,7 @@ class SysTray(object):
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)
         self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio)
-        #self.icon.set_from_file(APP_ICON_CONNECT)
+        self.icon.set_from_file(APP_ICON_CONNECT)
 
     def updateRadioMetadata(self, data):
         print self.mediator.getCurrentRadio()
@@ -179,10 +179,15 @@ class SysTray(object):
 
         for radio in self.provider.listRadioNames():
 
-            radio1 = gtk.MenuItem(radio)
-            self.radioMenu.append(radio1)
-            radio1.show()
-            radio1.connect('activate', self.on_start, radio)
+            if radio.startswith("[separator-"):
+                separator = gtk.MenuItem()
+                self.radioMenu.append(separator)
+                separator.show()
+            else:
+                radio1 = gtk.MenuItem(radio)
+                self.radioMenu.append(radio1)
+                radio1.show()
+                radio1.connect('activate', self.on_start, radio)
 
 
 
