@@ -2,127 +2,131 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-# 
-# Alexandre Franke <alexandre.franke@gmail.com>, 2010.
-# 
+# fayek <falk.wittwer@gmail.com>, 2010
 msgid ""
 msgstr ""
-"Project-Id-Version: radiotray 0.5\n"
+"Project-Id-Version: 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 08:03+0000\n"
-"PO-Revision-Date: 2010-03-24 14:34+0100\n"
-"Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
-"Language-Team: French <fr@li.org>\n"
+"POT-Creation-Date: 2010-04-12 07:56+0000\n"
+"PO-Revision-Date: 2010-04-12 14:28+0200\n"
+"Last-Translator: fayek <falk.wittwer@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.3.1\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Configure Radios"
-msgstr "Configurer les radios"
+msgstr "Конфигурировать радиостанций"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Radio name:"
-msgstr "Nom de la radio :"
+msgstr "Радиостанция"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Alexandre Franke <alexandre.franke@gmail.com>"
+msgstr "Перевод"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "Le site web de %s"
+msgstr "Веб-сайт %s"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
-msgstr "Nom de la radio"
+msgstr "Радиостанция"
 
 #: ../src/BookmarkConfiguration.py:142
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer « %s » ?"
+msgstr "Вы уверены, что хотите удалить:  \\\"%s\\\""
 
 #: ../src/lib/common.py:22
+#, fuzzy
 msgid "Developers:"
-msgstr "Développeurs :"
+msgstr "Разработчики:"
 
 #: ../src/lib/common.py:24
+#, fuzzy
 msgid "Contributors:"
-msgstr "Contributeurs :"
+msgstr "Участники:"
 
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Erreur"
+msgstr "Радио ошибке"
 
 #: ../src/StateMediator.py:71
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "En lecture"
+msgstr ""
 
 #: ../src/SysTray.py:77 ../src/SysTray.py:126
 msgid "Turned Off"
-msgstr "Arrêté"
+msgstr "Выключать радио"
 
 #: ../src/SysTray.py:85
 msgid "Configure radios..."
-msgstr "Configurer les radios..."
+msgstr "Конфигурировать радиостанций..."
 
 #: ../src/SysTray.py:86
 msgid "About"
-msgstr "À propos"
+msgstr ""
 
 #: ../src/SysTray.py:87
 msgid "Quit"
-msgstr "Quitter"
+msgstr "Оканчивать"
 
 #: ../src/SysTray.py:99 ../src/SysTray.py:129
 msgid "<i>Idle</i>"
-msgstr "<i>Inactif</i>"
+msgstr "<i>Бездеятельный</i>"
 
 #: ../src/SysTray.py:132
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Arrêter « %s »"
+msgstr "Выключать \\\"%s\\\""
 
 #: ../src/SysTray.py:135
 #, python-format
+#, fuzzy
 msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-"Lecture de <b>%s</b>\n"
+"Проигрывать <b>%s</b>\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
+#, fuzzy
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr "Lecture de <b>%s</b>"
+msgstr "Проигрывать <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
+#, fuzzy
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Connexion à %s"
+msgstr "Соединять %s"
 
 #: ../src/SysTray.py:148
 #, python-format
+#, fuzzy
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-
-#~ msgid "Idle"
-#~ msgstr "En attente"
-
-#~ msgid "Playing"
-#~ msgstr "Écoute en cours de"
+"Проигрывать <b>%s</b>\n"
+"<i>%s</i>"

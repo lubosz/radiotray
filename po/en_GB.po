@@ -1,95 +1,95 @@
-# RadioTray language file
-# Copyright (C) 2009-2010
-# This file is distributed under the same license as the radiotray package.
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-# 
-# Alexandre Franke <alexandre.franke@gmail.com>, 2010.
-# 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: radiotray 0.5\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 08:03+0000\n"
-"PO-Revision-Date: 2010-03-24 14:34+0100\n"
-"Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
-"Language-Team: French <fr@li.org>\n"
+"POT-Creation-Date: 2010-04-13 08:15+0000\n"
+"PO-Revision-Date: 2010-04-13 12:52-0000\n"
+"Last-Translator: Robert Readman <Robert_Readman@Hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Configure Radios"
-msgstr "Configurer les radios"
+msgstr "Configure Radios"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Radio name:"
-msgstr "Nom de la radio :"
+msgstr "Radio name:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Alexandre Franke <alexandre.franke@gmail.com>"
+msgstr "Robert Readman <robert_readman@hotmail.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "Le site web de %s"
+msgstr "%s's Website"
 
 #: ../src/BookmarkConfiguration.py:62
 msgid "Radio Name"
-msgstr "Nom de la radio"
+msgstr "Radio Name"
 
 #: ../src/BookmarkConfiguration.py:142
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer « %s » ?"
+msgstr "Are you sure you want to delete \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Développeurs :"
+msgstr "Developers:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Contributeurs :"
+msgstr "Contributors:"
 
 #: ../src/StateMediator.py:64
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Erreur"
+msgstr "Radio Error"
 
 #: ../src/StateMediator.py:71
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr "En lecture"
+msgstr "Radio Playing"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:77
+#: ../src/SysTray.py:126
 msgid "Turned Off"
-msgstr "Arrêté"
+msgstr "Turned Off"
 
 #: ../src/SysTray.py:85
 msgid "Configure radios..."
-msgstr "Configurer les radios..."
+msgstr "Configure radios..."
 
 #: ../src/SysTray.py:86
 msgid "About"
-msgstr "À propos"
+msgstr "About"
 
 #: ../src/SysTray.py:87
 msgid "Quit"
-msgstr "Quitter"
+msgstr "Quit"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:99
+#: ../src/SysTray.py:129
 msgid "<i>Idle</i>"
-msgstr "<i>Inactif</i>"
+msgstr "<i>Idle</i>"
 
 #: ../src/SysTray.py:132
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Arrêter « %s »"
+msgstr "Turn Off \"%s\""
 
 #: ../src/SysTray.py:135
 #, python-format
@@ -98,20 +98,20 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
-"Lecture de <b>%s</b>\n"
+"Playing <b>%s</b>\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:137
 #, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b>"
-msgstr "Lecture de <b>%s</b>"
+msgstr "Playing <b>%s</b>"
 
 #: ../src/SysTray.py:142
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Connexion à %s"
+msgstr "Connecting to %s"
 
 #: ../src/SysTray.py:148
 #, python-format
@@ -120,9 +120,6 @@ msgid ""
 "Playing <b>%s</b>\n"
 "<i>%s</i>"
 msgstr ""
+"Playing <b>%s</b>\n"
+"<i>%s</i>"
 
-#~ msgid "Idle"
-#~ msgstr "En attente"
-
-#~ msgid "Playing"
-#~ msgstr "Écoute en cours de"
