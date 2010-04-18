@@ -4,18 +4,6 @@ rm -rf dist/*
 python setup.py sdist
 python setup.py bdist
 
-cd dist
-FILE=`ls radiotray-*.*.linux-i686.tar.gz`
-cd ..
+dpkg-buildpackage -b -rfakeroot
+mv ../radiotray_0.5.1_{all.deb,*.changes} dist
 
-mkdir -p tmp/debian
-cp -r DEBIAN tmp/debian
-cp dist/$FILE tmp/debian
-cd tmp/debian
-tar zxvf $FILE
-rm $FILE 
-cd ..
-dpkg-deb --build debian
-mv debian.deb ../dist/radiotray_x.x_all.deb
-cd ..
-rm -rf tmp
