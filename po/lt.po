@@ -102,7 +102,7 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Groja <b>%s</b> (garsas: %s%%)\n"
+"Groja <b>%s</b> (gar: %s%%)\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:153
