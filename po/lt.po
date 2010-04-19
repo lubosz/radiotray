@@ -2,14 +2,14 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 # Vilmantas Ramonas <vilmantasr@gmail.com>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-11 07:45+0000\n"
+"POT-Creation-Date: 2010-04-19 08:22+0000\n"
 "PO-Revision-Date: 2010-04-12 07:48+0200\n"
 "Last-Translator: Vilmantas Ramonas <vilmantasr@gmail.com>\n"
 "Language-Team: Lithuanian\n"
@@ -26,6 +26,10 @@ msgid "Radio name:"
 msgstr "Radijo stotis:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Skirtukas"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL adresas :"
 
@@ -38,11 +42,11 @@ msgstr "Vilmantas Ramonas <vilmantasr@gmail.com>"
 msgid "%s's Website"
 msgstr "%s Tinklalapis"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:63
 msgid "Radio Name"
 msgstr "Radijo stotys"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:151
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite pašalinti \"%s\"?"
@@ -55,17 +59,17 @@ msgstr "Programos autoriai:"
 msgid "Contributors:"
 msgstr "Pagalbininkai:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Radio stoties klaida"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:80
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radija groja"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:77 ../src/SysTray.py:142
 msgid "Turned Off"
 msgstr "Išjungta"
 
@@ -81,43 +85,43 @@ msgstr "Apie"
 msgid "Quit"
 msgstr "Išjungti"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:99 ../src/SysTray.py:145
 msgid "<i>Idle</i>"
 msgstr "<i>Nepasiekiama</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:148
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Išjungti \"%s\""
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:151
 #, python-format
 msgctxt "Informs what radio and music is being played."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Groja <b>%s</b>\n"
+"Groja <b>%s</b> (garsas: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:137
+#: ../src/SysTray.py:153
 #, python-format
 msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Groja <b>%s</b>"
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Groja <b>%s</b> (garsas: %s%%)"
 
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:158
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Jungiasi prie %s"
 
-#: ../src/SysTray.py:148
-#, python-format
+#: ../src/SysTray.py:164
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
 "Groja <b>%s</b>\n"
