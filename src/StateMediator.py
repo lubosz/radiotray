@@ -103,4 +103,4 @@ class StateMediator(object):
         self.volume = volume
 
     def getVolume(self):
-        return round(self.volume * 100)
+        return int(round(self.volume * 100))
