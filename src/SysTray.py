@@ -161,7 +161,10 @@ class SysTray(object):
     def updateRadioMetadata(self, data):
         print self.mediator.getCurrentRadio()
         print data
-        self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (self.mediator.getCurrentRadio(), self.mediator.getVolume(), data))
+        if len(data):
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (self.mediator.getCurrentRadio(), self.mediator.getVolume(), data))
+        else:
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (self.mediator.getCurrentRadio(), self.mediator.getVolume()))
 
 
     def update_radios(self):
