@@ -93,20 +93,20 @@ msgid "Turn Off \"%s\""
 msgstr "Zatrzymaj \"%s\""
 
 #: ../src/SysTray.py:151
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Teraz gra <b>%s</b>\n"
+"Teraz gra <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:153
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio is being played."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Teraz gra <b>%s</b>"
+msgstr "Teraz gra <b>%s</b> (vol: %s%%)"
 
 #: ../src/SysTray.py:158
 #, python-format
