@@ -59,11 +59,11 @@ class StateMediator(object):
 
     def volume_up(self):
         self.audioPlayer.volume_up()
-        self.systray.updateRadioMetadata(self.getCurrentMetaData())
+        self.systray.updateTooltip()
 
     def volume_down(self):
         self.audioPlayer.volume_down()
-        self.systray.updateRadioMetadata(self.getCurrentMetaData())
+        self.systray.updateTooltip()
 
     def notifyError(self, error, message):
         print "Error: " + str(error)
@@ -88,7 +88,7 @@ class StateMediator(object):
 
         if (self.currentMetaData != newMetadata):
             self.currentMetaData = newMetadata
-            self.systray.updateRadioMetadata(newMetadata)
+            self.systray.updateTooltip()
 
             if self.currentMetaData:
                 self.notification.notify("%s - %s" % (APPNAME , self.currentRadio), self.currentMetaData)
