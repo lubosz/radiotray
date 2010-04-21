@@ -1,9 +1,9 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 08:38-0400\n"
+"POT-Creation-Date: 2010-04-21 07:56+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -23,6 +23,10 @@ msgid "Radio name:"
 msgstr "Nazwa stacji:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Odstęp"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "Adres:"
 
@@ -35,11 +39,11 @@ msgstr "Tłumacze:"
 msgid "%s's Website"
 msgstr "%s's Strona WWW"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:63
 msgid "Radio Name"
 msgstr "Nazwa stacji"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:151
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Na pewno usunąć \"%s\"?"
@@ -52,17 +56,17 @@ msgstr "Programiści:"
 msgid "Contributors:"
 msgstr "Wydawcy:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Błąd odtwarzania"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:80
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Odtwarzanie"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:77 ../src/SysTray.py:142
 msgid "Turned Off"
 msgstr "Zatrzymano"
 
@@ -78,43 +82,43 @@ msgstr "O programie"
 msgid "Quit"
 msgstr "Zakończ"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:99 ../src/SysTray.py:145
 msgid "<i>Idle</i>"
 msgstr "<i>Cisza</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:148
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Zatrzymaj \"%s\""
 
-#: ../src/SysTray.py:135
-#, python-format
+#: ../src/SysTray.py:151
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
 "Teraz gra <b>%s</b>\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:137
-#, python-format
+#: ../src/SysTray.py:153
+#, fuzzy, python-format
 msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
+msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Teraz gra <b>%s</b>"
 
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:158
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Łączenie z %s"
 
-#: ../src/SysTray.py:148
-#, python-format
+#: ../src/SysTray.py:164
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
 "Teraz gra <b>%s</b>\n"
