@@ -148,23 +148,23 @@ class SysTray(object):
         self.turnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
         self.turnOff.set_sensitive(True)
         if(self.mediator.getCurrentMetaData() and len(self.mediator.getCurrentMetaData()) > 0):
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (radio, self.mediator.getVolume(), self.mediator.getCurrentMetaData()))
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (radio.replace("&", "&amp;"), self.mediator.getVolume(), self.mediator.getCurrentMetaData().replace("&", "&amp;")))
         else:
-            self.icon.set_tooltip_markup(C_("Informs what radio is being played.", "Playing <b>%s</b> (vol: %s%%)") % (radio, self.mediator.getVolume()))
+            self.icon.set_tooltip_markup(C_("Informs what radio is being played.", "Playing <b>%s</b> (vol: %s%%)") % (radio.replace("&", "&amp;"), self.mediator.getVolume()))
         self.icon.set_from_file(APP_ICON_ON)
 
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)
-        self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio)
+        self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio.replace("&", "&amp;"))
         self.icon.set_from_file(APP_ICON_CONNECT)
 
     def updateRadioMetadata(self, data):
         print self.mediator.getCurrentRadio()
         print data
         if len(data):
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (self.mediator.getCurrentRadio(), self.mediator.getVolume(), data))
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (self.mediator.getCurrentRadio().replace("&", "&amp;"), self.mediator.getVolume(), data.replace("&", "&amp;")))
         else:
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (self.mediator.getCurrentRadio(), self.mediator.getVolume()))
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (self.mediator.getCurrentRadio().replace("&", "&amp;"), self.mediator.getVolume()))
 
 
     def update_radios(self):
