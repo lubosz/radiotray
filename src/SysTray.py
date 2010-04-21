@@ -150,7 +150,7 @@ class SysTray(object):
         if(self.mediator.getCurrentMetaData() and len(self.mediator.getCurrentMetaData()) > 0):
             self.icon.set_tooltip_markup(C_("Informs what radio and music is being played.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (radio, self.mediator.getVolume(), self.mediator.getCurrentMetaData()))
         else:
-            self.icon.set_tooltip_markup(C_("Informs what radio is being played.", "Playing <b>%s</b> (vol: %s%%)") % radio, self.mediator.getVolume())
+            self.icon.set_tooltip_markup(C_("Informs what radio is being played.", "Playing <b>%s</b> (vol: %s%%)") % (radio, self.mediator.getVolume()))
         self.icon.set_from_file(APP_ICON_ON)
 
     def setConnectingState(self, radio):
