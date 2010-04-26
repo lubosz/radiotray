@@ -1,0 +1,123 @@
+# Slovak translation of banshee.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the banshee package.
+# Miroslav Biňas <mirek@host.sk>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-26 10:32+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Miroslav Biňas <mirek@host.sk>\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Configure Radios"
+msgstr "Nastavenia rádií"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Radio name:"
+msgstr "Názvo rádia:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Oddeľovač"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "URL :"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Miroslav Biňas <mirek@host.sk>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s webová stránka"
+
+#: ../src/BookmarkConfiguration.py:63
+msgid "Radio Name"
+msgstr "Názov rádia"
+
+#: ../src/BookmarkConfiguration.py:151
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Naozaj chcete odstrániť \"%s\"?"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Napísali:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Prispeli:"
+
+#: ../src/StateMediator.py:73
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Chyba rádia"
+
+#: ../src/StateMediator.py:80
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Playing"
+msgstr "Hrá rádio"
+
+#: ../src/SysTray.py:78
+#: ../src/SysTray.py:143
+msgid "Turned Off"
+msgstr "Vypnuté"
+
+#: ../src/SysTray.py:86
+msgid "Configure radios..."
+msgstr "Nastaviť rádiá..."
+
+#: ../src/SysTray.py:87
+msgid "About"
+msgstr "O programe"
+
+#: ../src/SysTray.py:88
+msgid "Quit"
+msgstr "Koniec"
+
+#: ../src/SysTray.py:100
+#: ../src/SysTray.py:146
+msgid "<i>Idle</i>"
+msgstr "<i>Nečinný</i>"
+
+#: ../src/SysTray.py:149
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "Vypnúť \"%s\""
+
+#: ../src/SysTray.py:156
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "Pripájanie ku %s"
+
+#: ../src/SysTray.py:170
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
+msgstr ""
+"Hrá <b>%s</b> (hlas: %s%%)\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:172
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Hrá <b>%s</b> (hlas: %s%%)"
+
