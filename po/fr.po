@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 08:03+0000\n"
+"POT-Creation-Date: 2010-04-27 07:58+0000\n"
 "PO-Revision-Date: 2010-03-24 14:34+0100\n"
 "Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -26,6 +26,10 @@ msgid "Radio name:"
 msgstr "Nom de la radio :"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Séparateur"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL :"
 
@@ -38,11 +42,11 @@ msgstr "Alexandre Franke <alexandre.franke@gmail.com>"
 msgid "%s's Website"
 msgstr "Le site web de %s"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:63
 msgid "Radio Name"
 msgstr "Nom de la radio"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:151
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Êtes-vous sûr de vouloir supprimer « %s » ?"
@@ -55,71 +59,63 @@ msgstr "Développeurs :"
 msgid "Contributors:"
 msgstr "Contributeurs :"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Erreur"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:80
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "En lecture"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:78 ../src/SysTray.py:143
 msgid "Turned Off"
 msgstr "Arrêté"
 
-#: ../src/SysTray.py:85
+#: ../src/SysTray.py:86
 msgid "Configure radios..."
 msgstr "Configurer les radios..."
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:87
 msgid "About"
 msgstr "À propos"
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:88
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:100 ../src/SysTray.py:146
 msgid "<i>Idle</i>"
 msgstr "<i>Inactif</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:149
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Arrêter « %s »"
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"Lecture de <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Lecture de <b>%s</b>"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:156
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Connexion à %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:170
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"Lecture de <b>%s</b> (vol : %s%%)\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:172
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Lecture de <b>%s</b> (vol : %s%%)"
 
 #~ msgid "Idle"
 #~ msgstr "En attente"
