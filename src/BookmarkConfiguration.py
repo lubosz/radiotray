@@ -55,9 +55,12 @@ class BookmarkConfiguration:
         self.config = self.wTree.get_object("editBookmark")
 
         # populate list of radios
-        liststore = gtk.ListStore(str)
+        liststore = gtk.ListStore(str,str)
         for radio in self.dataProvider.listRadioNames():
-            liststore.append([radio])
+            if(radio.startswith('[separator')):
+                liststore.append(['-- Separator --',radio])
+            else:
+                liststore.append([radio,radio])
         self.list.set_model(liststore)
         cell = gtk.CellRendererText()
         tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
@@ -75,12 +78,25 @@ class BookmarkConfiguration:
                 "on_close_clickedButton_clicked" : self.on_close_clicked}
             self.wTree.connect_signals(self)
 
+    def on_cursor_changed(self, widget):
+        #get current selected element
+        selection = self.list.get_selection()
+        (model, iter) = selection.get_selected()
+
+        if type(iter).__name__=='TreeIter':
+            selectedRadioName = model.get_value(iter,1)
+
+            if (selectedRadioName.startswith("[separator-")):
+               self.wTree.get_object("editBookmarkButton").set_sensitive(False)               
+            else:
+                self.wTree.get_object("editBookmarkButton").set_sensitive(True)
+
+
     def on_add_separator_clicked(self, widget):
         # hack: generate a unique name
-        # todo: hide uuid from list
         name = '[separator-' + str(uuid.uuid4()) + ']'
         self.dataProvider.addRadio(name, name)
-        self.list.get_model().append([name])
+        self.list.get_model().append(['-- Separator --',name])
 
     def on_add_bookmark_clicked(self, widget):
 
@@ -96,7 +112,7 @@ class BookmarkConfiguration:
 
             if len(name) > 0 and len(url) > 0:
                 self.dataProvider.addRadio(name, url)
-                self.list.get_model().append([name])
+                self.list.get_model().append([name,name])
             else:
                 print 'No radio information provided!'
         self.config.hide()
@@ -109,7 +125,7 @@ class BookmarkConfiguration:
 
         if type(iter).__name__=='TreeIter':
 
-            selectedRadioName = model.get_value(iter,0)
+            selectedRadioName = model.get_value(iter,1)
 
             #get radio bookmark details
             selectedRadioUrl = self.dataProvider.getRadioUrl(selectedRadioName)
@@ -128,6 +144,7 @@ class BookmarkConfiguration:
 
                 if len(name) > 0 and len(url) > 0:
                     model.set_value(iter,0,name)
+                    model.set_value(iter,1,name)
                     self.dataProvider.updateRadio(oldName, name, url)
                 else:
                     print 'No radio information provided!'
@@ -142,25 +159,36 @@ class BookmarkConfiguration:
         if type(iter).__name__=='TreeIter':
 
             selectedRadioName = model.get_value(iter,0)
-            print selectedRadioName
-            confirmation = gtk.MessageDialog(
-                self.window,
-                gtk.DIALOG_MODAL,
-                gtk.MESSAGE_QUESTION,
-                gtk.BUTTONS_YES_NO,
-                _("Are you sure you want to delete \"%s\"?") % selectedRadioName
-            )
+            separatorFlag = model.get_value(iter,1)
+            print selectedRadioName + " - " + separatorFlag
 
-            result = confirmation.run()
+            # if separator then just remove it
+            if not separatorFlag.startswith("[separator-"):
 
-            if result == -8:
-                # remove from data provider
-                self.dataProvider.removeRadio(selectedRadioName)
+                confirmation = gtk.MessageDialog(
+                    self.window,
+                    gtk.DIALOG_MODAL,
+                    gtk.MESSAGE_QUESTION,
+                    gtk.BUTTONS_YES_NO,
+                    _("Are you sure you want to delete \"%s\"?") % selectedRadioName
+                )
 
-                # remove from gui
-                model.remove(iter)
+                result = confirmation.run()
 
-            confirmation.hide()
+
+                if result == -8:
+                    # remove from data provider
+                    self.dataProvider.removeRadio(selectedRadioName)
+
+                    # remove from gui
+                    model.remove(iter)
+
+                    confirmation.hide()
+            else:
+                 self.dataProvider.removeRadio(separatorFlag)
+                 # remove from gui
+                 model.remove(iter)
+
 
     def on_moveup_bookmark_clicked(self, widget):
 
@@ -170,7 +198,7 @@ class BookmarkConfiguration:
 
         if type(iter).__name__=='TreeIter':
 
-            selectedRadioName = model.get_value(iter,0)
+            selectedRadioName = model.get_value(iter,1)
 
             if (self.dataProvider.moveUp(selectedRadioName) == True):
 
@@ -187,7 +215,7 @@ class BookmarkConfiguration:
 
         if type(iter).__name__=='TreeIter':
 
-            selectedRadioName = model.get_value(iter,0)
+            selectedRadioName = model.get_value(iter,1)
 
             if (self.dataProvider.moveDown(selectedRadioName) == True):
 
@@ -208,8 +236,4 @@ class BookmarkConfiguration:
             gtk.main_quit()
         return False
 
-if __name__ == "__main__":
-    provider = XmlDataProvider('lixo.xml')
-    provider.loadFromFile()
-    config = BookmarkConfiguration(provider,standalone=True)
-    gtk.main()
+

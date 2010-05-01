@@ -43,7 +43,7 @@ class StateMediator(object):
 
         if(self.isPlaying):
             self.audioPlayer.stop()
-            self.currentMetaData = ''
+        self.currentMetaData = ''
 
         url = self.provider.getRadioUrl(radio)
         self.audioPlayer.start(url)
