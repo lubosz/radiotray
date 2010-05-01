@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 08:01+0000\n"
+"POT-Creation-Date: 2010-04-25 07:55+0000\n"
 "PO-Revision-Date: 2010-04-07 22:07-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -26,7 +26,7 @@ msgstr "Nome da estação de rádio:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Separator"
-msgstr ""
+msgstr "Separador"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "URL :"
@@ -68,35 +68,41 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Reproduzindo estação de rádio"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:142
+#: ../src/SysTray.py:78 ../src/SysTray.py:143
 msgid "Turned Off"
 msgstr "Desligado"
 
-#: ../src/SysTray.py:85
+#: ../src/SysTray.py:86
 msgid "Configure radios..."
 msgstr "Configurar estações de rádio..."
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:87
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:88
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:145
+#: ../src/SysTray.py:100 ../src/SysTray.py:146
 msgid "<i>Idle</i>"
 msgstr "<i>Inativo</i>"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:149
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Desligar \"%s\""
 
-#: ../src/SysTray.py:151
+#: ../src/SysTray.py:156
 #, python-format
-msgctxt "Informs what radio and music is being played."
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "Conectando a %s"
+
+#: ../src/SysTray.py:170
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
@@ -104,27 +110,19 @@ msgstr ""
 "Reproduzindo <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:153
+#: ../src/SysTray.py:172
 #, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Reproduzindo <b>%s</b>(vol: %s%%)"
-
-#: ../src/SysTray.py:158
-#, python-format
-msgctxt "Connecting to a music stream."
-msgid "Connecting to %s"
-msgstr "Conectando a %s"
-
-#: ../src/SysTray.py:164
-#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
-"<i>%s</i>"
-msgstr ""
-"Reproduzindo <b>%s</b>\n"
-"<i>%s</i>"
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Reproduzindo <b>%s</b> (vol: %s%%)"
+
+#~ msgctxt "Informs what radio and music is being played."
+#~ msgid ""
+#~ "Playing <b>%s</b> (vol: %s%%)\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "Reproduzindo <b>%s</b> (vol: %s%%)\n"
+#~ "<i>%s</i>"
 
 #~ msgid ""
 #~ "%s v%s \n"
