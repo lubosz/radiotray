@@ -25,6 +25,7 @@
                   <object class="GtkTreeView" id="treeview1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <signal name="cursor_changed" handler="on_cursor_changed"/>
                   </object>
                 </child>
               </object>
