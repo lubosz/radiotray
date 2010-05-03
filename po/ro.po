@@ -26,9 +26,8 @@ msgid "Separator"
 msgstr "Separator"
 
 #: ../data/configBookmarks.glade.h:4
-#, fuzzy
 msgid "URL :"
-msgstr "URL :"
+msgstr "Adresa Web :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -83,7 +82,6 @@ msgid "Quit"
 msgstr "Inchide"
 
 #: ../src/SysTray.py:100 ../src/SysTray.py:146
-#, fuzzy
 msgid "<i>Idle</i>"
 msgstr "<i>Inactiv</i>"
 
