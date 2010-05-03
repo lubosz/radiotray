@@ -2,14 +2,14 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro@gmail.com>, 2009-2010.
-#
+# 
 # Tadej Borovšak <tadeboro@gmail.com>, 2010
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-12 07:56+0000\n"
+"POT-Creation-Date: 2010-05-03 07:54+0000\n"
 "PO-Revision-Date: 2010-04-12 22:20+0100\n"
 "Last-Translator: Tadej Borovšak <tadeboro@gmail.com>\n"
 "Language-Team: \n"
@@ -26,6 +26,10 @@ msgid "Radio name:"
 msgstr "Ime postaje:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Ločnik"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL:"
 
@@ -38,11 +42,11 @@ msgstr "Tadej Borovšak <tadeboro@gmail.com>"
 msgid "%s's Website"
 msgstr "Spletna stran %s"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Ime postaje"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Res želite zbrisati \"%s\"?"
@@ -55,70 +59,68 @@ msgstr "Razvijalci:"
 msgid "Contributors:"
 msgstr "Sodelavci:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Napaka postaje"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:80
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Predvajana postaja"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:78 ../src/SysTray.py:143
 msgid "Turned Off"
 msgstr "Izkloplen"
 
-#: ../src/SysTray.py:85
+#: ../src/SysTray.py:86
 msgid "Configure radios..."
 msgstr "Nastavi radijske postaje ..."
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:87
 msgid "About"
 msgstr "O"
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:88
 msgid "Quit"
 msgstr "Končaj"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:100 ../src/SysTray.py:146
 msgid "<i>Idle</i>"
 msgstr "<i>V mirovanju</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:149
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Izklopi \"%s\""
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"Predvajam <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Predvajam <b>%s</b>"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:156
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Povezujem se na %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:170
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Predvajam <b>%s</b>\n"
+"Predvajam <b>%s</b> (glasnost: %s%%\n"
 "<i>%s</i>"
+
+#: ../src/SysTray.py:172
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Predvajam <b>%s</b> (glasnost: %s%%)"
+
+#~ msgctxt "Informs what radio and music is being played."
+#~ msgid ""
+#~ "Playing <b>%s</b>\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "Predvajam <b>%s</b>\n"
+#~ "<i>%s</i>"
