@@ -36,7 +36,7 @@ msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Fomin Denis"
+msgstr "Fomin Denis <fominde@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
