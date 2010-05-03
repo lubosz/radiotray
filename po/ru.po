@@ -7,126 +7,121 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-12 07:56+0000\n"
+"POT-Creation-Date: 2010-05-03 07:54+0000\n"
 "PO-Revision-Date: 2010-04-12 14:28+0200\n"
 "Last-Translator: fayek <falk.wittwer@gmail.com>\n"
 "Language-Team: Russian\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.3.1\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Configure Radios"
-msgstr "Конфигурировать радиостанций"
+msgstr "Настройки радиостанций"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Radio name:"
-msgstr "Радиостанция"
+msgstr "Радиостанция:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Разделитель"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Перевод"
+msgstr "Fomin Denis <fominde@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
 msgstr "Веб-сайт %s"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Радиостанция"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Вы уверены, что хотите удалить:  \\\"%s\\\""
 
 #: ../src/lib/common.py:22
-#, fuzzy
 msgid "Developers:"
 msgstr "Разработчики:"
 
 #: ../src/lib/common.py:24
-#, fuzzy
 msgid "Contributors:"
 msgstr "Участники:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Радио ошибке"
+msgstr "Ошибка"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:80
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
-msgstr ""
+msgstr "Радио"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:78 ../src/SysTray.py:143
 msgid "Turned Off"
-msgstr "Выключать радио"
-
-#: ../src/SysTray.py:85
-msgid "Configure radios..."
-msgstr "Конфигурировать радиостанций..."
+msgstr "Выключить радио"
 
 #: ../src/SysTray.py:86
-msgid "About"
-msgstr ""
+msgid "Configure radios..."
+msgstr "Настройки радиостанций..."
 
 #: ../src/SysTray.py:87
+msgid "About"
+msgstr "О программе"
+
+#: ../src/SysTray.py:88
 msgid "Quit"
-msgstr "Оканчивать"
+msgstr "Выход"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:100 ../src/SysTray.py:146
 msgid "<i>Idle</i>"
-msgstr "<i>Бездеятельный</i>"
+msgstr "<i>Бездействие</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:149
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Выключать \\\"%s\\\""
 
-#: ../src/SysTray.py:135
+#: ../src/SysTray.py:156
 #, python-format
-#, fuzzy
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"Проигрывать <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-#, fuzzy
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Проигрывать <b>%s</b>"
-
-#: ../src/SysTray.py:142
-#, python-format
-#, fuzzy
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Соединять %s"
+msgstr "Соединение с  %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:170
 #, python-format
-#, fuzzy
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Проигрывать <b>%s</b>\n"
+"Воспроизводится <b>%s</b> (громкость: %s%%)\n"
 "<i>%s</i>"
+
+#: ../src/SysTray.py:172
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%)"
+
+#~ msgctxt "Informs what radio and music is being played."
+#~ msgid ""
+#~ "Playing <b>%s</b>\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "Проигрывать <b>%s</b>\n"
+#~ "<i>%s</i>"
