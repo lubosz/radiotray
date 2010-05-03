@@ -31,7 +31,7 @@ msgstr "Adresa Web :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "credite-traducator"
+msgstr "Alexandru Bucur <melipse@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
