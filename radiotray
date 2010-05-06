@@ -12,4 +12,4 @@ except:
 	os.chdir(workdir)
 	import radiotray 
 	
-radiotray.main()
+radiotray.main(sys.argv[1:])

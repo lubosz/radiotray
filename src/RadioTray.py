@@ -30,7 +30,7 @@ from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, D
 
 class RadioTray(object):
 
-    def __init__(self):
+    def __init__(self, url=None):
 
         # load configuration
         self.loadConfiguration()
@@ -60,6 +60,9 @@ class RadioTray(object):
 
         # start dbus facade
         dbus = DbusFacade(self.provider, self.mediator)
+
+        if(url != None):
+            self.mediator.playUrl(url)
 
         # start app
         self.systray.run()
