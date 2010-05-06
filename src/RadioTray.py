@@ -68,7 +68,7 @@ class RadioTray(object):
     def loadConfiguration(self):
         print "Loading configuration..."
 
-        if not os.path.isdir(USER_CFG_PATH):
+        if not os.path.exists(USER_CFG_PATH):
             print "user's directory created"
             os.mkdir(USER_CFG_PATH)
 
