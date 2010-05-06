@@ -1,5 +1,12 @@
-Radio Tray 0.5.x - 11/04/2010
+Radio Tray 0.6 - 11/04/2010
 =============================
+
+* Updated translations
+* Added volume control by using the mouse scrollwheel and corresding information on the tooltip
+* Added DBus interface
+* Fixed several small bugs
+* Added separators to radio menu
+* Added support for playing directly by URL, via DBus
 
 Radio Tray 0.5.1 - 11/04/2010
 =============================

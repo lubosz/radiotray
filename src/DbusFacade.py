@@ -46,6 +46,10 @@ class DbusFacade(dbus.service.Object):
         self.mediator.play(radioName)
 
     @dbus.service.method('net.sourceforge.radiotray')
+    def playUrl(self, url):
+        self.mediator.playUrl(url)
+
+    @dbus.service.method('net.sourceforge.radiotray')
     def turnOff(self):
         self.mediator.stop()
 

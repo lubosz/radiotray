@@ -25,14 +25,13 @@ import getopt
 def main(argv):
 
     try:
-        opts, args = getopt.getopt(argv, "hlr:s", ["help", "list", "radio=", "stop", "up", "down", "current", "metadata"])
+        opts, args = getopt.getopt(argv, "hlr:s", ["help", "list", "radio=", "stop", "up", "down", "current", "metadata", "url="])
 
         bus = dbus.SessionBus()
         radiotray = bus.get_object('net.sourceforge.radiotray', '/net/sourceforge/radiotray')
 
         for opt, arg in opts:
             if opt in ("-h", "--help"):
-                #usage()
                 sys.exit()
             elif opt in ("-l", "--list"):
                 listRadios = radiotray.get_dbus_method('listRadios', 'net.sourceforge.radiotray')
@@ -62,8 +61,12 @@ def main(argv):
                 getMetadata = radiotray.get_dbus_method('getCurrentMetaData', 'net.sourceforge.radiotray')
                 print getMetadata()
 
+            elif opt in ("--url"):
+                print "play url"
+                playUrl = radiotray.get_dbus_method('playUrl', 'net.sourceforge.radiotray')
+                playUrl(arg)
+
     except getopt.GetoptError:
-        usage()
         sys.exit(2)
 
 
