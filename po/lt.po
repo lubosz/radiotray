@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-24 07:53+0000\n"
+"POT-Creation-Date: 2010-05-08 07:59+0000\n"
 "PO-Revision-Date: 2010-04-12 07:48+0200\n"
 "Last-Translator: Vilmantas Ramonas <vilmantasr@gmail.com>\n"
 "Language-Team: Lithuanian\n"
@@ -42,11 +42,11 @@ msgstr "Vilmantas Ramonas <vilmantasr@gmail.com>"
 msgid "%s's Website"
 msgstr "%s Tinklalapis"
 
-#: ../src/BookmarkConfiguration.py:63
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Radijo stotys"
 
-#: ../src/BookmarkConfiguration.py:151
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite pašalinti \"%s\"?"
@@ -59,12 +59,17 @@ msgstr "Programos autoriai:"
 msgid "Contributors:"
 msgstr "Pagalbininkai:"
 
-#: ../src/StateMediator.py:73
+#: ../src/StateMediator.py:60 ../src/StateMediator.py:61
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Nežinoma radijo stotis"
+
+#: ../src/StateMediator.py:83
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Radio stoties klaida"
 
-#: ../src/StateMediator.py:80
+#: ../src/StateMediator.py:90
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radija groja"
