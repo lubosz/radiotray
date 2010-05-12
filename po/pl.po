@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-25 07:55+0000\n"
+"POT-Creation-Date: 2010-05-12 12:29+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -39,11 +39,11 @@ msgstr "Tłumacze:"
 msgid "%s's Website"
 msgstr "%s's Strona WWW"
 
-#: ../src/BookmarkConfiguration.py:63
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Nazwa stacji"
 
-#: ../src/BookmarkConfiguration.py:151
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Na pewno usunąć \"%s\"?"
@@ -56,12 +56,17 @@ msgstr "Programiści:"
 msgid "Contributors:"
 msgstr "Wydawcy:"
 
-#: ../src/StateMediator.py:73
+#: ../src/StateMediator.py:60 ../src/StateMediator.py:61
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Nieznana stacja radio"
+
+#: ../src/StateMediator.py:83
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Błąd odtwarzania"
 
-#: ../src/StateMediator.py:80
+#: ../src/StateMediator.py:90
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Odtwarzanie"
@@ -109,7 +114,7 @@ msgstr ""
 "<i>%s</i>"
 
 #: ../src/SysTray.py:172
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Teraz gra <b>%s</b> (vol: %s%%)"
