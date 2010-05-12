@@ -27,6 +27,7 @@ from DbusFacade import DbusFacade
 import os
 from shutil import move, copy2
 from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST
+import mpris
 
 class RadioTray(object):
 
@@ -60,6 +61,7 @@ class RadioTray(object):
 
         # start dbus facade
         dbus = DbusFacade(self.provider, self.mediator)
+        dbus_mpris = mpris.RadioTrayMpris(self.provider, self.mediator)
 
         if(url != None):
             self.mediator.playUrl(url)

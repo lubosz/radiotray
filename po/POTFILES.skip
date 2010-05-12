@@ -3,3 +3,7 @@
 # List of source files containing translatable strings.
 [encoding: UTF-8]
 src/lib/i18n.py
+src/mpris.py
+src/mpris_player.py
+src/mpris_root.py
+src/mpris_tracklist.py
