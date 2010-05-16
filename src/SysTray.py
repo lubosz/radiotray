@@ -40,6 +40,8 @@ from lib import i18n
 from about import AboutDialog
 from lib.utils import html_escape
 
+import dbus
+
 class OneWindow(object):
     def __init__(self, dialog_class):
         self.dialog = None
@@ -101,6 +103,12 @@ class SysTray(object):
         self.icon.connect('button_press_event', self.button_press)
         self.icon.connect('scroll_event', self.scroll)
 
+        # MediaKeys
+        self.bus = dbus.SessionBus()
+        self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
+
+        self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
+
     def scroll(self,widget, event):
         if event.direction == gtk.gdk.SCROLL_UP:
             self.mediator.volume_up()
@@ -122,6 +130,17 @@ class SysTray(object):
             self.radioMenu.popup(None, None, gtk.status_icon_position_menu, 0, event.get_time(), widget)
         else:
             self.menu.popup(None, None, gtk.status_icon_position_menu, 2, event.get_time(), widget)
+
+    def handle_mediakey(self, *mmkeys):
+        for key in mmkeys:
+            if key == "Play":
+                if (self.mediator.isPlaying):
+                    self.mediator.stop()
+                elif self.mediator.currentRadio:
+                    self.mediator.play(self.mediator.currentRadio)
+            elif key == "Stop":
+                if (self.mediator.isPlaying):
+                    self.mediator.stop()
 
     def on_preferences(self, data):
         config = BookmarkConfiguration(self.provider, self.update_radios)

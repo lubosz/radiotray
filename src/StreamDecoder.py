@@ -21,6 +21,7 @@ import urllib2
 from PlsPlaylistDecoder import PlsPlaylistDecoder
 from M3uPlaylistDecoder import M3uPlaylistDecoder
 from AsxPlaylistDecoder import AsxPlaylistDecoder
+from XspfPlaylistDecoder import XspfPlaylistDecoder
 
 class StreamDecoder:
 
@@ -28,6 +29,7 @@ class StreamDecoder:
         plsDecoder = PlsPlaylistDecoder()
         m3uDecoder = M3uPlaylistDecoder()
         asxDecoder = AsxPlaylistDecoder()
+        xspfDecoder = XspfPlaylistDecoder()
         self.formats = {
             'audio/x-scpls': plsDecoder,
             'audio/mpegurl': m3uDecoder,
@@ -35,6 +37,7 @@ class StreamDecoder:
             'video/x-ms-asf': asxDecoder,
             'audio/x-ms-wax': asxDecoder,
             'video/x-ms-wvx': asxDecoder,
+            'application/xspf+xml': xspfDecoder
         }
 
     def extractStream(self, url):
