@@ -32,6 +32,7 @@ class StateMediator(object):
         self.currentRadio = ''
         self.currentMetaData = ''
         self.volume = 0.0
+        self.bitrate = 0
 
     def setAudioPlayer(self, audioPlayer):
         self.audioPlayer = audioPlayer
@@ -73,6 +74,11 @@ class StateMediator(object):
 
     def volume_down(self):
         self.audioPlayer.volume_down()
+        self.systray.updateTooltip()
+
+    def set_volume(self, value):
+        print "set volume: "+str(value)
+        self.audioPlayer.player.set_property("volume", value)
         self.systray.updateTooltip()
 
     def notifyError(self, error, message):

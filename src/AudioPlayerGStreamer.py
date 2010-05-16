@@ -96,6 +96,8 @@ class AudioPlayerGStreamer:
 
            taglist = message.parse_tag()
            for key in taglist.keys():
+           	if (key == 'bitrate'):
+            		self.mediator.bitrate = taglist[key]
            	if (key == 'title'):
                 	print "TITLE: " + taglist[key]
             		self.mediator.notifySong(taglist[key])
