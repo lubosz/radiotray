@@ -37,7 +37,7 @@ from lib import utils
 from lib import i18n
 import uuid
 
-class BookmarkConfiguration:
+class BookmarkConfiguration(object):
 
     def __init__(self, dataProvider, updateFunc, standalone=False):
 
@@ -87,7 +87,7 @@ class BookmarkConfiguration:
             selectedRadioName = model.get_value(iter,1)
 
             if (selectedRadioName.startswith("[separator-")):
-               self.wTree.get_object("editBookmarkButton").set_sensitive(False)               
+               self.wTree.get_object("editBookmarkButton").set_sensitive(False)
             else:
                 self.wTree.get_object("editBookmarkButton").set_sensitive(True)
 
@@ -111,8 +111,8 @@ class BookmarkConfiguration:
             url = self.urlEntry.get_text()
 
             if len(name) > 0 and len(url) > 0:
-                self.dataProvider.addRadio(name, url)
-                self.list.get_model().append([name,name])
+                if self.dataProvider.addRadio(name, url):
+                    self.list.get_model().append([name,name])
             else:
                 print 'No radio information provided!'
         self.config.hide()
@@ -143,9 +143,9 @@ class BookmarkConfiguration:
                 url = self.urlEntry.get_text()
 
                 if len(name) > 0 and len(url) > 0:
-                    model.set_value(iter,0,name)
-                    model.set_value(iter,1,name)
-                    self.dataProvider.updateRadio(oldName, name, url)
+                    if self.dataProvider.updateRadio(oldName, name, url):
+                        model.set_value(iter,0,name)
+                        model.set_value(iter,1,name)
                 else:
                     print 'No radio information provided!'
         self.config.hide()
@@ -235,5 +235,3 @@ class BookmarkConfiguration:
         if self.standalone:
             gtk.main_quit()
         return False
-
-

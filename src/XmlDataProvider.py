@@ -24,78 +24,123 @@ from lxml import objectify
 
 class XmlDataProvider:
 
-	def __init__(self, filename):
-		
-		if(os.access(filename, os.W_OK|os.R_OK) == False):
-			raise Exception('Bookmarks file not found: ' + filename)
-		else:
-			self.filename = filename
+    def __init__(self, filename):
 
+        if(os.access(filename, os.W_OK|os.R_OK) == False):
+            raise Exception('Bookmarks file not found: ' + filename)
+        else:
+            self.filename = filename
 
-	def loadFromFile(self):
+    def loadFromFile(self):
 
-		self.root = etree.parse(self.filename).getroot()
+        self.root = etree.parse(self.filename).getroot()
 
-	def saveToFile(self):
-		out_file = open(self.filename, "w")
-		out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8'))
-		out_file.close()
+    def saveToFile(self):
+        out_file = open(self.filename, "w")
+        out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True))
+        out_file.close()
 
-	def listRadioNames(self):
+    def listRadioNames(self):
 
-		return self.root.xpath("//bookmark/@name")
+        return self.root.xpath("//bookmark/@name")
 
-	def getRadioUrl(self, name):
+    def getRadioUrl(self, name):
 
-		result = self.root.xpath("//bookmark[@name=$var]/@url", var=name)
-		if(len(result) == 1):
-			return result[0]
+        result = self.root.xpath("//bookmark[@name=$var]/@url", var=name)
+        if(len(result) >= 1):
+            return result[0]
 
-	def addRadio(self, name, url):
+    def addRadio(self, name, url):
 
-		radio = etree.SubElement(self.root, 'bookmark')
-		radio.set("name", name)
-        	radio.set("url", url)
-        	self.saveToFile()
+        # Flag used to determine if a radio gets added or not
+        radioAdded = None
 
-	def updateRadio(self, oldName, newName, url):	
+        # First, let us check this name hasn't been used yet.
+        result = self._radioExists(name)
 
-		radioXml = self.root.xpath("//bookmark[@name=$var]", var=oldName)[0]
-		radioXml.set("name", unicode(newName))
-		radioXml.set("url", url)
-		self.saveToFile()
+        if result is None:
+            radio = etree.SubElement(self.root, 'bookmark')
+            radio.set("name", name)
+            radio.set("url", url)
+            self.saveToFile()
+            radioAdded = True
+        else:
+            print "A radio with the name \"%s\" already exists." % name
+            radioAdded = False
 
-	def removeRadio(self, name):
+        return radioAdded
 
-		radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
-		self.root.remove(radio)
-		self.saveToFile()
+    def updateRadio(self, oldName, newName, url):
 
-	def moveUp(self, name):
+        # Flag used to determine if a radio gets added or not
+        radioAdded = None
 
-		radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
-		previous = radio.getprevious()
-		if ( previous != None):
-			index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
-			self.root.remove(radio)
-			self.root.insert(int(index)-2,radio)
-			self.saveToFile()
+        result = self._radioExists(oldName)
 
-			return True
-		else:
-			return False
-		
-	def moveDown(self, name):
+        if result is None:
+            print "Could not find a radio with the name \"%s\"." % oldName
+            radioAdded = False
+        else:
+            if oldName == newName:
+                result.set("url", url)
+                self.saveToFile()
+                radioAdded = True
+            else:
+                radioXml = self._radioExists(newName)
+                if radioXml is not None:
+                    print "A radio with the name \"%s\" already exists." % newName
+                    radioAdded = False
+                else:
+                    result.set("name", unicode(newName))
+                    result.set("url", url)
+                    self.saveToFile()
+                    radioAdded = True
 
-		radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
-		next = radio.getnext()
-		if ( next != None):
-			index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
-			self.root.remove(radio)
-			self.root.insert(int(index),radio)
-			self.saveToFile()
+        return radioAdded
 
-			return True
-		else:
-			return False
-	
+    def removeRadio(self, name):
+
+        radio = self._radioExists(name)
+
+        if radio:
+            self.root.remove(radio)
+            self.saveToFile()
+
+    def moveUp(self, name):
+
+        radio = self._radioExists(name)
+        previous = radio.getprevious()
+        if ( previous != None):
+            index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
+            self.root.remove(radio)
+            self.root.insert(int(index)-2,radio)
+            self.saveToFile()
+
+            return True
+        else:
+            return False
+
+    def moveDown(self, name):
+
+        radio = self._radioExists(name)
+        next = radio.getnext()
+        if ( next != None):
+            index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
+            self.root.remove(radio)
+            self.root.insert(int(index),radio)
+            self.saveToFile()
+
+            return True
+        else:
+            return False
+
+    def _radioExists(self, name):
+        radio = None
+
+        try:
+            radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
+        except IndexError, e:
+            # No radio was found
+            print "Could not find a radio with the name \"%s\"." % name
+
+        return radio

@@ -61,7 +61,7 @@ def findfile(filename):
     if exists(filename): return filename
     for p in paths:
         x = join(p,filename)
-	print x
+        print x
         if exists(x): return x
 
 
@@ -77,4 +77,3 @@ def html_escape(text):
     }
 
     return "".join(html_escape_table.get(c,c) for c in text)
-
