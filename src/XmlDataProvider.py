@@ -102,7 +102,7 @@ class XmlDataProvider:
 
         radio = self._radioExists(name)
 
-        if radio:
+        if radio is not None:
             self.root.remove(radio)
             self.saveToFile()
 
