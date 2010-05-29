@@ -23,6 +23,7 @@ from M3uPlaylistDecoder import M3uPlaylistDecoder
 from AsxPlaylistDecoder import AsxPlaylistDecoder
 from XspfPlaylistDecoder import XspfPlaylistDecoder
 from AsfPlaylistDecoder import AsfPlaylistDecoder
+from RamPlaylistDecoder import RamPlaylistDecoder
 from UrlInfo import UrlInfo
 
 class StreamDecoder:
@@ -33,8 +34,9 @@ class StreamDecoder:
         asxDecoder = AsxPlaylistDecoder()
         xspfDecoder = XspfPlaylistDecoder()
         asfDecoder = AsfPlaylistDecoder()
+        ramDecoder = RamPlaylistDecoder()
         
-        self.decoders = [plsDecoder, m3uDecoder, asxDecoder, asfDecoder, xspfDecoder]
+        self.decoders = [plsDecoder, m3uDecoder, asxDecoder, asfDecoder, xspfDecoder, ramDecoder]
 
     
 
