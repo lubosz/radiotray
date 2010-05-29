@@ -42,15 +42,34 @@ class AudioPlayerGStreamer:
 
 
     def start(self, uri):
-        self.playlist = self.decoder.extractStream(uri)
-        self.playNextStream()
+
+        urlInfo = self.decoder.getMediaStreamInfo(uri)
+
+        if(urlInfo is not None and urlInfo.isPlaylist()):
+            self.playlist = self.decoder.getPlaylist(urlInfo)
+            print self.playlist
+            self.playNextStream()
+
+        elif(urlInfo is not None and urlInfo.isPlaylist() == False):
+            self.playlist = [uri]
+            self.playNextStream()
+
+        else:            
+            self.mediator.stop()
+
 
     def playNextStream(self):
         if(len(self.playlist) > 0):
             stream = self.playlist.pop(0)
             print "Play " + stream
-            self.player.set_property("uri", stream)
-            self.player.set_state(gst.STATE_PLAYING)
+
+            urlInfo = self.decoder.getMediaStreamInfo(stream)
+            if(urlInfo is not None and urlInfo.isPlaylist() == False):
+                self.player.set_property("uri", stream)
+                self.player.set_state(gst.STATE_PLAYING)
+            elif(urlInfo is not None and urlInfo.isPlaylist()):
+                self.playlist = self.decoder.getPlaylist(urlInfo) + self.playlist
+                self.playNextStream()
         else:
             self.stop()
             self.mediator.notifyStopped()

@@ -18,23 +18,27 @@
 #
 ##########################################################################
 import urllib2
+from lxml import etree
+from lxml import objectify
+from StringIO import StringIO
 
-class M3uPlaylistDecoder:
+class AsfPlaylistDecoder:
 
     def __init__(self):
-        print "M3U playlist decoder"
+        print "ASF playlist decoder"
+
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if(contentType == 'audio/mpegurl' or contentType == 'audio/x-mpegurl'):
-            print 'Stream is readable by M3U Playlist Decoder'
+        if(contentType == 'video/x-ms-asf' and firstBytes.strip().lower().startswith('[reference]')):
+            print "Stream is readable by ASF Playlist Decoder"
             return True
         else:
             return False
 
-
-
+        
     def extractPlaylist(self,  url):
+
         print "Downloading playlist..."
 
         req = urllib2.Request(url)
@@ -45,11 +49,19 @@ class M3uPlaylistDecoder:
         print "Playlist downloaded"
         print "Decoding playlist..."
 
-        lines = str.split("\n")
         playlist = []
-
+        lines = str.split("\n")
         for line in lines:
-            if line.startswith("#") == False and len(line) > 0:
-                playlist.append(line)
 
+            if (line.startswith("Ref") == True):
+
+                list = line.split("=", 1)
+                tmp = list[1].strip()
+
+                if (tmp.endswith("?MSWMExt=.asf")):
+                    playlist.append(tmp.replace("http", "mms"))
+                else:
+                    playlist.append(tmp)
+         
         return playlist
+

@@ -26,8 +26,21 @@ class AsxPlaylistDecoder:
 
     def __init__(self):
         print "ASX-familiy playlist decoder"
+
+
+    def isStreamValid(self, contentType, firstBytes):
+
+        if(contentType == 'audio/x-ms-wax' or contentType == 'video/x-ms-wvx'):
+            print "Stream is readable by ASX Playlist Decoder"
+            return True
+        elif(contentType == 'video/x-ms-asf' and firstBytes.strip().lower().startswith('<asx')):
+            print "Stream is readable by ASX Playlist Decoder"
+            return True
+        else:
+            return False
+
         
-    def extractStream(self,  url):
+    def extractPlaylist(self,  url):
 
         print "Downloading playlist..."
 
@@ -46,4 +59,15 @@ class AsxPlaylistDecoder:
         if (len(result) > 0):
             return result
         else:
-            return None
+            result = root.xpath("//REF/@HREF")
+            if (len(result) > 0):
+
+                for i in range(1,len(result)):
+
+                    tmp = result[i]
+                    if (tmp.endswith("?MSWMExt=.asf")):
+                        result[i] = tmp.replace("http", "mms")
+
+                return result
+            else:
+                return []

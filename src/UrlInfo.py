@@ -17,39 +17,23 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
 
-class M3uPlaylistDecoder:
+class UrlInfo(object):
 
-    def __init__(self):
-        print "M3U playlist decoder"
+    def __init__(self, url, playlist, contentType, decoder = None):
+        self.url = url
+        self.playlist = playlist
+        self.contentType = contentType
+        self.decoder = decoder
 
-    def isStreamValid(self, contentType, firstBytes):
+    def isPlaylist(self):
+        return self.playlist
 
-        if(contentType == 'audio/mpegurl' or contentType == 'audio/x-mpegurl'):
-            print 'Stream is readable by M3U Playlist Decoder'
-            return True
-        else:
-            return False
+    def getContentType(self):
+        return self.contentType
 
+    def getDecoder(self):
+        return self.decoder
 
-
-    def extractPlaylist(self,  url):
-        print "Downloading playlist..."
-
-        req = urllib2.Request(url)
-        f = urllib2.urlopen(req)
-        str = f.read()
-        f.close()
-
-        print "Playlist downloaded"
-        print "Decoding playlist..."
-
-        lines = str.split("\n")
-        playlist = []
-
-        for line in lines:
-            if line.startswith("#") == False and len(line) > 0:
-                playlist.append(line)
-
-        return playlist
+    def getUrl(self):
+        return self.url

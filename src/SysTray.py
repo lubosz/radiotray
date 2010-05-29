@@ -104,10 +104,13 @@ class SysTray(object):
         self.icon.connect('scroll_event', self.scroll)
 
         # MediaKeys
-        self.bus = dbus.SessionBus()
-        self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
+        try:
+            self.bus = dbus.SessionBus()
+            self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
 
-        self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
+            self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
+        except:
+            print "Could not bind to Gnome for Media Keys"
 
     def scroll(self,widget, event):
         if event.direction == gtk.gdk.SCROLL_UP:

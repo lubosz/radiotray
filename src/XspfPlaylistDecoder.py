@@ -26,8 +26,19 @@ class XspfPlaylistDecoder:
 
     def __init__(self):
         print "XSPF playlist decoder"
+
+
+    def isStreamValid(self, contentType, firstBytes):
+
+        if(contentType == 'application/xspf+xml'):
+            print "Stream is readable by XSPF Playlist Decoder"
+            return True
+        else:
+            return False
         
-    def extractStream(self,  url):
+
+
+    def extractPlaylist(self,  url):
 
         print "Downloading playlist..."
 

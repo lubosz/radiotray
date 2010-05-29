@@ -24,7 +24,18 @@ class PlsPlaylistDecoder:
     def __init__(self):
         print "PLS playlist decoder"
         
-    def extractStream(self,  url):
+
+    def isStreamValid(self, contentType, firstBytes):
+
+        if(contentType == 'audio/x-scpls'):
+            print "Stream is readable by PLS Playlist Decoder"
+            return True
+        else:
+            return False
+
+
+
+    def extractPlaylist(self,  url):
             
             print "Downloading playlist..."
             
@@ -42,7 +53,7 @@ class PlsPlaylistDecoder:
 
                 if line.startswith("File") == True:
 
-                        list = line.split("=")
+                        list = line.split("=", 1)
                         playlist.append(list[1])
       
             

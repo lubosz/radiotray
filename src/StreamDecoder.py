@@ -22,6 +22,8 @@ from PlsPlaylistDecoder import PlsPlaylistDecoder
 from M3uPlaylistDecoder import M3uPlaylistDecoder
 from AsxPlaylistDecoder import AsxPlaylistDecoder
 from XspfPlaylistDecoder import XspfPlaylistDecoder
+from AsfPlaylistDecoder import AsfPlaylistDecoder
+from UrlInfo import UrlInfo
 
 class StreamDecoder:
 
@@ -30,34 +32,35 @@ class StreamDecoder:
         m3uDecoder = M3uPlaylistDecoder()
         asxDecoder = AsxPlaylistDecoder()
         xspfDecoder = XspfPlaylistDecoder()
-        self.formats = {
-            'audio/x-scpls': plsDecoder,
-            'audio/mpegurl': m3uDecoder,
-            'audio/x-mpegurl': m3uDecoder,
-            'video/x-ms-asf': asxDecoder,
-            'audio/x-ms-wax': asxDecoder,
-            'video/x-ms-wvx': asxDecoder,
-            'application/xspf+xml': xspfDecoder
-        }
+        asfDecoder = AsfPlaylistDecoder()
+        
+        self.decoders = [plsDecoder, m3uDecoder, asxDecoder, asfDecoder, xspfDecoder]
 
-    def extractStream(self, url):
+    
+
+    def getMediaStreamInfo(self, url):
+
         if url.startswith("http") == False:
             print "Not an HTTP url. Maybe direct stream..."
-            return [url]
+            return UrlInfo(url, False, None)
 
         print "Requesting stream... " + url
-        myHeaders = {'Range':'bytes=0-9'}
+        myHeaders = {'Range':'bytes=0-20'}
         req = urllib2.Request(url, headers=myHeaders)
         try:
-            f = urllib2.urlopen(req)
+            f = urllib2.urlopen(req, timeout=40)
+
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
-            return [url]
+            return None
         except Exception, e:
             print "No radio stream found. Error: %s" % str(e)
-            return [url]
+            return None
 
         metadata = f.info()
+        firstbytes = f.read(20)
+        print "##>"+firstbytes+"<##"
+
         f.close()
         print "Metadata obtained..."
 
@@ -65,14 +68,24 @@ class StreamDecoder:
             contentType = metadata["Content-Type"]
             print "Content-Type: " + contentType
 
-            format = self.formats[contentType]
-            if format == None:
-                print "No known formats found. Maybe direct stream..."
-                return [url]
-            else:
-                print "Format detected"
-                mediaUrl = format.extractStream(url)
-                return mediaUrl
-        except:
-            print "Couldn't read content-type"
-            return [url]
+        except Exception as e:
+            print "Couldn't read content-type. Maybe direct stream..."
+            print e
+            return UrlInfo(url, False, None)
+
+        for decoder in self.decoders:
+                
+            print "Checking decoder"
+            if(decoder.isStreamValid(contentType, firstbytes)):
+
+                return UrlInfo(url, True, contentType, decoder)
+            
+        # no playlist decoder found. Maybe a direct stream
+        return UrlInfo(url, False, contentType)
+        
+
+
+    def getPlaylist(self, urlInfo):
+
+        return urlInfo.getDecoder().extractPlaylist(urlInfo.getUrl())
+
