@@ -33,7 +33,7 @@ class AudioPlayerGStreamer:
         self.playlist = []
 
         # init player
-        self.player = gst.element_factory_make("playbin", "player")
+        self.player = gst.element_factory_make("playbin2", "player")
         fakesink = gst.element_factory_make("fakesink", "fakesink")
         self.player.set_property("video-sink", fakesink)
         bus = self.player.get_bus()
@@ -108,8 +108,8 @@ class AudioPlayerGStreamer:
 
             if newstate == gst.STATE_PLAYING:
                 self.mediator.notifyPlaying()
-            elif newstate == gst.STATE_NULL:
-                self.mediator.notifyStopped()
+            #elif newstate == gst.STATE_NULL:
+                #self.mediator.notifyStopped()
 
         elif t == gst.MESSAGE_TAG:
 
