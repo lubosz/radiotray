@@ -78,12 +78,12 @@ class AudioPlayerGStreamer:
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
 
-    def volume_up(self):   
-        self.player.set_property("volume", min(self.player.get_property("volume") + 0.05, 1.0))
+    def volume_up(self, volume_increment):   
+        self.player.set_property("volume", min(self.player.get_property("volume") + volume_increment, 1.0))
         self.mediator.updateVolume(self.player.get_property("volume"))
 
-    def volume_down(self):
-        self.player.set_property("volume", max(self.player.get_property("volume") - 0.05, 0.0))
+    def volume_down(self, volume_increment):
+        self.player.set_property("volume", max(self.player.get_property("volume") - volume_increment, 0.0))
         self.mediator.updateVolume(self.player.get_property("volume"))
 
     def on_message(self, bus, message):

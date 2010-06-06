@@ -19,6 +19,7 @@
 ##########################################################################
 from ConsoleLog import ConsoleLog
 from XmlDataProvider import XmlDataProvider
+from XmlConfigProvider import XmlConfigProvider
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from SysTray import SysTray
 from StateMediator import StateMediator
@@ -26,7 +27,7 @@ from Notification import Notification
 from DbusFacade import DbusFacade
 import os
 from shutil import move, copy2
-from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST
+from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME
 import mpris
 
 class RadioTray(object):
@@ -46,8 +47,12 @@ class RadioTray(object):
         self.provider = XmlDataProvider(self.filename)
         self.provider.loadFromFile()
 
+        # load config data provider and initializes it
+        self.cfg_provider = XmlConfigProvider(self.cfg_filename)
+        self.cfg_provider.loadFromFile()
+
         # mediator
-        self.mediator = StateMediator(self.provider, notification)
+        self.mediator = StateMediator(self.provider, self.cfg_provider, notification)
 
         # load audio player
         self.audio = AudioPlayerGStreamer(self.mediator, self.log)
@@ -79,6 +84,9 @@ class RadioTray(object):
 
         self.filename = os.path.join(USER_CFG_PATH, CFG_NAME)
         print self.filename
+
+        self.cfg_filename = os.path.join(USER_CFG_PATH, OPTIONS_CFG_NAME)
+        print self.cfg_filename
 
         if(os.access(self.filename, os.R_OK|os.W_OK) == False):
 

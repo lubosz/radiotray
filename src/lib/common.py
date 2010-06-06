@@ -57,6 +57,7 @@ APP_ICON_CONNECT = os.path.join(IMAGE_PATH, 'radiotray_connecting.gif')
 
 # Config info
 CFG_NAME = 'bookmarks.xml'
+OPTIONS_CFG_NAME = 'config.xml'
 USER_CFG_PATH =  os.path.join(xdg_data_home, APPDIRNAME)
 OLD_USER_CFG_PATH = os.environ['HOME'] + "/.radiotray/"
 

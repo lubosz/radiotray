@@ -24,8 +24,9 @@ from lib.common import APPNAME
 
 class StateMediator(object):
 
-    def __init__(self, provider, notification):
+    def __init__(self, provider, cfg_provider, notification):
         self.provider = provider
+        self.cfg_provider = cfg_provider
         self.notification = notification
         self.isPlaying = False
         self.isNotified = False
@@ -36,6 +37,9 @@ class StateMediator(object):
 
     def setAudioPlayer(self, audioPlayer):
         self.audioPlayer = audioPlayer
+
+        # set volume level (can't call set_volume yet)
+        self.audioPlayer.player.set_property("volume", float(self.cfg_provider.getConfigValue("volume_level")))
 
     def setSystray(self, systray):
         self.systray = systray
@@ -69,11 +73,11 @@ class StateMediator(object):
         self.isNotified = False
 
     def volume_up(self):
-        self.audioPlayer.volume_up()
+        self.audioPlayer.volume_up(float(self.cfg_provider.getConfigValue("volume_increment")))
         self.systray.updateTooltip()
 
     def volume_down(self):
-        self.audioPlayer.volume_down()
+        self.audioPlayer.volume_down(float(self.cfg_provider.getConfigValue("volume_increment")))
         self.systray.updateTooltip()
 
     def set_volume(self, value):
@@ -93,7 +97,8 @@ class StateMediator(object):
             self.isNotified = True
             self.systray.setPlayingState(self.currentRadio)
             self.isPlaying = True
-            self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Playing"), self.currentRadio)
+            if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
+                self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Playing"), self.currentRadio)
 
     def notifyStopped(self):
         self.systray.setStoppedState()
@@ -101,13 +106,14 @@ class StateMediator(object):
 
     def notifySong(self, data):
         newMetadata = str(data)
-
+        
         if (self.currentMetaData != newMetadata):
             self.currentMetaData = newMetadata
             self.systray.updateTooltip()
 
             if self.currentMetaData:
-                self.notification.notify("%s - %s" % (APPNAME , self.currentRadio), self.currentMetaData)
+                if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
+                    self.notification.notify("%s - %s" % (APPNAME , self.currentRadio), self.currentMetaData)
 
     def getCurrentRadio(self):
         return self.currentRadio
@@ -117,6 +123,8 @@ class StateMediator(object):
 
     def updateVolume(self, volume):
         self.volume = volume
+        self.cfg_provider.setConfigValue("volume_level", str(round(self.volume,2)))
 
     def getVolume(self):
         return int(round(self.volume * 100))
+
