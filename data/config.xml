@@ -1,0 +1,5 @@
+<config>
+  <option name="enabled_notifications" value="true"/>
+  <option name="volume_increment" value="0.05"/>
+  <option name="volume_level" value="1.0"/>
+</config>
