@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-22 07:46+0000\n"
+"POT-Creation-Date: 2010-06-01 11:54+0000\n"
 "PO-Revision-Date: 2010-03-23 13:59-0500\n"
 "Last-Translator: Carlos Arenas <carlos.arenass@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -46,11 +46,11 @@ msgstr ""
 msgid "%s's Website"
 msgstr "Página web de %s"
 
-#: ../src/BookmarkConfiguration.py:63
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Nombre de radio"
 
-#: ../src/BookmarkConfiguration.py:151
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Está seguro que desea eliminar \"%s\" ?"
@@ -63,49 +63,54 @@ msgstr "Desarrolladores:"
 msgid "Contributors:"
 msgstr "Contribuyentes:"
 
-#: ../src/StateMediator.py:73
+#: ../src/StateMediator.py:61 ../src/StateMediator.py:62
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Radio desconocido"
+
+#: ../src/StateMediator.py:89
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Error"
 
-#: ../src/StateMediator.py:80
+#: ../src/StateMediator.py:96
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio tocando"
 
-#: ../src/SysTray.py:78 ../src/SysTray.py:143
+#: ../src/SysTray.py:80 ../src/SysTray.py:165
 msgid "Turned Off"
 msgstr "Desconectado"
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:88
 msgid "Configure radios..."
 msgstr "Configurar radios..."
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:89
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/SysTray.py:88
+#: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Salir"
 
-#: ../src/SysTray.py:100 ../src/SysTray.py:146
+#: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
 msgstr "<i>Inactivo</i>"
 
-#: ../src/SysTray.py:149
+#: ../src/SysTray.py:171
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Desconectar \"%s\""
 
-#: ../src/SysTray.py:156
+#: ../src/SysTray.py:178
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Conectándose a %s"
 
-#: ../src/SysTray.py:170
+#: ../src/SysTray.py:192
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -115,7 +120,7 @@ msgstr ""
 "Tocando <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:172
+#: ../src/SysTray.py:194
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
