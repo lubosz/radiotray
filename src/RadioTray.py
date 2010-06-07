@@ -27,7 +27,7 @@ from Notification import Notification
 from DbusFacade import DbusFacade
 import os
 from shutil import move, copy2
-from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME
+from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE
 import mpris
 
 class RadioTray(object):
@@ -100,6 +100,10 @@ class RadioTray(object):
 
             else:
                 copy2(DEFAULT_RADIO_LIST, self.filename)
+
+        if(os.access(self.cfg_filename, os.R_OK|os.W_OK) == False):
+
+            copy2(DEFAULT_CONFIG_FILE, self.cfg_filename)
 
 if __name__ == "__main__":
         radio = RadioTray()
