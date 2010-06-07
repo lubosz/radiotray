@@ -1,13 +1,7 @@
 [Desktop Entry]
-Version=0.6-dev
-Encoding=UTF-8
 Name=Radio Tray
-_GenericName=Streaming music player
-_X-GNOME-FullName=Streaming music player
-_Comment=A simple yet powerful streaming music player
 Terminal=false
 Exec=radiotray
 Icon=radiotray
 Type=Application
 Categories=AudioVideo;Audio;Player;GTK;
-X-GNOME-Gettext-Domain=radiotray

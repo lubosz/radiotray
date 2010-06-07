@@ -12,6 +12,9 @@ Radio Tray 0.6 - 11/04/2010
 * Added keyboard media keys support
 * Added ASF playlist format
 * Improved playlist decoding
+* Added RAM playlist support
+* Added configuration file
+
 
 Radio Tray 0.5.1 - 11/04/2010
 =============================

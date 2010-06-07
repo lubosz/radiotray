@@ -61,8 +61,9 @@ OPTIONS_CFG_NAME = 'config.xml'
 USER_CFG_PATH =  os.path.join(xdg_data_home, APPDIRNAME)
 OLD_USER_CFG_PATH = os.environ['HOME'] + "/.radiotray/"
 
-if os.path.exists(os.path.abspath('../data/')):
-    DEFAULT_CFG_PATH = os.path.abspath('../data/')
+REL_CFG_DIR = os.path.abspath('../data/')
+if os.path.exists(os.path.join(REL_CFG_DIR, CFG_NAME)):
+    DEFAULT_CFG_PATH = REL_CFG_DIR
 else:
     DEFAULT_CFG_PATH = '%s/%s/' % (datadir, APPDIRNAME)
 
