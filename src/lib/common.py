@@ -23,6 +23,8 @@ AUTHORS = [
     "Carlos Ribeiro <carlosmribeiro1@gmail.com>",
     _('Contributors:'),
     'Og Maciel <ogmaciel@gnome.com>',
+    'Ed Bruck <ed.bruck1@gmail.com>',
+    'Behrooz Shabani <behrooz@rock.com>',
 ]
 
 ARTISTS = []
