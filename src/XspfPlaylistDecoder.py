@@ -30,7 +30,7 @@ class XspfPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if(contentType == 'application/xspf+xml'):
+        if('application/xspf+xml' in contentType):
             print "Stream is readable by XSPF Playlist Decoder"
             return True
         else:

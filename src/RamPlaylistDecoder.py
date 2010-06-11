@@ -26,7 +26,7 @@ class RamPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if(contentType == 'audio/x-pn-realaudio' or contentType == 'audio/vnd.rn-realaudio'):
+        if('audio/x-pn-realaudio' in contentType or 'audio/vnd.rn-realaudio' in contentType):
             print 'Stream is readable by RAM Playlist Decoder'
             return True
         else:

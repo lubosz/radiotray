@@ -35,7 +35,9 @@ def main(argv):
                 sys.exit()
             elif opt in ("-l", "--list"):
                 listRadios = radiotray.get_dbus_method('listRadios', 'net.sourceforge.radiotray')
-                print listRadios()
+                radios = listRadios()
+                for radio in radios:
+                    print radio
 
             elif opt in ("-r", "--radio"):
                 playRadio = radiotray.get_dbus_method('playRadio', 'net.sourceforge.radiotray')

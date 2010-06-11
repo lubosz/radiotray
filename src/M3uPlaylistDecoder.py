@@ -26,7 +26,7 @@ class M3uPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if(contentType == 'audio/mpegurl' or contentType == 'audio/x-mpegurl'):
+        if('audio/mpegurl' in contentType or 'audio/x-mpegurl' in contentType):
             print 'Stream is readable by M3U Playlist Decoder'
             return True
         else:
