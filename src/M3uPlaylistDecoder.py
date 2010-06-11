@@ -45,7 +45,7 @@ class M3uPlaylistDecoder:
         print "Playlist downloaded"
         print "Decoding playlist..."
 
-        lines = str.split("\n")
+        lines = str.splitlines()
         playlist = []
 
         for line in lines:

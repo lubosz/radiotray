@@ -1,3 +1,22 @@
+radiotray (0.6) unstable; urgency=low
+
+  * Updated translations
+  * Added volume control by using the mouse scrollwheel and corresding information on the tooltip
+  * Added DBus interface
+  * Fixed several small bugs
+  * Added separators to radio menu
+  * Added support for playing directly by URL, via DBus
+  * Added XSPF playlist format support
+  * Added MPRIS support to DBus interface
+  * Added keyboard media keys support
+  * Added ASF playlist format
+  * Improved playlist decoding
+  * Added RAM playlist support
+  * Added configuration file
+
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Fri, 11 Jun 2010 01:40:47 +1000
+
+
 radiotray (0.5.1) unstable; urgency=low
 
   * Fixed debian build.

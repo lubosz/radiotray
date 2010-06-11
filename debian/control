@@ -21,8 +21,6 @@ Depends: ${misc:Depends},
  python-lxml (>= 2.1.5),
  python-gobject (>= 2.18.0),
  python-notify (>= 0.1.1),
- python-dbus (>= 0.83.0),
- 
+ python-dbus (>= 0.83.0)
 Description: Radio Tray is an online radio stream player
  Radio Tray is a simple streaming music player
-
