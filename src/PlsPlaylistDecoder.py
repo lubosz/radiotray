@@ -48,7 +48,7 @@ class PlsPlaylistDecoder:
             print "Decoding playlist..."
             
 	    playlist = []
-            lines = str.split("\n")
+            lines = str.splitlines()
             for line in lines:
 
                 if line.startswith("File") == True:
