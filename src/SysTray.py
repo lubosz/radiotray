@@ -85,14 +85,17 @@ class SysTray(object):
         # config menu
 
         self.menu = gtk.Menu()
-        menu_item1 = gtk.MenuItem(_("Configure radios..."))
+        menu_item1 = gtk.MenuItem(_("Configure Radios..."))
         menu_item3 = gtk.MenuItem(_("About"))
         menu_item2 = gtk.MenuItem(_("Quit"))
+        separator  = gtk.MenuItem()
         self.menu.append(menu_item1)
         self.menu.append(menu_item3)
+        self.menu.append(separator)
         self.menu.append(menu_item2)
         menu_item1.show()
         menu_item2.show()
+        separator.show()
         menu_item3.show()
         menu_item1.connect('activate', self.on_preferences)
         menu_item2.connect('activate', self.on_quit)
