@@ -32,14 +32,14 @@ class StateMediator(object):
         self.isNotified = False
         self.currentRadio = ''
         self.currentMetaData = ''
-        self.volume = 0.0
+        self.volume = float(self.cfg_provider.getConfigValue("volume_level"))
         self.bitrate = 0
 
     def setAudioPlayer(self, audioPlayer):
         self.audioPlayer = audioPlayer
 
         # set volume level (can't call set_volume yet)
-        self.audioPlayer.player.set_property("volume", float(self.cfg_provider.getConfigValue("volume_level")))
+        self.audioPlayer.player.set_property("volume", self.volume)
 
     def setSystray(self, systray):
         self.systray = systray
@@ -95,8 +95,8 @@ class StateMediator(object):
     def notifyPlaying(self):
         if (self.isNotified == False):
             self.isNotified = True
+            self.isPlaying = True            
             self.systray.setPlayingState(self.currentRadio)
-            self.isPlaying = True
             if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
                 self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Playing"), self.currentRadio)
 

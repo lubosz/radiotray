@@ -102,7 +102,7 @@ class SysTray(object):
         menu_item3.connect('activate', self.on_about)
 
         self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
-        self.icon.set_tooltip_markup(_('<i>Idle</i>'))
+        self.icon.set_tooltip_markup(_("<i>Idle (vol: %s%%)</i>") % (self.mediator.getVolume()))
         self.icon.connect('button_press_event', self.button_press)
         self.icon.connect('scroll_event', self.scroll)
 
@@ -168,7 +168,7 @@ class SysTray(object):
         self.turnOff.set_label(_('Turned Off'))
         self.turnOff.set_sensitive(False)
         self.icon.set_from_file(APP_ICON_OFF)
-        self.icon.set_tooltip_markup(_("<i>Idle</i>"))
+        self.icon.set_tooltip_markup(_("<i>Idle (vol: %s%%)</i>") % (self.mediator.getVolume()))
 
     def setPlayingState(self, radio):
         self.turnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
@@ -191,10 +191,13 @@ class SysTray(object):
         
         volume = self.mediator.getVolume()
 
-        if(songInfo):
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (radio, volume, songInfo))
+        if self.mediator.isPlaying:
+            if(songInfo):
+                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)\n<i>%s</i>") % (radio, volume, songInfo))
+            else:
+                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (radio, volume))
         else:
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (radio, volume))
+            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "<i>Idle (vol: %s%%)</i>") % (volume))
 
     def update_radios(self):
 
