@@ -2,12 +2,12 @@
 # Copyright (C) 2010 the Free Software Foundation, Inc.
 # This file is distributed under the same license as the PACKAGE package.
 # Daniele Napolitano <dnax88@gmail.com>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radio-tray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 08:38-0400\n"
+"POT-Creation-Date: 2010-06-11 20:41+0000\n"
 "PO-Revision-Date: 2010-04-04 00:19+0200\n"
 "Last-Translator: Daniele Napolitano <dnax88@gmail.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -24,6 +24,11 @@ msgid "Radio name:"
 msgstr "Nome radio:"
 
 #: ../data/configBookmarks.glade.h:3
+#, fuzzy
+msgid "Separator"
+msgstr "Separatore"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL:"
 
@@ -36,11 +41,11 @@ msgstr "Daniele Napolitano <dnax88@gmail.com>"
 msgid "%s's Website"
 msgstr "Sito web di %s"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Nome radio"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Si è sicuri di voler eliminare \"%s\"?"
@@ -53,71 +58,73 @@ msgstr "Sviluppatori:"
 msgid "Contributors:"
 msgstr "Contributi:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Radio sconosciuta"
+
+#: ../src/StateMediator.py:93
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Errore radio"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:101
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio in riproduzione"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
-#, fuzzy
+#: ../src/SysTray.py:80 ../src/SysTray.py:165
 msgid "Turned Off"
-msgstr "Spegni la radio"
+msgstr "Spenta"
 
-#: ../src/SysTray.py:85
+#: ../src/SysTray.py:88
 msgid "Configure radios..."
 msgstr "Configura le radio..."
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:89
 msgid "About"
 msgstr "Informazioni"
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Esci"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
 msgstr "<i>In pausa</i>"
 
-#: ../src/SysTray.py:132
-#, fuzzy, python-format
+#: ../src/SysTray.py:171
+#, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Spegni la radio"
+msgstr "Spegni \"%s\""
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"In riproduzione <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "In riproduzione <b>%s</b>"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:178
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Connessione a %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:192
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"In riproduzione <b>%s</b>\n"
+"<b>%s</b> in riproduzione (vol: %s%%)\n"
 "<i>%s</i>"
+
+#: ../src/SysTray.py:194
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "<b>%s</b> in riproduzione (vol: %s%%)"
+
+#~ msgctxt "Informs what radio and music is being played."
+#~ msgid ""
+#~ "Playing <b>%s</b>\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "In riproduzione <b>%s</b>\n"
+#~ "<i>%s</i>"
