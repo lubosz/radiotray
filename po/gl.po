@@ -87,6 +87,7 @@ msgstr "Acerca de"
 #: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Saír"
+
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 #: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
@@ -111,10 +112,11 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Soando <b>%s</b> (vol: %s%%)\n"
+"Reproducindo <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
+
 #: ../src/SysTray.py:194
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Soando <b>%s</b> (vol: %s%%)"
+msgstr "Reproducindo <b>%s</b> (vol: %s%%)"
