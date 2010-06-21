@@ -1,9 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray 0.6\n"
@@ -89,7 +87,7 @@ msgstr "Acerca de"
 #: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Saír"
-
+# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 #: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
 msgstr "<i>Detido</i>"
