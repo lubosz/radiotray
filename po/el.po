@@ -28,7 +28,7 @@ msgstr "Κενό Διάστημα"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "URL :"
-msgstr "URL :"
+msgstr "Διεύθυνση :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -76,7 +76,7 @@ msgid "Turned Off"
 msgstr "Απενεργοποίηση"
 
 #: ../src/SysTray.py:88
-msgid "Configure radios..."
+msgid "Configure Radios..."
 msgstr "Ρυθμίσεις Σταθμών..."
 
 #: ../src/SysTray.py:89
