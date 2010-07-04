@@ -183,7 +183,7 @@ class BookmarkConfiguration(object):
                     # remove from gui
                     model.remove(iter)
 
-                    confirmation.hide()
+                confirmation.hide()
             else:
                  self.dataProvider.removeRadio(separatorFlag)
                  # remove from gui
