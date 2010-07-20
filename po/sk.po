@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-26 10:32+0000\n"
+"POT-Creation-Date: 2010-06-11 20:41+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Miroslav Biňas <mirek@host.sk>\n"
 "Language-Team: Slovak\n"
@@ -44,11 +44,11 @@ msgstr "Miroslav Biňas <mirek@host.sk>"
 msgid "%s's Website"
 msgstr "%s webová stránka"
 
-#: ../src/BookmarkConfiguration.py:63
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Názov rádia"
 
-#: ../src/BookmarkConfiguration.py:151
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Naozaj chcete odstrániť \"%s\"?"
@@ -61,51 +61,57 @@ msgstr "Napísali:"
 msgid "Contributors:"
 msgstr "Prispeli:"
 
-#: ../src/StateMediator.py:73
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Neznáme rádio"
+
+#: ../src/StateMediator.py:93
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Chyba rádia"
 
-#: ../src/StateMediator.py:80
+#: ../src/StateMediator.py:101
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Hrá rádio"
 
-#: ../src/SysTray.py:78
-#: ../src/SysTray.py:143
+#: ../src/SysTray.py:80
+#: ../src/SysTray.py:165
 msgid "Turned Off"
 msgstr "Vypnuté"
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:88
 msgid "Configure radios..."
 msgstr "Nastaviť rádiá..."
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:89
 msgid "About"
 msgstr "O programe"
 
-#: ../src/SysTray.py:88
+#: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Koniec"
 
-#: ../src/SysTray.py:100
-#: ../src/SysTray.py:146
+#: ../src/SysTray.py:102
+#: ../src/SysTray.py:168
 msgid "<i>Idle</i>"
 msgstr "<i>Nečinný</i>"
 
-#: ../src/SysTray.py:149
+#: ../src/SysTray.py:171
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Vypnúť \"%s\""
 
-#: ../src/SysTray.py:156
+#: ../src/SysTray.py:178
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Pripájanie ku %s"
 
-#: ../src/SysTray.py:170
+#: ../src/SysTray.py:192
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -115,7 +121,7 @@ msgstr ""
 "Hrá <b>%s</b> (hlas: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:172
+#: ../src/SysTray.py:194
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
