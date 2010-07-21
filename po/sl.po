@@ -76,7 +76,7 @@ msgstr "Predvajana postaja"
 
 #: ../src/SysTray.py:80 ../src/SysTray.py:165
 msgid "Turned Off"
-msgstr "Izkloplen"
+msgstr "Izklopljen"
 
 #: ../src/SysTray.py:88
 msgid "Configure radios..."
