@@ -86,8 +86,8 @@ class SysTray(object):
 
         self.menu = gtk.Menu()
         menu_item1 = gtk.MenuItem(_("Configure Radios..."))
-        menu_item3 = gtk.MenuItem(_("About"))
-        menu_item2 = gtk.MenuItem(_("Quit"))
+        menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+        menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)
         self.menu.append(menu_item1)
         self.menu.append(menu_item3)
         self.menu.append(menu_item2)

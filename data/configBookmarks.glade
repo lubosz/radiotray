@@ -3,28 +3,30 @@
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window1">
-    <property name="width_request">500</property>
-    <property name="height_request">300</property>
+    <property name="default_width">500</property>
+    <property name="default_height">300</property>
     <property name="visible">True</property>
-    <property name="title" translatable="yes">Configure Radios</property>
+    <property name="title" translatable="yes" context="yes">Configure Radios</property>
     <signal name="delete_event" handler="on_delete_event"/>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
+        <property name="border_width">6</property>
+        <property name="spacing">6</property>
         <child>
           <object class="GtkHBox" id="hbox1">
             <property name="visible">True</property>
+            <property name="spacing">6</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
+                <property name="shadow-type">in</property>
                 <property name="hscrollbar_policy">automatic</property>
                 <property name="vscrollbar_policy">automatic</property>
                 <child>
                   <object class="GtkTreeView" id="treeview1">
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <signal name="cursor_changed" handler="on_cursor_changed"/>
                   </object>
                 </child>
@@ -33,6 +35,7 @@
                 <property name="position">0</property>
               </packing>
             </child>
+<!--
             <child>
               <object class="GtkVSeparator" id="vseparator1">
                 <property name="visible">True</property>
@@ -43,17 +46,17 @@
                 <property name="position">1</property>
               </packing>
             </child>
+-->
             <child>
               <object class="GtkVButtonBox" id="vbuttonbox1">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
                 <property name="layout_style">start</property>
                 <child>
                   <object class="GtkButton" id="newBookmarkButton">
                     <property name="label">gtk-add</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="use_stock">True</property>
                     <signal name="clicked" handler="on_add_bookmark_clicked"/>
                   </object>
@@ -67,8 +70,8 @@
                   <object class="GtkButton" id="newSeparatorButton">
                     <property name="label" translatable="yes">Separator</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="xalign">0.4699999988079071</property>
                     <signal name="clicked" handler="on_add_separator_clicked"/>
                   </object>
@@ -82,8 +85,8 @@
                   <object class="GtkButton" id="editBookmarkButton">
                     <property name="label">gtk-edit</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="use_stock">True</property>
                     <signal name="clicked" handler="on_edit_bookmark_clicked"/>
                   </object>
@@ -97,8 +100,8 @@
                   <object class="GtkButton" id="delBookmarkButton">
                     <property name="label">gtk-remove</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="use_stock">True</property>
                     <signal name="clicked" handler="on_remove_bookmark_clicked"/>
                   </object>
@@ -112,8 +115,8 @@
                   <object class="GtkButton" id="moveUpButton">
                     <property name="label">gtk-go-up</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="use_stock">True</property>
                     <signal name="clicked" handler="on_moveup_bookmark_clicked"/>
                   </object>
@@ -127,8 +130,8 @@
                   <object class="GtkButton" id="moveDownButton">
                     <property name="label">gtk-go-down</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
                     <property name="use_stock">True</property>
                     <signal name="clicked" handler="on_movedown_bookmark_clicked"/>
                   </object>
@@ -141,7 +144,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="position">2</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -149,6 +152,7 @@
             <property name="position">0</property>
           </packing>
         </child>
+<!--
         <child>
           <object class="GtkHSeparator" id="hseparator1">
             <property name="visible">True</property>
@@ -158,6 +162,7 @@
             <property name="position">1</property>
           </packing>
         </child>
+-->
         <child>
           <object class="GtkHButtonBox" id="hbuttonbox1">
             <property name="visible">True</property>
@@ -166,8 +171,8 @@
               <object class="GtkButton" id="closeButton">
                 <property name="label">gtk-close</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">False</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_close_clicked"/>
               </object>
@@ -181,94 +186,79 @@
           <packing>
             <property name="expand">False</property>
             <property name="pack_type">end</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
     </child>
   </object>
   <object class="GtkDialog" id="editBookmark">
-    <property name="width_request">500</property>
+    <property name="default_width">500</property>
     <property name="border_width">5</property>
     <property name="type_hint">normal</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <object class="GtkVBox" id="vbox2">
+          <object class="GtkTable" id="table1">
             <property name="visible">True</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkHBox" id="hbox2">
-                <property name="visible">True</property>
+            <property name="n_rows">2</property>
+            <property name="n_columns">2</property>
+            <property name="column_spacing">6</property>
+            <property name="row_spacing">6</property> 
                 <child>
                   <object class="GtkLabel" id="label1">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">Radio name:</property>
+                    <property name="xalign">1</property>
+                    <property name="xpad">5</property>
+                    <property name="label" translatable="yes" context="yes">Radio name:</property>
                     <property name="track_visited_links">False</property>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
+                    <property name="x_options">GTK_FILL</property>
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
-                </child>
+                    <object class="GtkEntry" id="nameEntry">
+                       <property name="visible">True</property>
+                       <property name="is_focus">True</property>
+                       <property name="invisible_char_set">True</property>
+                       <signal name="activate" handler="on_nameEntry_activated"/>
+                    </object>
+                    <packing>
+                       <property name="left_attach">1</property>
+                       <property name="right_attach">2</property>
+                    </packing>
+                 </child>
+                 <child>
+                    <object class="GtkLabel" id="label2">
+                       <property name="visible">True</property>
+                       <property name="xalign">1</property>
+                       <property name="xpad">5</property>
+                       <property name="label" translatable="yes" context="yes">URL :</property>
+                    </object>
+                    <packing>
+                       <property name="top_attach">1</property>
+                       <property name="bottom_attach">2</property>
+                       <property name="x_options">GTK_FILL</property>
+                    </packing>
+                 </child>
+                 <child>
+                    <object class="GtkEntry" id="urlEntry">
+                       <property name="visible">True</property>
+                       <signal name="activate" handler="on_urlEntry_activated"/>
+                       <property name="invisible_char_set">True</property>
+                    </object>
+                    <packing>
+                       <property name="left_attach">1</property>
+                       <property name="right_attach">2</property>
+                       <property name="top_attach">1</property>
+                       <property name="bottom_attach">2</property>
+                     </packing>
+                 </child>
               </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="nameEntry">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkHBox" id="hbox3">
-                <property name="visible">True</property>
-                <child>
-                  <object class="GtkLabel" id="label2">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">URL :</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="urlEntry">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="position">3</property>
-              </packing>
-            </child>
-          </object>
           <packing>
             <property name="position">1</property>
           </packing>
@@ -293,7 +283,7 @@
             </child>
             <child>
               <object class="GtkButton" id="okButton">
-                <property name="label">gtk-ok</property>
+                <property name="label">gtk-save</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
