@@ -75,7 +75,9 @@ class BookmarkConfiguration(object):
                 "on_delBookmarkButton_clicked" : self.on_remove_bookmark_clicked,
                 "on_moveUpButton_clicked" : self.on_moveup_bookmark_clicked,
                 "on_moveDownButton_clicked" : self.on_movedown_bookmark_clicked,
-                "on_close_clickedButton_clicked" : self.on_close_clicked}
+                "on_close_clickedButton_clicked" : self.on_close_clicked,
+                "on_nameEntry_activated" : self.on_nameEntry_activated,
+                "on_urlEntry_activated" : self.on_urlEntry_activated}
             self.wTree.connect_signals(self)
 
     def on_cursor_changed(self, widget):
@@ -103,6 +105,8 @@ class BookmarkConfiguration(object):
         # reset old dialog values
         self.nameEntry.set_text('')
         self.urlEntry.set_text('')
+        self.config.set_title(_('Add new station'))
+        self.nameEntry.grab_focus()
 
         # show dialog
         result = self.config.run()
@@ -134,6 +138,8 @@ class BookmarkConfiguration(object):
             self.nameEntry.set_text(selectedRadioName)
             self.urlEntry.set_text(selectedRadioUrl)
             oldName = selectedRadioName
+            self.config.set_title(_('Edit %s') % selectedRadioName)
+            self.nameEntry.grab_focus()
 
             # show dialog
             result = self.config.run()
@@ -235,3 +241,9 @@ class BookmarkConfiguration(object):
         if self.standalone:
             gtk.main_quit()
         return False
+
+    def on_nameEntry_activated(self, widget):
+        self.urlEntry.grab_focus()
+
+    def on_urlEntry_activated(self, widget):
+        self.config.response(2)
