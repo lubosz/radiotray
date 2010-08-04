@@ -70,6 +70,8 @@ class AudioPlayerGStreamer:
             elif(urlInfo is not None and urlInfo.isPlaylist()):
                 self.playlist = self.decoder.getPlaylist(urlInfo) + self.playlist
                 self.playNextStream()
+            elif(urlInfo is None):
+                self.playNextStream()
         else:
             self.stop()
             self.mediator.notifyStopped()
@@ -97,6 +99,8 @@ class AudioPlayerGStreamer:
             self.log.log("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
             err, debug = message.parse_error()
+            print err
+            print debug
 
             if(len(self.playlist)>0):
                 self.playNextStream()

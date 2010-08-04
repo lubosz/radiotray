@@ -54,20 +54,26 @@ class AsxPlaylistDecoder:
 
         parser = etree.XMLParser(recover=True)
         root = etree.parse(StringIO(str),parser)
+
+        #ugly hack to normalize the XML
+        for element in root.iter():
+
+            tmp = element.tag
+            element.tag = tmp.lower()
+
+            for key in element.attrib.iterkeys():
+                element.attrib[key.lower()] = element.attrib[key]
+
+
         result = root.xpath("//ref/@href")
 
         if (len(result) > 0):
+
+            for i in range(1,len(result)):
+
+                tmp = result[i]
+                if (tmp.endswith("?MSWMExt=.asf")):
+                    result[i] = tmp.replace("http", "mms")
             return result
         else:
-            result = root.xpath("//REF/@HREF")
-            if (len(result) > 0):
-
-                for i in range(1,len(result)):
-
-                    tmp = result[i]
-                    if (tmp.endswith("?MSWMExt=.asf")):
-                        result[i] = tmp.replace("http", "mms")
-
-                return result
-            else:
-                return []
+            return []

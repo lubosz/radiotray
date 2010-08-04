@@ -47,8 +47,7 @@ class StreamDecoder:
             return UrlInfo(url, False, None)
 
         print "Requesting stream... " + url
-        myHeaders = {'Range':'bytes=0-20'}
-        req = urllib2.Request(url, headers=myHeaders)
+        req = urllib2.Request(url)
         try:
             f = urllib2.urlopen(req, timeout=40)
 
@@ -60,19 +59,18 @@ class StreamDecoder:
             return None
 
         metadata = f.info()
-        firstbytes = f.read(20)
-        print "##>"+firstbytes+"<##"
-
+        firstbytes = f.read(500)
         f.close()
-        print "Metadata obtained..."
-
-        try:
+        
+        try:            
+            print "Metadata obtained..."
             contentType = metadata["Content-Type"]
             print "Content-Type: " + contentType
+            
 
         except Exception as e:
             print "Couldn't read content-type. Maybe direct stream..."
-            print e
+            print "Error: ",e
             return UrlInfo(url, False, None)
 
         for decoder in self.decoders:
