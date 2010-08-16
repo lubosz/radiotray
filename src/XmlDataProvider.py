@@ -50,10 +50,11 @@ class XmlDataProvider:
         if(len(result) >= 1):
             return result[0]
 
-    def addRadio(self, name, url):
+    def addRadio(self, rawName, url):
 
         # Flag used to determine if a radio gets added or not
         radioAdded = None
+        name = unicode(rawName)
 
         # First, let us check this name hasn't been used yet.
         result = self._radioExists(name)
