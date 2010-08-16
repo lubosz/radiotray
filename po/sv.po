@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 08:38-0400\n"
-"PO-Revision-Date: 2010-04-10 00:19+0100\n"
+"POT-Creation-Date: 2010-06-11 20:41+0000\n"
+"PO-Revision-Date: 2010-08-15 13:49+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,10 @@ msgid "Radio name:"
 msgstr "Radionamn:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Avgränsare"
+
+#: ../data/configBookmarks.glade.h:4
 msgid "URL :"
 msgstr "URL :"
 
@@ -40,11 +44,11 @@ msgstr ""
 msgid "%s's Website"
 msgstr "Webbplatsen för %s"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:66
 msgid "Radio Name"
 msgstr "Radionamn"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Är du säker på att du vill ta bort \"%s\"?"
@@ -57,79 +61,83 @@ msgstr "Utvecklare:"
 msgid "Contributors:"
 msgstr "Bidragsgivare:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Okänd radio"
+
+#: ../src/StateMediator.py:93
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Radiofel"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:101
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio spelar"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:80
+#: ../src/SysTray.py:165
 msgid "Turned Off"
 msgstr "Avstängd"
 
-#: ../src/SysTray.py:85
+#: ../src/SysTray.py:88
 msgid "Configure radios..."
 msgstr "Konfigurera radio..."
 
-#: ../src/SysTray.py:86
+#: ../src/SysTray.py:89
 msgid "About"
 msgstr "Om"
 
-#: ../src/SysTray.py:87
+#: ../src/SysTray.py:90
 msgid "Quit"
 msgstr "Avsluta"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
+#: ../src/SysTray.py:102
+#: ../src/SysTray.py:168
 msgid "<i>Idle</i>"
 msgstr "<i>Overksam</i>"
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:171
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Stäng av \"%s\""
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"Spelar <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Spelar <b>%s</b>"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:178
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Ansluter till %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:192
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Spelar <b>%s</b>\n"
+"Spelar <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
+#: ../src/SysTray.py:194
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Spelar <b>%s</b> (vol: %s%%)"
+
+#~ msgctxt "Informs what radio and music is being played."
+#~ msgid ""
+#~ "Playing <b>%s</b>\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "Spelar <b>%s</b>\n"
+#~ "<i>%s</i>"
 #~ msgid "Radio Tray"
 #~ msgstr "Radioikon"
-
 #~ msgid "Idle"
 #~ msgstr "Overksam"
-
 #~ msgid "Playing"
 #~ msgstr "Spelar"
+
