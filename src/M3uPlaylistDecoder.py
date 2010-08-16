@@ -30,7 +30,11 @@ class M3uPlaylistDecoder:
             print 'Stream is readable by M3U Playlist Decoder'
             return True
         else:
-            return False
+            lines = firstBytes.splitlines()
+            for line in lines:
+                if(line.startswith("http://")):
+                    return True
+        return False
 
 
 

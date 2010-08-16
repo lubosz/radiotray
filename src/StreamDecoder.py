@@ -36,7 +36,7 @@ class StreamDecoder:
         asfDecoder = AsfPlaylistDecoder()
         ramDecoder = RamPlaylistDecoder()
         
-        self.decoders = [plsDecoder, m3uDecoder, asxDecoder, asfDecoder, xspfDecoder, ramDecoder]
+        self.decoders = [plsDecoder, asxDecoder, asfDecoder, xspfDecoder, ramDecoder, m3uDecoder]
 
     
 
