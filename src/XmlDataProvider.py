@@ -1,4 +1,5 @@
 ##########################################################################
+# Copyright 2010 Edward G. Bruck <ed.bruck1@gmail.com>
 # Copyright 2009 Carlos Ribeiro
 #
 # This file is part of Radio Tray
@@ -19,7 +20,6 @@
 ##########################################################################
 import os
 from lxml import etree
-from lxml import objectify
 
 
 class XmlDataProvider:
@@ -32,7 +32,6 @@ class XmlDataProvider:
             self.filename = filename
 
     def loadFromFile(self):
-
         self.root = etree.parse(self.filename).getroot()
 
     def saveToFile(self):
@@ -50,26 +49,48 @@ class XmlDataProvider:
         if(len(result) >= 1):
             return result[0]
 
-    def addRadio(self, rawName, url):
+    def addGroup(self, parent_group_name, new_group_name):
+        parent_group = self.root.xpath("//group[@name=$var]", var=parent_group_name)
+        
+        if parent_group != None:
+            group = self.root.xpath("//group[@name=$var]", var=new_group_name)
+            
+            if group == None:
+                new_group = etree.SubElement(parent_group[0], 'group')
+                new_group.set("name", new_group_name)
+                self.saveToFile()                
+                return True        
+            
+            print "A group with the name \"%s\" already exists." % new_group_name
+            return False
+        
+        print "A group with the name \"%s\" does not exist." % parent_group_name
+        return False
 
-        # Flag used to determine if a radio gets added or not
-        radioAdded = None
+
+    def addRadio(self, rawName, url, group_name='root'):
+
+        group = self.root.xpath("//group[@name=$var]", var=group_name)
+
         name = unicode(rawName)
 
-        # First, let us check this name hasn't been used yet.
-        result = self._radioExists(name)
-
-        if result is None:
-            radio = etree.SubElement(self.root, 'bookmark')
-            radio.set("name", name)
-            radio.set("url", url)
-            self.saveToFile()
-            radioAdded = True
+        if group != None:
+            # First, let us check this name hasn't been used yet.
+            result = self._radioExists(name)
+    
+            if result is None:
+                radio = etree.SubElement(group[0], 'bookmark')
+                radio.set("name", name)
+                radio.set("url", url)
+                self.saveToFile()
+                return True
+            
+            print "A radio with the name \"%s\" already exists." % name            
         else:
-            print "A radio with the name \"%s\" already exists." % name
-            radioAdded = False
+            print "A group with the name \"%s\" does not exist." % group_name
+        
+        return False
 
-        return radioAdded
 
     def updateRadio(self, oldName, newName, url):
 
@@ -99,42 +120,68 @@ class XmlDataProvider:
 
         return radioAdded
 
-    def removeRadio(self, name):
 
+    def removeRadio(self, name):                
         radio = self._radioExists(name)
-
-        if radio is not None:
-            self.root.remove(radio)
+        
+        if radio != None:
+            radio.getparent().remove(radio)            
             self.saveToFile()
 
-    def moveUp(self, name):
 
+    def moveRadio(self, name, old_group_name, new_group_name):
+        old_group = self.root.xpath("//group[@name=$var]", var=old_group_name)
+        new_group = self.root.xpath("//group[@name=$var]", var=new_group_name)
+
+        if old_group != None and new_group != None:
+            radioXml = self._radioExists(name)
+    
+            if radioXml is None:
+                print "Could not find a radio with the name \"%s\"." % name
+            else:                                          
+                old_group[0].remove(radioXml)
+                radio = etree.SubElement(new_group[0], 'bookmark')
+                radio.set("name", name)
+                radio.set("url", radioXml.get('url'))
+                self.saveToFile()
+                return True
+        
+        return False
+
+
+    def moveUp(self, name):        
         radio = self._radioExists(name)
-        previous = radio.getprevious()
-        if ( previous != None):
-            index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
-            self.root.remove(radio)
-            self.root.insert(int(index)-2,radio)
-            self.saveToFile()
 
-            return True
-        else:
-            return False
+        if radio != None:
+            group = radio.getparent()
+            previous = radio.getprevious()
 
-    def moveDown(self, name):
+            if previous != None:
+                index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)                       
+                group.remove(radio)
+                group.insert(int(index)-2,radio)
+                self.saveToFile()    
+                return True
 
+        return False
+
+
+    def moveDown(self, name):        
         radio = self._radioExists(name)
-        next = radio.getnext()
-        if ( next != None):
-            index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
-            self.root.remove(radio)
-            self.root.insert(int(index),radio)
-            self.saveToFile()
-
-            return True
-        else:
-            return False
-
+            
+        if radio != None:
+            next = radio.getnext()        
+            if next != None:
+                group = radio.getparent()
+                index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
+                group.remove(radio)
+                group.insert(int(index),radio)
+                self.saveToFile()
+                return True
+                        
+        return False
+    
+    
     def _radioExists(self, name):
         radio = None
 
@@ -145,3 +192,21 @@ class XmlDataProvider:
             print "Could not find a radio with the name \"%s\"." % name
 
         return radio
+
+
+    def walk_bookmarks(self, group_func, bookmark_func, user_data, group=""):
+        
+        children = self.root.xpath("/bookmarks" + group + "/group | " + "/bookmarks" + group + "/bookmark")
+                
+        for child in children:                    
+            child_name  = child.get('name')
+                       
+            if  child.tag == 'group':                
+                new_user_data = group_func(child_name, user_data)
+                self.walk_bookmarks(group_func, bookmark_func, new_user_data, group + "/group[@name='"+ child_name +"']")                
+            else:
+                bookmark_func(child_name, user_data)
+        
+
+    def getRootGroup(self):
+        return self.root.xpath("//group[@name='root']")[0]

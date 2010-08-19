@@ -208,22 +208,41 @@ class SysTray(object):
         self.radioMenu.append(separator)
         separator.show()
 
-        #add configured radios
+        # build menu
+        self.provider.walk_bookmarks(self.group_callback, self.bookmark_callback, self.radioMenu)
+        self.radioMenu.show_all()
 
-        for radio in self.provider.listRadioNames():
-
-            if radio.startswith("[separator-"):
-                separator = gtk.MenuItem()
-                self.radioMenu.append(separator)
-                separator.show()
-            else:
-                radio1 = gtk.MenuItem(radio)
-                self.radioMenu.append(radio1)
-                radio1.show()
-                radio1.connect('activate', self.on_start, radio)
-
-
-
+        
     def run(self):
         gtk.gdk.threads_init()
         gtk.main()
+
+
+    def group_callback(self, group_name, user_data):
+
+        new_user_data = None
+        
+        if group_name != 'root':
+            group = gtk.MenuItem(group_name)
+            user_data.append(group)  
+            new_user_data = gtk.Menu()
+            group.set_submenu(new_user_data)
+        else:
+            new_user_data = self.radioMenu
+            
+        return new_user_data
+
+
+    def bookmark_callback(self, radio_name, user_data):
+
+        if radio_name.startswith("[separator-"):
+            separator = gtk.MenuItem()
+            user_data.append(separator)
+            separator.show()
+        else:         
+            radio = gtk.MenuItem(radio_name)
+            radio.show()
+            radio.connect('activate', self.on_start, radio_name)
+            user_data.append(radio)
+
+            

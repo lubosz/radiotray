@@ -55,13 +55,20 @@ class BookmarkConfiguration(object):
         self.config = self.wTree.get_object("editBookmark")
 
         # populate list of radios
-        liststore = gtk.ListStore(str,str)
-        for radio in self.dataProvider.listRadioNames():
-            if(radio.startswith('[separator')):
-                liststore.append(['-- Separator --',radio])
-            else:
-                liststore.append([radio,radio])
-        self.list.set_model(liststore)
+        treestore = gtk.TreeStore(str, str)
+
+#        liststore = gtk.ListStore(str,str)
+#        for radio in self.dataProvider.listRadioNames():
+#            if(radio.startswith('[separator')):
+#                liststore.append(['-- Separator --',radio])
+#            else:
+#                liststore.append([radio,radio])
+
+        #load data
+        root = self.dataProvider.getRootGroup()
+        self.add_group_data(root, None, treestore)
+
+        self.list.set_model(treestore)
         cell = gtk.CellRendererText()
         tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
         self.list.append_column(tvcolumn)
@@ -79,6 +86,22 @@ class BookmarkConfiguration(object):
                 "on_nameEntry_activated" : self.on_nameEntry_activated,
                 "on_urlEntry_activated" : self.on_urlEntry_activated}
             self.wTree.connect_signals(self)
+
+    def add_group_data(self, group, parent, treestore):
+
+        iter = None
+        if(group.get('name') != 'root'):
+            iter = treestore.append(parent, [group.get('name'), group.get('name')])
+        
+        for item in group:
+            if (item.tag == 'bookmark'):
+                if(item.get('name').startswith('[separator')):
+                    treestore.append(iter, ['-- Separator --', item.get('name')])
+                else:
+                    treestore.append(iter, [item.get('name'), item.get('name')])
+            else:
+                self.add_group_data(item, iter, treestore)
+
 
     def on_cursor_changed(self, widget):
         #get current selected element
