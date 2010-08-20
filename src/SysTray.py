@@ -121,6 +121,10 @@ class SysTray(object):
 
     def button_press(self,widget,event):
 
+        if event.state == (gtk.gdk.SHIFT_MASK | gtk.gdk.MOD2_MASK)  and event.button == 2:
+            self.reload_bookmarks()
+            return
+
         if event.button == 2:
             if (self.mediator.isPlaying):
                 self.mediator.stop()
@@ -246,3 +250,8 @@ class SysTray(object):
             user_data.append(radio)
 
             
+    def reload_bookmarks(self):
+        self.provider.loadFromFile()
+        self.update_radios()
+        self.mediator.notify("Bookmarks Reloaded")
+        

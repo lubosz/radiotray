@@ -91,6 +91,9 @@ class StateMediator(object):
         self.systray.setStoppedState()
         self.isPlaying = False
         self.notification.notify(C_("An error notification.", "Radio Error"), str(error))
+        
+    def notify(self, msg):
+        self.notification.notify("Radio Tray", msg)
 
     def notifyPlaying(self):
         if (self.isNotified == False):
