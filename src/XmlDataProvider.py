@@ -150,7 +150,7 @@ class XmlDataProvider:
 
 
     def moveUp(self, name):        
-        radio = self._radioExists(name)
+        radio = self._radioExists(name)          
 
         if radio != None:
             group = radio.getparent()
@@ -160,6 +160,16 @@ class XmlDataProvider:
                 index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)                       
                 group.remove(radio)
                 group.insert(int(index)-2,radio)
+                self.saveToFile()    
+                return True
+        else:
+            # could be a group?
+            group = self.root.xpath("//group[@name=$var]", var=name)
+            if group:
+                parent_group = group[0].getparent()                                
+                index=self.root.xpath("count(//group[@name=$var]/preceding-sibling::*)+1", var=name)                                       
+                parent_group.remove(group[0])
+                parent_group.insert(int(index)-2,group[0])                
                 self.saveToFile()    
                 return True
 
@@ -177,6 +187,16 @@ class XmlDataProvider:
                 group.remove(radio)
                 group.insert(int(index),radio)
                 self.saveToFile()
+                return True
+        else:
+            # could be a group?
+            group = self.root.xpath("//group[@name=$var]", var=name)
+            if group:
+                parent_group = group[0].getparent()                                
+                index=self.root.xpath("count(//group[@name=$var]/preceding-sibling::*)+1", var=name)                       
+                parent_group.remove(group[0])
+                parent_group.insert(int(index),group[0])                
+                self.saveToFile()    
                 return True
                         
         return False
