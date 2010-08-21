@@ -121,7 +121,9 @@ class SysTray(object):
 
     def button_press(self,widget,event):
 
-        if event.state == (gtk.gdk.SHIFT_MASK | gtk.gdk.MOD2_MASK)  and event.button == 2:
+        # Why do I get different MOD mask on my laptop?!
+        # Just look for shift and button 2...
+        if (event.state & gtk.gdk.SHIFT_MASK) and event.button == 2:
             self.reload_bookmarks()
             return
 
