@@ -47,7 +47,7 @@ msgstr "Naam van zender"
 #: ../src/BookmarkConfiguration.py:173
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Weet u zeker dat u deze zender wilt verwijderen \"%s\"?"
+msgstr "Weet u zeker dat u \"%s\" wilt verwijderen ?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -80,7 +80,7 @@ msgstr "Uitgeschakeld"
 
 #: ../src/SysTray.py:88
 msgid "Configure radios..."
-msgstr "Zenders bewerken..."
+msgstr "Zenders bewerken"
 
 #: ../src/SysTray.py:89
 msgid "About"
