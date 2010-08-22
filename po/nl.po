@@ -1,0 +1,124 @@
+# RadioTray language file
+# Copyright (C) 2009-2010
+# This file is distributed under the same license as the radiotray package.
+# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: radiotray 0.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-11 20:41+0000\n"
+"PO-Revision-Date: 2010-08-22 18:18+0000\n"
+"Last-Translator: Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>\n"
+"Language-Team: DUTCH <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Configure Radios"
+msgstr "Zenders bewerken"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Radio name:"
+msgstr "Radiozender:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Separator"
+msgstr "Scheidingsteken"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "URL :"
+msgstr "Stream-URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s's website"
+
+#: ../src/BookmarkConfiguration.py:66
+msgid "Radio Name"
+msgstr "Naam van zender"
+
+#: ../src/BookmarkConfiguration.py:173
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Weet u zeker dat u deze zender wilt verwijderen \"%s\"?"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Ontwikkelaars:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Bijdragen van:"
+
+#: ../src/StateMediator.py:65 
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Onbekende radiozender"
+
+#: ../src/StateMediator.py:93
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Radio Error"
+
+#: ../src/StateMediator.py:101
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Playing"
+msgstr "Radio speelt"
+
+#: ../src/SysTray.py:80 
+#: ../src/SysTray.py:165
+msgid "Turned Off"
+msgstr "Uitgeschakeld"
+
+#: ../src/SysTray.py:88
+msgid "Configure radios..."
+msgstr "Zenders bewerken..."
+
+#: ../src/SysTray.py:89
+msgid "About"
+msgstr "Over"
+
+#: ../src/SysTray.py:90
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: ../src/SysTray.py:102 
+#: ../src/SysTray.py:168
+msgid "<i>Idle</i>"
+msgstr "<i>Idle</i>"
+
+#: ../src/SysTray.py:171
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "\"%s\" uitzetten"
+
+#: ../src/SysTray.py:178
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "Verbinden met %s"
+
+#: ../src/SysTray.py:192
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
+msgstr ""
+"Speelt <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:194
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Speelt <b>%s</b> (vol: %s%%)"
