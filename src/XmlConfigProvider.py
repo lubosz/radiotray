@@ -51,7 +51,7 @@ class XmlConfigProvider:
         
         setting = self._settingExists(name)
 
-        if len(setting):
+        if (setting == None):
             setting = etree.SubElement(self.root, 'option')
             setting.set("name", name)
             setting.set("value", value)

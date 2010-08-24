@@ -26,10 +26,10 @@ from StreamDecoder import StreamDecoder
 
 class AudioPlayerGStreamer:
 
-    def __init__(self, mediator, log):
+    def __init__(self, mediator, cfg_provider, log):
         self.mediator = mediator
         self.log = log
-        self.decoder = StreamDecoder()
+        self.decoder = StreamDecoder(cfg_provider)
         self.playlist = []
 
         # init player

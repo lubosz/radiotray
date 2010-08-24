@@ -28,7 +28,7 @@ from UrlInfo import UrlInfo
 
 class StreamDecoder:
 
-    def __init__(self):
+    def __init__(self, cfg_provider):
         plsDecoder = PlsPlaylistDecoder()
         m3uDecoder = M3uPlaylistDecoder()
         asxDecoder = AsxPlaylistDecoder()
@@ -38,7 +38,21 @@ class StreamDecoder:
         
         self.decoders = [plsDecoder, asxDecoder, asfDecoder, xspfDecoder, ramDecoder, m3uDecoder]
 
-    
+        self.url_timeout = None
+
+        try:
+            self.url_timeout = cfg_provider.getConfigValue("url_timeout")
+            if (self.url_timeout == None):
+                print "Couldn't find url_timeout configuration"
+                self.url_timeout = 100
+                cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
+        except Exception, e:
+            print "Couldn't find url_timeout configuration"
+            self.url_timeout = 100
+            cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
+
+        print "Using url timeout = " + str(self.url_timeout)
+
 
     def getMediaStreamInfo(self, url):
 
@@ -49,7 +63,7 @@ class StreamDecoder:
         print "Requesting stream... " + url
         req = urllib2.Request(url)
         try:
-            f = urllib2.urlopen(req, timeout=40)
+            f = urllib2.urlopen(req, self.url_timeout)
 
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
@@ -68,7 +82,7 @@ class StreamDecoder:
             print "Content-Type: " + contentType
             
 
-        except Exception as e:
+        except Exception, e:
             print "Couldn't read content-type. Maybe direct stream..."
             print "Error: ",e
             return UrlInfo(url, False, None)
