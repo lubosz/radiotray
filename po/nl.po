@@ -2,7 +2,7 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.6\n"
@@ -57,8 +57,7 @@ msgstr "Ontwikkelaars:"
 msgid "Contributors:"
 msgstr "Bijdragen van:"
 
-#: ../src/StateMediator.py:65 
-#: ../src/StateMediator.py:66
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Onbekende radiozender"
@@ -73,8 +72,7 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Playing"
 msgstr "Radio speelt"
 
-#: ../src/SysTray.py:80 
-#: ../src/SysTray.py:165
+#: ../src/SysTray.py:80 ../src/SysTray.py:165
 msgid "Turned Off"
 msgstr "Uitgeschakeld"
 
@@ -90,10 +88,9 @@ msgstr "Over"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: ../src/SysTray.py:102 
-#: ../src/SysTray.py:168
+#: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
-msgstr "<i>Idle</i>"
+msgstr "<i>Gepauzeerd</i>"
 
 #: ../src/SysTray.py:171
 #, python-format
