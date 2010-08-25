@@ -63,7 +63,7 @@ class StreamDecoder:
         print "Requesting stream... " + url
         req = urllib2.Request(url)
         try:
-            f = urllib2.urlopen(req, self.url_timeout)
+            f = urllib2.urlopen(req, timeout=float(self.url_timeout))
 
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
