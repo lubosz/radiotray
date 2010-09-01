@@ -85,15 +85,23 @@ class SysTray(object):
         # config menu
 
         self.menu = gtk.Menu()
+        self.turnOff2 = gtk.MenuItem(_("Turned Off"))
+        self.turnOff2.connect('activate', self.on_turn_off)
+        self.turnOff2.set_sensitive(False)
+        separator = gtk.MenuItem()
         menu_item1 = gtk.MenuItem(_("Configure Radios..."))
         menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)
+        self.menu.append(self.turnOff2)
+        self.menu.append(separator)
         self.menu.append(menu_item1)
         self.menu.append(menu_item3)
         self.menu.append(menu_item2)
         menu_item1.show()
         menu_item2.show()
         menu_item3.show()
+        self.turnOff2.show()
+        separator.show()
         menu_item1.connect('activate', self.on_preferences)
         menu_item2.connect('activate', self.on_quit)
         menu_item3.connect('activate', self.on_about)
@@ -102,6 +110,7 @@ class SysTray(object):
         self.icon.set_tooltip_markup(_("<i>Idle (vol: %s%%)</i>") % (self.mediator.getVolume()))
         self.icon.connect('button_press_event', self.button_press)
         self.icon.connect('scroll_event', self.scroll)
+
 
         # MediaKeys
         try:
@@ -170,17 +179,22 @@ class SysTray(object):
     def setStoppedState(self):
         self.turnOff.set_label(_('Turned Off'))
         self.turnOff.set_sensitive(False)
+        self.turnOff2.set_label(_('Turned Off'))
+        self.turnOff2.set_sensitive(False)
         self.icon.set_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_("<i>Idle (vol: %s%%)</i>") % (self.mediator.getVolume()))
 
     def setPlayingState(self, radio):
         self.turnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
         self.turnOff.set_sensitive(True)
+        self.turnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
+        self.turnOff2.set_sensitive(True)
         self.updateTooltip()
         self.icon.set_from_file(APP_ICON_ON)
 
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)
+        self.turnOff2.set_sensitive(True)
         self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio.replace("&", "&amp;"))
         self.icon.set_from_file(APP_ICON_CONNECT)
 
