@@ -44,11 +44,11 @@ class StreamDecoder:
             self.url_timeout = cfg_provider.getConfigValue("url_timeout")
             if (self.url_timeout == None):
                 print "Couldn't find url_timeout configuration"
-                self.url_timeout = 100
+                self.url_timeout = 2000
                 cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
         except Exception, e:
             print "Couldn't find url_timeout configuration"
-            self.url_timeout = 100
+            self.url_timeout = 2000
             cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
 
         print "Using url timeout = " + str(self.url_timeout)
@@ -63,7 +63,7 @@ class StreamDecoder:
         print "Requesting stream... " + url
         req = urllib2.Request(url)
         try:
-            f = urllib2.urlopen(req, self.url_timeout)
+            f = urllib2.urlopen(req, timeout=float(self.url_timeout))
 
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
