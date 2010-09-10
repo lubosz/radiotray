@@ -42,6 +42,10 @@ class XmlDataProvider:
     def listRadioNames(self):
 
         return self.root.xpath("//bookmark/@name")
+        
+    def listGroupNames(self):
+    
+    	return self.root.xpath("//group/@name")
 
     def getRadioUrl(self, name):
 
@@ -50,12 +54,16 @@ class XmlDataProvider:
             return result[0]
 
     def addGroup(self, parent_group_name, new_group_name):
+    
+        # gettting parent group
+        print "parent group : " + parent_group_name
         parent_group = self.root.xpath("//group[@name=$var]", var=parent_group_name)
         
         if parent_group != None:
             group = self.root.xpath("//group[@name=$var]", var=new_group_name)
             
-            if group == None:
+            if group == None or len(group) == 0:
+                print "Group is new. Saving with name " + new_group_name
                 new_group = etree.SubElement(parent_group[0], 'group')
                 new_group.set("name", new_group_name)
                 self.saveToFile()                
@@ -126,7 +134,14 @@ class XmlDataProvider:
         
         if radio != None:
             radio.getparent().remove(radio)            
-            self.saveToFile()
+            
+        else:
+            group = self._groupExists(name)
+            
+            if group != None:
+                group.getparent().remove(group)
+                
+        self.saveToFile()
 
 
     def moveRadio(self, name, old_group_name, new_group_name):
@@ -212,6 +227,17 @@ class XmlDataProvider:
             print "Could not find a radio with the name \"%s\"." % name
 
         return radio
+        
+    def _groupExists(self, name):
+        group = None
+
+        try:
+            group = self.root.xpath("//group[@name=$var]", var=name)[0]
+        except IndexError, e:
+            # No group was found
+            print "Could not find a group with the name \"%s\"." % name
+
+        return group
 
 
     def walk_bookmarks(self, group_func, bookmark_func, user_data, group=""):

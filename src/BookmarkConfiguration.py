@@ -50,25 +50,20 @@ class BookmarkConfiguration(object):
         self.wTree = gladefile
         self.window = self.wTree.get_object("window1")
         self.list = self.wTree.get_object("treeview1")
+        
+        # edit bookmark
         self.nameEntry = self.wTree.get_object("nameEntry")
         self.urlEntry = self.wTree.get_object("urlEntry")
         self.config = self.wTree.get_object("editBookmark")
+        
+        # edit group
+        self.configGroup = self.wTree.get_object("editGroup")
+        self.groupNameEntry = self.wTree.get_object("groupNameEntry")
+        self.parentGroup = self.wTree.get_object("parentGroup")
 
         # populate list of radios
-        treestore = gtk.TreeStore(str, str)
-
-#        liststore = gtk.ListStore(str,str)
-#        for radio in self.dataProvider.listRadioNames():
-#            if(radio.startswith('[separator')):
-#                liststore.append(['-- Separator --',radio])
-#            else:
-#                liststore.append([radio,radio])
-
-        #load data
-        root = self.dataProvider.getRootGroup()
-        self.add_group_data(root, None, treestore)
-
-        self.list.set_model(treestore)
+        self.load_data()
+        
         cell = gtk.CellRendererText()
         tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
         self.list.append_column(tvcolumn)
@@ -84,8 +79,17 @@ class BookmarkConfiguration(object):
                 "on_moveDownButton_clicked" : self.on_movedown_bookmark_clicked,
                 "on_close_clickedButton_clicked" : self.on_close_clicked,
                 "on_nameEntry_activated" : self.on_nameEntry_activated,
-                "on_urlEntry_activated" : self.on_urlEntry_activated}
+                "on_urlEntry_activated" : self.on_urlEntry_activated,
+                "on_newGroupButton_clicked" : self.on_newGroupButton_clicked}
             self.wTree.connect_signals(self)
+
+    def load_data(self):
+    
+        treestore = gtk.TreeStore(str, str)
+        root = self.dataProvider.getRootGroup()
+        self.add_group_data(root, None, treestore)
+        self.list.set_model(treestore)
+        
 
     def add_group_data(self, group, parent, treestore):
 
@@ -232,9 +236,16 @@ class BookmarkConfiguration(object):
             if (self.dataProvider.moveUp(selectedRadioName) == True):
 
                 path = model.get_path(iter)
-                row = path[0]
-                previous = model.get_iter(row -1)
-                model.move_before(iter, previous)
+                path_size = len(path)
+                
+                index = path[path_size - 1]
+                
+                if index > 0:
+                    previous_path = path[:path_size-1]
+                    previous_path = previous_path + (index - 1,)
+                    previous = model.get_iter(previous_path )
+
+                    model.move_before(iter, previous)
 
     def on_movedown_bookmark_clicked(self, widget):
 
@@ -249,9 +260,8 @@ class BookmarkConfiguration(object):
             if (self.dataProvider.moveDown(selectedRadioName) == True):
 
                 path = model.get_path(iter)
-                row = path[0]
-                next = model.get_iter(row + 1)
-                model.move_after(iter, next)
+                row = model[iter]
+                model.move_after(iter, row.next.iter)
 
 
     def on_close_clicked(self, widget):
@@ -270,3 +280,40 @@ class BookmarkConfiguration(object):
 
     def on_urlEntry_activated(self, widget):
         self.config.response(2)
+
+    def on_newGroupButton_clicked(self, widget):
+
+        # reset old dialog values
+        self.groupNameEntry.set_text('')
+        self.configGroup.set_title(_('Add new group'))
+        self.groupNameEntry.grab_focus()
+        
+        # populate parent groups
+        liststore = gtk.ListStore(str)
+
+        for group in self.dataProvider.listGroupNames():
+            liststore.append([group])
+            print "group found: " + group
+            
+        self.parentGroup.set_model(liststore)
+        cell = gtk.CellRendererText()
+        self.parentGroup.pack_start(cell, True)
+        self.parentGroup.add_attribute(cell, 'text', 0)      
+
+        # show dialog
+        result = self.configGroup.run()
+        if result == 2:
+        
+            # get group name
+            name = self.groupNameEntry.get_text()
+
+            # get parent group name
+            index = self.parentGroup.get_active()
+            parent_group = liststore[index][0]
+
+            if len(name) > 0:
+                if self.dataProvider.addGroup(parent_group, name):
+                    self.load_data()
+            else:
+                print 'No group information provided!'
+        self.configGroup.hide()
