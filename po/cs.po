@@ -2,8 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -22,7 +21,7 @@ msgstr "Nastavení stanic"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Radio name:"
-msgstr "Jméno stanice"
+msgstr "Jméno stanice:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Separator"
@@ -52,7 +51,7 @@ msgstr "Opravdu odstranit \"%s\"?"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Vývojáři"
+msgstr "Vývojáři:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
@@ -79,7 +78,7 @@ msgstr "Vypnuto"
 
 #: ../src/SysTray.py:88
 msgid "Configure radios..."
-msgstr "Nastavení stanic"
+msgstr "Nastavení stanic..."
 
 #: ../src/SysTray.py:89
 msgid "About"
@@ -87,7 +86,7 @@ msgstr "O"
 
 #: ../src/SysTray.py:90
 msgid "Quit"
-msgstr ""
+msgstr "Konec"
 
 #: ../src/SysTray.py:102 ../src/SysTray.py:168
 msgid "<i>Idle</i>"
@@ -120,4 +119,3 @@ msgstr ""
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Hraje <b>%s</b> (hlasitost: %s%%)"
-
