@@ -101,7 +101,7 @@ class StateMediator(object):
             self.isPlaying = True            
             self.systray.setPlayingState(self.currentRadio)
             if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
-                self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Playing"), self.currentRadio)
+                self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Tray Playing"), self.currentRadio)
 
     def notifyStopped(self):
         self.systray.setStoppedState()
