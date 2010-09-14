@@ -39,6 +39,10 @@ import uuid
 
 class BookmarkConfiguration(object):
 
+    GROUP_TYPE = 'GROUP'
+    RADIO_TYPE = 'RADIO'
+    SEPARATOR_TYPE = 'SEPARATOR'
+
     def __init__(self, dataProvider, updateFunc, standalone=False):
 
         self.dataProvider = dataProvider
@@ -55,12 +59,19 @@ class BookmarkConfiguration(object):
         self.nameEntry = self.wTree.get_object("nameEntry")
         self.urlEntry = self.wTree.get_object("urlEntry")
         self.config = self.wTree.get_object("editBookmark")
+        self.radioGroup = self.wTree.get_object("radioGroup")
+        self.radioGroupLabel = self.wTree.get_object("label8")
         
         # edit group
         self.configGroup = self.wTree.get_object("editGroup")
         self.groupNameEntry = self.wTree.get_object("groupNameEntry")
         self.parentGroup = self.wTree.get_object("parentGroup")
         self.parentGroupLabel = self.wTree.get_object("label4")
+        
+        # move to group
+        self.moveGroupDialog = self.wTree.get_object("groupMove")
+        self.currentGroupLabel = self.wTree.get_object("label7")
+        self.newGroupCombo = self.wTree.get_object("newGroup")
 
         # populate list of radios
         self.load_data()
@@ -75,6 +86,17 @@ class BookmarkConfiguration(object):
         cell2 = gtk.CellRendererText()
         self.parentGroup.pack_start(cell2, True)
         self.parentGroup.add_attribute(cell2, 'text', 0)
+        
+        # config move group combo ui
+        cell3 = gtk.CellRendererText()
+        self.newGroupCombo.pack_start(cell3, True)
+        self.newGroupCombo.add_attribute(cell3, 'text', 0)
+        
+        # config add radio group combo ui
+        cell4 = gtk.CellRendererText()
+        self.radioGroup.pack_start(cell4, True)
+        self.radioGroup.add_attribute(cell4, 'text', 0)
+        
 
         # connect events
         if (self.window):
@@ -87,7 +109,8 @@ class BookmarkConfiguration(object):
                 "on_close_clickedButton_clicked" : self.on_close_clicked,
                 "on_nameEntry_activated" : self.on_nameEntry_activated,
                 "on_urlEntry_activated" : self.on_urlEntry_activated,
-                "on_newGroupButton_clicked" : self.on_newGroupButton_clicked}
+                "on_newGroupButton_clicked" : self.on_newGroupButton_clicked,
+                "on_moveToGroup_clicked" : self.on_moveToGroup_clicked}
             self.wTree.connect_signals(self)
 
     def load_data(self):
@@ -103,14 +126,14 @@ class BookmarkConfiguration(object):
 
         iter = None
         if(group.get('name') != 'root'):
-            iter = treestore.append(parent, [group.get('name'), group.get('name'), 'GROUP'])
+            iter = treestore.append(parent, [group.get('name'), group.get('name'), self.GROUP_TYPE])
         
         for item in group:
             if (item.tag == 'bookmark'):
                 if(item.get('name').startswith('[separator')):
-                    treestore.append(iter, ['-- Separator --', item.get('name'), 'SEPARATOR'])
+                    treestore.append(iter, ['-- Separator --', item.get('name'), self.SEPARATOR_TYPE])
                 else:
-                    treestore.append(iter, [item.get('name'), item.get('name'), 'RADIO'])
+                    treestore.append(iter, [item.get('name'), item.get('name'), self.RADIO_TYPE])
             else:
                 self.add_group_data(item, iter, treestore)
 
@@ -124,9 +147,11 @@ class BookmarkConfiguration(object):
             selectedRadioName = model.get_value(iter,1)
 
             if (selectedRadioName.startswith("[separator-")):
-               self.wTree.get_object("editBookmarkButton").set_sensitive(False)
+                self.wTree.get_object("editBookmarkButton").set_sensitive(False)
+                self.wTree.get_object("moveToGroup").set_sensitive(False)
             else:
                 self.wTree.get_object("editBookmarkButton").set_sensitive(True)
+                self.wTree.get_object("moveToGroup").set_sensitive(True)
 
 
     def on_add_separator_clicked(self, widget):
@@ -142,16 +167,29 @@ class BookmarkConfiguration(object):
         self.urlEntry.set_text('')
         self.config.set_title(_('Add new station'))
         self.nameEntry.grab_focus()
+        self.radioGroup.show()
+        self.radioGroupLabel.show()
+        
+        # populate groups
+        liststore = gtk.ListStore(str)
+
+        for group in self.dataProvider.listGroupNames():
+            liststore.append([group])
+            print "group found: " + group
+            
+        self.radioGroup.set_model(liststore)
 
         # show dialog
         result = self.config.run()
         if result == 2:
             name = self.nameEntry.get_text()
             url = self.urlEntry.get_text()
+            index = self.radioGroup.get_active()
+            new_group = liststore[index][0]
 
             if len(name) > 0 and len(url) > 0:
-                if self.dataProvider.addRadio(name, url):
-                    self.list.get_model().append([name,name])
+                if self.dataProvider.addRadio(name, url, new_group):
+                    self.load_data()
             else:
                 print 'No radio information provided!'
         self.config.hide()
@@ -167,7 +205,7 @@ class BookmarkConfiguration(object):
             selectedName = model.get_value(iter,1)
             selectedType = model.get_value(iter, 2)
 
-            if (selectedType == 'RADIO'):
+            if (selectedType == self.RADIO_TYPE):
                 #get radio bookmark details
                 selectedRadioUrl = self.dataProvider.getRadioUrl(selectedName)
 
@@ -177,6 +215,8 @@ class BookmarkConfiguration(object):
                 oldName = selectedName
                 self.config.set_title(_('Edit %s') % selectedName)
                 self.nameEntry.grab_focus()
+                self.radioGroup.hide()
+                self.radioGroupLabel.hide()
 
                 # show dialog
                 result = self.config.run()
@@ -192,7 +232,8 @@ class BookmarkConfiguration(object):
                     else:
                         print 'No radio information provided!'
                 self.config.hide()
-            elif(selectedType == 'GROUP'):
+                
+            elif(selectedType == self.GROUP_TYPE):
                 
                 #populate dialog with group information
                 self.groupNameEntry.set_text(selectedName)
@@ -349,3 +390,66 @@ class BookmarkConfiguration(object):
             else:
                 print 'No group information provided!'
         self.configGroup.hide()
+
+
+    def on_moveToGroup_clicked(self, widget):
+    
+        #get current selected element
+        selection = self.list.get_selection()
+        (model, iter) = selection.get_selected()
+
+        if type(iter).__name__=='TreeIter':
+
+            selectedName = model.get_value(iter,1)
+            selectedType = model.get_value(iter, 2)
+            
+            liststore = gtk.ListStore(str)
+
+            for group in self.dataProvider.listGroupNames():
+                liststore.append([group])
+                print "group found: " + group
+            
+            self.newGroupCombo.set_model(liststore)
+
+            if (selectedType == self.RADIO_TYPE):
+                #get radio bookmark details
+                selectedRadio = self.dataProvider._radioExists(selectedName)
+                currentGroup = selectedRadio.getparent().get("name")
+                
+                # populate dialog with radio information
+                self.currentGroupLabel.set_text(currentGroup)
+                self.moveGroupDialog.set_title(_('Edit %s') % selectedName)
+                self.newGroupCombo.grab_focus()
+
+                # show dialog
+                result = self.moveGroupDialog.run()
+
+                if result == 2:
+                    index = self.newGroupCombo.get_active()
+                    new_group = liststore[index][0]
+                    
+                    self.dataProvider.updateElementGroup(selectedRadio, new_group)
+                    
+                self.moveGroupDialog.hide()
+                
+            elif(selectedType == self.GROUP_TYPE):
+                
+                #get group details
+                selectedGroup = self.dataProvider._groupExists(selectedName)
+                currentGroup = selectedGroup.getparent().get("name")
+                
+                #populate dialog with group information
+                self.currentGroupLabel.set_text(currentGroup)
+                self.moveGroupDialog.set_title(_('Edit %s') % selectedName)
+                self.newGroupCombo.grab_focus()
+                
+                result = self.moveGroupDialog.run()
+                if result == 2:
+                    index = self.newGroupCombo.get_active()
+                    new_group = liststore[index][0]
+                    
+                    self.dataProvider.updateElementGroup(selectedGroup, new_group)
+                    
+                self.moveGroupDialog.hide()
+            self.load_data()
+            

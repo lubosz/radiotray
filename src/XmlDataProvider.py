@@ -281,3 +281,16 @@ class XmlDataProvider:
 
     def getRootGroup(self):
         return self.root.xpath("//group[@name='root']")[0]
+        
+        
+    def updateElementGroup(self, element, group_name):
+        
+        group = self._groupExists(group_name)
+        
+        if group != None:
+            old_group = element.getparent()
+            old_group.remove(element)
+            group.append(element)
+            self.saveToFile()
+        else:
+            print "Could not move element group"
