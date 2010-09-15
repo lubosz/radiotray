@@ -158,7 +158,7 @@ class BookmarkConfiguration(object):
         # hack: generate a unique name
         name = '[separator-' + str(uuid.uuid4()) + ']'
         self.dataProvider.addRadio(name, name)
-        self.list.get_model().append(['-- Separator --',name])
+        self.load_data()
 
     def on_add_bookmark_clicked(self, widget):
 
