@@ -92,19 +92,23 @@ class SysTray(object):
         menu_item1 = gtk.MenuItem(_("Configure Radios..."))
         menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)
+        menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))
         self.menu.append(self.turnOff2)
         self.menu.append(separator)
         self.menu.append(menu_item1)
+        self.menu.append(menu_item4)
         self.menu.append(menu_item3)
         self.menu.append(menu_item2)
         menu_item1.show()
         menu_item2.show()
         menu_item3.show()
+        menu_item4.show()
         self.turnOff2.show()
         separator.show()
         menu_item1.connect('activate', self.on_preferences)
         menu_item2.connect('activate', self.on_quit)
         menu_item3.connect('activate', self.on_about)
+        menu_item4.connect('activate', self.reload_bookmarks)
 
         self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_("<i>Idle (vol: %s%%)</i>") % (self.mediator.getVolume()))
@@ -129,12 +133,6 @@ class SysTray(object):
             self.mediator.volume_down()
 
     def button_press(self,widget,event):
-
-        # Why do I get different MOD mask on my laptop?!
-        # Just look for shift and button 2...
-        if (event.state & gtk.gdk.SHIFT_MASK) and event.button == 2:
-            self.reload_bookmarks()
-            return
 
         if event.button == 2:
             if (self.mediator.isPlaying):
@@ -266,7 +264,7 @@ class SysTray(object):
             user_data.append(radio)
 
             
-    def reload_bookmarks(self):
+    def reload_bookmarks(self, data):
         self.provider.loadFromFile()
         self.update_radios()
         self.mediator.notify("Bookmarks Reloaded")

@@ -24,21 +24,22 @@ from lib.common import APP_ICON, APPNAME
 class Notification:
 
     def __init__(self):
-        self.notify = None
+        self.notif = None
 
     def notify(self, title, message):
-        if self.notify == None:
+
+        if self.notif == None:
         
             if pynotify.init(APPNAME):
-                self.notify = pynotify.Notification(title, message)
-                self.notify.set_urgency(pynotify.URGENCY_LOW)
+                self.notif = pynotify.Notification(title, message)
+                self.notif.set_urgency(pynotify.URGENCY_LOW)
                 pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
-                self.notify.set_icon_from_pixbuf(pixbuf)
-                self.notify.set_timeout(pynotify.EXPIRES_DEFAULT)
-                self.notify.show()
+                self.notif.set_icon_from_pixbuf(pixbuf)
+                self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
+                self.notif.show()
             else:
                 print "Error: there was a problem initializing the pynotify module"
             
         else:
-            self.notify.update(title, message)
-            self.notify.show()
+            self.notif.update(title, message)
+            self.notif.show()
