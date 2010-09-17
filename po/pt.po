@@ -172,10 +172,10 @@ msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Reproduzindo <b>%s</b> (vol: %s%%)"
 
 #: ../src/SysTray.py:215
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "<i>Idle (vol: %s%%)</i>"
-msgstr "<i>Inactivo</i>"
+msgstr "<i>Inactivo (vol: %s%%)</i>"
 
 #: ../src/SysTray.py:270
 msgid "Bookmarks Reloaded"
