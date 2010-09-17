@@ -267,5 +267,5 @@ class SysTray(object):
     def reload_bookmarks(self, data):
         self.provider.loadFromFile()
         self.update_radios()
-        self.mediator.notify("Bookmarks Reloaded")
+        self.mediator.notify(_("Bookmarks Reloaded"))
         

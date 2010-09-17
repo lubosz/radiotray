@@ -33,6 +33,20 @@ class XmlDataProvider:
 
     def loadFromFile(self):
         self.root = etree.parse(self.filename).getroot()
+        
+        # this is necessary for the transition from the old xml to the new one
+        groupRoot = self.root.xpath("//group[@name='root']")
+        if len(groupRoot) == 0:
+
+            new_group = etree.Element('group')
+            new_group.set("name", "root")
+            
+            for child in self.root:
+                child.getparent().remove(child)
+                new_group.append(child)
+                
+            self.root.append(new_group)
+            self.saveToFile()
 
     def saveToFile(self):
         out_file = open(self.filename, "w")

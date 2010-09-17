@@ -1,3 +1,16 @@
+radiotray (0.6.1) unstable; urgency=low
+
+  * Added new translations and updated existing ones
+  * Fixed several small bugs
+  * Added sub-menus
+  * Improved configuration dialogs UI a little
+  * Fixed several problems with playlist parsers
+  * Added option to reload bookmarks
+  * Improved notification system
+  * Increased number of stations on the default bookmarks file
+  
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Fri, 16 Sep 2010 22:47:12 +1000  
+  
 radiotray (0.6) unstable; urgency=low
 
   * Updated translations

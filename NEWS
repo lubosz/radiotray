@@ -1,7 +1,14 @@
-Radio Tray 0.6.1 - xx/07/2010
+Radio Tray 0.6.1 - 16/09/2010
 =============================
 
-* Fixed a few bugs
+* Added new translations and updated existing ones
+* Fixed several small bugs
+* Added sub-menus
+* Improved configuration dialogs UI a little
+* Fixed several problems with playlist parsers
+* Added option to reload bookmarks
+* Improved notification system
+* Increased number of stations on the default bookmarks file
 
 
 Radio Tray 0.6 - 11/06/2010
