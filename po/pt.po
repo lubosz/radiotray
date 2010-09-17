@@ -49,7 +49,6 @@ msgid "New group:"
 msgstr "Novo grupo :"
 
 #: ../data/configBookmarks.glade.h:9
-#, fuzzy
 msgid "Parent Group :"
 msgstr "Grupo Pai :"
 
@@ -86,7 +85,6 @@ msgid "Radio Name"
 msgstr "Nome da Radio"
 
 #: ../src/BookmarkConfiguration.py:168
-#, fuzzy
 msgid "Add new station"
 msgstr "Adicionar nova estação"
 
