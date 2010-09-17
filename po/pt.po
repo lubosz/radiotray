@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-16 22:23+0000\n"
+"POT-Creation-Date: 2010-09-17 02:00+0000\n"
 "PO-Revision-Date: 2010-04-09 13:59-0500\n"
 "Last-Translator: Carlos Ribeiro <carlosmribeiro1@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -16,57 +16,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/configBookmarks.glade.h:1
-#, fuzzy
-msgid "-"
-msgstr "-"
-
-#: ../data/configBookmarks.glade.h:2
 msgid "Add Group"
 msgstr "Adicionar Grupo"
 
-#: ../data/configBookmarks.glade.h:3
+#: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
 msgstr "Grupo actual :"
 
-#: ../data/configBookmarks.glade.h:4
+#: ../data/configBookmarks.glade.h:3
 msgid "Group :"
 msgstr "Grupo :"
 
-#: ../data/configBookmarks.glade.h:5
+#: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
 msgstr "Mover grupo"
 
-#: ../data/configBookmarks.glade.h:6
+#: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
 msgstr "Mover item para outro grupo"
 
-#: ../data/configBookmarks.glade.h:7
+#: ../data/configBookmarks.glade.h:6
 msgid "Name :"
 msgstr "Nome :"
 
-#: ../data/configBookmarks.glade.h:8
+#: ../data/configBookmarks.glade.h:7
 msgid "New group:"
 msgstr "Novo grupo :"
 
-#: ../data/configBookmarks.glade.h:9
+#: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
 msgstr "Grupo Pai :"
 
-#: ../data/configBookmarks.glade.h:10
+#: ../data/configBookmarks.glade.h:9
 msgid "Separator"
 msgstr "Separador"
 
-#: ../data/configBookmarks.glade.h:11
+#: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Configurar Rádios"
 
-#: ../data/configBookmarks.glade.h:12
+#: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Nome da Rádio :"
 
-#: ../data/configBookmarks.glade.h:13
+#: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
 msgstr "URL :"
@@ -181,6 +176,13 @@ msgstr "Reproduzindo <b>%s</b> (vol: %s%%)"
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "<i>Idle (vol: %s%%)</i>"
 msgstr "<i>Inactivo</i>"
+
+#: ../src/SysTray.py:270
+msgid "Bookmarks Reloaded"
+msgstr "Marcadores Actualizados"
+
+#~ msgid "-"
+#~ msgstr "-"
 
 #~ msgid "About"
 #~ msgstr "Sobre"
