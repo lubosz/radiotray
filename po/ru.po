@@ -147,7 +147,7 @@ msgstr "Перезагружать закладки"
 #: ../src/SysTray.py:114 ../src/SysTray.py:183
 #, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
-msgstr "<i>Бездействие (громкость: %s%%)</i>"
+msgstr "<i>Бездействие (громкость: %s%%</i>"
 
 #: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
@@ -185,7 +185,7 @@ msgstr "<i>Бездействие</i>"
 
 #: ../src/SysTray.py:270
 msgid "Bookmarks Reloaded"
-msgstr ""
+msgstr "Закладки перезагружены"
 
 #~ msgid "About"
 #~ msgstr "О программе"
