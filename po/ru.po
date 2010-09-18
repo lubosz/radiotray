@@ -89,8 +89,7 @@ msgstr "Радиостанция"
 msgid "Add new station"
 msgstr "Добавить новую радиостанцию"
 
-#: ../src/BookmarkConfiguration.py:216
-#: ../src/BookmarkConfiguration.py:421
+#: ../src/BookmarkConfiguration.py:216 ../src/BookmarkConfiguration.py:421
 #: ../src/BookmarkConfiguration.py:443
 #, python-format
 msgid "Edit %s"
@@ -117,8 +116,7 @@ msgstr "Разработчики:"
 msgid "Contributors:"
 msgstr "Участники:"
 
-#: ../src/StateMediator.py:65
-#: ../src/StateMediator.py:66
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Неизвестная радиостанция"
@@ -131,11 +129,9 @@ msgstr "Ошибка"
 #: ../src/StateMediator.py:104
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr "Радио"
+msgstr "Воспроизводится"
 
-#: ../src/SysTray.py:80
-#: ../src/SysTray.py:88
-#: ../src/SysTray.py:178
+#: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
 #: ../src/SysTray.py:180
 msgid "Turned Off"
 msgstr "Выключить радио"
@@ -148,14 +144,12 @@ msgstr "Настройки радиостанций..."
 msgid "Reload Bookmarks"
 msgstr "Перезагрузить закладки"
 
-#: ../src/SysTray.py:114
-#: ../src/SysTray.py:183
+#: ../src/SysTray.py:114 ../src/SysTray.py:183
 #, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
 msgstr "<i>Бездействие (громкость: %s%%)</i>"
 
-#: ../src/SysTray.py:186
-#: ../src/SysTray.py:188
+#: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
@@ -195,8 +189,10 @@ msgstr "Закладки перезагружены"
 
 #~ msgid "About"
 #~ msgstr "О программе"
+
 #~ msgid "Quit"
 #~ msgstr "Выход"
+
 #~ msgctxt "Informs what radio and music is being played."
 #~ msgid ""
 #~ "Playing <b>%s</b>\n"
@@ -204,4 +200,3 @@ msgstr "Закладки перезагружены"
 #~ msgstr ""
 #~ "Проигрывать <b>%s</b>\n"
 #~ "<i>%s</i>"
-
