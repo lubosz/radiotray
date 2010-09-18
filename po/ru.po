@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-17 02:22+0000\n"
-"PO-Revision-Date: 2010-09-18 23:01+0300\n"
+"PO-Revision-Date: 2010-09-18 23:51+0300\n"
 "Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +146,7 @@ msgstr "Настройки радиостанций..."
 
 #: ../src/SysTray.py:95
 msgid "Reload Bookmarks"
-msgstr "Перезагружать закладки"
+msgstr "Перезагрузить закладки"
 
 #: ../src/SysTray.py:114
 #: ../src/SysTray.py:183
