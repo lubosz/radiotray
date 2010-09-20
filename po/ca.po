@@ -52,19 +52,16 @@ msgid "Separator"
 msgstr "Separador"
 
 #: ../data/configBookmarks.glade.h:10
-#, fuzzy
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Configurar ràdios"
 
 #: ../data/configBookmarks.glade.h:11
-#, fuzzy
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Nom de la ràdio:"
 
 #: ../data/configBookmarks.glade.h:12
-#, fuzzy
 msgctxt "yes"
 msgid "URL :"
 msgstr "URL:"
@@ -124,10 +121,9 @@ msgid "Radio Error"
 msgstr "Error"
 
 #: ../src/StateMediator.py:104
-#, fuzzy
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr "Ràdio sonant"
+msgstr "Radio Tray sonant"
 
 #: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
 #: ../src/SysTray.py:180
@@ -135,7 +131,6 @@ msgid "Turned Off"
 msgstr "Desconectat"
 
 #: ../src/SysTray.py:92
-#, fuzzy
 msgid "Configure Radios..."
 msgstr "Configurar ràdios..."
 
@@ -144,9 +139,9 @@ msgid "Reload Bookmarks"
 msgstr "Refrescar marcadors"
 
 #: ../src/SysTray.py:114 ../src/SysTray.py:183
-#, fuzzy, python-format
+#, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
-msgstr "<i>Inactiu</i>"
+msgstr "<i>Inactiu (vol: %s%%)</i>"
 
 #: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
