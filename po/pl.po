@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RadioTray\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-12 12:29+0000\n"
+"POT-Creation-Date: 2010-09-17 02:22+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jarosław Szmańda <JarekMk@gmail.com>\n"
 "Language-Team: JarekMk <JarekMk@gmail.com>\n"
@@ -15,18 +15,56 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 
 #: ../data/configBookmarks.glade.h:1
-msgid "Configure Radios"
-msgstr "Konfiguracja stacji"
+msgid "Add Group"
+msgstr "Dodaj grupę"
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Radio name:"
-msgstr "Nazwa stacji:"
+msgid "Current group:"
+msgstr "Bieżąca grupa:"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Grupa :"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Przenieś grupę"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Dodaj element do innej grupy"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Nazwa :"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Nowa grupa:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "Grupa nadrzędna :"
+
+#: ../data/configBookmarks.glade.h:9
 msgid "Separator"
 msgstr "Odstęp"
 
-#: ../data/configBookmarks.glade.h:4
+#: ../data/configBookmarks.glade.h:10
+#, fuzzy
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "Konfiguracja stacji"
+
+#: ../data/configBookmarks.glade.h:11
+#, fuzzy
+msgctxt "yes"
+msgid "Radio name:"
+msgstr "Nazwa stacji:"
+
+#: ../data/configBookmarks.glade.h:12
+#, fuzzy
+msgctxt "yes"
 msgid "URL :"
 msgstr "Adres:"
 
@@ -39,14 +77,32 @@ msgstr "Tłumacze:"
 msgid "%s's Website"
 msgstr "%s's Strona WWW"
 
-#: ../src/BookmarkConfiguration.py:66
+#: ../src/BookmarkConfiguration.py:81
 msgid "Radio Name"
 msgstr "Nazwa stacji"
 
-#: ../src/BookmarkConfiguration.py:173
+#: ../src/BookmarkConfiguration.py:168
+msgid "Add new station"
+msgstr "Dodaj nową stację"
+
+#: ../src/BookmarkConfiguration.py:216 ../src/BookmarkConfiguration.py:421
+#: ../src/BookmarkConfiguration.py:443
+#, python-format
+msgid "Edit %s"
+msgstr "Edytuj %s"
+
+#: ../src/BookmarkConfiguration.py:240
+msgid "Edit group"
+msgstr "Edytuj grupę"
+
+#: ../src/BookmarkConfiguration.py:279
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Na pewno usunąć \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:361
+msgid "Add new group"
+msgstr "Dodaj nową grupę"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -56,54 +112,54 @@ msgstr "Programiści:"
 msgid "Contributors:"
 msgstr "Wydawcy:"
 
-#: ../src/StateMediator.py:60 ../src/StateMediator.py:61
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Nieznana stacja radio"
 
-#: ../src/StateMediator.py:83
+#: ../src/StateMediator.py:93
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Błąd odtwarzania"
 
-#: ../src/StateMediator.py:90
+#: ../src/StateMediator.py:104
+#, fuzzy
 msgctxt "Notifies which radio is currently playing."
-msgid "Radio Playing"
+msgid "Radio Tray Playing"
 msgstr "Odtwarzanie"
 
-#: ../src/SysTray.py:78 ../src/SysTray.py:143
+#: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
+#: ../src/SysTray.py:180
 msgid "Turned Off"
 msgstr "Zatrzymano"
 
-#: ../src/SysTray.py:86
-msgid "Configure radios..."
+#: ../src/SysTray.py:92
+#, fuzzy
+msgid "Configure Radios..."
 msgstr "Konfiguracja stacji"
 
-#: ../src/SysTray.py:87
-msgid "About"
-msgstr "O programie"
+#: ../src/SysTray.py:95
+msgid "Reload Bookmarks"
+msgstr "Przeładuj zakładki"
 
-#: ../src/SysTray.py:88
-msgid "Quit"
-msgstr "Zakończ"
+#: ../src/SysTray.py:114 ../src/SysTray.py:183
+#, python-format
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i>Stop (głośność: %s%%)</i>"
 
-#: ../src/SysTray.py:100 ../src/SysTray.py:146
-msgid "<i>Idle</i>"
-msgstr "<i>Cisza</i>"
-
-#: ../src/SysTray.py:149
+#: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Zatrzymaj \"%s\""
 
-#: ../src/SysTray.py:156
+#: ../src/SysTray.py:196
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Łączenie z %s"
 
-#: ../src/SysTray.py:170
+#: ../src/SysTray.py:211
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -113,11 +169,27 @@ msgstr ""
 "Teraz gra <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:172
+#: ../src/SysTray.py:213
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Teraz gra <b>%s</b> (vol: %s%%)"
+
+#: ../src/SysTray.py:215
+#, fuzzy, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i>Cisza</i>"
+
+#: ../src/SysTray.py:270
+msgid "Bookmarks Reloaded"
+msgstr ""
+
+#~ msgid "About"
+#~ msgstr "O programie"
+
+#~ msgid "Quit"
+#~ msgstr "Zakończ"
 
 #~ msgctxt "Informs what radio and music is being played."
 #~ msgid ""
