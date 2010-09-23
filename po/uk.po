@@ -24,19 +24,19 @@ msgstr "Поточна група:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
-msgstr "Група:"
+msgstr "Група :"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
-msgstr "Пересунути групу"
+msgstr "Перенести групу"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
-msgstr "Пересунути до іншої групи"
+msgstr "Перенести до іншої групи"
 
 #: ../data/configBookmarks.glade.h:6
 msgid "Name :"
-msgstr "Назва:"
+msgstr "Назва :"
 
 #: ../data/configBookmarks.glade.h:7
 msgid "New group:"
@@ -44,7 +44,7 @@ msgstr "Нова група:"
 
 #: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
-msgstr "Батьківська група:"
+msgstr "Батьківська група :"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
@@ -63,7 +63,7 @@ msgstr "Назва радіостанції:"
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
-msgstr "URL: "
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
