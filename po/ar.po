@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: radio0.61\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-17 02:22+0000\n"
+"PO-Revision-Date: 2010-09-24 00:44-0600\n"
+"Last-Translator: المسيكين <ppppp345@gmx.com>\n"
+"Language-Team: Arabic <ppppp345@gmx.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nothing\n"
+"X-Poedit-Language: Arabic\n"
+"X-Poedit-Country: SAUDI ARABIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "إضافة مجموعة"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "المجموعة الحالية:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "المجموعة:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "نقل المجموعة"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "نقل المحطة إلى مجوعة أخرى"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "الأسم: "
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "مجموعة جديدة: "
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "المجموعة الرئيسية: "
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr "فاصل"
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "إعداد المحطات"
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr "اسم المحطة: "
+
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
+msgid "URL :"
+msgstr "رابط: "
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "المترجم"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s's الموقع"
+
+#: ../src/BookmarkConfiguration.py:81
+msgid "Radio Name"
+msgstr "اسم المحطة: "
+
+#: ../src/BookmarkConfiguration.py:168
+msgid "Add new station"
+msgstr "إضافة محطة جديدة"
+
+#: ../src/BookmarkConfiguration.py:216
+#: ../src/BookmarkConfiguration.py:421
+#: ../src/BookmarkConfiguration.py:443
+#, python-format
+msgid "Edit %s"
+msgstr "تحرير  %s"
+
+#: ../src/BookmarkConfiguration.py:240
+msgid "Edit group"
+msgstr "تحرير المجموعة"
+
+#: ../src/BookmarkConfiguration.py:279
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "هل أنت متأكد أنك تريد حذف  \"%s\" ؟"
+
+#: ../src/BookmarkConfiguration.py:361
+msgid "Add new group"
+msgstr "إضافة مجموعة جديدة"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "المطورون: "
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "المساهمون: "
+
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "محطة غير معروفة"
+
+#: ../src/StateMediator.py:93
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "خطأ "
+
+#: ../src/StateMediator.py:104
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr "التطبيق يعمل الآن "
+
+#: ../src/SysTray.py:80
+#: ../src/SysTray.py:88
+#: ../src/SysTray.py:178
+#: ../src/SysTray.py:180
+msgid "Turned Off"
+msgstr "إيقاف التشغيل"
+
+#: ../src/SysTray.py:92
+msgid "Configure Radios..."
+msgstr "يتم الان إعداد المحطات..."
+
+#: ../src/SysTray.py:95
+msgid "Reload Bookmarks"
+msgstr "إعادة تحميل العلامات"
+
+#: ../src/SysTray.py:114
+#: ../src/SysTray.py:183
+#, python-format
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i> خامل (vol: %s%%)</i>"
+
+#: ../src/SysTray.py:186
+#: ../src/SysTray.py:188
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "إيقاف بث \"%s\""
+
+#: ../src/SysTray.py:196
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "جاري الاتصال بـ  %s"
+
+#: ../src/SysTray.py:211
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
+msgstr ""
+"يتم الآن بث <b>%s</b>  (vol: %s%%)\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:213
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "يتم الآن بث <b>%s</b>  (vol: %s%%) "
+
+#: ../src/SysTray.py:215
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i> خامل (vol: %s%%)</i>"
+
+#: ../src/SysTray.py:270
+msgid "Bookmarks Reloaded"
+msgstr "تم إعادة تحميل العلامات"
+
