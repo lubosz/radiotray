@@ -22,11 +22,11 @@ msgstr "Groep toevoegen"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
-msgstr "Huidige groep"
+msgstr "Huidige groep:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
-msgstr "Groep"
+msgstr "Groep :"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
