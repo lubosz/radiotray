@@ -23,7 +23,7 @@ msgstr "Groep Toevoegen"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
-msgstr "Huidige groep"
+msgstr "Huidige groep:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
@@ -47,7 +47,7 @@ msgstr "Nieuwe groep:"
 
 #: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
-msgstr "Hoofdgroep"
+msgstr "Hoofdgroep :"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
@@ -61,12 +61,12 @@ msgstr "Zenders bewerken"
 #: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
-msgstr "Radiozender"
+msgstr "Radiozender:"
 
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
-msgstr "Stream-URL"
+msgstr "Stream-URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
