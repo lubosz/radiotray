@@ -61,7 +61,7 @@ msgstr "Zenders bewerken"
 #: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
-msgstr "Radiozender:"
+msgstr "Radiozender :"
 
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
