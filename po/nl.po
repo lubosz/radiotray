@@ -57,7 +57,6 @@ msgid "Configure Radios"
 msgstr "Zenders bewerken"
 
 #: ../data/configBookmarks.glade.h:11
-#, fuzzy
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Naam zender:"
@@ -122,7 +121,6 @@ msgid "Radio Error"
 msgstr "Radio Error"
 
 #: ../src/StateMediator.py:104
-#, fuzzy
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Radio Tray speelt"
@@ -133,7 +131,6 @@ msgid "Turned Off"
 msgstr "Uitgeschakeld"
 
 #: ../src/SysTray.py:92
-#, fuzzy
 msgid "Configure Radios..."
 msgstr "Zenders bewerken..."
 
@@ -142,7 +139,7 @@ msgid "Reload Bookmarks"
 msgstr "Favorieten bijwerken"
 
 #: ../src/SysTray.py:114 ../src/SysTray.py:183
-#, fuzzy, python-format
+#, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
 msgstr "<i>Gepauzeerd (vol: %s%%)</i>"
 
