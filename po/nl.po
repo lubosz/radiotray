@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr "Groep Toevoegen"
+msgstr "Groep toevoegen"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
@@ -79,7 +79,7 @@ msgstr "%s's website"
 
 #: ../src/BookmarkConfiguration.py:81
 msgid "Radio Name"
-msgstr "Radiostation"
+msgstr "Radiozender"
 
 #: ../src/BookmarkConfiguration.py:168
 msgid "Add new station"
@@ -89,7 +89,7 @@ msgstr "Radiozender toevoegen"
 #: ../src/BookmarkConfiguration.py:443
 #, python-format
 msgid "Edit %s"
-msgstr "%s Bewerken"
+msgstr "%s bewerken"
 
 #: ../src/BookmarkConfiguration.py:240
 msgid "Edit group"
@@ -98,7 +98,7 @@ msgstr "Groep bewerken"
 #: ../src/BookmarkConfiguration.py:279
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Weet u zeker dat u \"%s\" wilt verwijderen ?"
+msgstr "Weet u zeker dat u \"%s\" wilt verwijderen?"
 
 #: ../src/BookmarkConfiguration.py:361
 msgid "Add new group"
@@ -110,7 +110,7 @@ msgstr "Ontwikkelaars:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Met bijdrage van:"
+msgstr "Met bijdragen van:"
 
 #: ../src/StateMediator.py:65 ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
@@ -126,7 +126,7 @@ msgstr "Radio Error"
 #: ../src/StateMediator.py:104
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr "Radio speelt"
+msgstr "Radio Tray speelt"
 
 #: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
 #: ../src/SysTray.py:180
