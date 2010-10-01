@@ -137,12 +137,12 @@ msgstr "Configura le radio..."
 #: ../src/SysTray.py:95
 #, fuzzy
 msgid "Reload Bookmarks"
-msgstr "Ricarica preferite"
+msgstr "Ricarica preferiti"
 
 #: ../src/SysTray.py:114 ../src/SysTray.py:183
 #, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
-msgstr "<i>In pausa (vol:%s%%)</i>"
+msgstr "<i>In pausa (vol: %s%%)</i>"
 
 #: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
@@ -179,8 +179,9 @@ msgid "<i>Idle (vol: %s%%)</i>"
 msgstr "<i>In pausa</i>"
 
 #: ../src/SysTray.py:270
+#, fuzzy
 msgid "Bookmarks Reloaded"
-msgstr ""
+msgstr "Preferiti ricaricati"
 
 #~ msgid "About"
 #~ msgstr "Informazioni"
