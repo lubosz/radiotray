@@ -1,3 +1,9 @@
+radiotray (0.6.2) unstable; urgency=low
+
+  * development version
+
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Fri, 16 Sep 2010 22:47:12 +1000
+
 radiotray (0.6.1) unstable; urgency=low
 
   * Added new translations and updated existing ones
