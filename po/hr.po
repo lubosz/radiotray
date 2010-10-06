@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: radiotray\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-17 02:22+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: SilverSpace <mirozagreb@gmail.com>\n"
+"Language-Team: ubuntu-hr <mirozagreb@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Croatian\n"
+"X-Poedit-Country: CROATIA\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "Dodaj grupu"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "Trenutna grupa:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Grupa :"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Premjesti Grupe"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Premještanje stavke u drugu grupu"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Naziv :"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Nova grupa:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "Glavna grupa :"
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr "Separator"
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "Konfiguracija radia"
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr "Naziv radia:"
+
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
+msgid "URL :"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "SilverSpace <mirozagreb@gmail.com>"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s web stranica"
+
+#: ../src/BookmarkConfiguration.py:81
+msgid "Radio Name"
+msgstr "Naziv radia"
+
+#: ../src/BookmarkConfiguration.py:168
+msgid "Add new station"
+msgstr "dodaj novu stanicu"
+
+#: ../src/BookmarkConfiguration.py:216
+#: ../src/BookmarkConfiguration.py:421
+#: ../src/BookmarkConfiguration.py:443
+#, python-format
+msgid "Edit %s"
+msgstr "Uredi %s"
+
+#: ../src/BookmarkConfiguration.py:240
+msgid "Edit group"
+msgstr "Uredi grupu"
+
+#: ../src/BookmarkConfiguration.py:279
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Jeste li sigurni da želite izbrisati \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:361
+msgid "Add new group"
+msgstr "Dodajte novu grupu"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Razvojni programer:"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Suradnici:"
+
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Nepoznati radio"
+
+#: ../src/StateMediator.py:93
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Greška radio stanice"
+
+#: ../src/StateMediator.py:104
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr "Radio Tray svira"
+
+#: ../src/SysTray.py:80
+#: ../src/SysTray.py:88
+#: ../src/SysTray.py:178
+#: ../src/SysTray.py:180
+msgid "Turned Off"
+msgstr "Isključen"
+
+#: ../src/SysTray.py:92
+msgid "Configure Radios..."
+msgstr "Konfiguracija radia..."
+
+#: ../src/SysTray.py:95
+msgid "Reload Bookmarks"
+msgstr "Osvježi zabilješke"
+
+#: ../src/SysTray.py:114
+#: ../src/SysTray.py:183
+#, python-format
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i>Mirovanje (glasnoća: %s%%)</i>"
+
+#: ../src/SysTray.py:186
+#: ../src/SysTray.py:188
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "Isključi \"%s\""
+
+#: ../src/SysTray.py:196
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "Spajanje na %s"
+
+#: ../src/SysTray.py:211
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
+msgstr ""
+"Svira <b>%s</b> (glasnoća: %s%%)\n"
+"<i>%s</i>"
+
+#: ../src/SysTray.py:213
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%)"
+msgstr "Svira <b>%s</b> (glasnoća: %s%%)"
+
+#: ../src/SysTray.py:215
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "<i>Idle (vol: %s%%)</i>"
+msgstr "<i>Mirovanje (glasnoća: %s%%)</i>"
+
+#: ../src/SysTray.py:270
+msgid "Bookmarks Reloaded"
+msgstr "Zabilješke su osvježene "
+
