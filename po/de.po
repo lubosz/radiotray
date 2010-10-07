@@ -2,9 +2,9 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#
+# 
 # Felix Kaechele <heffer@fedoraproject.org>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
@@ -56,7 +56,6 @@ msgid "Separator"
 msgstr "Separator"
 
 #: ../data/configBookmarks.glade.h:10
-#, fuzzy
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Sender einstellen"
@@ -67,10 +66,9 @@ msgid "Radio name:"
 msgstr "Sendername:"
 
 #: ../data/configBookmarks.glade.h:12
-#, fuzzy
 msgctxt "yes"
 msgid "URL :"
-msgstr "URL:"
+msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -89,8 +87,7 @@ msgstr "Sendername"
 msgid "Add new station"
 msgstr "Neuen Radiosender hinzufügen"
 
-#: ../src/BookmarkConfiguration.py:216
-#: ../src/BookmarkConfiguration.py:421
+#: ../src/BookmarkConfiguration.py:216 ../src/BookmarkConfiguration.py:421
 #: ../src/BookmarkConfiguration.py:443
 #, python-format
 msgid "Edit %s"
@@ -117,8 +114,7 @@ msgstr "Entwickler:"
 msgid "Contributors:"
 msgstr "Mitwirkende:"
 
-#: ../src/StateMediator.py:65
-#: ../src/StateMediator.py:66
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Unbekannter Sender"
@@ -129,35 +125,29 @@ msgid "Radio Error"
 msgstr "Radio Fehler"
 
 #: ../src/StateMediator.py:104
-#, fuzzy
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr "Radio läuft"
+msgstr "Radio wird wiedergegeben"
 
-#: ../src/SysTray.py:80
-#: ../src/SysTray.py:88
-#: ../src/SysTray.py:178
+#: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
 #: ../src/SysTray.py:180
 msgid "Turned Off"
 msgstr "Radio ausgeschalten"
 
 #: ../src/SysTray.py:92
-#, fuzzy
 msgid "Configure Radios..."
-msgstr "Sender einstellen"
+msgstr "Sender einstellen..."
 
 #: ../src/SysTray.py:95
 msgid "Reload Bookmarks"
 msgstr "Lesezeichen neu laden"
 
-#: ../src/SysTray.py:114
-#: ../src/SysTray.py:183
+#: ../src/SysTray.py:114 ../src/SysTray.py:183
 #, python-format
 msgid "<i>Idle (vol: %s%%)</i>"
 msgstr "<i>Untätig (vol: %s%%)</i>"
 
-#: ../src/SysTray.py:186
-#: ../src/SysTray.py:188
+#: ../src/SysTray.py:186 ../src/SysTray.py:188
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
@@ -200,8 +190,8 @@ msgstr "Lesezeichen neu geladen"
 
 #~ msgid "Quit"
 #~ msgstr "Beenden"
-#~ msgctxt "Informs what radio and music is being played."
 
+#~ msgctxt "Informs what radio and music is being played."
 #~ msgid ""
 #~ "Playing <b>%s</b>\n"
 #~ "<i>%s</i>"
