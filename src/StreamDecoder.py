@@ -18,6 +18,7 @@
 #
 ##########################################################################
 import urllib2
+from lib.common import USER_AGENT
 from PlsPlaylistDecoder import PlsPlaylistDecoder
 from M3uPlaylistDecoder import M3uPlaylistDecoder
 from AsxPlaylistDecoder import AsxPlaylistDecoder
@@ -62,6 +63,7 @@ class StreamDecoder:
 
         print "Requesting stream... " + url
         req = urllib2.Request(url)
+        req.add_header('User-Agent', USER_AGENT)
         try:
             f = urllib2.urlopen(req, timeout=float(self.url_timeout))
 

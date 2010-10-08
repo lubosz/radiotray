@@ -71,3 +71,13 @@ else:
 
 DEFAULT_RADIO_LIST = os.path.join(DEFAULT_CFG_PATH, CFG_NAME)
 DEFAULT_CONFIG_FILE = os.path.join(DEFAULT_CFG_PATH, OPTIONS_CFG_NAME)
+
+# user-agent
+try:
+	import platform
+	USER_AGENT = "%s v%s (%s %s; %s/%s (%s))" % (APPNAME, APPVERSION, platform.system(), platform.machine(),
+												platform.linux_distribution()[0], platform.linux_distribution()[1],
+												platform.linux_distribution()[2])
+except:
+	USER_AGENT = APPNAME + " v" + APPVERSION
+
