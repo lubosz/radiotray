@@ -51,8 +51,8 @@ class StateMediator(object):
         self.currentMetaData = ''
 
         url = self.provider.getRadioUrl(radio)
+        self.systray.setConnectingState(radio)        
         self.audioPlayer.start(url)
-        self.systray.setConnectingState(radio)
         self.currentRadio = radio
         self.isNotified = False
 
