@@ -68,8 +68,8 @@ class StateMediator(object):
 
     def stop(self):
         self.audioPlayer.stop()
-        self.systray.setStoppedState()
         self.isPlaying = False
+        self.systray.setStoppedState()        
         self.isNotified = False
 
     def volume_up(self):

@@ -58,7 +58,7 @@ class RadioTray(object):
         self.audio = AudioPlayerGStreamer(self.mediator, self.cfg_provider, self.log)
 
         # load gui
-        self.systray = SysTray(self.mediator, self.provider, self.log)
+        self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider)
 
         # config mediator
         self.mediator.setAudioPlayer(self.audio)
