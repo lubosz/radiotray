@@ -23,6 +23,7 @@ import pygst
 pygst.require("0.10")
 import gst
 from StreamDecoder import StreamDecoder
+from lib.common import USER_AGENT
 
 class AudioPlayerGStreamer:
 
@@ -33,13 +34,15 @@ class AudioPlayerGStreamer:
         self.playlist = []
 
         # init player
-        self.player = gst.element_factory_make("playbin2", "player")
+        self.souphttpsrc = gst.element_factory_make("souphttpsrc", "source")
+        self.souphttpsrc.set_property("user-agent", USER_AGENT)
+		
+        self.player = gst.element_factory_make("playbin2", "player")		
         fakesink = gst.element_factory_make("fakesink", "fakesink")
         self.player.set_property("video-sink", fakesink)
         bus = self.player.get_bus()
         bus.add_signal_watch()
         bus.connect("message", self.on_message)
-
 
     def start(self, uri):
 

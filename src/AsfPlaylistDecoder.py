@@ -18,6 +18,7 @@
 #
 ##########################################################################
 import urllib2
+from lib.common import USER_AGENT
 from lxml import etree
 from lxml import objectify
 from StringIO import StringIO
@@ -42,6 +43,7 @@ class AsfPlaylistDecoder:
         print "Downloading playlist..."
 
         req = urllib2.Request(url)
+        req.add_header('User-Agent', USER_AGENT)
         f = urllib2.urlopen(req)
         str = f.read()
         f.close()
