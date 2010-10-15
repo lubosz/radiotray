@@ -33,6 +33,7 @@ except:
     sys.exit(1)
 
 from XmlDataProvider import XmlDataProvider
+from lib.common import APP_ICON_ON
 from lib import utils
 from lib import i18n
 import uuid
@@ -72,6 +73,12 @@ class BookmarkConfiguration(object):
         self.moveGroupDialog = self.wTree.get_object("groupMove")
         self.currentGroupLabel = self.wTree.get_object("label7")
         self.newGroupCombo = self.wTree.get_object("newGroup")
+
+        # set icon
+        self.window.set_icon_from_file(APP_ICON_ON)
+        self.config.set_icon_from_file(APP_ICON_ON)
+        self.moveGroupDialog.set_icon_from_file(APP_ICON_ON)
+        self.configGroup.set_icon_from_file(APP_ICON_ON)
 
         # populate list of radios
         self.load_data()

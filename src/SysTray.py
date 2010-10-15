@@ -363,6 +363,7 @@ class SysTray(object):
         hbox.pack_start(gtk.Label("Minutes:"), False, 5, 5)
         hbox.pack_end(entry, True, True, 5)
         dialog.vbox.pack_end(hbox, True, True, 20)
+        dialog.set_icon_from_file(APP_ICON_ON)
         dialog.show_all()
         
         ret = dialog.run()
