@@ -31,10 +31,7 @@ class AsxPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if('audio/x-ms-wax' in contentType or 'video/x-ms-wvx' in contentType):
-            print "Stream is readable by ASX Playlist Decoder"
-            return True
-        elif(contentType == 'video/x-ms-asf' and firstBytes.strip().lower().startswith('<asx')):
+        if(('audio/x-ms-wax' in contentType or 'video/x-ms-wvx' in contentType or 'video/x-ms-asf' in contentType) and firstBytes.strip().lower().startswith('<asx')):
             print "Stream is readable by ASX Playlist Decoder"
             return True
         else:
