@@ -155,11 +155,8 @@ class BookmarkConfiguration(object):
 
             if (selectedRadioName.startswith("[separator-")):
                 self.wTree.get_object("editBookmarkButton").set_sensitive(False)
-                self.wTree.get_object("moveToGroup").set_sensitive(False)
             else:
                 self.wTree.get_object("editBookmarkButton").set_sensitive(True)
-                self.wTree.get_object("moveToGroup").set_sensitive(True)
-
 
     def on_add_separator_clicked(self, widget):
         # hack: generate a unique name
@@ -418,14 +415,17 @@ class BookmarkConfiguration(object):
             
             self.newGroupCombo.set_model(liststore)
 
-            if (selectedType == self.RADIO_TYPE):
+            if (selectedType == self.RADIO_TYPE) or (selectedType == self.SEPARATOR_TYPE):
                 #get radio bookmark details
                 selectedRadio = self.dataProvider._radioExists(selectedName)
                 currentGroup = selectedRadio.getparent().get("name")
                 
                 # populate dialog with radio information
                 self.currentGroupLabel.set_text(currentGroup)
-                self.moveGroupDialog.set_title(_('Edit %s') % selectedName)
+                if not selectedName.startswith("[separator-"):
+                    self.moveGroupDialog.set_title(_('Edit %s') % selectedName)
+                else:
+                    self.moveGroupDialog.set_title(_('Edit Separator'))
                 self.newGroupCombo.grab_focus()
 
                 # show dialog
