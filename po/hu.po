@@ -4,6 +4,7 @@
 #
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 # Gábor Lénárt <lgb@lgb.hu>, 2010.
+# L. Csordás <csola48@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
