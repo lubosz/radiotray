@@ -1,16 +1,16 @@
 # RadioTray language file
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the radiotray package.
-# 
+#
 # Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
 # Gábor Lénárt <lgb@lgb.hu>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-13 08:16+0000\n"
-"PO-Revision-Date: 2010-04-13 08:16+0100\n"
-"Last-Translator: Gábor Lénárt <lgb@lgb.hu>\n"
+"POT-Creation-Date: 2010-10-24 01:49+0000\n"
+"PO-Revision-Date: 2010-10-25 11:18+0100\n"
+"Last-Translator: csola48 <csola48@gmail.com>\n"
 "Language-Team: Hungarian <lgb@lgb.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,34 +18,98 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "Csoport hozzáadása"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "Aktuális csoport:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Csoport:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Csoport mozgatása"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Tétel mozgátása másik csoportba"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Név:"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Új csoport:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "Szülő csoport:"
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr "Elválasztó"
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Állomások beállítása"
 
-#: ../data/configBookmarks.glade.h:2
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
 msgid "Radio name:"
 msgstr "Rádióállomás neve:"
 
-#: ../data/configBookmarks.glade.h:3
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
 msgid "URL :"
 msgstr "URL :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Gábor Lénárt <lgb@lgb.hu>"
+msgstr ""
+"Gábor Lénárt <lgb@lgb.hu>\n"
+"L. Csordás <csola48@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
 msgstr "%s weboldal"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Rádióállomás neve"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr "Új rádió hozzáadása"
+
+#: ../src/BookmarkConfiguration.py:220
+#: ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr "Szerkesztés %s"
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr "Csoport szerkesztése"
+
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Biztos benne, hogy törli: \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr "Új csoport hozzáadása"
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr "Elválasztó szerkesztése"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -55,73 +119,101 @@ msgstr "Fejlesztők:"
 msgid "Contributors:"
 msgstr "Hozzájárulók:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Ismeretlen rádió"
+
+#: ../src/StateMediator.py:93
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Rádió hiba"
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:104
 msgctxt "Notifies which radio is currently playing."
-msgid "Radio Playing"
-msgstr "Állomás lejátszása"
+msgid "Radio Tray Playing"
+msgstr "Radio Tray lejátszás"
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:81
+#: ../src/SysTray.py:88
+#: ../src/SysTray.py:256
+#: ../src/SysTray.py:258
 msgid "Turned Off"
 msgstr "Rádió kikapcsolása"
 
-#: ../src/SysTray.py:85
-msgid "Configure radios..."
+#: ../src/SysTray.py:92
+msgid "Sleep Timer"
+msgstr "Elalvás időzítő"
+
+#: ../src/SysTray.py:93
+msgid "Configure Radios..."
 msgstr "Állomások beállítása ..."
 
-#: ../src/SysTray.py:86
-msgid "About"
-msgstr "Információ"
+#: ../src/SysTray.py:94
+msgid "Reload Bookmarks"
+msgstr "Könyvjelző visszatöltése"
 
-#: ../src/SysTray.py:87
-msgid "Quit"
-msgstr "Kilépés"
+#: ../src/SysTray.py:122
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Készenlét (vol: %s%%)"
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
-msgid "<i>Idle</i>"
-msgstr "<i>Készenlét</i>"
-
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:264
+#: ../src/SysTray.py:266
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Rádió kikapcsolása \"%s\""
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"Lejátszás <b>%s</b>\n"
-"<i>%s</i>"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "Lejátszás <b>%s</b>"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:274
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Kapcsolódás: %s"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:293
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"Lejátszás <b>%s</b>\n"
+"Lejátszás <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
+
+#: ../src/SysTray.py:295
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr "Lejátszás <b>%s</b> (vol: %s%%%s)"
+
+#: ../src/SysTray.py:297
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr "Készenlét (vol: %s%%%s)"
+
+#: ../src/SysTray.py:352
+msgid "Bookmarks Reloaded"
+msgstr "Könyvjelző visszatöltve"
+
+#~ msgid "About"
+#~ msgstr "Információ"
+
+#~ msgid "Quit"
+#~ msgstr "Kilépés"
+
+#~ msgid "<i>Idle</i>"
+#~ msgstr "<i>Készenlét</i>"
+#~ msgctxt "Informs what radio and music is being played."
+
+#~ msgid ""
+#~ "Playing <b>%s</b>\n"
+#~ "<i>%s</i>"
+#~ msgstr ""
+#~ "Lejátszás <b>%s</b>\n"
+#~ "<i>%s</i>"
 
 #~ msgid "Radio Tray"
 #~ msgstr "Radio Tray"
