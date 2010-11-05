@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-05 00:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Valdur Kana <valdur55@gmail.com>\n"
+"Language-Team: Estonian <et@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "Lisa Grupp"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Grupp"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Liiguta gruppi"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Liiguta kirje teise gruppi"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Nimi :"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Uus grupp"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr "Eraldaja"
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "Seadista raadioid"
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
+msgid "URL :"
+msgstr "URL :"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr "%s koduleht"
+
+#: ../src/BookmarkConfiguration.py:88
+msgid "Radio Name"
+msgstr "Raadio nimi"
+
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr "Lisa uus jaam"
+
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr "Muuda %s"
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr "Muuda gruppi"
+
+#: ../src/BookmarkConfiguration.py:283
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Kas sa oled kindel, et eemaldada \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr "Lisa uus grupp"
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr "Muuda eraldajat"
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "Arendajad"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr "Hooldajad"
+
+#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Tundmatu raaio"
+
+#: ../src/StateMediator.py:93
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Raadio viga"
+
+#: ../src/StateMediator.py:104
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr ""
+
+#: ../src/SysTray.py:81 ../src/SysTray.py:88 ../src/SysTray.py:256
+#: ../src/SysTray.py:258
+msgid "Turned Off"
+msgstr "Välja lülitatud"
+
+#: ../src/SysTray.py:92
+msgid "Sleep Timer"
+msgstr "Magamajäämise loendur"
+
+#: ../src/SysTray.py:93
+msgid "Configure Radios..."
+msgstr "Seadista raadioid"
+
+#: ../src/SysTray.py:94
+msgid "Reload Bookmarks"
+msgstr "Värskenda järjehoidjaid"
+
+#: ../src/SysTray.py:122
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Jõude (vol: %s%%)"
+
+#: ../src/SysTray.py:264 ../src/SysTray.py:266
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr ""
+
+#: ../src/SysTray.py:274
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr ""
+
+#: ../src/SysTray.py:293
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%%s)\n"
+"<i>%s</i>"
+msgstr ""
+
+#: ../src/SysTray.py:295
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:297
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:352
+msgid "Bookmarks Reloaded"
+msgstr "Järjehoidjad on värskendatud"
