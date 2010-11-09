@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-17 02:00+0000\n"
+"POT-Creation-Date: 2010-11-08 23:20+0000\n"
 "PO-Revision-Date: 2010-04-09 13:59-0500\n"
 "Last-Translator: Carlos Ribeiro <carlosmribeiro1@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -75,32 +75,36 @@ msgstr "Carlos Ribeiro <carlosmribeiro1@gmail.com>"
 msgid "%s's Website"
 msgstr "Website do %s"
 
-#: ../src/BookmarkConfiguration.py:81
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Nome da Radio"
 
-#: ../src/BookmarkConfiguration.py:168
+#: ../src/BookmarkConfiguration.py:172
 msgid "Add new station"
 msgstr "Adicionar nova estação"
 
-#: ../src/BookmarkConfiguration.py:216 ../src/BookmarkConfiguration.py:421
-#: ../src/BookmarkConfiguration.py:443
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
 #, python-format
 msgid "Edit %s"
 msgstr "Editar %s"
 
-#: ../src/BookmarkConfiguration.py:240
+#: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
 msgstr "Editar grupo"
 
-#: ../src/BookmarkConfiguration.py:279
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Tem a certeza que deseja remover \"%s\" ?"
 
-#: ../src/BookmarkConfiguration.py:361
+#: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
 msgstr "Adicionar novo grupo"
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr "Alterar Separador"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -125,61 +129,69 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Rádio Tray a Reproduzir"
 
-#: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
-#: ../src/SysTray.py:180
+#: ../src/SysTray.py:81 ../src/SysTray.py:88 ../src/SysTray.py:256
+#: ../src/SysTray.py:258
 msgid "Turned Off"
 msgstr "Desligado"
 
 #: ../src/SysTray.py:92
+msgid "Sleep Timer"
+msgstr "Temporizador"
+
+#: ../src/SysTray.py:93
 msgid "Configure Radios..."
 msgstr "Configurar rádios..."
 
-#: ../src/SysTray.py:95
+#: ../src/SysTray.py:94
 msgid "Reload Bookmarks"
 msgstr "Actualizar Marcadores"
 
-#: ../src/SysTray.py:114 ../src/SysTray.py:183
-#, python-format
-msgid "<i>Idle (vol: %s%%)</i>"
+#: ../src/SysTray.py:122
+#, fuzzy, python-format
+msgid "Idle (vol: %s%%)"
 msgstr "<i>Inactivo (vol: %s%%)</i>"
 
-#: ../src/SysTray.py:186 ../src/SysTray.py:188
+#: ../src/SysTray.py:264 ../src/SysTray.py:266
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Desligar \"%s\""
 
-#: ../src/SysTray.py:196
+#: ../src/SysTray.py:274
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "A conectar-se a %s"
 
-#: ../src/SysTray.py:211
-#, python-format
+#: ../src/SysTray.py:293
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
 "Reproduzindo <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:213
-#, python-format
+#: ../src/SysTray.py:295
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr "Reproduzindo <b>%s</b> (vol: %s%%)"
 
-#: ../src/SysTray.py:215
-#, python-format
+#: ../src/SysTray.py:297
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "<i>Idle (vol: %s%%)</i>"
+msgid "Idle (vol: %s%%%s)"
 msgstr "<i>Inactivo (vol: %s%%)</i>"
 
-#: ../src/SysTray.py:270
+#: ../src/SysTray.py:352
 msgid "Bookmarks Reloaded"
 msgstr "Marcadores Actualizados"
+
+#~ msgctxt "Informs what radio and music is being played as a tooltip."
+#~ msgid "<i>Idle (vol: %s%%)</i>"
+#~ msgstr "<i>Inactivo (vol: %s%%)</i>"
 
 #~ msgid "-"
 #~ msgstr "-"
