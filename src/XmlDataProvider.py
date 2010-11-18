@@ -79,7 +79,7 @@ class XmlDataProvider:
             if group == None or len(group) == 0:
                 print "Group is new. Saving with name " + new_group_name
                 new_group = etree.SubElement(parent_group[0], 'group')
-                new_group.set("name", new_group_name)
+                new_group.set("name", unicode(new_group_name))
                 self.saveToFile()                
                 return True        
             
@@ -102,8 +102,8 @@ class XmlDataProvider:
     
             if result is None:
                 radio = etree.SubElement(group[0], 'bookmark')
-                radio.set("name", name)
-                radio.set("url", url)
+                radio.set("name", unicode(name))
+                radio.set("url", unicode(url))
                 self.saveToFile()
                 return True
             
@@ -126,7 +126,7 @@ class XmlDataProvider:
             radioAdded = False
         else:
             if oldName == newName:
-                result.set("url", url)
+                result.set("url", unicode(url))
                 self.saveToFile()
                 radioAdded = True
             else:
@@ -136,7 +136,7 @@ class XmlDataProvider:
                     radioAdded = False
                 else:
                     result.set("name", unicode(newName))
-                    result.set("url", url)
+                    result.set("url", unicode(url))
                     self.saveToFile()
                     radioAdded = True
 
@@ -160,7 +160,7 @@ class XmlDataProvider:
                     print "A group with the name \"%s\" already exists." % newName
                     groupAdded = False
                 else:
-                    result.set("name", newNameStr)
+                    result.set("name", unicode(newNameStr))
                     self.saveToFile()
                     groupAdded = True
 
