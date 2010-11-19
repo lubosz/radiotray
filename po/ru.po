@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-17 02:22+0000\n"
+"POT-Creation-Date: 2010-11-19 00:44+0000\n"
 "PO-Revision-Date: 2010-09-18 23:51+0300\n"
 "Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.3.1\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -81,32 +82,37 @@ msgstr ""
 msgid "%s's Website"
 msgstr "Веб-сайт %s"
 
-#: ../src/BookmarkConfiguration.py:81
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Радиостанция"
 
-#: ../src/BookmarkConfiguration.py:168
+#: ../src/BookmarkConfiguration.py:172
 msgid "Add new station"
 msgstr "Добавить новую радиостанцию"
 
-#: ../src/BookmarkConfiguration.py:216 ../src/BookmarkConfiguration.py:421
-#: ../src/BookmarkConfiguration.py:443
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
 #, python-format
 msgid "Edit %s"
 msgstr "Редактировать %s"
 
-#: ../src/BookmarkConfiguration.py:240
+#: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
 msgstr "Редактировать группу"
 
-#: ../src/BookmarkConfiguration.py:279
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Вы уверены, что хотите удалить:  \"%s\"?"
 
-#: ../src/BookmarkConfiguration.py:361
+#: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
 msgstr "Добавить новую группу"
+
+#: ../src/BookmarkConfiguration.py:428
+#, fuzzy
+msgid "Edit Separator"
+msgstr "Разделитель"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -131,61 +137,69 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Воспроизводится"
 
-#: ../src/SysTray.py:80 ../src/SysTray.py:88 ../src/SysTray.py:178
-#: ../src/SysTray.py:180
+#: ../src/SysTray.py:81 ../src/SysTray.py:88 ../src/SysTray.py:256
+#: ../src/SysTray.py:258
 msgid "Turned Off"
 msgstr "Выключить радио"
 
 #: ../src/SysTray.py:92
+msgid "Sleep Timer"
+msgstr ""
+
+#: ../src/SysTray.py:93
 msgid "Configure Radios..."
 msgstr "Настройки радиостанций..."
 
-#: ../src/SysTray.py:95
+#: ../src/SysTray.py:94
 msgid "Reload Bookmarks"
 msgstr "Перезагрузить закладки"
 
-#: ../src/SysTray.py:114 ../src/SysTray.py:183
-#, python-format
-msgid "<i>Idle (vol: %s%%)</i>"
+#: ../src/SysTray.py:122
+#, fuzzy, python-format
+msgid "Idle (vol: %s%%)"
 msgstr "<i>Бездействие (громкость: %s%%)</i>"
 
-#: ../src/SysTray.py:186 ../src/SysTray.py:188
+#: ../src/SysTray.py:264 ../src/SysTray.py:266
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Выключить \"%s\""
 
-#: ../src/SysTray.py:196
+#: ../src/SysTray.py:274
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Соединение с  %s"
 
-#: ../src/SysTray.py:211
-#, python-format
+#: ../src/SysTray.py:293
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
 "Воспроизводится <b>%s</b> (громкость: %s%%)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:213
-#, python-format
+#: ../src/SysTray.py:295
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%)"
 
-#: ../src/SysTray.py:215
-#, python-format
+#: ../src/SysTray.py:297
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "<i>Idle (vol: %s%%)</i>"
+msgid "Idle (vol: %s%%%s)"
 msgstr "<i>Бездействие (громкость: %s%%)</i>"
 
-#: ../src/SysTray.py:270
+#: ../src/SysTray.py:352
 msgid "Bookmarks Reloaded"
 msgstr "Закладки перезагружены"
+
+#~ msgctxt "Informs what radio and music is being played as a tooltip."
+#~ msgid "<i>Idle (vol: %s%%)</i>"
+#~ msgstr "<i>Бездействие (громкость: %s%%)</i>"
 
 #~ msgid "About"
 #~ msgstr "О программе"
