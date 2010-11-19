@@ -15,8 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.3.1\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -110,7 +109,6 @@ msgid "Add new group"
 msgstr "Добавить новую группу"
 
 #: ../src/BookmarkConfiguration.py:428
-#, fuzzy
 msgid "Edit Separator"
 msgstr "Разделитель"
 
@@ -144,7 +142,7 @@ msgstr "Выключить радио"
 
 #: ../src/SysTray.py:92
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Таймер сна"
 
 #: ../src/SysTray.py:93
 msgid "Configure Radios..."
@@ -155,9 +153,9 @@ msgid "Reload Bookmarks"
 msgstr "Перезагрузить закладки"
 
 #: ../src/SysTray.py:122
-#, fuzzy, python-format
+#, python-format
 msgid "Idle (vol: %s%%)"
-msgstr "<i>Бездействие (громкость: %s%%)</i>"
+msgstr "Бездействие (громкость: %s%%)"
 
 #: ../src/SysTray.py:264 ../src/SysTray.py:266
 #, python-format
@@ -172,26 +170,26 @@ msgid "Connecting to %s"
 msgstr "Соединение с  %s"
 
 #: ../src/SysTray.py:293
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"Воспроизводится <b>%s</b> (громкость: %s%%)\n"
+"Воспроизводится <b>%s</b> (громкость: %s%%%s)\n"
 "<i>%s</i>"
 
 #: ../src/SysTray.py:295
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
-msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%)"
+msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%%s)"
 
 #: ../src/SysTray.py:297
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
-msgstr "<i>Бездействие (громкость: %s%%)</i>"
+msgstr "Бездействие (громкость: %s%%%s)"
 
 #: ../src/SysTray.py:352
 msgid "Bookmarks Reloaded"
