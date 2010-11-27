@@ -1,0 +1,205 @@
+# RadioTray language file
+# Copyright (C) 2009-2010
+# This file is distributed under the same license as the radiotray package.
+# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+# Zhang Sen <zh.jesse@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: radiotray 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-27 01:26+0000\n"
+"PO-Revision-Date: 2010-11-27 10:06+0800\n"
+"Last-Translator: Niklas Chang <niklas@en91.com>\n"
+"Language-Team: Simplified Chinese <i18n-zh@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "新增群組"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "群組"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "名稱"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "設置電台"
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr "電台名稱"
+
+#: ../data/configBookmarks.glade.h:12
+#, fuzzy
+msgctxt "yes"
+msgid "URL :"
+msgstr "URL"
+
+#: ../src/about.py:16
+msgid "translator-credits"
+msgstr "翻譯貢獻"
+
+#: ../src/about.py:30
+#, python-format
+msgid "%s's Website"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:88
+msgid "Radio Name"
+msgstr "電台名稱"
+
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:220
+#: ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:283
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "確定要刪除%s?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr ""
+
+#: ../src/lib/common.py:22
+msgid "Developers:"
+msgstr "開發人員"
+
+#: ../src/lib/common.py:24
+msgid "Contributors:"
+msgstr ""
+
+#: ../src/StateMediator.py:65
+#: ../src/StateMediator.py:66
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr ""
+
+#: ../src/StateMediator.py:93
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "錯誤"
+
+#: ../src/StateMediator.py:104
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr "正在播放"
+
+#: ../src/SysTray.py:81
+#: ../src/SysTray.py:88
+#: ../src/SysTray.py:256
+#: ../src/SysTray.py:258
+msgid "Turned Off"
+msgstr "關掉電台"
+
+#: ../src/SysTray.py:92
+msgid "Sleep Timer"
+msgstr ""
+
+#: ../src/SysTray.py:93
+msgid "Configure Radios..."
+msgstr "設置電台"
+
+#: ../src/SysTray.py:94
+msgid "Reload Bookmarks"
+msgstr ""
+
+#: ../src/SysTray.py:122
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr ""
+
+#: ../src/SysTray.py:264
+#: ../src/SysTray.py:266
+#, python-format
+msgctxt "Turns off the current radio."
+msgid "Turn Off \"%s\""
+msgstr "關閉%s"
+
+#: ../src/SysTray.py:274
+#, python-format
+msgctxt "Connecting to a music stream."
+msgid "Connecting to %s"
+msgstr "正在連接 %s"
+
+#: ../src/SysTray.py:293
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid ""
+"Playing <b>%s</b> (vol: %s%%%s)\n"
+"<i>%s</i>"
+msgstr ""
+
+#: ../src/SysTray.py:295
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:297
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:352
+msgid "Bookmarks Reloaded"
+msgstr ""
+
+#~ msgid "About"
+#~ msgstr "关于"
+#~ msgid "Quit"
+#~ msgstr "退出"
+#~ msgid "Idle"
+#~ msgstr "闲置"
+#~ msgid "Playing"
+#~ msgstr "正在播放"
+
