@@ -9,12 +9,14 @@ msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-27 01:26+0000\n"
-"PO-Revision-Date: 2010-11-27 10:06+0800\n"
+"PO-Revision-Date: 2010-11-27 10:19+0800\n"
 "Last-Translator: Niklas Chang <niklas@en91.com>\n"
-"Language-Team: Simplified Chinese <i18n-zh@googlegroups.com>\n"
+"Language-Team: Taiwan Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: TAIWAN\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -50,7 +52,7 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
-msgstr ""
+msgstr "分隔線"
 
 #: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
@@ -75,7 +77,7 @@ msgstr "翻譯貢獻"
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr ""
+msgstr "%s 的網站"
 
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
@@ -83,14 +85,14 @@ msgstr "電台名稱"
 
 #: ../src/BookmarkConfiguration.py:172
 msgid "Add new station"
-msgstr ""
+msgstr "新增電台"
 
 #: ../src/BookmarkConfiguration.py:220
 #: ../src/BookmarkConfiguration.py:426
 #: ../src/BookmarkConfiguration.py:450
 #, python-format
 msgid "Edit %s"
-msgstr ""
+msgstr "編輯 %s"
 
 #: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
@@ -121,7 +123,7 @@ msgstr ""
 #: ../src/StateMediator.py:66
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
-msgstr ""
+msgstr "未知電台"
 
 #: ../src/StateMediator.py:93
 msgctxt "An error notification."
@@ -188,7 +190,7 @@ msgstr ""
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
-msgstr ""
+msgstr "閒置 (音量: %s%%%s)"
 
 #: ../src/SysTray.py:352
 msgid "Bookmarks Reloaded"
