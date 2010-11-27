@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: radiotray 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-27 01:26+0000\n"
-"PO-Revision-Date: 2010-11-27 10:19+0800\n"
+"PO-Revision-Date: 2010-11-27 10:27+0800\n"
 "Last-Translator: Niklas Chang <niklas@en91.com>\n"
 "Language-Team: Taiwan Chinese\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "新增群組"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
-msgstr ""
+msgstr "現有群組"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
@@ -32,11 +32,11 @@ msgstr "群組"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
-msgstr ""
+msgstr "移動群組"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
-msgstr ""
+msgstr "移動到別的群組"
 
 #: ../data/configBookmarks.glade.h:6
 msgid "Name :"
@@ -44,11 +44,11 @@ msgstr "名稱"
 
 #: ../data/configBookmarks.glade.h:7
 msgid "New group:"
-msgstr ""
+msgstr "新群組:"
 
 #: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
-msgstr ""
+msgstr "上層群組:"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
@@ -96,28 +96,28 @@ msgstr "編輯 %s"
 
 #: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
-msgstr ""
+msgstr "編輯群組"
 
 #: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "確定要刪除%s?"
+msgstr "確定要刪除 %s?"
 
 #: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
-msgstr ""
+msgstr "新增群組"
 
 #: ../src/BookmarkConfiguration.py:428
 msgid "Edit Separator"
-msgstr ""
+msgstr "編輯分隔線"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "開發人員"
+msgstr "開發人員:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "貢獻者:"
 
 #: ../src/StateMediator.py:65
 #: ../src/StateMediator.py:66
@@ -144,7 +144,7 @@ msgstr "關掉電台"
 
 #: ../src/SysTray.py:92
 msgid "Sleep Timer"
-msgstr ""
+msgstr "睡眠定時"
 
 #: ../src/SysTray.py:93
 msgid "Configure Radios..."
@@ -152,12 +152,12 @@ msgstr "設置電台"
 
 #: ../src/SysTray.py:94
 msgid "Reload Bookmarks"
-msgstr ""
+msgstr "重新整理書籤"
 
 #: ../src/SysTray.py:122
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "閒置 (音量: %s%%)"
 
 #: ../src/SysTray.py:264
 #: ../src/SysTray.py:266
@@ -179,12 +179,14 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
+"正在播放 <b>%s</b> (音量: %s%%%s)\n"
+"<i>%s</i>"
 
 #: ../src/SysTray.py:295
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
-msgstr ""
+msgstr "正在播放 <b>%s</b> (音量: %s%%%s)"
 
 #: ../src/SysTray.py:297
 #, python-format
@@ -194,14 +196,5 @@ msgstr "閒置 (音量: %s%%%s)"
 
 #: ../src/SysTray.py:352
 msgid "Bookmarks Reloaded"
-msgstr ""
-
-#~ msgid "About"
-#~ msgstr "关于"
-#~ msgid "Quit"
-#~ msgstr "退出"
-#~ msgid "Idle"
-#~ msgstr "闲置"
-#~ msgid "Playing"
-#~ msgstr "正在播放"
+msgstr "書籤已重新整理"
 
