@@ -323,7 +323,7 @@ class SysTray(object):
         new_user_data = None
         
         if group_name != 'root':
-            group = gtk.MenuItem(group_namei, False)
+            group = gtk.MenuItem(group_name, False)
             user_data.append(group)  
             new_user_data = gtk.Menu()
             group.set_submenu(new_user_data)
