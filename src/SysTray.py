@@ -78,14 +78,14 @@ class SysTray(object):
 
         # radios menu
         self.radioMenu = gtk.Menu()
-        self.turnOff = gtk.MenuItem(_("Turned Off"))
+        self.turnOff = gtk.MenuItem(_("Turned Off"), False)
         self.turnOff.connect('activate', self.on_turn_off)
         self.turnOff.set_sensitive(False)
         self.update_radios()
 
         # config menu
         self.menu = gtk.Menu()
-        self.turnOff2 = gtk.MenuItem(_("Turned Off"))
+        self.turnOff2 = gtk.MenuItem(_("Turned Off"), False)
         self.turnOff2.connect('activate', self.on_turn_off)
         self.turnOff2.set_sensitive(False)
         separator  = gtk.MenuItem()
@@ -323,7 +323,7 @@ class SysTray(object):
         new_user_data = None
         
         if group_name != 'root':
-            group = gtk.MenuItem(group_name)
+            group = gtk.MenuItem(group_namei, False)
             user_data.append(group)  
             new_user_data = gtk.Menu()
             group.set_submenu(new_user_data)
@@ -340,7 +340,7 @@ class SysTray(object):
             user_data.append(separator)
             separator.show()
         else:         
-            radio = gtk.MenuItem(radio_name)
+            radio = gtk.MenuItem(radio_name, False)
             radio.show()
             radio.connect('activate', self.on_start, radio_name)
             user_data.append(radio)
