@@ -54,7 +54,7 @@ class AudioPlayerGStreamer:
             self.playNextStream()
 
         elif(urlInfo is not None and urlInfo.isPlaylist() == False):
-            self.playlist = [uri]
+            self.playlist = [urlInfo.getUrl()]
             self.playNextStream()
 
         else:            

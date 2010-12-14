@@ -19,6 +19,7 @@
 ##########################################################################
 import urllib2
 from lib.common import USER_AGENT
+from lib.DummyMMSHandler import DummyMMSHandler
 from PlsPlaylistDecoder import PlsPlaylistDecoder
 from M3uPlaylistDecoder import M3uPlaylistDecoder
 from AsxPlaylistDecoder import AsxPlaylistDecoder
@@ -64,12 +65,19 @@ class StreamDecoder:
         print "Requesting stream... " + url
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
+
         try:
-            f = urllib2.urlopen(req, timeout=float(self.url_timeout))
+            opener = urllib2.build_opener(DummyMMSHandler())
+            f = opener.open(req, timeout=float(self.url_timeout))
 
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
-            return None
+            if e.reason.startswith('MMS REDIRECT'):
+                newurl = e.reason.split("MMS REDIRECT:",1)[1]
+                print "Found mms redirect for: " + newurl
+                return UrlInfo(newurl, False, None)
+            else:
+                return None
         except Exception, e:
             print "No radio stream found. Error: %s" % str(e)
             return None
