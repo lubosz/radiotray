@@ -35,12 +35,13 @@ except:
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
-from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT
+from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
 from lib import i18n
 from about import AboutDialog
 from lib.utils import html_escape
 
 import dbus
+import textwrap
 
 class OneWindow(object):
     def __init__(self, dialog_class):
@@ -76,53 +77,6 @@ class SysTray(object):
         self.provider = provider
         self.cfg_provider = cfg_provider
 
-        # radios menu
-        self.radioMenu = gtk.Menu()
-        self.turnOff = gtk.MenuItem(_("Turned Off"), False)
-        self.turnOff.connect('activate', self.on_turn_off)
-        self.turnOff.set_sensitive(False)
-        self.update_radios()
-
-        # config menu
-        self.menu = gtk.Menu()
-        self.turnOff2 = gtk.MenuItem(_("Turned Off"), False)
-        self.turnOff2.connect('activate', self.on_turn_off)
-        self.turnOff2.set_sensitive(False)
-        separator  = gtk.MenuItem()
-        self.sleep_timer_menu = gtk.CheckMenuItem(_("Sleep Timer"))
-        menu_item1 = gtk.MenuItem(_("Configure Radios..."))
-        menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
-        menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-        menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
-        self.menu.append(self.turnOff2)
-        self.menu.append(separator) 
-        self.menu.append(self.sleep_timer_menu)       
-        self.menu.append(menu_item1)
-        self.menu.append(menu_item4)        
-        self.menu.append(gtk.MenuItem())        
-        self.menu.append(menu_item3)
-        self.menu.append(menu_item2)        
-        menu_item1.show()
-        menu_item2.show()
-        menu_item3.show()
-        menu_item4.show()
-        self.sleep_timer_menu.show()
-        self.turnOff2.show()
-        separator.show()      
-        
-        menu_item1.connect('activate', self.on_preferences)
-        menu_item2.connect('activate', self.on_quit)
-        menu_item3.connect('activate', self.on_about)
-        menu_item4.connect('activate', self.reload_bookmarks)
-        self.sleep_timer_menu.connect('activate', self.on_sleep_menu)
-                        
-        self.menu.show_all()
-
-        self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
-        self.icon.set_tooltip_markup(_("Idle (vol: %s%%)") % (self.mediator.getVolume()))
-        self.icon.connect('button_press_event', self.button_press)
-        self.icon.connect('scroll_event', self.scroll)
-
         # sleep timer
         self.sleep_timer_id = None
         self.min_to_sleep = 0
@@ -135,6 +89,96 @@ class SysTray(object):
             self.min_to_sleep_selected = int(self.min_to_sleep_selected)
             
         self.ignore_toggle = False
+
+        # application indicator
+        self.app_indicator_enabled = self.cfg_provider.getConfigValue("enable_application_indicator_support")        
+        if self.app_indicator_enabled == None:
+            self.app_indicator_enabled = False
+            self.cfg_provider.setConfigValue("enable_application_indicator_support", "false")
+        else:            
+            self.app_indicator_enabled = (self.app_indicator_enabled == "true")
+        
+        self.app_indicator_use_theme = self.cfg_provider.getConfigValue("enable_application_indicator_theme_support")
+        if self.app_indicator_use_theme == None:
+            self.app_indicator_use_theme = False
+            self.cfg_provider.setConfigValue("enable_application_indicator_theme_support", "false")
+        else:
+            self.app_indicator_use_theme = (self.app_indicator_use_theme == "true")
+                
+        if self.app_indicator_enabled:
+            try:            
+                import appindicator
+                self.app_indicator = appindicator.Indicator(APPNAME,
+                                                            APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF,
+                                                            appindicator.CATEGORY_APPLICATION_STATUS)
+                self.app_indicator.set_status(appindicator.STATUS_ACTIVE)
+            except:
+                print "Failed to create an Application Indicator!" 
+                self.app_indicator = None
+        else:
+            self.app_indicator = None
+        
+        # should we use the old menu?
+        if not self.app_indicator:    
+            # radios menu
+            self.radioMenu = gtk.Menu()
+            self.turnOff = gtk.MenuItem(_("Turned Off"), False)
+            self.turnOff.connect('activate', self.on_turn_off)
+            self.turnOff.set_sensitive(False)
+            self.update_radios()
+    
+            # config menu
+            self.menu = gtk.Menu()
+            self.turnOff2 = gtk.MenuItem(_("Turned Off"), False)
+            self.turnOff2.connect('activate', self.on_turn_off)
+            self.turnOff2.set_sensitive(False)
+            separator  = gtk.MenuItem()
+            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
+            menu_item1 = gtk.MenuItem(_("Configure Radios..."))
+            menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
+            menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+            menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
+            self.menu.append(self.turnOff2)
+            self.menu.append(separator) 
+            self.menu.append(self.sleep_timer_menu_item)       
+            self.menu.append(menu_item1)
+            self.menu.append(menu_item4)        
+            self.menu.append(gtk.MenuItem())                
+            self.menu.append(menu_item3)
+            self.menu.append(menu_item2)        
+            menu_item1.show()
+            menu_item2.show()
+            menu_item3.show()
+            menu_item4.show()
+            self.sleep_timer_menu_item.show()
+            self.turnOff2.show()
+            separator.show()      
+            
+            menu_item1.connect('activate', self.on_preferences)
+            menu_item2.connect('activate', self.on_quit)
+            menu_item3.connect('activate', self.on_about)
+            menu_item4.connect('activate', self.reload_bookmarks)
+            self.sleep_timer_menu_item.connect('activate', self.on_sleep_menu)
+                            
+            self.menu.show_all()      
+
+            self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
+            self.icon.set_tooltip_markup(_("Idle (vol: %s%%)") % (self.mediator.getVolume()))
+            self.icon.connect('button_press_event', self.button_press)
+            self.icon.connect('scroll_event', self.scroll)
+
+        else:
+            # app indicator support
+            self.turnOff = None
+            self.metadata_menu_item = None
+            self.sleep_timer_menu_item = None
+            self.perferences_submenu = None
+            self.preferences_menu = None            
+            self.radioMenu = gtk.Menu()
+            self.build_app_indicator_menu(self.radioMenu)
+            self.app_indicator.set_menu(self.radioMenu)
+            self.updateTooltip()
+            
 
         # MediaKeys
         try:
@@ -151,6 +195,12 @@ class SysTray(object):
             
         if event.direction == gtk.gdk.SCROLL_DOWN:
             self.mediator.volume_down()
+            
+    def volume_up(self, menu_item):
+        self.mediator.volume_up()
+            
+    def volume_down(self, menu_item):
+        self.mediator.volume_down()
 
     def button_press(self,widget,event):
 
@@ -200,7 +250,7 @@ class SysTray(object):
         if self.min_to_sleep == 0:
             # set menu state
             self.ignore_toggle = True       
-            self.sleep_timer_menu.set_active(False)            
+            self.sleep_timer_menu_item.set_active(False)            
             self.ignore_toggle = False
             
             self.sleep_timer_id = None
@@ -255,63 +305,96 @@ class SysTray(object):
     def setStoppedState(self):
         self.turnOff.set_label(_('Turned Off'))
         self.turnOff.set_sensitive(False)
-        self.turnOff2.set_label(_('Turned Off'))
-        self.turnOff2.set_sensitive(False)
-        self.icon.set_from_file(APP_ICON_OFF)
+        
+        if not self.app_indicator:            
+            self.turnOff2.set_label(_('Turned Off'))
+            self.turnOff2.set_sensitive(False)
+            self.icon.set_from_file(APP_ICON_OFF)
+        else:        
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF)
+        
         self.updateTooltip()
 
     def setPlayingState(self, radio):
         self.turnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
         self.turnOff.set_sensitive(True)
-        self.turnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
-        self.turnOff2.set_sensitive(True)
-        self.icon.set_from_file(APP_ICON_ON)
+        
+        if not self.app_indicator:
+            self.turnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
+            self.turnOff2.set_sensitive(True)
+            self.icon.set_from_file(APP_ICON_ON)
+        else:        
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_ON if self.app_indicator_use_theme else APP_ICON_ON)        
+                
         self.updateTooltip()
 
     def setConnectingState(self, radio):
         self.turnOff.set_sensitive(True)
-        self.turnOff2.set_sensitive(True)
-        self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio.replace("&", "&amp;"))
-        self.icon.set_from_file(APP_ICON_CONNECT)
-
+        
+        if not self.app_indicator:
+            self.turnOff2.set_sensitive(True)
+            self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio.replace("&", "&amp;"))
+            self.icon.set_from_file(APP_ICON_CONNECT)
 
     def updateTooltip(self):
+        
         radio = html_escape(self.mediator.getCurrentRadio())
 
         songInfo = None
         if(self.mediator.getCurrentMetaData() and len(self.mediator.getCurrentMetaData()) > 0):
-            songInfo = html_escape(self.mediator.getCurrentMetaData())
+            songInfo = self.mediator.getCurrentMetaData() if self.app_indicator else html_escape(self.mediator.getCurrentMetaData())            
         
         volume = self.mediator.getVolume()
-        
         sleep_timer_info = ""
         if self.sleep_timer_id != None:
             sleep_timer_info = ", sleep: " + str(self.min_to_sleep) + "min"
         
         if self.mediator.isPlaying:
             if(songInfo):
-                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%%s)\n<i>%s</i>") % (radio, volume, sleep_timer_info, songInfo))
+                if not self.app_indicator:
+                    self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%%s)\n<i>%s</i>") % (radio, volume, sleep_timer_info, songInfo))
+                else:           
+                    otherInfo = "(vol: %s%%%s)" % (volume, sleep_timer_info)         
+                   
+                    # don't break volume info...
+                    text = textwrap.wrap(songInfo, 30)
+                    if (30 - len(text[-1])) >= (len(otherInfo)+1):
+                        text[-1] += " " + otherInfo
+                    else:
+                        text.append(otherInfo)
+                        
+                    self.metadata_menu_item.set_label("\n".join(text))                    
             else:
-                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%%s)") % (radio, volume, sleep_timer_info))
+                if not self.app_indicator:
+                    self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%%s)") % (radio, volume, sleep_timer_info))
+                else:                    
+                    self.metadata_menu_item.set_label("Playing (vol: %s%%%s)" % (volume, sleep_timer_info))
         else:
-            self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Idle (vol: %s%%%s)") % (volume, sleep_timer_info))
+            if not self.app_indicator:
+                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Idle (vol: %s%%%s)") % (volume, sleep_timer_info))
+            else:                
+                self.metadata_menu_item.set_label("Idle (vol: %s%%%s)" % (volume, sleep_timer_info))              
 
     def update_radios(self):
 
         for child in self.radioMenu.get_children():
             self.radioMenu.remove(child)
 
-        self.radioMenu.append(self.turnOff)
-        self.turnOff.show()
-
-        separator = gtk.MenuItem()
-        self.radioMenu.append(separator)
-        separator.show()
-
-        # build menu
-        self.provider.walk_bookmarks(self.group_callback, self.bookmark_callback, self.radioMenu)
-        self.radioMenu.show_all()
-
+        if not self.app_indicator:
+        
+            self.radioMenu.append(self.turnOff)
+            self.turnOff.show()
+    
+            separator = gtk.MenuItem()
+            self.radioMenu.append(separator)
+            separator.show()
+    
+            # build menu
+            self.provider.walk_bookmarks(self.group_callback, self.bookmark_callback, self.radioMenu)
+            self.radioMenu.show_all()
+        else:
+            self.build_app_indicator_menu(self.radioMenu)
+        
         
     def run(self):
         gtk.gdk.threads_init()
@@ -354,6 +437,8 @@ class SysTray(object):
 
     def get_sleep_timer_value(self, default_value):
 
+        gtk.gdk.threads_enter()
+
         dialog = gtk.Dialog("Edit Sleep Timer", None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                             (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT, gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
                         
@@ -376,5 +461,71 @@ class SysTray(object):
                 
         dialog.destroy()
         
+        gtk.gdk.threads_leave()
+        
         return sleep_timer_value
     
+
+    def build_app_indicator_menu(self, menu):
+        
+        # config menu   
+        if self.turnOff == None:     
+            self.turnOff = gtk.MenuItem(_("Turned Off"), False)
+            self.turnOff.connect('activate', self.on_turn_off)
+            self.turnOff.set_sensitive(False)
+            
+        # stream metadata info
+        if self.metadata_menu_item == None:
+            self.metadata_menu_item = gtk.MenuItem("Idle", False)
+            self.metadata_menu_item.set_sensitive(False)
+        
+        if self.sleep_timer_menu_item == None:                        
+            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))        
+        
+        if self.preferences_menu == None:
+            self.preferences_menu = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)                
+        
+        menu_config_radios = gtk.MenuItem(_("Configure Radios..."))
+        menu_reload_bookmarks = gtk.MenuItem(_("Reload Bookmarks"))
+        volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
+        volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
+
+        # build 
+        menu.append(self.turnOff)                             
+        menu.append(gtk.MenuItem())                        
+        menu.append(self.metadata_menu_item)
+        menu.append(gtk.MenuItem())
+                
+        self.provider.walk_bookmarks(self.group_callback, self.bookmark_callback, menu)
+        
+        menu_config_radios.connect('activate', self.on_preferences)
+        menu_reload_bookmarks.connect('activate', self.reload_bookmarks)
+        self.sleep_timer_menu_item.connect('activate', self.on_sleep_menu)
+        
+        volume_menu_item_up.connect('activate', self.volume_up)
+        volume_menu_item_down.connect('activate', self.volume_down)        
+                   
+        menu.append(gtk.MenuItem())
+     
+        # build preferences
+        menu.append(self.preferences_menu)
+        
+        if self.perferences_submenu == None:  
+            self.perferences_submenu = gtk.Menu()
+            self.preferences_menu.set_submenu(self.perferences_submenu)               
+            self.perferences_submenu.append(volume_menu_item_up)
+            self.perferences_submenu.append(volume_menu_item_down)
+            self.perferences_submenu.append(gtk.MenuItem())          
+            self.perferences_submenu.append(self.sleep_timer_menu_item)       
+            self.perferences_submenu.append(menu_config_radios)
+            self.perferences_submenu.append(menu_reload_bookmarks)
+
+        menu_about = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+        menu_quit = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
+        menu_quit.connect('activate', self.on_quit)
+        menu_about.connect('activate', self.on_about)
+        menu.append(menu_about)
+        menu.append(menu_quit)
+
+        menu.show_all() 
+        

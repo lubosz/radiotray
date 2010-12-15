@@ -56,6 +56,8 @@ APP_ICON = os.path.join(IMAGE_PATH, 'radiotray.png')
 APP_ICON_ON = os.path.join(IMAGE_PATH, 'radiotray_on.png')
 APP_ICON_OFF = os.path.join(IMAGE_PATH, 'radiotray_off.png')
 APP_ICON_CONNECT = os.path.join(IMAGE_PATH, 'radiotray_connecting.gif')
+APP_INDICATOR_ICON_ON = "radiotray-on"
+APP_INDICATOR_ICON_OFF = "radiotray-off"
 
 # Config info
 CFG_NAME = 'bookmarks.xml'

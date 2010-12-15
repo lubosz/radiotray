@@ -3,4 +3,6 @@
   <option name="volume_increment" value="0.05"/>
   <option name="volume_level" value="1.0"/>
   <option name="url_timeout" value="100"/>
+  <option name="enable_application_indicator_support" value="false"/>
+  <option name="enable_application_indicator_theme_support" value="false"/>
 </config>
