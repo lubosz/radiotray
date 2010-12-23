@@ -72,7 +72,7 @@ class StreamDecoder:
 
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
-            if e.reason.startswith('MMS REDIRECT'):
+            if str(e.reason).startswith('MMS REDIRECT'):
                 newurl = e.reason.split("MMS REDIRECT:",1)[1]
                 print "Found mms redirect for: " + newurl
                 return UrlInfo(newurl, False, None)
