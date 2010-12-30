@@ -30,10 +30,16 @@ class StateMediator(object):
         self.notification = notification
         self.isPlaying = False
         self.isNotified = False
-        self.currentRadio = ''
+        
+        radio = self.cfg_provider.getConfigValue("last_station")
+        self.currentRadio = '' if not radio else radio 
         self.currentMetaData = ''
         self.volume = float(self.cfg_provider.getConfigValue("volume_level"))
         self.bitrate = 0
+        
+        # validate station
+        if not self.provider.getRadioUrl(radio):
+            self.currentRadio = ''
 
     def setAudioPlayer(self, audioPlayer):
         self.audioPlayer = audioPlayer
@@ -55,7 +61,9 @@ class StateMediator(object):
         self.audioPlayer.start(url)
         self.currentRadio = radio
         self.isNotified = False
-
+               
+        self.cfg_provider.setConfigValue("last_station", radio)
+               
     def playUrl(self, url):
 
         if(self.isPlaying):

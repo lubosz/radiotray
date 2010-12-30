@@ -122,23 +122,31 @@ class SysTray(object):
         if not self.app_indicator:    
             # radios menu
             self.radioMenu = gtk.Menu()
-            self.turnOff = gtk.MenuItem(_("Turned Off"), False)
-            self.turnOff.connect('activate', self.on_turn_off)
-            self.turnOff.set_sensitive(False)
+            
+            if not self.mediator.currentRadio:
+                self.turnOnOff = gtk.MenuItem(_("Turned Off"), False)
+                self.turnOnOff2 = gtk.MenuItem(_("Turned Off"), False)
+                self.turnOnOff.set_sensitive(False)
+                self.turnOnOff2.set_sensitive(False)
+            else:
+                self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)
+                self.turnOnOff.set_sensitive(True)
+                self.turnOnOff2 = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)                
+                self.turnOnOff2.set_sensitive(True)
+            
+            self.turnOnOff.connect('activate', self.on_turn_on_off)
+            self.turnOnOff2.connect('activate', self.on_turn_on_off)
             self.update_radios()
     
             # config menu
             self.menu = gtk.Menu()
-            self.turnOff2 = gtk.MenuItem(_("Turned Off"), False)
-            self.turnOff2.connect('activate', self.on_turn_off)
-            self.turnOff2.set_sensitive(False)
             separator  = gtk.MenuItem()
             self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
             menu_item1 = gtk.MenuItem(_("Configure Radios..."))
             menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
             menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
             menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
-            self.menu.append(self.turnOff2)
+            self.menu.append(self.turnOnOff2)
             self.menu.append(separator) 
             self.menu.append(self.sleep_timer_menu_item)       
             self.menu.append(menu_item1)
@@ -151,7 +159,7 @@ class SysTray(object):
             menu_item3.show()
             menu_item4.show()
             self.sleep_timer_menu_item.show()
-            self.turnOff2.show()
+            self.turnOnOff2.show()
             separator.show()      
             
             menu_item1.connect('activate', self.on_preferences)
@@ -169,7 +177,7 @@ class SysTray(object):
 
         else:
             # app indicator support
-            self.turnOff = None
+            self.turnOnOff = None
             self.metadata_menu_item = None
             self.sleep_timer_menu_item = None
             self.perferences_submenu = None
@@ -238,8 +246,11 @@ class SysTray(object):
     def on_about(self, data):
         about_dialog(parent=None)
 
-    def on_turn_off(self, data):
-        self.mediator.stop()
+    def on_turn_on_off(self, data):
+        if self.mediator.isPlaying:
+            self.mediator.stop()
+        else:
+            self.mediator.play(self.mediator.currentRadio)
 
     def on_start(self, data, radio):
         self.mediator.play(radio)
@@ -303,12 +314,21 @@ class SysTray(object):
             self.mediator.notify("Sleep timer stopped")
     
     def setStoppedState(self):
-        self.turnOff.set_label(_('Turned Off'))
-        self.turnOff.set_sensitive(False)
-        
-        if not self.app_indicator:            
-            self.turnOff2.set_label(_('Turned Off'))
-            self.turnOff2.set_sensitive(False)
+        if not self.mediator.currentRadio:        
+            self.turnOnOff.set_label(_('Turned Off'))
+            self.turnOnOff.set_sensitive(False)
+        else:
+            self.turnOnOff.set_label(_('Turn On "%s"' % self.mediator.currentRadio))
+            self.turnOnOff.set_sensitive(True)
+                                
+        if not self.app_indicator:
+            if not self.mediator.currentRadio:            
+                self.turnOnOff2.set_label(_('Turned Off'))
+                self.turnOnOff2.set_sensitive(False)
+            else:
+                self.turnOnOff2.set_label(_('Turn On "%s"' % self.mediator.currentRadio))
+                self.turnOnOff2.set_sensitive(True)
+                
             self.icon.set_from_file(APP_ICON_OFF)
         else:        
             self.app_indicator.set_icon(APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF)
@@ -316,12 +336,12 @@ class SysTray(object):
         self.updateTooltip()
 
     def setPlayingState(self, radio):
-        self.turnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
-        self.turnOff.set_sensitive(True)
+        self.turnOnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
+        self.turnOnOff.set_sensitive(True)
         
         if not self.app_indicator:
-            self.turnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
-            self.turnOff2.set_sensitive(True)
+            self.turnOnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
+            self.turnOnOff2.set_sensitive(True)
             self.icon.set_from_file(APP_ICON_ON)
         else:        
             self.app_indicator.set_icon(APP_INDICATOR_ICON_ON if self.app_indicator_use_theme else APP_ICON_ON)        
@@ -329,10 +349,13 @@ class SysTray(object):
         self.updateTooltip()
 
     def setConnectingState(self, radio):
-        self.turnOff.set_sensitive(True)
-        
+        #if self.app_indicator:
+        self.turnOnOff.set_sensitive(True)
+        self.turnOnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)       
+                                
         if not self.app_indicator:
-            self.turnOff2.set_sensitive(True)
+            self.turnOnOff2.set_sensitive(True)
+            self.turnOnOff2.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % radio)
             self.icon.set_tooltip_markup(C_("Connecting to a music stream.", "Connecting to %s") % radio.replace("&", "&amp;"))
             self.icon.set_from_file(APP_ICON_CONNECT)
 
@@ -382,8 +405,8 @@ class SysTray(object):
 
         if not self.app_indicator:
         
-            self.radioMenu.append(self.turnOff)
-            self.turnOff.show()
+            self.radioMenu.append(self.turnOnOff)
+            self.turnOnOff.show()
     
             separator = gtk.MenuItem()
             self.radioMenu.append(separator)
@@ -467,12 +490,18 @@ class SysTray(object):
     
 
     def build_app_indicator_menu(self, menu):
-        
+                    
         # config menu   
-        if self.turnOff == None:     
-            self.turnOff = gtk.MenuItem(_("Turned Off"), False)
-            self.turnOff.connect('activate', self.on_turn_off)
-            self.turnOff.set_sensitive(False)
+        if self.turnOnOff == None:                        
+            if not self.mediator.currentRadio:
+                self.turnOnOff = gtk.MenuItem(_("Turned Off"), False)
+                self.turnOnOff.set_sensitive(False)
+            else:
+                self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)
+                self.turnOnOff.set_sensitive(True)
+                
+            self.turnOnOff.connect('activate', self.on_turn_on_off)
+            
             
         # stream metadata info
         if self.metadata_menu_item == None:
@@ -491,7 +520,7 @@ class SysTray(object):
         volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
 
         # build 
-        menu.append(self.turnOff)                             
+        menu.append(self.turnOnOff)                             
         menu.append(gtk.MenuItem())                        
         menu.append(self.metadata_menu_item)
         menu.append(gtk.MenuItem())
