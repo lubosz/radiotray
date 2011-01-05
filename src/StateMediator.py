@@ -74,6 +74,10 @@ class StateMediator(object):
         self.currentRadio = C_("Unknown radio specified by URL", "Unknown radio")
         self.isNotified = False
 
+    def playLast(self):
+        if self.currentRadio:
+            self.play(self.currentRadio)
+
     def stop(self):
         self.audioPlayer.stop()
         self.isPlaying = False
