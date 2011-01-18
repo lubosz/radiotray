@@ -1,3 +1,13 @@
+Radio Tray 0.6.2 - 18/01/2011
+=============================
+
+* Added --resume parameter to play last radio station
+* Added application indicator support
+* Fixed several bugs
+* Added user-agent information
+* Added sleep timer
+* Updated translations and added a few more
+
 Radio Tray 0.6.1 - 16/09/2010
 =============================
 
