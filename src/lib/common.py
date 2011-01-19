@@ -7,14 +7,14 @@ from xdg.BaseDirectory import xdg_data_home
 try:
     from defs import *
 except:
-    APPVERSION = "0.6.2-dev"
+    APPVERSION = "0.6.2"
     datadir = "/usr/share"
 
 # Application info
 APPNAME = "Radio Tray"
 APPDIRNAME = APPNAME.lower().replace(" ","")
 
-COPYRIGHT_YEAR = '2009 - 2010'
+COPYRIGHT_YEAR = '2009 - 2011'
 COPYRIGHTS = "%s - Copyright (c) %s\n" \
              "Carlos Ribeiro <carlosmribeiro1@gmail.com>" % (APPNAME, COPYRIGHT_YEAR)
 WEBSITE = "http://radiotray.sourceforge.net/"
