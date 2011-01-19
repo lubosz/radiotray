@@ -1,0 +1,8 @@
+[main]
+host = http://www.transifex.net
+
+[radiotray.tip-po-untitled-pot]
+file_filter = po/<lang>.po
+source_file = po/untitled.pot
+source_lang = en
+
