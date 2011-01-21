@@ -1,8 +1,20 @@
+radiotray (0.6.3) unstable; urgency=low
+
+  * fixed package build and bookmarks file
+
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Thu, 21 Sep 2010 22:47:12 +1000
+
+
 radiotray (0.6.2) unstable; urgency=low
 
-  * development version
+  * Added --resume parameter to play last radio station
+  * Added application indicator support
+  * Fixed several bugs
+  * Added user-agent information
+  * Added sleep timer
+  * Updated translations and added a few more
 
- -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Fri, 16 Sep 2010 22:47:12 +1000
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Wed, 20 Jan 2011 22:47:12 +1000
 
 radiotray (0.6.1) unstable; urgency=low
 
