@@ -24,12 +24,14 @@ pygst.require("0.10")
 import gst
 from StreamDecoder import StreamDecoder
 from lib.common import USER_AGENT
+from events.EventManager import EventManager
 
 class AudioPlayerGStreamer:
 
-    def __init__(self, mediator, cfg_provider, log):
+    def __init__(self, mediator, cfg_provider, log, eventManager):
         self.mediator = mediator
         self.log = log
+        self.eventManager = eventManager
         self.decoder = StreamDecoder(cfg_provider)
         self.playlist = []
 
@@ -57,9 +59,10 @@ class AudioPlayerGStreamer:
             self.playlist = [uri]
             self.playNextStream()
 
-        else:            
-            self.mediator.stop()
-
+        else:
+            self.stop()
+            self.eventManager.notify(EventManager.STATION_ERROR, {'error':"Couldn't connect to radio station"})
+            
 
     def playNextStream(self):
         if(len(self.playlist) > 0):
@@ -77,11 +80,12 @@ class AudioPlayerGStreamer:
                 self.playNextStream()
         else:
             self.stop()
-            self.mediator.notifyStopped()
+            self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'paused'})
         self.mediator.updateVolume(self.player.get_property("volume"))
 
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
+        self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'paused'})
 
     def volume_up(self, volume_increment):   
         self.player.set_property("volume", min(self.player.get_property("volume") + volume_increment, 1.0))
@@ -108,37 +112,24 @@ class AudioPlayerGStreamer:
             if(len(self.playlist)>0):
                 self.playNextStream()
             else:
-                self.mediator.notifyError(err, debug)
+                self.eventManager.notify(EventManager.STATION_ERROR, {'error':debug})
+
         elif t == gst.MESSAGE_STATE_CHANGED:
             self.log.log("Received MESSAGE_STATE_CHANGED")
             oldstate, newstate, pending = message.parse_state_changed()
 
             if newstate == gst.STATE_PLAYING:
-                self.mediator.notifyPlaying()
+                station = self.mediator.getContext().station
+                self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'playing', 'station':station})
             #elif newstate == gst.STATE_NULL:
                 #self.mediator.notifyStopped()
 
         elif t == gst.MESSAGE_TAG:
 
-           taglist = message.parse_tag()
-           title = None
-           artist = None
-
-           for key in taglist.keys():
-           	if (key == 'bitrate'):
-            		self.mediator.bitrate = taglist[key]
-                if (key == 'artist'):
-                        print "ARTIST: " + taglist[key]
-                        artist = taglist[key]
-           	if (key == 'title'):
-                	print "TITLE: " + taglist[key]
-            		title = taglist[key]
-                
-           if artist and title:
-               self.mediator.notifySong(artist + " - " + title)
-           elif title:
-               self.mediator.notifySong(title)
-           elif artist:
-               self.mediator.notifySong(artist)
+           metadata = message.parse_tag()
+           station = self.mediator.getContext().station
+           metadata['station'] = station
+           
+           self.eventManager.notify(EventManager.SONG_CHANGED, metadata)
 
         return True

@@ -23,23 +23,29 @@ from lib.common import APP_ICON, APPNAME
 
 class Notification:
 
-    def __init__(self):
+    def __init__(self, cfg_provider):
         self.notif = None
+        self.cfg_provider = cfg_provider
+        self.lastMessage = None
 
     def notify(self, title, message):
 
-        if self.notif == None:
-        
-            if pynotify.init(APPNAME):
-                self.notif = pynotify.Notification(title, message)
-                self.notif.set_urgency(pynotify.URGENCY_LOW)
-                pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
-                self.notif.set_icon_from_pixbuf(pixbuf)
-                self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
-                self.notif.show()
-            else:
-                print "Error: there was a problem initializing the pynotify module"
+        if self.cfg_provider.getConfigValue("enabled_notifications") == "true" and self.lastMessage != message:
+
+            self.lastMessage = message
             
-        else:
-            self.notif.update(title, message)
-            self.notif.show()
+            if self.notif == None:
+        
+                if pynotify.init(APPNAME):
+                    self.notif = pynotify.Notification(title, message)
+                    self.notif.set_urgency(pynotify.URGENCY_LOW)
+                    pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
+                    self.notif.set_icon_from_pixbuf(pixbuf)
+                    self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
+                    self.notif.show()
+                else:
+                    print "Error: there was a problem initializing the pynotify module"
+            
+            else:
+                self.notif.update(title, message)
+                self.notif.show()

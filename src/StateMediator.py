@@ -21,113 +21,102 @@ from AudioPlayerGStreamer import AudioPlayerGStreamer
 from SysTray import SysTray
 from Notification import Notification
 from lib.common import APPNAME
+from Context import Context
+from state.StateConnecting import StateConnecting
+from state.StatePlaying import StatePlaying
+from state.StatePaused import StatePaused
+from events.EventManager import EventManager
 
 class StateMediator(object):
 
-    def __init__(self, provider, cfg_provider, notification):
+    def __init__(self, provider, cfg_provider, eventManager):
         self.provider = provider
         self.cfg_provider = cfg_provider
-        self.notification = notification
-        self.isPlaying = False
+        self.eventManager = eventManager
+        
+        self.context = Context()
+        self.context.state = Context.STATE_PAUSED
+        
         self.isNotified = False
         self.currentRadio = ''
         self.currentMetaData = ''
         self.volume = float(self.cfg_provider.getConfigValue("volume_level"))
         self.bitrate = 0
-
-    def setAudioPlayer(self, audioPlayer):
+        
+        
+        
+    def init(self, audioPlayer):
         self.audioPlayer = audioPlayer
-
         # set volume level (can't call set_volume yet)
         self.audioPlayer.player.set_property("volume", self.volume)
+        
+        
+    def getContext(self):
+        return self.context
+        
 
-    def setSystray(self, systray):
-        self.systray = systray
+
+# ---  control commands ----
 
     def play(self, radio):
 
-        if(self.isPlaying):
+        if(self.context.state == 'playing'):
             self.audioPlayer.stop()
-        self.currentMetaData = ''
-
-        url = self.provider.getRadioUrl(radio)
-        self.systray.setConnectingState(radio)        
+            
+        self.context.station = radio
+        self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'connecting', 'station':radio})
+        url = self.provider.getRadioUrl(radio)        
         self.audioPlayer.start(url)
-        self.currentRadio = radio
-        self.isNotified = False
 
-    def playUrl(self, url):
+    #def playUrl(self, url):
 
-        if(self.isPlaying):
-            self.audioPlayer.stop()
-        self.currentMetaData = ''
-        self.audioPlayer.start(url)
-        self.systray.setConnectingState(C_("Unknown radio specified by URL", "Unknown radio"))
-        self.currentRadio = C_("Unknown radio specified by URL", "Unknown radio")
-        self.isNotified = False
+    #    if(self.isPlaying):
+    #        self.audioPlayer.stop()
+    #    self.currentMetaData = ''
+    #    self.audioPlayer.start(url)
+    #    self.systray.setConnectingState(C_("Unknown radio specified by URL", "Unknown radio"))
+    #    self.currentRadio = C_("Unknown radio specified by URL", "Unknown radio")
+    #    self.isNotified = False
 
     def stop(self):
         self.audioPlayer.stop()
-        self.isPlaying = False
-        self.systray.setStoppedState()        
-        self.isNotified = False
+
 
     def volume_up(self):
         self.audioPlayer.volume_up(float(self.cfg_provider.getConfigValue("volume_increment")))
-        self.systray.updateTooltip()
+        self.eventManager.notify(EventManager.VOLUME_CHANGED, {'volume':self.getVolume()})
 
     def volume_down(self):
         self.audioPlayer.volume_down(float(self.cfg_provider.getConfigValue("volume_increment")))
-        self.systray.updateTooltip()
+        self.eventManager.notify(EventManager.VOLUME_CHANGED, {'volume':self.getVolume()})
 
     def set_volume(self, value):
         print "set volume: "+str(value)
         self.audioPlayer.player.set_property("volume", value)
         self.systray.updateTooltip()
-
-    def notifyError(self, error, message):
-        print "Error: " + str(error)
-        print "Error: " + message
-        self.systray.setStoppedState()
-        self.isPlaying = False
-        self.notification.notify(C_("An error notification.", "Radio Error"), str(error))
         
-    def notify(self, msg):
-        self.notification.notify("Radio Tray", msg)
-
-    def notifyPlaying(self):
-        if (self.isNotified == False):
-            self.isNotified = True
-            self.isPlaying = True            
-            self.systray.setPlayingState(self.currentRadio)
-            if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
-                self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Tray Playing"), self.currentRadio)
-
-    def notifyStopped(self):
-        self.systray.setStoppedState()
-        self.isPlaying = False
-
-    def notifySong(self, data):
-        newMetadata = str(data)
+    def getVolume(self):
+        return int(round(self.volume * 100))    
         
-        if (self.currentMetaData != newMetadata):
-            self.currentMetaData = newMetadata
-            self.systray.updateTooltip()
-
-            if self.currentMetaData:
-                if self.cfg_provider.getConfigValue("enabled_notifications") == "true":
-                    self.notification.notify("%s - %s" % (APPNAME , self.currentRadio), self.currentMetaData)
-
-    def getCurrentRadio(self):
-        return self.currentRadio
-
-    def getCurrentMetaData(self):
-        return self.currentMetaData
-
     def updateVolume(self, volume):
         self.volume = volume
         self.cfg_provider.setConfigValue("volume_level", str(round(self.volume,2)))
 
-    def getVolume(self):
-        return int(round(self.volume * 100))
+
+   
+    def on_state_changed(self, data):
+        self.context.state = data['state']
+        print self.context.state
+        
+        
+    def on_station_error(self, data):
+        self.context.state = 'paused'
+        print self.context.state
+        
+        
+    def on_song_changed(self, data):
+        if('artist' in data.keys()):
+            self.context.artist = data['artist']
+        if('title' in data.keys()):
+            self.context.title = data['title']
 
