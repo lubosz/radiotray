@@ -22,9 +22,6 @@ from SysTray import SysTray
 from Notification import Notification
 from lib.common import APPNAME
 from Context import Context
-from state.StateConnecting import StateConnecting
-from state.StatePlaying import StatePlaying
-from state.StatePaused import StatePaused
 from events.EventManager import EventManager
 
 class StateMediator(object):

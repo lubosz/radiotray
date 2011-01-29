@@ -18,27 +18,13 @@
 #
 ##########################################################################
 
-class Context:
 
-    station = None
-    url = None
-    title = None
-    artist = None
-    album = None
-    state = None
-    STATE_PLAYING = "Playing"
-    STATE_CONNECT = "Connecting"
-    STATE_PAUSED = "Paused"
-    
-    
-    def getSongInfo(self):
+class Plugin:
 
-        if(self.title and len(self.title) > 0 and self.artist and len(self.artist) > 0):
-            return self.artist + " - " + self.title
-        elif(self.title and len(self.title) > 0):
-            return self.title
-        elif(self.artist and len(self.artist) > 0):
-            return self.artist
-        else:
-            return 'unknown'
-            
+    def init(self, eventManager, eventSubscriber, provider, cfgProvider, mediator):
+    
+        self.eventManager = eventManager
+        self.eventSubscriber = eventSubscriber
+        self.provider = provider
+        self.cfgProvider = cfgProvider
+        self.mediator = mediator
