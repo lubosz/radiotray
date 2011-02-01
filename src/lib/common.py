@@ -7,14 +7,14 @@ from xdg.BaseDirectory import xdg_data_home
 try:
     from defs import *
 except:
-    APPVERSION = "0.6.2-dev"
+    APPVERSION = "0.6.3"
     datadir = "/usr/share"
 
 # Application info
 APPNAME = "Radio Tray"
 APPDIRNAME = APPNAME.lower().replace(" ","")
 
-COPYRIGHT_YEAR = '2009 - 2010'
+COPYRIGHT_YEAR = '2009 - 2011'
 COPYRIGHTS = "%s - Copyright (c) %s\n" \
              "Carlos Ribeiro <carlosmribeiro1@gmail.com>" % (APPNAME, COPYRIGHT_YEAR)
 WEBSITE = "http://radiotray.sourceforge.net/"
@@ -56,6 +56,8 @@ APP_ICON = os.path.join(IMAGE_PATH, 'radiotray.png')
 APP_ICON_ON = os.path.join(IMAGE_PATH, 'radiotray_on.png')
 APP_ICON_OFF = os.path.join(IMAGE_PATH, 'radiotray_off.png')
 APP_ICON_CONNECT = os.path.join(IMAGE_PATH, 'radiotray_connecting.gif')
+APP_INDICATOR_ICON_ON = "radiotray-on"
+APP_INDICATOR_ICON_OFF = "radiotray-off"
 
 # Config info
 CFG_NAME = 'bookmarks.xml'

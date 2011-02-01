@@ -35,10 +35,16 @@ class StateMediator(object):
         self.context.state = Context.STATE_PAUSED
         
         self.isNotified = False
-        self.currentRadio = ''
-        self.currentMetaData = ''
+        
+        radio = self.cfg_provider.getConfigValue("last_station")
+        self.context.station = '' if not radio else radio 
+
         self.volume = float(self.cfg_provider.getConfigValue("volume_level"))
         self.bitrate = 0
+        
+        # validate station
+        if not self.provider.getRadioUrl(radio):
+            self.currentRadio = ''
         
         
         
@@ -65,6 +71,7 @@ class StateMediator(object):
         url = self.provider.getRadioUrl(radio)        
         self.audioPlayer.start(url)
 
+        self.cfg_provider.setConfigValue("last_station", radio)
     #def playUrl(self, url):
 
     #    if(self.isPlaying):
@@ -74,6 +81,9 @@ class StateMediator(object):
     #    self.systray.setConnectingState(C_("Unknown radio specified by URL", "Unknown radio"))
     #    self.currentRadio = C_("Unknown radio specified by URL", "Unknown radio")
     #    self.isNotified = False
+    def playLast(self):
+        if self.currentRadio:
+            self.play(self.currentRadio)
 
     def stop(self):
         self.audioPlayer.stop()

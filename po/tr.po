@@ -1,31 +1,72 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Mehmet Nur Olcay <mnurolcay@gmail.com>, YEAR.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-12 07:56+0000\n"
-"PO-Revision-Date: 2010-04-11 16:10+0200\n"
-"Last-Translator: Mehmet Nur Olcay <mnurolcay@gmail.com>\n"
-"Language-Team: Turkish <mnurolcay@gmail.com>\n"
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
+"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"PO-Revision-Date: 2011-01-19 00:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish <None>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../data/configBookmarks.glade.h:1
-msgid "Configure Radios"
-msgstr "Radyoları Düzenle"
+msgid "Add Group"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Radio name:"
-msgstr "Radyo adı:"
+msgid "Current group:"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
 msgid "URL :"
-msgstr "URL :"
+msgstr ""
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -36,14 +77,36 @@ msgstr "Çeviren:"
 msgid "%s's Website"
 msgstr "%s Sitesi"
 
-#: ../src/BookmarkConfiguration.py:62
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Radyo Adı"
 
-#: ../src/BookmarkConfiguration.py:142
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "\"%s\" radyosunu silmek istediğinize emin misiniz ?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr ""
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr ""
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -53,70 +116,90 @@ msgstr "Geliştiriciler:"
 msgid "Contributors:"
 msgstr "Katkıda Bulunanlar:"
 
-#: ../src/StateMediator.py:64
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr ""
+
+#: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Hatalı Radyo "
 
-#: ../src/StateMediator.py:71
+#: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
-msgid "Radio Playing"
-msgstr "Çalan Radyo"
+msgid "Radio Tray Playing"
+msgstr ""
 
-#: ../src/SysTray.py:77 ../src/SysTray.py:126
+#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
+#: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
 msgstr "Kapalı"
 
-#: ../src/SysTray.py:85
-msgid "Configure radios..."
-msgstr "Radyoları düzenle..."
+#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
+#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#, python-format
+msgid "Turn On \"%s\""
+msgstr ""
 
-#: ../src/SysTray.py:86
-msgid "About"
-msgstr "Hakkında"
+#: ../src/SysTray.py:144 ../src/SysTray.py:512
+msgid "Sleep Timer"
+msgstr ""
 
-#: ../src/SysTray.py:87
-msgid "Quit"
-msgstr "Çıkış"
+#: ../src/SysTray.py:145 ../src/SysTray.py:517
+msgid "Configure Radios..."
+msgstr ""
 
-#: ../src/SysTray.py:99 ../src/SysTray.py:129
-msgid "<i>Idle</i>"
-msgstr "<i>Boşta</i>"
+#: ../src/SysTray.py:146 ../src/SysTray.py:518
+msgid "Reload Bookmarks"
+msgstr ""
 
-#: ../src/SysTray.py:132
+#: ../src/SysTray.py:174
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr ""
+
+#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
+#: ../src/SysTray.py:358
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "\"%s\" Radyosunu Kapat"
 
-#: ../src/SysTray.py:135
-#, python-format
-msgctxt "Informs what radio and music is being played."
-msgid ""
-"Playing <b>%s</b>\n"
-"<i>%s</i>"
-msgstr ""
-"<b>%s</b>\n"
-"<i>%s</i> Çalınıyor"
-
-#: ../src/SysTray.py:137
-#, python-format
-msgctxt "Informs what radio is being played."
-msgid "Playing <b>%s</b>"
-msgstr "<b>%s</b> Çalınıyor"
-
-#: ../src/SysTray.py:142
+#: ../src/SysTray.py:359
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "%s radyosuna bağlanıyor"
 
-#: ../src/SysTray.py:148
+#: ../src/SysTray.py:378
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b>\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"<b>%s</b>\n"
-"<i>%s</i> Çalınıyor"
+
+#: ../src/SysTray.py:392
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:397
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:458
+msgid "Bookmarks Reloaded"
+msgstr ""
+
+#: ../src/SysTray.py:519
+msgid "Volume Up"
+msgstr ""
+
+#: ../src/SysTray.py:520
+msgid "Volume Down"
+msgstr ""

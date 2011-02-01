@@ -89,9 +89,11 @@ class RadioTray(object):
         #dbus = DbusFacade(self.provider, self.mediator)
         #dbus_mpris = mpris.RadioTrayMpris(self.provider, self.mediator)
 
-        #if(url != None):
-        #    self.mediator.playUrl(url)
-
+        if(url != None):
+            if (url == "--resume"):
+                self.mediator.playLast()                
+            else:
+                self.mediator.playUrl(url)
         # start app
         self.systray.run()
 

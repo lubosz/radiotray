@@ -56,7 +56,7 @@ class AudioPlayerGStreamer:
             self.playNextStream()
 
         elif(urlInfo is not None and urlInfo.isPlaylist() == False):
-            self.playlist = [uri]
+            self.playlist = [urlInfo.getUrl()]
             self.playNextStream()
 
         else:
@@ -128,7 +128,7 @@ class AudioPlayerGStreamer:
 
            metadata = message.parse_tag()
            station = self.mediator.getContext().station
-           metadata['station'] = station
+           metadata['station']=station
            
            self.eventManager.notify(EventManager.SONG_CHANGED, metadata)
 

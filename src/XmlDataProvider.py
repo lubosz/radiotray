@@ -59,7 +59,11 @@ class XmlDataProvider:
         
     def listGroupNames(self):
     
-    	return self.root.xpath("//group/@name")
+        return self.root.xpath("//group/@name")
+  
+    def listRadiosInGroup(self, group):
+
+        return self.root.xpath("//group[@name=$var]/bookmark/@name", var=group)
 
     def getRadioUrl(self, name):
 
