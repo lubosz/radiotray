@@ -136,6 +136,10 @@ class BookmarkConfiguration(object):
             iter = treestore.append(parent, [group.get('name'), group.get('name'), self.GROUP_TYPE])
         
         for item in group:
+            
+            if item.get('name') == None:                
+                continue
+            
             if (item.tag == 'bookmark'):
                 if(item.get('name').startswith('[separator')):
                     treestore.append(iter, ['-- Separator --', item.get('name'), self.SEPARATOR_TYPE])

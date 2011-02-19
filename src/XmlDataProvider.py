@@ -289,6 +289,9 @@ class XmlDataProvider:
                 
         for child in children:                    
             child_name  = child.get('name')
+                
+            if child_name == None:
+                continue
                        
             if  child.tag == 'group':                
                 new_user_data = group_func(child_name, user_data)
