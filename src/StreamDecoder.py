@@ -46,11 +46,11 @@ class StreamDecoder:
             self.url_timeout = cfg_provider.getConfigValue("url_timeout")
             if (self.url_timeout == None):
                 print "Couldn't find url_timeout configuration"
-                self.url_timeout = 2000
+                self.url_timeout = 100
                 cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
         except Exception, e:
             print "Couldn't find url_timeout configuration"
-            self.url_timeout = 2000
+            self.url_timeout = 100
             cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
 
         print "Using url timeout = " + str(self.url_timeout)
