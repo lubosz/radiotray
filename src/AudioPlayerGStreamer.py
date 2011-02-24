@@ -69,7 +69,7 @@ class AudioPlayerGStreamer:
             urlInfo = self.decoder.getMediaStreamInfo(stream)
             if(urlInfo is not None and urlInfo.isPlaylist() == False):
                 self.player.set_property("uri", stream)
-                self.player.set_state(gst.STATE_PLAYING)
+                self.player.set_state(gst.STATE_PAUSED) # buffer before starting playback
             elif(urlInfo is not None and urlInfo.isPlaylist()):
                 self.playlist = self.decoder.getPlaylist(urlInfo) + self.playlist
                 self.playNextStream()
@@ -97,7 +97,11 @@ class AudioPlayerGStreamer:
             self.log.log("Received MESSAGE_EOS")
             self.player.set_state(gst.STATE_NULL)
             self.playNextStream()
-
+        elif t == gst.MESSAGE_BUFFERING:
+            if message.structure['buffer-percent'] < 100:
+                self.player.set_state(gst.STATE_PAUSED)
+            else:
+                self.player.set_state(gst.STATE_PLAYING)
         elif t == gst.MESSAGE_ERROR:
             self.log.log("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
