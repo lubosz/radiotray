@@ -21,41 +21,23 @@ from events.EventManager import EventManager
 
 class TooltipManager(object):
 
-    def __init__(self, icon):
-        self.icon = icon
-        
-        
-    def on_state_changed(self, data):
-    
-        state = data['state']
-        
-        if(state == 'playing'):
-            station = data['station']
-            
-            
-
-    def on_song_changed(self, data):
-    
-        print data.keys()
-        
-        station = data['station']
-        
-        if('artist' in data.keys() and 'title' in data.keys()):
-            artist = data['artist']
-            title = data['title']
-            msg = "%s - %s" % (artist, title)
-            self.notification.notify("%s - %s" % (APPNAME , station), msg)
-        elif('artist' in data.keys()):
-            msg = data['artist']
-            self.notification.notify("%s - %s" % (APPNAME , station), msg)
-        elif('title' in data.keys()):
-            msg = data['title']
-            self.notification.notify("%s - %s" % (APPNAME , station), msg)
+    def __init__(self):
+        self.tooltipSources = []
 
 
-        
-    def on_station_error(self, data):
+    def setGui(self, gui):
+        self.gui = gui
+
+
+    def addSource(self, callback):
+        self.tooltipSources.append(callback)
+
+
+    def update(self):
+        complete = ''
+        for src in self.tooltipSources:
+            complete += src() + '\n'
+
+        self.gui.setTooltip(complete)
+
     
-        self.notification.notify(C_("An error notification.", "Radio Error"), str(data['error']))
-        
-        

@@ -18,29 +18,33 @@
 #
 ##########################################################################
 
-# This class should be extended by plugins implementations
-class Plugin:
+from plugins.HelloWorldPlugin import HelloWorldPlugin
 
-    def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
-    
-        self.name = name
+# The purpose of this class is handle all plugin lifecycle operations
+class PluginManager:
+
+    def __init__(self, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip, pluginMenu):
         self.notification = notification
         self.eventSubscriber = eventSubscriber
         self.provider = provider
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        self.menuItem = None
-
-    def getName(self):
-        return self.name
+        self.plugins = [HelloWorldPlugin()]
+        self.pluginMenu = pluginMenu
 
 
-    def activate(self):
-        raise NotImplementedError( "Subclasses should override this" )
+    def activatePlugins(self):
 
-    def setMenuItem(self, item):
-        self.menuItem = item
+        for plugin in self.plugins:
+            
+            plugin.initialize("Hello World", self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
-    def getMenuItem(self):
-        return self.menuItem
+            plugin.activate()
+            
+           
+            self.pluginMenu.append(plugin.getMenuItem())
+            
+            
+
+            

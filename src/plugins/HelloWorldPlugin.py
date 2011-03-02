@@ -17,29 +17,36 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
+from events.EventSubscriber import EventSubscriber
+from events.EventManager import EventManager
+from Plugin import Plugin
+import gtk
 
-class Context:
+# Basic example of a plugin
+class HelloWorldPlugin(Plugin):
 
-    station = None
-    url = ""
-    title = ""
-    artist = None
-    album = None
-    state = None
-    STATE_PLAYING = "playing"
-    STATE_CONNECT = "connecting"
-    STATE_PAUSED = "paused"
-    UNKNOWN_RADIO = C_("Unknown radio specified by URL", "Unknown radio")
-    
-    
-    def getSongInfo(self):
+    def __init__(self):
+        print "started"
 
-        if(self.title and len(self.title) > 0 and self.artist and len(self.artist) > 0):
-            return self.artist + " - " + self.title
-        elif(self.title and len(self.title) > 0):
-            return self.title
-        elif(self.artist and len(self.artist) > 0):
-            return self.artist
-        else:
-            return 'unknown'
-            
+
+    def getName(self):
+        return self.name
+
+    def activate(self):
+        self.eventSubscriber.bind(EventManager.SONG_CHANGED, self.on_song_changed)
+        self.tooltip.addSource(self.populate_tooltip)
+
+        menuItem = gtk.MenuItem(self.getName(), False)
+        menuItem.connect('activate', self.on_menu)
+        menuItem.show()
+        self.setMenuItem(menuItem)
+
+    def populate_tooltip(self):
+        return "Hello"
+
+    def on_song_changed(self, data):
+        print "song changed"
+        print data
+
+    def on_menu(self, data):
+        print "menu clicked!"

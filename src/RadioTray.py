@@ -28,6 +28,8 @@ from NotificationManager import NotificationManager
 from events.EventManager import EventManager
 from events.EventSubscriber import EventSubscriber
 from DbusFacade import DbusFacade
+from TooltipManager import TooltipManager
+from PluginManager import PluginManager
 import os
 from shutil import move, copy2
 from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE
@@ -64,8 +66,13 @@ class RadioTray(object):
         # load audio player
         self.audio = AudioPlayerGStreamer(self.mediator, self.cfg_provider, self.log, eventManager)
 
+        # tooltip manager
+        tooltipManager = TooltipManager()
+
         # load gui
-        self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider, eventManager)
+        self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider, eventManager, tooltipManager)
+        
+        
         
         # notification manager
         self.notifManager = NotificationManager(notification)
@@ -77,6 +84,7 @@ class RadioTray(object):
         eventSubscriber.bind(EventManager.STATE_CHANGED, self.notifManager.on_state_changed)
         eventSubscriber.bind(EventManager.SONG_CHANGED, self.notifManager.on_song_changed)
         eventSubscriber.bind(EventManager.SONG_CHANGED, self.mediator.on_song_changed)
+        eventSubscriber.bind(EventManager.SONG_CHANGED, self.systray.on_song_changed)
         eventSubscriber.bind(EventManager.STATION_ERROR, self.notifManager.on_station_error)
         eventSubscriber.bind(EventManager.VOLUME_CHANGED, self.systray.on_volume_changed)
         eventSubscriber.bind(EventManager.BOOKMARKS_RELOADED, self.notifManager.on_bookmarks_reloaded)
@@ -88,6 +96,10 @@ class RadioTray(object):
         # start dbus facade
         #dbus = DbusFacade(self.provider, self.mediator)
         #dbus_mpris = mpris.RadioTrayMpris(self.provider, self.mediator)
+
+	#load plugin manager
+        self.pluginManager = PluginManager(notification, eventSubscriber, self.provider, self.cfg_provider, self.mediator, tooltipManager, self.systray.getPluginMenu())
+        self.pluginManager.activatePlugins()
 
         if(url != None):
             if (url == "--resume"):

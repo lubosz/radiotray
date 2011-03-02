@@ -126,9 +126,14 @@ class AudioPlayerGStreamer:
 
         elif t == gst.MESSAGE_TAG:
 
-           metadata = message.parse_tag()
+           taglist = message.parse_tag()
            station = self.mediator.getContext().station
-           metadata['station']=station
+           metadata = {}
+
+           for key in taglist.keys():      
+               metadata[key] = taglist[key]
+
+           metadata['station'] = station
            
            self.eventManager.notify(EventManager.SONG_CHANGED, metadata)
 

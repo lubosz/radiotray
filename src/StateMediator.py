@@ -33,9 +33,7 @@ class StateMediator(object):
         
         self.context = Context()
         self.context.state = Context.STATE_PAUSED
-        
-        self.isNotified = False
-        
+
         radio = self.cfg_provider.getConfigValue("last_station")
         self.context.station = '' if not radio else radio 
 
@@ -44,7 +42,7 @@ class StateMediator(object):
         
         # validate station
         if not self.provider.getRadioUrl(radio):
-            self.currentRadio = ''
+            self.context.station = ''
         
         
         
@@ -64,30 +62,39 @@ class StateMediator(object):
     def play(self, radio):
 
         if(self.context.state == 'playing'):
-            self.audioPlayer.stop()
+            self.stop()
             
-        self.context.station = radio
-        self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'connecting', 'station':radio})
-        url = self.provider.getRadioUrl(radio)        
+        url = self.provider.getRadioUrl(radio)
+
+        if(url):
+            self.context.station = radio
+            self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'connecting', 'station':radio})
+                
+            self.audioPlayer.start(url)
+            self.cfg_provider.setConfigValue("last_station", radio)
+        else:
+            self.context.station = ''
+            self.stop()
+
+    def playUrl(self, url):
+
+        if(self.isPlaying):
+            self.audioPlayer.stop()
+        
+        self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'connecting', 'station':Context.UNKNOWN_RADIO})
+        self.context.station = Context.UNKNOWN_RADIO
         self.audioPlayer.start(url)
 
-        self.cfg_provider.setConfigValue("last_station", radio)
-    #def playUrl(self, url):
-
-    #    if(self.isPlaying):
-    #        self.audioPlayer.stop()
-    #    self.currentMetaData = ''
-    #    self.audioPlayer.start(url)
-    #    self.systray.setConnectingState(C_("Unknown radio specified by URL", "Unknown radio"))
-    #    self.currentRadio = C_("Unknown radio specified by URL", "Unknown radio")
-    #    self.isNotified = False
     def playLast(self):
-        if self.currentRadio:
-            self.play(self.currentRadio)
+        if self.context.station:
+            self.play(self.context.station)
 
     def stop(self):
         self.audioPlayer.stop()
 
+
+    def isPlaying(self):
+        return self.context.state == Context.STATE_PLAYING
 
     def volume_up(self):
         self.audioPlayer.volume_up(float(self.cfg_provider.getConfigValue("volume_increment")))
@@ -122,8 +129,10 @@ class StateMediator(object):
         
         
     def on_song_changed(self, data):
+        print data
         if('artist' in data.keys()):
             self.context.artist = data['artist']
         if('title' in data.keys()):
+            print "set title"
             self.context.title = data['title']
 
