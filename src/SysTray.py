@@ -186,8 +186,13 @@ class SysTray(object):
             self.build_app_indicator_menu(self.radioMenu)
             self.app_indicator.set_menu(self.radioMenu)
             self.updateTooltip()
-            
 
+            try:
+                self.app_indicator.connect("scroll-event", self.app_indicator_scroll)
+            except:
+                # not available in this version of app indicator
+                print "Volume mouse scroll events not available."
+            
         # MediaKeys
         try:
             self.bus = dbus.SessionBus()
@@ -196,6 +201,12 @@ class SysTray(object):
             self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
         except:
             print "Could not bind to Gnome for Media Keys"
+
+    def app_indicator_scroll(self, indicator, delta, direction):
+        if direction == 0:
+            self.mediator.volume_up()
+        else:    
+            self.mediator.volume_down()
 
     def scroll(self,widget, event):
         if event.direction == gtk.gdk.SCROLL_UP:
