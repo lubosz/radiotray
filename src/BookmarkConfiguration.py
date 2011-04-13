@@ -186,6 +186,9 @@ class BookmarkConfiguration(object):
             print "group found: " + group
             
         self.radioGroup.set_model(liststore)
+        
+        # default to root
+        self.radioGroup.set_active(0)
 
         # show dialog
         result = self.config.run()
