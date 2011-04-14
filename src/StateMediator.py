@@ -134,7 +134,10 @@ class StateMediator(object):
         return self.currentRadio
 
     def getCurrentMetaData(self):
-        return self.currentMetaData
+        if self.isPlaying:
+            return self.currentMetaData
+        else:
+            return "Not Playing"
 
     def updateVolume(self, volume):
         self.volume = volume
