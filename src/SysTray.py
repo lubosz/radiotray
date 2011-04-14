@@ -431,7 +431,6 @@ class SysTray(object):
         
         
     def run(self):
-        gtk.gdk.threads_init()
         gtk.main()
 
 
