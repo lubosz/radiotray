@@ -189,6 +189,18 @@ class BookmarkConfiguration(object):
         
         # default to root
         self.radioGroup.set_active(0)
+        
+        # get current selected group and set it as default
+        selection = self.list.get_selection()
+        (model, iter) = selection.get_selected()
+
+        if type(iter).__name__=='TreeIter':
+            selectedName = model.get_value(iter,1)
+            selectedType = model.get_value(iter, 2)
+            
+            if (selectedType == self.GROUP_TYPE):
+                groupIndex = self.dataProvider.listGroupNames().index(selectedName)
+                self.radioGroup.set_active(groupIndex)
 
         # show dialog
         result = self.config.run()
@@ -302,9 +314,9 @@ class BookmarkConfiguration(object):
 
                 confirmation.hide()
             else:
-                 self.dataProvider.removeRadio(separatorFlag)
-                 # remove from gui
-                 model.remove(iter)
+                self.dataProvider.removeRadio(separatorFlag)
+                # remove from gui
+                model.remove(iter)
 
 
     def on_moveup_bookmark_clicked(self, widget):
@@ -382,7 +394,7 @@ class BookmarkConfiguration(object):
             print "group found: " + group
             
         self.parentGroup.set_model(liststore)
-              
+            
 
         # show dialog
         result = self.configGroup.run()
