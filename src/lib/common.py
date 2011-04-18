@@ -74,6 +74,11 @@ else:
 DEFAULT_RADIO_LIST = os.path.join(DEFAULT_CFG_PATH, CFG_NAME)
 DEFAULT_CONFIG_FILE = os.path.join(DEFAULT_CFG_PATH, OPTIONS_CFG_NAME)
 
+# Plugins
+USER_PLUGIN_PATH = os.path.join(USER_CFG_PATH, 'plugins')
+if os.path.exists(USER_PLUGIN_PATH) != True:
+    os.mkdir(USER_PLUGIN_PATH)
+
 # user-agent
 try:
 	import platform

@@ -19,6 +19,9 @@
 ##########################################################################
 
 from plugins.HelloWorldPlugin import HelloWorldPlugin
+from lib.common import USER_PLUGIN_PATH
+from PluginInfo import PluginInfo
+import os
 
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:
@@ -32,6 +35,7 @@ class PluginManager:
         self.tooltip = tooltip
         self.plugins = [HelloWorldPlugin()]
         self.pluginMenu = pluginMenu
+        self.pluginInfos = []
 
 
     def activatePlugins(self):
@@ -46,5 +50,44 @@ class PluginManager:
             self.pluginMenu.append(plugin.getMenuItem())
             
             
+    def discoverPlugins(self):
+
+        pluginFiles = []
+        if os.path.exists(USER_PLUGIN_PATH):
+            files = os.listdir(USER_PLUGIN_PATH)
+            for possible_plugin in files:
+                if possible_plugin.endswith('.plugin'):
+                    pluginFiles.append(os.path.join(USER_PLUGIN_PATH, possible_plugin))
+        else:
+            print "plugin dir does not exist"
 
             
+        self.pluginInfos = self.parsePluginInfo(pluginFiles)
+        for info in self.pluginInfos:
+            print info.name + ", " + info.desc + ", " + info.script + ", " + info.author
+            execfile(os.path.join(USER_PLUGIN_PATH,info.script))
+
+
+    def parsePluginInfo(self, plugins):
+
+        infos = []
+
+        for p in plugins:
+            print p
+            f = open(p,"r")
+            text = f.read()
+            lines = text.splitlines()
+            pInfo = PluginInfo()
+
+            for line in lines:
+                if line.startswith('name') == True:
+                    pInfo.name = line.split("=",1)[1]
+                elif line.startswith('desc') == True:
+                    pInfo.desc = line.split("=",1)[1]
+                elif line.startswith('script') == True:
+                    pInfo.script = line.split("=",1)[1]
+                elif line.startswith('author') == True:
+                    pInfo.author = line.split("=",1)[1]
+
+            infos.append(pInfo)
+        return infos

@@ -99,6 +99,7 @@ class RadioTray(object):
 
 	#load plugin manager
         self.pluginManager = PluginManager(notification, eventSubscriber, self.provider, self.cfg_provider, self.mediator, tooltipManager, self.systray.getPluginMenu())
+        self.pluginManager.discoverPlugins()
         self.pluginManager.activatePlugins()
 
         if(url != None):
