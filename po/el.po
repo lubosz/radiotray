@@ -1,52 +1,112 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: RadioTray 0.6\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 17:51(GMT+2)\n"
-"PO-Revision-Date: 2010-06-23 18:15(GMT+2)\n"
-"Language-Team: Markos Chandras <hwoarang@gentoo.org>\n"
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
+"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"PO-Revision-Date: 2011-03-22 15:14+0000\n"
+"Last-Translator: glezos <glezos@indifex.com>\n"
+"Language-Team: Greek <None>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
+msgid "Add Group"
+msgstr "Προσθήκη ομάδας"
+
+#: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "Τρέχουσα ομάδα:"
+
+#: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Ομάδα:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Μετακίνηση ομάδας"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Μετακίνηση στοιχείου σε άλλη ομάδα"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Όνομα:"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Νέα ομάδα:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "Μητρική Ομάδα:"
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Separator"
+msgstr "Διαχωριστικό"
+
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Επεξεργασία Σταθμών"
 
-#: ../data/configBookmarks.glade.h:2
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
 msgid "Radio name:"
-msgstr "Όνομα Σταθμού:"
+msgstr "Όνομα σταθμού:"
 
-#: ../data/configBookmarks.glade.h:3
-msgid "Separator"
-msgstr "Κενό Διάστημα"
-
-#: ../data/configBookmarks.glade.h:4
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
 msgid "URL :"
-msgstr "Διεύθυνση :"
+msgstr "URL:"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Μεταφραστές"
+msgstr "Dimitris Glezos <glezos@indifex.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "%s's Ιστοσελίδα"
+msgstr "Ιστοσελίδα του %s"
 
-#: ../src/BookmarkConfiguration.py:66
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Όνομα Σταθμού"
 
-#: ../src/BookmarkConfiguration.py:173
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr "Προσθήκη νέου σταθμού"
+
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr "Επεξεργασία '%s'"
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr "Επεξεργασία ομάδας"
+
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε το \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr "Προσθήκη νέας ομάδας"
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr "Επεξεργασία διαχωριστικού"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -56,66 +116,92 @@ msgstr "Προγραμματιστές:"
 msgid "Contributors:"
 msgstr "Συνεργάτες:"
 
-#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Άγνωστος σταθμός"
 
-#: ../src/StateMediator.py:93
+#: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Σφάλμα Σταθμού"
 
-#: ../src/StateMediator.py:101
+#: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
-msgid "Radio Playing"
-msgstr "Αναπαραγωγή Σταθμού"
+msgid "Radio Tray Playing"
+msgstr "Αναπαραγωγή Radio Tray"
 
-#: ../src/SysTray.py:80 ../src/SysTray.py:165
+#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
+#: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
-msgstr "Απενεργοποίηση"
+msgstr "Απενεργοποιημένο"
 
-#: ../src/SysTray.py:88
+#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
+#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#, python-format
+msgid "Turn On \"%s\""
+msgstr "Ενεργοποίηση \"%s\""
+
+#: ../src/SysTray.py:144 ../src/SysTray.py:512
+msgid "Sleep Timer"
+msgstr "Χρονοδιακόπτης ύπνου"
+
+#: ../src/SysTray.py:145 ../src/SysTray.py:517
 msgid "Configure Radios..."
 msgstr "Ρυθμίσεις Σταθμών..."
 
-#: ../src/SysTray.py:89
-msgid "About"
-msgstr "Σχετικά"
+#: ../src/SysTray.py:146 ../src/SysTray.py:518
+msgid "Reload Bookmarks"
+msgstr "Ανανέωση σελιδοδεικτών"
 
-#: ../src/SysTray.py:90
-msgid "Quit"
-msgstr "Έξοδος"
+#: ../src/SysTray.py:174
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Ανενεργό (ένταση: %s%%)"
 
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#: ../src/SysTray.py:102 ../src/SysTray.py:168
-msgid "<i>Idle</i>"
-msgstr "<i>Ανενεργό</i>"
-
-#: ../src/SysTray.py:171
+#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
+#: ../src/SysTray.py:358
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Απενεργοποίηση \"%s\""
 
-#: ../src/SysTray.py:178
+#: ../src/SysTray.py:359
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Σύνδεση με %s"
 
-#: ../src/SysTray.py:192
+#: ../src/SysTray.py:378
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"Αναπαραγωγή <b>%s</b> (Ένταση: %s%%)\n"
+"Αναπαραγωγή <b>%s</b> (ένταση: %s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:194
+#: ../src/SysTray.py:392
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Αναπαραγωγή <b>%s</b> (Ένταση: %s%%)"
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr "Αναπαραγωγή <b>%s</b> (ένταση: %s%%%s)"
+
+#: ../src/SysTray.py:397
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr "Ανενεργό (ένταση: %s%%%s)"
+
+#: ../src/SysTray.py:458
+msgid "Bookmarks Reloaded"
+msgstr "Έγινε επαναφόρτωση σελιδοδεικτών"
+
+#: ../src/SysTray.py:519
+msgid "Volume Up"
+msgstr "Αύξηση έντασης"
+
+#: ../src/SysTray.py:520
+msgid "Volume Down"
+msgstr "Μείωση έντασης"

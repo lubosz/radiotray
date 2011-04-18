@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-01-18 23:24+0000\n"
-"PO-Revision-Date: 2011-04-18 14:12+0000\n"
+"PO-Revision-Date: 2011-04-18 14:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Lithuanian <None>\n"
+"Language-Team: Japanese <None>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
-msgstr "Skirtukas"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
@@ -70,16 +70,16 @@ msgstr ""
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Vilmantas Ramonas <vilmantasr@gmail.com>"
+msgstr ""
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "%s Tinklalapis"
+msgstr ""
 
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
-msgstr "Radijo stotys"
+msgstr ""
 
 #: ../src/BookmarkConfiguration.py:172
 msgid "Add new station"
@@ -98,7 +98,7 @@ msgstr ""
 #: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Ar tikrai norite pašalinti \"%s\"?"
+msgstr ""
 
 #: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
@@ -110,21 +110,21 @@ msgstr ""
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Programos autoriai:"
+msgstr ""
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Pagalbininkai:"
+msgstr ""
 
 #: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
-msgstr "Nežinoma radijo stotis"
+msgstr ""
 
 #: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "Radio stoties klaida"
+msgstr ""
 
 #: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
@@ -134,7 +134,7 @@ msgstr ""
 #: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
 #: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
-msgstr "Išjungta"
+msgstr ""
 
 #: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
 #: ../src/SysTray.py:329 ../src/SysTray.py:500
@@ -164,13 +164,13 @@ msgstr ""
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Išjungti \"%s\""
+msgstr ""
 
 #: ../src/SysTray.py:359
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Jungiasi prie %s"
+msgstr ""
 
 #: ../src/SysTray.py:378
 #, python-format

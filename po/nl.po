@@ -1,19 +1,21 @@
-# RadioTray language file
-# Copyright (C) 2009-2010
-# This file is distributed under the same license as the radiotray package.
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: radiotray 0.6\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-24 01:49+0000\n"
-"PO-Revision-Date: 2010-08-22 18:18+0000\n"
-"Last-Translator: Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>\n"
-"Language-Team: DUTCH <LL@li.org>\n"
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
+"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"PO-Revision-Date: 2011-03-22 15:14+0000\n"
+"Last-Translator: sgrs <henkjan.kleinpoelhuis@hotmail.com>\n"
+"Language-Team: Dutch <None>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -114,56 +116,63 @@ msgstr "Ontwikkelaars:"
 msgid "Contributors:"
 msgstr "Met bijdragen van:"
 
-#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Onbekende radiozender"
 
-#: ../src/StateMediator.py:93
+#: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Radio Error"
 
-#: ../src/StateMediator.py:104
+#: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Radio Tray speelt"
 
-#: ../src/SysTray.py:81 ../src/SysTray.py:88 ../src/SysTray.py:256
-#: ../src/SysTray.py:258
+#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
+#: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
 msgstr "Uitgeschakeld"
 
-#: ../src/SysTray.py:92
+#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
+#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#, python-format
+msgid "Turn On \"%s\""
+msgstr "\"%s\" aanzetten"
+
+#: ../src/SysTray.py:144 ../src/SysTray.py:512
 msgid "Sleep Timer"
 msgstr "Sleep timer"
 
-#: ../src/SysTray.py:93
+#: ../src/SysTray.py:145 ../src/SysTray.py:517
 msgid "Configure Radios..."
 msgstr "Zenders bewerken"
 
-#: ../src/SysTray.py:94
+#: ../src/SysTray.py:146 ../src/SysTray.py:518
 msgid "Reload Bookmarks"
 msgstr "Favorieten bijwerken"
 
-#: ../src/SysTray.py:122
+#: ../src/SysTray.py:174
 #, python-format
 msgid "Idle (vol: %s%%)"
 msgstr "Gepauzeerd (vol: %s%%)"
 
-#: ../src/SysTray.py:264 ../src/SysTray.py:266
+#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
+#: ../src/SysTray.py:358
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "\"%s\" uitzetten"
 
-#: ../src/SysTray.py:274
+#: ../src/SysTray.py:359
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Verbinden met %s"
 
-#: ../src/SysTray.py:293
+#: ../src/SysTray.py:378
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -173,28 +182,26 @@ msgstr ""
 "Speelt <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:295
+#: ../src/SysTray.py:392
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr "Speelt <b>%s</b> (vol: %s%%%s)"
 
-#: ../src/SysTray.py:297
+#: ../src/SysTray.py:397
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr "Gepauzeerd (vol: %s%%%s)"
 
-#: ../src/SysTray.py:352
+#: ../src/SysTray.py:458
 msgid "Bookmarks Reloaded"
 msgstr "Favorieten bijgewerkt"
 
-#~ msgctxt "Informs what radio and music is being played as a tooltip."
-#~ msgid "<i>Idle (vol: %s%%)</i>"
-#~ msgstr "<i>Gepauzeerd (vol: %s%%)</i>"
+#: ../src/SysTray.py:519
+msgid "Volume Up"
+msgstr "Volume hoger"
 
-#~ msgid "About"
-#~ msgstr "Over"
-
-#~ msgid "Quit"
-#~ msgstr "Afsluiten"
+#: ../src/SysTray.py:520
+msgid "Volume Down"
+msgstr "Volume lager"

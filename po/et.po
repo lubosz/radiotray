@@ -5,49 +5,49 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-05 00:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Valdur Kana <valdur55@gmail.com>\n"
-"Language-Team: Estonian <et@li.org>\n"
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
+"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"PO-Revision-Date: 2011-03-22 15:14+0000\n"
+"Last-Translator: valdur55 <valdur55@gmail.com>\n"
+"Language-Team: Estonian <None>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr "Lisa Grupp"
+msgstr "Lisa rühm"
 
 #: ../data/configBookmarks.glade.h:2
-#, fuzzy
 msgid "Current group:"
-msgstr "Praegune grupp:"
+msgstr "Praegune rühm:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
-msgstr "Grupp"
+msgstr "Rühm:"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
-msgstr "Liiguta gruppi"
+msgstr "Rühma liigutamine"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
-msgstr "Liiguta kirje teise gruppi"
+msgstr "Liiguta kirje teise rühma"
 
 #: ../data/configBookmarks.glade.h:6
 msgid "Name :"
-msgstr "Nimi :"
+msgstr "Nimi:"
 
 #: ../data/configBookmarks.glade.h:7
 msgid "New group:"
-msgstr "Uus grupp"
+msgstr "Uus rühm:"
 
 #: ../data/configBookmarks.glade.h:8
-#, fuzzy
 msgid "Parent Group :"
-msgstr "Parent Group :"
+msgstr "Ülemrühm:"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
@@ -59,7 +59,6 @@ msgid "Configure Radios"
 msgstr "Seadista raadioid"
 
 #: ../data/configBookmarks.glade.h:11
-#, fuzzy
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Raadio nimi:"
@@ -67,11 +66,11 @@ msgstr "Raadio nimi:"
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL:"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "tõlkija-krediit"
+msgstr "Tõlkja märkmed"
 
 #: ../src/about.py:30
 #, python-format
@@ -94,16 +93,16 @@ msgstr "Muuda %s"
 
 #: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
-msgstr "Muuda gruppi"
+msgstr "Muuda rühma"
 
 #: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Kas sa oled kindel, et eemaldada \"%s\"?"
+msgstr "Kas sa oled kindel, et soovite eemaldada \"%s\"?"
 
 #: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
-msgstr "Lisa uus grupp"
+msgstr "Lisa uus rühm"
 
 #: ../src/BookmarkConfiguration.py:428
 msgid "Edit Separator"
@@ -111,82 +110,98 @@ msgstr "Muuda eraldajat"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Arendajad"
+msgstr "Arendajad:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Hooldajad"
+msgstr "Toetajad:"
 
-#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Tundmatu raaio"
 
-#: ../src/StateMediator.py:93
+#: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Raadio viga"
 
-#: ../src/StateMediator.py:104
-#, fuzzy
+#: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr "Raadio Tray Mängib"
+msgstr "Radio Tray mängib"
 
-#: ../src/SysTray.py:81 ../src/SysTray.py:88 ../src/SysTray.py:256
-#: ../src/SysTray.py:258
+#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
+#: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
 msgstr "Välja lülitatud"
 
-#: ../src/SysTray.py:92
+#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
+#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#, python-format
+msgid "Turn On \"%s\""
+msgstr "Käivita \"%s\""
+
+#: ../src/SysTray.py:144 ../src/SysTray.py:512
 msgid "Sleep Timer"
-msgstr "Magamajäämise loendur"
+msgstr "Unetaimer"
 
-#: ../src/SysTray.py:93
+#: ../src/SysTray.py:145 ../src/SysTray.py:517
 msgid "Configure Radios..."
-msgstr "Seadista raadioid"
+msgstr "Seadista raadioid..."
 
-#: ../src/SysTray.py:94
+#: ../src/SysTray.py:146 ../src/SysTray.py:518
 msgid "Reload Bookmarks"
 msgstr "Värskenda järjehoidjaid"
 
-#: ../src/SysTray.py:122
+#: ../src/SysTray.py:174
 #, python-format
 msgid "Idle (vol: %s%%)"
 msgstr "Jõude (vol: %s%%)"
 
-#: ../src/SysTray.py:264 ../src/SysTray.py:266
-#, python-format, fuzzy
+#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
+#: ../src/SysTray.py:358
+#, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Lülita \\ \"% s \""
+msgstr "Lülita välja \"%s\""
 
-#: ../src/SysTray.py:274
-#, python-format, fuzzy
+#: ../src/SysTray.py:359
+#, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Ühendan% s"
+msgstr "Ühendan %s"
 
-#: ../src/SysTray.py:293
-#, python-format, fuzzy
+#: ../src/SysTray.py:378
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
-msgstr "<b>Mängib% s</b> (vol:% s%%% s) \\ <i>n% s</i>"
+msgstr ""
+"Esitamine <b>%s</b> (vol: %s%%%s)\n"
+"<i>%s</i>"
 
-#: ../src/SysTray.py:295
-#, python-format, fuzzy
+#: ../src/SysTray.py:392
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
-msgstr "<b>Mängib% s</b> (vol:% s%%% s)"
+msgstr "Esitamine <b>%s</b> (vol: %s%%%s)"
 
-#: ../src/SysTray.py:297
+#: ../src/SysTray.py:397
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr "Jõude (vol:% s%%% s)"
 
-#: ../src/SysTray.py:352
+#: ../src/SysTray.py:458
 msgid "Bookmarks Reloaded"
 msgstr "Järjehoidjad on värskendatud"
+
+#: ../src/SysTray.py:519
+msgid "Volume Up"
+msgstr "Heli valjemaks"
+
+#: ../src/SysTray.py:520
+msgid "Volume Down"
+msgstr "Heli vaiksemaks"

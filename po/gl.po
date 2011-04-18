@@ -1,35 +1,72 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: RadioTray 0.6\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-11 20:41+0000\n"
-"PO-Revision-Date: 2010-06-21 11:30+2000\n"
-"Last-Translator: Xose M. Lamas <pikamoku@gmail.com>\n"
-"Language-Team: Galego (Galician) <http://www.trasno.net/>\n"
+"Project-Id-Version: Radio Tray\n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
+"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"PO-Revision-Date: 2011-03-22 15:14+0000\n"
+"Last-Translator: pikamoku <pikamoku@gmail.com>\n"
+"Language-Team: Galician <None>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
-msgid "Configure Radios"
-msgstr "Configura Emisoras"
+msgid "Add Group"
+msgstr "Engadir grupo"
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Radio name:"
-msgstr "Nome da Emisora:"
+msgid "Current group:"
+msgstr "Grupo actual"
 
 #: ../data/configBookmarks.glade.h:3
+msgid "Group :"
+msgstr "Grupo:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Mover grupo"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Mover elemento a outro grupo"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Name :"
+msgstr "Nome:"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Novo grupo:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "Parent Group :"
+msgstr "Grupo superior:"
+
+#: ../data/configBookmarks.glade.h:9
 msgid "Separator"
 msgstr "Separador"
 
-#: ../data/configBookmarks.glade.h:4
+#: ../data/configBookmarks.glade.h:10
+msgctxt "yes"
+msgid "Configure Radios"
+msgstr "Configurar emisoras"
+
+#: ../data/configBookmarks.glade.h:11
+msgctxt "yes"
+msgid "Radio name:"
+msgstr "Nome da emisora"
+
+#: ../data/configBookmarks.glade.h:12
+msgctxt "yes"
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL:"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -40,14 +77,36 @@ msgstr "Tradutor"
 msgid "%s's Website"
 msgstr "%s's Sitio Web"
 
-#: ../src/BookmarkConfiguration.py:66
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Nome da Emisora"
 
-#: ../src/BookmarkConfiguration.py:173
+#: ../src/BookmarkConfiguration.py:172
+msgid "Add new station"
+msgstr "Engadir nova emisora"
+
+#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
+#: ../src/BookmarkConfiguration.py:450
+#, python-format
+msgid "Edit %s"
+msgstr "Edita %s"
+
+#: ../src/BookmarkConfiguration.py:244
+msgid "Edit group"
+msgstr "Edita grupo"
+
+#: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Estas seguro de querer eliminar \"%s\"?"
+
+#: ../src/BookmarkConfiguration.py:365
+msgid "Add new group"
+msgstr "Engadir novo grupo"
+
+#: ../src/BookmarkConfiguration.py:428
+msgid "Edit Separator"
+msgstr "Editar Separador"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -57,66 +116,92 @@ msgstr "Desenvolvedores:"
 msgid "Contributors:"
 msgstr "Contribuíntes:"
 
-#: ../src/StateMediator.py:65 ../src/StateMediator.py:66
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "Emisora descoñecida"
 
-#: ../src/StateMediator.py:93
+#: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
 msgstr "Erro na Radio"
 
-#: ../src/StateMediator.py:101
+#: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
-msgid "Radio Playing"
-msgstr "Emisora Soando"
+msgid "Radio Tray Playing"
+msgstr "RadioTray emitindo"
 
-#: ../src/SysTray.py:80 ../src/SysTray.py:165
+#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
+#: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
 msgstr "Apagado"
 
-#: ../src/SysTray.py:88
-msgid "Configure radios..."
-msgstr "Configura emisoras..."
+#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
+#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#, python-format
+msgid "Turn On \"%s\""
+msgstr "Acender \"%s\""
 
-#: ../src/SysTray.py:89
-msgid "About"
-msgstr "Acerca de"
+#: ../src/SysTray.py:144 ../src/SysTray.py:512
+msgid "Sleep Timer"
+msgstr "Temporizador de apagado"
 
-#: ../src/SysTray.py:90
-msgid "Quit"
-msgstr "Saír"
+#: ../src/SysTray.py:145 ../src/SysTray.py:517
+msgid "Configure Radios..."
+msgstr "Configure Emisoras..."
 
-# Carlos Ribeiro <carlosmribeiro1@gmail.com>, 2009-2010.
-#: ../src/SysTray.py:102 ../src/SysTray.py:168
-msgid "<i>Idle</i>"
-msgstr "<i>Detido</i>"
+#: ../src/SysTray.py:146 ../src/SysTray.py:518
+msgid "Reload Bookmarks"
+msgstr "Recargar Marcadores"
 
-#: ../src/SysTray.py:171
+#: ../src/SysTray.py:174
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Inactivo (vol: %s%%)"
+
+#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
+#: ../src/SysTray.py:358
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Deter \"%s\""
 
-#: ../src/SysTray.py:178
+#: ../src/SysTray.py:359
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Conectando con %s"
 
-#: ../src/SysTray.py:192
+#: ../src/SysTray.py:378
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"Reproducindo <b>%s</b> (vol: %s%%)\n"
+"Reproducindo <b>%s</b> (vol: %s%%%s)⏎\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:194
+#: ../src/SysTray.py:392
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Reproducindo <b>%s</b> (vol: %s%%)"
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr "Reproducindo <b>%s</b> (vol: %s%%%s)"
+
+#: ../src/SysTray.py:397
+#, python-format
+msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr "Inactivo (vol: %s%%%s)"
+
+#: ../src/SysTray.py:458
+msgid "Bookmarks Reloaded"
+msgstr "Marcadores cargados"
+
+#: ../src/SysTray.py:519
+msgid "Volume Up"
+msgstr "Subir volume"
+
+#: ../src/SysTray.py:520
+msgid "Volume Down"
+msgstr "Baixar volume"
