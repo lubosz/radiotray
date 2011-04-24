@@ -395,6 +395,20 @@ class BookmarkConfiguration(object):
             
         self.parentGroup.set_model(liststore)
             
+        # default to root
+        self.parentGroup.set_active(0)
+        
+        # get current selected group and set it as default
+        selection = self.list.get_selection()
+        (model, iter) = selection.get_selected()
+
+        if type(iter).__name__=='TreeIter':
+            selectedName = model.get_value(iter,1)
+            selectedType = model.get_value(iter, 2)
+            
+            if (selectedType == self.GROUP_TYPE):
+                groupIndex = self.dataProvider.listGroupNames().index(selectedName)
+                self.parentGroup.set_active(groupIndex)
 
         # show dialog
         result = self.configGroup.run()
