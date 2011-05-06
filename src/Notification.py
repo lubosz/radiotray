@@ -33,7 +33,7 @@ class Notification:
             if pynotify.init(APPNAME):
                 self.notif = pynotify.Notification(title, message)
                 self.notif.set_urgency(pynotify.URGENCY_LOW)
-                pixbuf = gtk.gdk.pixbuf_new_from_file(APP_ICON)
+                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
                 self.notif.set_icon_from_pixbuf(pixbuf)
                 self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
                 self.notif.show()

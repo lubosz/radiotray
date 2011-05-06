@@ -50,6 +50,10 @@ class AudioPlayerGStreamer:
 
         if(urlInfo is not None and urlInfo.isPlaylist()):
             self.playlist = self.decoder.getPlaylist(urlInfo)
+            if(len(self.playlist) == 0):
+                print "Received empty playlist!"
+                self.mediator.stop()
+                self.mediator.notifyError("Received empty stream from station")
             print self.playlist
             self.playNextStream()
 
