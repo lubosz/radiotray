@@ -12,6 +12,7 @@ try:
     from gettext import gettext as _, ngettext
     gettext.install(program, unicode=True)
     gettext.textdomain(program)
+    locale.textdomain(program)
 
     def C_(ctx, s):
         """Provide qualified translatable strings via context.
