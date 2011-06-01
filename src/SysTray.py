@@ -39,6 +39,7 @@ from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_
 from lib import i18n
 from about import AboutDialog
 from lib.utils import html_escape
+from GuiChooserConfiguration import GuiChooserConfiguration
 
 import dbus
 import textwrap
@@ -68,7 +69,7 @@ def about_dialog(parent=None):
 
 class SysTray(object):
 
-    def __init__(self, mediator, provider, log, cfg_provider):
+    def __init__(self, mediator, provider, log, cfg_provider, default_cfg_provider):
 
         self.version = APPVERSION
         self.mediator = mediator
@@ -90,14 +91,26 @@ class SysTray(object):
             
         self.ignore_toggle = False
 
-        # application indicator
-        self.app_indicator_enabled = self.cfg_provider.getConfigValue("enable_application_indicator_support")        
-        if self.app_indicator_enabled == None:
+        # execute gui chooser
+        self.gui_engine = self.cfg_provider.getConfigValue("gui_engine")
+        if(self.gui_engine == None):
+            self.gui_engine = default_cfg_provider.getConfigValue("gui_engine")
+ 
+        if(self.gui_engine == None or self.gui_engine == "chooser"):
+            print "show chooser"
+            chooser = GuiChooserConfiguration()
+            self.gui_engine = chooser.run()
+
+        self.cfg_provider.setConfigValue("gui_engine", self.gui_engine)
+
+
+
+
+        if self.gui_engine == "appindicator":
+            self.app_indicator_enabled  = True
+        else:
             self.app_indicator_enabled = False
-            self.cfg_provider.setConfigValue("enable_application_indicator_support", "false")
-        else:            
-            self.app_indicator_enabled = (self.app_indicator_enabled == "true")
-        
+
         self.app_indicator_use_theme = self.cfg_provider.getConfigValue("enable_application_indicator_theme_support")
         if self.app_indicator_use_theme == None:
             self.app_indicator_use_theme = False
