@@ -53,7 +53,7 @@ class AudioPlayerGStreamer:
             if(len(self.playlist) == 0):
                 print "Received empty playlist!"
                 self.mediator.stop()
-                self.mediator.notifyError("Received empty stream from station")
+                self.mediator.notifyError(_("Connection Error"), "Received empty stream from station")
             print self.playlist
             self.playNextStream()
 
@@ -63,6 +63,7 @@ class AudioPlayerGStreamer:
 
         else:            
             self.mediator.stop()
+            self.mediator.notifyError(_("Connection Error"), "Couldn't read stream from station")
 
 
     def playNextStream(self):

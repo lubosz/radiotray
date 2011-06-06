@@ -70,6 +70,9 @@ class StreamDecoder:
             opener = urllib2.build_opener(DummyMMSHandler())
             f = opener.open(req, timeout=float(self.url_timeout))
 
+        except urllib2.HTTPError, e:
+            print "HTTP Error: No radio stream found for %s" % url
+            return None
         except urllib2.URLError, e:
             print "No radio stream found for %s" % url
             if str(e.reason).startswith('MMS REDIRECT'):
