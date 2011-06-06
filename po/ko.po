@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# boram <boramism@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-01-18 23:24+0000\n"
-"PO-Revision-Date: 2011-04-18 14:11+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Korean <None>\n"
+"PO-Revision-Date: 2011-05-20 19:07+0000\n"
+"Last-Translator: boram <boramism@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.net/projects/p/radiotray/team/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,35 +19,35 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr ""
+msgstr "그룹 추가"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
-msgstr ""
+msgstr "현재 그룹:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
-msgstr ""
+msgstr "그룹 :"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
-msgstr ""
+msgstr "그룹 이동"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
-msgstr ""
+msgstr "항목을 다른 그룹으로 이동"
 
 #: ../data/configBookmarks.glade.h:6
 msgid "Name :"
-msgstr ""
+msgstr "이름 :"
 
 #: ../data/configBookmarks.glade.h:7
 msgid "New group:"
-msgstr ""
+msgstr "새 그룹:"
 
 #: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
-msgstr ""
+msgstr "상위 그룹 :"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
@@ -56,57 +56,57 @@ msgstr "구분선"
 #: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr ""
+msgstr "라디오 설정"
 
 #: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
-msgstr ""
+msgstr "라디오 이름:"
 
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
-msgstr ""
+msgstr "주소 :"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Mike Sierra <ubuntuda@gmail.com>"
+msgstr "김보람 <boramism@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "%s 의 웹사이트"
+msgstr "%s 웹 사이트"
 
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
-msgstr "방송국 이름"
+msgstr "라디오 이름"
 
 #: ../src/BookmarkConfiguration.py:172
 msgid "Add new station"
-msgstr ""
+msgstr "새 방송국 추가"
 
 #: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
 #: ../src/BookmarkConfiguration.py:450
 #, python-format
 msgid "Edit %s"
-msgstr ""
+msgstr "%s 편집"
 
 #: ../src/BookmarkConfiguration.py:244
 msgid "Edit group"
-msgstr ""
+msgstr "그룹 편집"
 
 #: ../src/BookmarkConfiguration.py:283
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "\"%s\" 을 지우시겠습니까?"
+msgstr "정말 \"%s\"(을)를 삭제하시겠습니까?"
 
 #: ../src/BookmarkConfiguration.py:365
 msgid "Add new group"
-msgstr ""
+msgstr "새 그룹 추가"
 
 #: ../src/BookmarkConfiguration.py:428
 msgid "Edit Separator"
-msgstr ""
+msgstr "구분선 편집"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -114,50 +114,50 @@ msgstr "개발자:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "기여자:"
+msgstr "도움 주신 분들:"
 
 #: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
-msgstr "방송국 주소를 인식할 수 없습니다"
+msgstr "알 수 없는 라디오"
 
 #: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr "방송국 에러입니다"
+msgstr "라디오 오류"
 
 #: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "라디오 재생 중"
 
 #: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
 #: ../src/SysTray.py:326 ../src/SysTray.py:497
 msgid "Turned Off"
-msgstr "방송끄기"
+msgstr "꺼짐"
 
 #: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
 #: ../src/SysTray.py:329 ../src/SysTray.py:500
 #, python-format
 msgid "Turn On \"%s\""
-msgstr ""
+msgstr "\"%s\" 켜기"
 
 #: ../src/SysTray.py:144 ../src/SysTray.py:512
 msgid "Sleep Timer"
-msgstr ""
+msgstr "취침 타이머"
 
 #: ../src/SysTray.py:145 ../src/SysTray.py:517
 msgid "Configure Radios..."
-msgstr ""
+msgstr "라디오 설정..."
 
 #: ../src/SysTray.py:146 ../src/SysTray.py:518
 msgid "Reload Bookmarks"
-msgstr ""
+msgstr "책갈피 다시 불러오기"
 
 #: ../src/SysTray.py:174
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "대기 (음량: %s%%)"
 
 #: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
 #: ../src/SysTray.py:358
@@ -170,7 +170,7 @@ msgstr "\"%s\" 끄기"
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "%s 에 연결중"
+msgstr "%s에 연결하는 중"
 
 #: ../src/SysTray.py:378
 #, python-format
@@ -179,27 +179,31 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
+"재생 중 <b>%s</b> (음량: %s%%%s)\n"
+"<i>%s</i>"
 
 #: ../src/SysTray.py:392
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
-msgstr ""
+msgstr "재생 중 <b>%s</b> (음량: %s%%%s)"
 
 #: ../src/SysTray.py:397
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
-msgstr ""
+msgstr "대기 (음량: %s%%%s)"
 
 #: ../src/SysTray.py:458
 msgid "Bookmarks Reloaded"
-msgstr ""
+msgstr "책갈피 다시 불러옴"
 
 #: ../src/SysTray.py:519
 msgid "Volume Up"
-msgstr ""
+msgstr "음량 높이기"
 
 #: ../src/SysTray.py:520
 msgid "Volume Down"
-msgstr ""
+msgstr "음량 낮추기"
+
+
