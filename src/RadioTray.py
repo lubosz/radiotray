@@ -29,6 +29,7 @@ import os
 from shutil import move, copy2
 from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE
 import mpris
+from GuiChooserConfiguration import GuiChooserConfiguration
 
 class RadioTray(object):
 
@@ -61,6 +62,13 @@ class RadioTray(object):
         # load audio player
         self.audio = AudioPlayerGStreamer(self.mediator, self.cfg_provider, self.log)
 
+        # chooser
+        if(url != None):
+            chooser = GuiChooserConfiguration()
+            gui_engine = chooser.run()
+            self.cfg_provider.setConfigValue("gui_engine", gui_engine)
+            url = None
+
         # load gui
         self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider, self.default_cfg_provider)
 
@@ -74,7 +82,7 @@ class RadioTray(object):
 
         if(url != None):
             if (url == "--resume"):
-                self.mediator.playLast()                
+                self.mediator.playLast()
             else:
                 self.mediator.playUrl(url)
 

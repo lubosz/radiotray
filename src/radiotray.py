@@ -22,10 +22,14 @@ def main(argv):
             bus = dbus.SessionBus()
             radiotray = bus.get_object('net.sourceforge.radiotray', '/net/sourceforge/radiotray')
 
-            print "Radio Tray already running. Setting current radio through DBus..."
 
-            playUrl = radiotray.get_dbus_method('playUrl', 'net.sourceforge.radiotray')
-            playUrl(argv[0])
+            if argv[0] == '--config':
+                print "Radio Tray already running."
+            else:
+                print "Setting current radio through DBus..."
+
+                playUrl = radiotray.get_dbus_method('playUrl', 'net.sourceforge.radiotray')
+                playUrl(argv[0])
 
         except DBusException:
             RadioTray(argv[0])
