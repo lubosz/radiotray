@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-19 16:38+0100\n"
+"POT-Creation-Date: 2011-06-06 22:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,6 +68,22 @@ msgctxt "yes"
 msgid "URL :"
 msgstr ""
 
+#: ../data/configGui.glade.h:1
+msgid "(this choice will be saved in the configuration file)"
+msgstr ""
+
+#: ../data/configGui.glade.h:2
+msgid "App Indicator"
+msgstr ""
+
+#: ../data/configGui.glade.h:3
+msgid "Icon in the Notification Area"
+msgstr ""
+
+#: ../data/configGui.glade.h:4
+msgid "Please select how Radio Tray should appear"
+msgstr ""
+
 #: ../src/about.py:16
 msgid "translator-credits"
 msgstr ""
@@ -75,6 +91,10 @@ msgstr ""
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
+msgstr ""
+
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+msgid "Connection Error"
 msgstr ""
 
 #: ../src/BookmarkConfiguration.py:88
@@ -85,8 +105,8 @@ msgstr ""
 msgid "Add new station"
 msgstr ""
 
-#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:445
-#: ../src/BookmarkConfiguration.py:469
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
 msgstr ""
@@ -104,7 +124,7 @@ msgstr ""
 msgid "Add new group"
 msgstr ""
 
-#: ../src/BookmarkConfiguration.py:447
+#: ../src/BookmarkConfiguration.py:461
 msgid "Edit Separator"
 msgstr ""
 
@@ -131,48 +151,48 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr ""
 
-#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:329
-#: ../src/SysTray.py:337 ../src/SysTray.py:507
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
 msgstr ""
 
-#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:332
-#: ../src/SysTray.py:340 ../src/SysTray.py:510
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
 msgstr ""
 
-#: ../src/SysTray.py:144 ../src/SysTray.py:522
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
 msgid "Sleep Timer"
 msgstr ""
 
-#: ../src/SysTray.py:145 ../src/SysTray.py:527
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
 msgstr ""
 
-#: ../src/SysTray.py:146 ../src/SysTray.py:528
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
 msgstr ""
 
-#: ../src/SysTray.py:174
+#: ../src/SysTray.py:187
 #, python-format
 msgid "Idle (vol: %s%%)"
 msgstr ""
 
-#: ../src/SysTray.py:350 ../src/SysTray.py:354 ../src/SysTray.py:365
-#: ../src/SysTray.py:369
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr ""
 
-#: ../src/SysTray.py:370
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr ""
 
-#: ../src/SysTray.py:389
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -180,26 +200,26 @@ msgid ""
 "<i>%s</i>"
 msgstr ""
 
-#: ../src/SysTray.py:403
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr ""
 
-#: ../src/SysTray.py:408
+#: ../src/SysTray.py:421
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr ""
 
-#: ../src/SysTray.py:468
+#: ../src/SysTray.py:481
 msgid "Bookmarks Reloaded"
 msgstr ""
 
-#: ../src/SysTray.py:529
+#: ../src/SysTray.py:542
 msgid "Volume Up"
 msgstr ""
 
-#: ../src/SysTray.py:530
+#: ../src/SysTray.py:543
 msgid "Volume Down"
 msgstr ""

@@ -142,9 +142,9 @@ class SysTray(object):
                 self.turnOnOff.set_sensitive(False)
                 self.turnOnOff2.set_sensitive(False)
             else:
-                self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)
+                self.turnOnOff = gtk.MenuItem(_('Turn On "%s"') % self.mediator.currentRadio, False)
                 self.turnOnOff.set_sensitive(True)
-                self.turnOnOff2 = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)                
+                self.turnOnOff2 = gtk.MenuItem(_('Turn On "%s"') % self.mediator.currentRadio, False)                
                 self.turnOnOff2.set_sensitive(True)
             
             self.turnOnOff.connect('activate', self.on_turn_on_off)
@@ -342,7 +342,7 @@ class SysTray(object):
             self.turnOnOff.set_label(_('Turned Off'))
             self.turnOnOff.set_sensitive(False)
         else:
-            self.turnOnOff.set_label(_('Turn On "%s"' % self.mediator.currentRadio))
+            self.turnOnOff.set_label(_('Turn On "%s"') % self.mediator.currentRadio)
             self.turnOnOff.set_sensitive(True)
                                 
         if not self.app_indicator:
@@ -350,7 +350,7 @@ class SysTray(object):
                 self.turnOnOff2.set_label(_('Turned Off'))
                 self.turnOnOff2.set_sensitive(False)
             else:
-                self.turnOnOff2.set_label(_('Turn On "%s"' % self.mediator.currentRadio))
+                self.turnOnOff2.set_label(_('Turn On "%s"') % self.mediator.currentRadio)
                 self.turnOnOff2.set_sensitive(True)
                 
             self.icon.set_from_file(APP_ICON_OFF)
@@ -520,7 +520,7 @@ class SysTray(object):
                 self.turnOnOff = gtk.MenuItem(_("Turned Off"), False)
                 self.turnOnOff.set_sensitive(False)
             else:
-                self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.currentRadio), False)
+                self.turnOnOff = gtk.MenuItem(_('Turn On "%s"') % self.mediator.currentRadio, False)
                 self.turnOnOff.set_sensitive(True)
                 
             self.turnOnOff.connect('activate', self.on_turn_on_off)

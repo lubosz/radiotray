@@ -4,12 +4,18 @@
 [encoding: UTF-8]
 data/radiotray.desktop
 [type: gettext/glade]data/configBookmarks.glade
+[type: gettext/glade]data/configGui.glade
 src/about.py
+src/AsfPlaylistDecoder.py
 src/AsxPlaylistDecoder.py
 src/AudioPlayerGStreamer.py
 src/BookmarkConfiguration.py
 src/ConsoleLog.py
+src/DbusFacade.py
+src/GuiChooserConfiguration.py
 src/__init__.py
+src/mpris_player.py
+src/mpris.py
 src/lib/common.py
 src/lib/utils.py
 src/M3uPlaylistDecoder.py
@@ -20,4 +26,6 @@ src/RadioTray.py
 src/StateMediator.py
 src/StreamDecoder.py
 src/SysTray.py
+src/XmlConfigProvider.py
 src/XmlDataProvider.py
+src/XspfPlaylistDecoder.py
