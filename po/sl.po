@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-14 10:39-0400\n"
 "PO-Revision-Date: 2011-03-22 15:14+0000\n"
 "Last-Translator: tadeboro <tadeboro@gmail.com>\n"
 "Language-Team: Slovenian <None>\n"
@@ -15,58 +15,75 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3)\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
 msgstr "Dodaj skupino"
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Current group:"
-msgstr "Trenutna skupina:"
-
-#: ../data/configBookmarks.glade.h:3
-msgid "Group :"
-msgstr "Skupina:"
-
-#: ../data/configBookmarks.glade.h:4
-msgid "Move Group"
-msgstr "Premakni skupino"
-
-#: ../data/configBookmarks.glade.h:5
-msgid "Move item to another group"
-msgstr "Premakno vnos v drugo skupino"
-
-#: ../data/configBookmarks.glade.h:6
-msgid "Name :"
-msgstr "Ime:"
-
-#: ../data/configBookmarks.glade.h:7
-msgid "New group:"
-msgstr "Nova skupina:"
-
-#: ../data/configBookmarks.glade.h:8
-msgid "Parent Group :"
-msgstr "Nadrejena skupina:"
-
-#: ../data/configBookmarks.glade.h:9
-msgid "Separator"
-msgstr "Ločnik"
-
-#: ../data/configBookmarks.glade.h:10
-msgctxt "yes"
+#, fuzzy
 msgid "Configure Radios"
 msgstr "Nastavi radijske postaje"
 
-#: ../data/configBookmarks.glade.h:11
-msgctxt "yes"
+#: ../data/configBookmarks.glade.h:3
+msgid "Current group:"
+msgstr "Trenutna skupina:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Group :"
+msgstr "Skupina:"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move Group"
+msgstr "Premakni skupino"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Move item to another group"
+msgstr "Premakno vnos v drugo skupino"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "Name :"
+msgstr "Ime:"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "New group:"
+msgstr "Nova skupina:"
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Parent Group :"
+msgstr "Nadrejena skupina:"
+
+#: ../data/configBookmarks.glade.h:10
+#, fuzzy
 msgid "Radio name:"
 msgstr "Ime radijske postaje:"
 
+#: ../data/configBookmarks.glade.h:11
+msgid "Separator"
+msgstr "Ločnik"
+
 #: ../data/configBookmarks.glade.h:12
-msgctxt "yes"
+#, fuzzy
 msgid "URL :"
 msgstr "URL:"
+
+#: ../data/configGui.glade.h:1
+msgid "(this choice will be saved in the configuration file)"
+msgstr ""
+
+#: ../data/configGui.glade.h:2
+msgid "App Indicator"
+msgstr ""
+
+#: ../data/configGui.glade.h:3
+msgid "Icon in the Notification Area"
+msgstr ""
+
+#: ../data/configGui.glade.h:4
+msgid "Please select how Radio Tray should appear"
+msgstr ""
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -77,34 +94,39 @@ msgstr "Tadej Borovšak <tadeboro@gmail.com>"
 msgid "%s's Website"
 msgstr "Spletna stran %s"
 
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+#, fuzzy
+msgid "Connection Error"
+msgstr "Povezujem se na %s"
+
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Ime postaje"
 
-#: ../src/BookmarkConfiguration.py:172
+#: ../src/BookmarkConfiguration.py:176
 msgid "Add new station"
 msgstr "Dodaj radijsko postajo"
 
-#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
-#: ../src/BookmarkConfiguration.py:450
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
 msgstr "Uredi %s"
 
-#: ../src/BookmarkConfiguration.py:244
+#: ../src/BookmarkConfiguration.py:263
 msgid "Edit group"
 msgstr "Uredi skupino"
 
-#: ../src/BookmarkConfiguration.py:283
+#: ../src/BookmarkConfiguration.py:302
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Res želite zbrisati \"%s\"?"
 
-#: ../src/BookmarkConfiguration.py:365
+#: ../src/BookmarkConfiguration.py:384
 msgid "Add new group"
 msgstr "Dodaj skupino"
 
-#: ../src/BookmarkConfiguration.py:428
+#: ../src/BookmarkConfiguration.py:461
 msgid "Edit Separator"
 msgstr "Uredi ločnik"
 
@@ -131,48 +153,48 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Radio Tray predvaja"
 
-#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
-#: ../src/SysTray.py:326 ../src/SysTray.py:497
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
 msgstr "Izklopljen"
 
-#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
-#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "Prižgi \"%s\""
 
-#: ../src/SysTray.py:144 ../src/SysTray.py:512
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
 msgid "Sleep Timer"
 msgstr ""
 
-#: ../src/SysTray.py:145 ../src/SysTray.py:517
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
 msgstr "Nastavi radijske postaje ..."
 
-#: ../src/SysTray.py:146 ../src/SysTray.py:518
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
 msgstr "Ponovno naloži zaznamke"
 
-#: ../src/SysTray.py:174
+#: ../src/SysTray.py:187
 #, python-format
 msgid "Idle (vol: %s%%)"
 msgstr "V mirovanju (glasnost: %s%%)"
 
-#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
-#: ../src/SysTray.py:358
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Izklopi \"%s\""
 
-#: ../src/SysTray.py:359
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Povezujem se na %s"
 
-#: ../src/SysTray.py:378
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -182,26 +204,26 @@ msgstr ""
 "Predvajam <b>%s</b> (glasnost: %s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:392
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr "Predvajam <b>%s</b> (glasnost: %s%%%s)"
 
-#: ../src/SysTray.py:397
+#: ../src/SysTray.py:421
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr "V mirovanju (glasnost: %s%%%s)"
 
-#: ../src/SysTray.py:458
+#: ../src/SysTray.py:481
 msgid "Bookmarks Reloaded"
 msgstr "Zaznamki ponovno naloženi"
 
-#: ../src/SysTray.py:519
+#: ../src/SysTray.py:542
 msgid "Volume Up"
 msgstr "Povečaj glasnost"
 
-#: ../src/SysTray.py:520
+#: ../src/SysTray.py:543
 msgid "Volume Down"
 msgstr "Zmanjšaj glasnost"

@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-06 22:05+0100\n"
+"POT-Creation-Date: 2011-06-14 10:40-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,49 +21,46 @@ msgid "Add Group"
 msgstr ""
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Current group:"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:3
-msgid "Group :"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:4
-msgid "Move Group"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:5
-msgid "Move item to another group"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:6
-msgid "Name :"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:7
-msgid "New group:"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:8
-msgid "Parent Group :"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:9
-msgid "Separator"
-msgstr ""
-
-#: ../data/configBookmarks.glade.h:10
-msgctxt "yes"
 msgid "Configure Radios"
 msgstr ""
 
-#: ../data/configBookmarks.glade.h:11
-msgctxt "yes"
+#: ../data/configBookmarks.glade.h:3
+msgid "Current group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move Group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Move item to another group"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:7
+msgid "Name :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:8
+msgid "New group:"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Parent Group :"
+msgstr ""
+
+#: ../data/configBookmarks.glade.h:10
 msgid "Radio name:"
 msgstr ""
 
+#: ../data/configBookmarks.glade.h:11
+msgid "Separator"
+msgstr ""
+
 #: ../data/configBookmarks.glade.h:12
-msgctxt "yes"
 msgid "URL :"
 msgstr ""
 

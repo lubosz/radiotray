@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-01-18 23:24+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-14 10:39-0400\n"
 "PO-Revision-Date: 2011-03-22 15:14+0000\n"
 "Last-Translator: sgrs <henkjan.kleinpoelhuis@hotmail.com>\n"
 "Language-Team: Dutch <None>\n"
@@ -22,51 +22,67 @@ msgid "Add Group"
 msgstr "Groep toevoegen"
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Current group:"
-msgstr "Huidige groep:"
-
-#: ../data/configBookmarks.glade.h:3
-msgid "Group :"
-msgstr "Groep :"
-
-#: ../data/configBookmarks.glade.h:4
-msgid "Move Group"
-msgstr "Groep verplaatsen"
-
-#: ../data/configBookmarks.glade.h:5
-msgid "Move item to another group"
-msgstr "Item verplaatsen naar andere groep"
-
-#: ../data/configBookmarks.glade.h:6
-msgid "Name :"
-msgstr "Naam :"
-
-#: ../data/configBookmarks.glade.h:7
-msgid "New group:"
-msgstr "Nieuwe groep:"
-
-#: ../data/configBookmarks.glade.h:8
-msgid "Parent Group :"
-msgstr "Hoofdgroep :"
-
-#: ../data/configBookmarks.glade.h:9
-msgid "Separator"
-msgstr "Scheidingsteken"
-
-#: ../data/configBookmarks.glade.h:10
-msgctxt "yes"
+#, fuzzy
 msgid "Configure Radios"
 msgstr "Zenders bewerken"
 
-#: ../data/configBookmarks.glade.h:11
-msgctxt "yes"
+#: ../data/configBookmarks.glade.h:3
+msgid "Current group:"
+msgstr "Huidige groep:"
+
+#: ../data/configBookmarks.glade.h:4
+msgid "Group :"
+msgstr "Groep :"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move Group"
+msgstr "Groep verplaatsen"
+
+#: ../data/configBookmarks.glade.h:6
+msgid "Move item to another group"
+msgstr "Item verplaatsen naar andere groep"
+
+#: ../data/configBookmarks.glade.h:7
+msgid "Name :"
+msgstr "Naam :"
+
+#: ../data/configBookmarks.glade.h:8
+msgid "New group:"
+msgstr "Nieuwe groep:"
+
+#: ../data/configBookmarks.glade.h:9
+msgid "Parent Group :"
+msgstr "Hoofdgroep :"
+
+#: ../data/configBookmarks.glade.h:10
+#, fuzzy
 msgid "Radio name:"
 msgstr "Radiozender :"
 
+#: ../data/configBookmarks.glade.h:11
+msgid "Separator"
+msgstr "Scheidingsteken"
+
 #: ../data/configBookmarks.glade.h:12
-msgctxt "yes"
+#, fuzzy
 msgid "URL :"
 msgstr "Stream-URL :"
+
+#: ../data/configGui.glade.h:1
+msgid "(this choice will be saved in the configuration file)"
+msgstr ""
+
+#: ../data/configGui.glade.h:2
+msgid "App Indicator"
+msgstr ""
+
+#: ../data/configGui.glade.h:3
+msgid "Icon in the Notification Area"
+msgstr ""
+
+#: ../data/configGui.glade.h:4
+msgid "Please select how Radio Tray should appear"
+msgstr ""
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -77,34 +93,39 @@ msgstr "Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>"
 msgid "%s's Website"
 msgstr "%s's website"
 
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+#, fuzzy
+msgid "Connection Error"
+msgstr "Verbinden met %s"
+
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Radiozender"
 
-#: ../src/BookmarkConfiguration.py:172
+#: ../src/BookmarkConfiguration.py:176
 msgid "Add new station"
 msgstr "Radiozender toevoegen"
 
-#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
-#: ../src/BookmarkConfiguration.py:450
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
 msgstr "%s bewerken"
 
-#: ../src/BookmarkConfiguration.py:244
+#: ../src/BookmarkConfiguration.py:263
 msgid "Edit group"
 msgstr "Groep bewerken"
 
-#: ../src/BookmarkConfiguration.py:283
+#: ../src/BookmarkConfiguration.py:302
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Weet u zeker dat u \"%s\" wilt verwijderen?"
 
-#: ../src/BookmarkConfiguration.py:365
+#: ../src/BookmarkConfiguration.py:384
 msgid "Add new group"
 msgstr "Nieuwe groep toevoegen"
 
-#: ../src/BookmarkConfiguration.py:428
+#: ../src/BookmarkConfiguration.py:461
 msgid "Edit Separator"
 msgstr "Scheidingsteken bewerken"
 
@@ -131,48 +152,48 @@ msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
 msgstr "Radio Tray speelt"
 
-#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
-#: ../src/SysTray.py:326 ../src/SysTray.py:497
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
 msgstr "Uitgeschakeld"
 
-#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
-#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "\"%s\" aanzetten"
 
-#: ../src/SysTray.py:144 ../src/SysTray.py:512
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
 msgid "Sleep Timer"
 msgstr "Sleep timer"
 
-#: ../src/SysTray.py:145 ../src/SysTray.py:517
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
 msgstr "Zenders bewerken"
 
-#: ../src/SysTray.py:146 ../src/SysTray.py:518
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
 msgstr "Favorieten bijwerken"
 
-#: ../src/SysTray.py:174
+#: ../src/SysTray.py:187
 #, python-format
 msgid "Idle (vol: %s%%)"
 msgstr "Gepauzeerd (vol: %s%%)"
 
-#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
-#: ../src/SysTray.py:358
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "\"%s\" uitzetten"
 
-#: ../src/SysTray.py:359
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Verbinden met %s"
 
-#: ../src/SysTray.py:378
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
@@ -182,26 +203,26 @@ msgstr ""
 "Speelt <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:392
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr "Speelt <b>%s</b> (vol: %s%%%s)"
 
-#: ../src/SysTray.py:397
+#: ../src/SysTray.py:421
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr "Gepauzeerd (vol: %s%%%s)"
 
-#: ../src/SysTray.py:458
+#: ../src/SysTray.py:481
 msgid "Bookmarks Reloaded"
 msgstr "Favorieten bijgewerkt"
 
-#: ../src/SysTray.py:519
+#: ../src/SysTray.py:542
 msgid "Volume Up"
 msgstr "Volume hoger"
 
-#: ../src/SysTray.py:520
+#: ../src/SysTray.py:543
 msgid "Volume Down"
 msgstr "Volume lager"
