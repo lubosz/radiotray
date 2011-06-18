@@ -4,6 +4,7 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkDialog" id="guiChooserDialog">
     <property name="border_width">5</property>
+    <property name="title" translatable="yes" comments="Window title for the first time run configuration tool">First Time Run Config</property>
     <property name="type_hint">normal</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox6">

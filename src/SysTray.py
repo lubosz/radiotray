@@ -290,7 +290,7 @@ class SysTray(object):
             
             self.sleep_timer_id = None
             self.mediator.stop()
-            self.mediator.notify("Sleep timer expired")
+            self.mediator.notify(_("Sleep timer expired"))
             self.updateTooltip()                                            
             return False
         
@@ -329,13 +329,13 @@ class SysTray(object):
         self.min_to_sleep = interval
         self.min_to_sleep_selected = interval        
         if display_msg:        
-            self.mediator.notify(str(interval) + " minute sleep timer started")            
+            self.mediator.notify(_("%s minute sleep timer started") % str(interval))
     
     def stop_sleep_timer(self, display_msg):
         gobject.source_remove(self.sleep_timer_id)
         self.sleep_timer_id = None  
         if display_msg:                   
-            self.mediator.notify("Sleep timer stopped")
+            self.mediator.notify(_("Sleep timer stopped"))
     
     def setStoppedState(self):
         if not self.mediator.currentRadio:        
@@ -394,7 +394,7 @@ class SysTray(object):
         volume = self.mediator.getVolume()
         sleep_timer_info = ""
         if self.sleep_timer_id != None:
-            sleep_timer_info = ", sleep: " + str(self.min_to_sleep) + "min"
+            sleep_timer_info = _(', sleep: %s min') % str(self.min_to_sleep)
         
         if self.mediator.isPlaying:
             if(songInfo):
@@ -415,12 +415,12 @@ class SysTray(object):
                 if not self.app_indicator:
                     self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%%s)") % (radio, volume, sleep_timer_info))
                 else:                    
-                    self.metadata_menu_item.set_label("Playing (vol: %s%%%s)" % (volume, sleep_timer_info))
+                    self.metadata_menu_item.set_label(_("Playing (vol: %s%%%s)") % (volume, sleep_timer_info))
         else:
             if not self.app_indicator:
-                self.icon.set_tooltip_markup(C_("Informs what radio and music is being played as a tooltip.", "Idle (vol: %s%%%s)") % (volume, sleep_timer_info))
+                self.icon.set_tooltip_markup(C_("Informs Radiotray is idle as a tooltip.", "Idle (vol: %s%%%s)") % (volume, sleep_timer_info))
             else:                
-                self.metadata_menu_item.set_label("Idle (vol: %s%%%s)" % (volume, sleep_timer_info))              
+                self.metadata_menu_item.set_label(C_("Informs Radiotray is idle as a tooltip.", "Idle (vol: %s%%%s)") % (volume, sleep_timer_info))              
 
     def update_radios(self):
 
@@ -485,13 +485,13 @@ class SysTray(object):
 
         gtk.gdk.threads_enter()
 
-        dialog = gtk.Dialog("Edit Sleep Timer", None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+        dialog = gtk.Dialog(_("Edit Sleep Timer"), None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                             (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT, gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
                         
         entry = gtk.Entry(4)       
         entry.set_text(str(default_value)) 
         hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label("Minutes:"), False, 5, 5)
+        hbox.pack_start(gtk.Label(_("Minutes:")), False, 5, 5)
         hbox.pack_end(entry, True, True, 5)
         dialog.vbox.pack_end(hbox, True, True, 20)
         dialog.set_icon_from_file(APP_ICON_ON)
@@ -528,7 +528,7 @@ class SysTray(object):
             
         # stream metadata info
         if self.metadata_menu_item == None:
-            self.metadata_menu_item = gtk.MenuItem("Idle", False)
+            self.metadata_menu_item = gtk.MenuItem(_("Idle"), False)
             self.metadata_menu_item.set_sensitive(False)
         
         if self.sleep_timer_menu_item == None:                        
