@@ -2,15 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 
-#   <geppettvs@geppettvs.x10.mx>, 2011
-# Ricardo A. Hermosilla Carrillo <ra.hermosillac@gmail.com>, 2011
+#   <geppettvs@geppettvs.x10.mx>, 2011.
+# Ricardo A. Hermosilla Carrillo <ra.hermosillac@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-01-18 23:24+0000\n"
-"PO-Revision-Date: 2011-06-02 18:34+0000\n"
-"Last-Translator: geppettvs <geppettvs@geppettvs.x10.mx>\n"
+"PO-Revision-Date: 2011-06-15 00:02+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
 "Language-Team: Spanish (Mexican) (http://www.transifex.net/projects/p/radiotray/team/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

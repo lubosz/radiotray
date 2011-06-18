@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-06 22:05+0100\n"
+"POT-Creation-Date: 2011-06-18 11:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,11 +76,16 @@ msgstr ""
 msgid "App Indicator"
 msgstr ""
 
-#: ../data/configGui.glade.h:3
+#. Window title for the first time run configuration tool
+#: ../data/configGui.glade.h:4
+msgid "First Time Run Config"
+msgstr ""
+
+#: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
 msgstr ""
 
-#: ../data/configGui.glade.h:4
+#: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
 msgstr ""
 
@@ -95,6 +100,14 @@ msgstr ""
 
 #: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
 msgid "Connection Error"
+msgstr ""
+
+#: ../src/AudioPlayerGStreamer.py:56
+msgid "Received empty stream from station"
+msgstr ""
+
+#: ../src/AudioPlayerGStreamer.py:66
+msgid "Couldn't read stream from station"
 msgstr ""
 
 #: ../src/BookmarkConfiguration.py:88
@@ -179,6 +192,19 @@ msgstr ""
 msgid "Idle (vol: %s%%)"
 msgstr ""
 
+#: ../src/SysTray.py:293
+msgid "Sleep timer expired"
+msgstr ""
+
+#: ../src/SysTray.py:332
+#, python-format
+msgid "%s minute sleep timer started"
+msgstr ""
+
+#: ../src/SysTray.py:338
+msgid "Sleep timer stopped"
+msgstr ""
+
 #: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
 #: ../src/SysTray.py:382
 #, python-format
@@ -190,6 +216,11 @@ msgstr ""
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
+msgstr ""
+
+#: ../src/SysTray.py:397
+#, python-format
+msgid ", sleep: %s min"
 msgstr ""
 
 #: ../src/SysTray.py:402
@@ -206,14 +237,31 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
 msgstr ""
 
-#: ../src/SysTray.py:421
+#: ../src/SysTray.py:418
 #, python-format
-msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing (vol: %s%%%s)"
+msgstr ""
+
+#: ../src/SysTray.py:421 ../src/SysTray.py:423
+#, python-format
+msgctxt "Informs Radiotray is idle as a tooltip."
 msgid "Idle (vol: %s%%%s)"
 msgstr ""
 
 #: ../src/SysTray.py:481
 msgid "Bookmarks Reloaded"
+msgstr ""
+
+#: ../src/SysTray.py:488
+msgid "Edit Sleep Timer"
+msgstr ""
+
+#: ../src/SysTray.py:494
+msgid "Minutes:"
+msgstr ""
+
+#: ../src/SysTray.py:531
+msgid "Idle"
 msgstr ""
 
 #: ../src/SysTray.py:542

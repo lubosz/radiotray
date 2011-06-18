@@ -1,16 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# ygns <blackmas@gmail.com>, 2011.
+# CoolGoose <melipse@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-01-18 23:24+0000\n"
-"PO-Revision-Date: 2011-04-01 12:39+0000\n"
-"Last-Translator: ygns <blackmas@gmail.com>\n"
-"Language-Team: Romanian <>\n"
+"PO-Revision-Date: 2011-06-15 00:02+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"Language-Team: Romanian (http://www.transifex.net/projects/p/radiotray/team/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,3 +206,5 @@ msgstr "Volum mai tare"
 #: ../src/SysTray.py:520
 msgid "Volume Down"
 msgstr "Volum mai incet"
+
+
