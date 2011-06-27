@@ -14,8 +14,6 @@ src/ConsoleLog.py
 src/DbusFacade.py
 src/GuiChooserConfiguration.py
 src/__init__.py
-src/mpris_player.py
-src/mpris.py
 src/lib/common.py
 src/lib/utils.py
 src/M3uPlaylistDecoder.py
