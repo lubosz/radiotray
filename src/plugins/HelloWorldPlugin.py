@@ -21,25 +21,25 @@ from events.EventSubscriber import EventSubscriber
 from events.EventManager import EventManager
 from Plugin import Plugin
 import gtk
+import time
 
 # Basic example of a plugin
 class HelloWorldPlugin(Plugin):
 
     def __init__(self):
+        super(HelloWorldPlugin, self).__init__()
+        
         print "started"
-
+        
 
     def getName(self):
         return self.name
 
     def activate(self):
+        
         self.eventSubscriber.bind(EventManager.SONG_CHANGED, self.on_song_changed)
         self.tooltip.addSource(self.populate_tooltip)
-
-        menuItem = gtk.MenuItem(self.getName(), False)
-        menuItem.connect('activate', self.on_menu)
-        menuItem.show()
-        self.setMenuItem(menuItem)
+        time.sleep(20)
 
     def populate_tooltip(self):
         return "Hello"

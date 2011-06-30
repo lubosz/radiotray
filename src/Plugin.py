@@ -18,8 +18,14 @@
 #
 ##########################################################################
 
+import threading
+import gtk
+
 # This class should be extended by plugins implementations
-class Plugin:
+class Plugin(threading.Thread):
+
+    def __init__(self):
+        threading.Thread.__init__(self)
 
     def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
     
@@ -30,7 +36,10 @@ class Plugin:
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        self.menuItem = None
+        self.menuItem = gtk.MenuItem(self.getName(), False)
+        self.menuItem.connect('activate', self.on_menu)
+        self.menuItem.show()
+
 
     def getName(self):
         return self.name
@@ -44,3 +53,6 @@ class Plugin:
 
     def getMenuItem(self):
         return self.menuItem
+
+    def run(self):
+        self.activate()

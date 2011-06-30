@@ -44,10 +44,10 @@ class PluginManager:
             
             plugin.initialize("Hello World", self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
-            plugin.activate()
-            
+            plugin.start()
+            self.pluginMenu.append(plugin.getMenuItem())            
            
-            self.pluginMenu.append(plugin.getMenuItem())
+
             
             
     def discoverPlugins(self):
