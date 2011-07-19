@@ -25,7 +25,7 @@ from lxml import objectify
 class XmlConfigProvider:
 
     def __init__(self, filename):
-        if(os.access(filename, os.W_OK|os.R_OK) == False):
+        if(os.access(filename, os.R_OK) == False):
             raise Exception('Configuration file not found: ' + filename)
         else:
             self.filename = filename
