@@ -1,3 +1,11 @@
+radiotray (0.6.4) unstable; urgency=low
+
+  * Several bug fixes
+  * Updated translations
+  * Added first run configuration dialog 
+
+ -- Carlos Ribeiro <carlosmribeiro1@gmail.com>  Wed, 13 Jul 2011 11:46:28 +0100
+
 radiotray (0.6.3) unstable; urgency=low
 
   * fixed package build and bookmarks file
