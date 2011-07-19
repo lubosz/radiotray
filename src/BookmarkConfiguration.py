@@ -488,7 +488,8 @@ class BookmarkConfiguration(object):
                     index = self.newGroupCombo.get_active()
                     new_group = liststore[index][0]
                     
-                    self.dataProvider.updateElementGroup(selectedGroup, new_group)
+                    if new_group != selectedName:
+                        self.dataProvider.updateElementGroup(selectedGroup, new_group)
                     
                 self.moveGroupDialog.hide()
             self.load_data()
