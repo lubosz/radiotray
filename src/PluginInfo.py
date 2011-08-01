@@ -24,6 +24,8 @@ class PluginInfo:
     desc = ""
     script = ""
     author = None
+    clazz = ""
+    instance = None
 
     def __PluginInfo__(self):
         self.name = ""

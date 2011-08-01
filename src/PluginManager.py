@@ -22,6 +22,7 @@ from plugins.HelloWorldPlugin import HelloWorldPlugin
 from lib.common import USER_PLUGIN_PATH
 from PluginInfo import PluginInfo
 import os
+import sys
 
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:
@@ -33,16 +34,16 @@ class PluginManager:
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        self.plugins = [HelloWorldPlugin()]
         self.pluginMenu = pluginMenu
         self.pluginInfos = []
 
 
     def activatePlugins(self):
 
-        for plugin in self.plugins:
-            
-            plugin.initialize("Hello World", self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
+        for info in self.pluginInfos:
+
+            plugin = info.instance
+            plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
             plugin.start()
             self.pluginMenu.append(plugin.getMenuItem())            
@@ -55,6 +56,7 @@ class PluginManager:
         pluginFiles = []
         if os.path.exists(USER_PLUGIN_PATH):
             files = os.listdir(USER_PLUGIN_PATH)
+            sys.path.insert(0,USER_PLUGIN_PATH)
             for possible_plugin in files:
                 if possible_plugin.endswith('.plugin'):
                     pluginFiles.append(os.path.join(USER_PLUGIN_PATH, possible_plugin))
@@ -63,9 +65,13 @@ class PluginManager:
 
             
         self.pluginInfos = self.parsePluginInfo(pluginFiles)
+
+
         for info in self.pluginInfos:
             print info.name + ", " + info.desc + ", " + info.script + ", " + info.author
-            execfile(os.path.join(USER_PLUGIN_PATH,info.script))
+            m = __import__(info.clazz)
+            m2 = getattr(m, info.clazz)
+            info.instance = m2()
 
 
     def parsePluginInfo(self, plugins):
@@ -88,6 +94,9 @@ class PluginManager:
                     pInfo.script = line.split("=",1)[1]
                 elif line.startswith('author') == True:
                     pInfo.author = line.split("=",1)[1]
+                elif line.startswith('class') == True:
+                    pInfo.clazz = line.split("=",1)[1]
 
             infos.append(pInfo)
         return infos
+

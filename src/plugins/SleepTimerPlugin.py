@@ -22,18 +22,24 @@ from Plugin import Plugin
 
 class SleepTimerPlugin(Plugin):
 
+    def __init__(self):
+        super(SleepTimerPlugin, self).__init__()
+
     def activate(self):
         # sleep timer
         self.sleep_timer_id = None
         self.min_to_sleep = 0
         
-        self.min_to_sleep_selected = self.cfg_provider.getConfigValue("sleep_timer")
+        self.min_to_sleep_selected = self.cfgProvider.getConfigValue("sleep_timer")
         if self.min_to_sleep_selected == None:
             self.min_to_sleep_selected = 15
-            self.cfg_provider.setConfigValue("sleep_timer", str(self.min_to_sleep_selected))
+            self.cfgProvider.setConfigValue("sleep_timer", str(self.min_to_sleep_selected))
         else:
             self.min_to_sleep_selected = int(self.min_to_sleep_selected)
 
+
+    def getName(self):
+        return self.name
 
     def on_sleep_timer(self):
         self.min_to_sleep-=1       
@@ -121,4 +127,7 @@ class SleepTimerPlugin(Plugin):
         
         gtk.gdk.threads_leave()
         return sleep_timer_value
+
+    def on_menu(self, data):
+        print "menu clicked!"
     
