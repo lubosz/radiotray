@@ -34,6 +34,7 @@ import os
 from shutil import move, copy2
 from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE
 import mpris
+from GuiChooserConfiguration import GuiChooserConfiguration
 
 class RadioTray(object):
 
@@ -54,6 +55,10 @@ class RadioTray(object):
         self.cfg_provider = XmlConfigProvider(self.cfg_filename)
         self.cfg_provider.loadFromFile()
 
+        # load default config data provider and initializes it
+        self.default_cfg_provider = XmlConfigProvider(self.default_cfg_filename)
+        self.default_cfg_provider.loadFromFile()
+
         # load notification engine
         notification = Notification(self.cfg_provider)
 
@@ -69,8 +74,14 @@ class RadioTray(object):
         # tooltip manager
         tooltipManager = TooltipManager()
 
+        # chooser
+        if(url != None):
+            chooser = GuiChooserConfiguration()
+            gui_engine = chooser.run()
+            self.cfg_provider.setConfigValue("gui_engine", gui_engine)
+            url = None
         # load gui
-        self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider, eventManager, tooltipManager)
+        self.systray = SysTray(self.mediator, self.provider, self.log, self.cfg_provider, self.default_cfg_provider, eventManager, tooltipManager)
         
         
         
@@ -124,6 +135,8 @@ class RadioTray(object):
         self.cfg_filename = os.path.join(USER_CFG_PATH, OPTIONS_CFG_NAME)
         print self.cfg_filename
 
+        self.default_cfg_filename = DEFAULT_CONFIG_FILE
+        print self.default_cfg_filename
         if(os.access(self.filename, os.R_OK|os.W_OK) == False):
 
             #check if it exists an old bookmark file, and then move it to the new location

@@ -76,7 +76,7 @@ class AppIndicatorGui:
                 self.turnOnOff = gtk.MenuItem(_("Turned Off"), False)
                 self.turnOnOff.set_sensitive(False)
             else:
-                self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.context.station), False)
+                self.turnOnOff = gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station, False)
                 self.turnOnOff.set_sensitive(True)
                 
             self.turnOnOff.connect('activate', self.handler.on_turn_on_off)
@@ -88,7 +88,7 @@ class AppIndicatorGui:
             self.metadata_menu_item.set_sensitive(False)
         
         if self.sleep_timer_menu_item == None:                        
-            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))        
+            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
         
         if self.preferences_menu == None:
             self.preferences_menu = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)                
@@ -232,7 +232,7 @@ class AppIndicatorGui:
             else:
                 return C_("Playing status tooltip information", "Playing (vol: %s%%)") % (volume)
         else:
-            return C_("Idle status tooltip information", "Idle (vol: %s%%)") % (volume)
+            return C_("Informs Radio Tray is idle as a tooltip.", "Idle (vol: %s%%)") % (volume)
 
 
     def getPluginMenu(self):

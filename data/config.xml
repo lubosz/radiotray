@@ -5,4 +5,6 @@
   <option name="url_timeout" value="100"/>
   <option name="enable_application_indicator_support" value="false"/>
   <option name="enable_application_indicator_theme_support" value="false"/>
+  <!-- valid options are 'appindicator', 'systray' and 'chooser' -->
+  <option name="gui_engine" value="chooser"/>
 </config>

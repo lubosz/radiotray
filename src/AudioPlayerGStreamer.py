@@ -52,6 +52,10 @@ class AudioPlayerGStreamer:
 
         if(urlInfo is not None and urlInfo.isPlaylist()):
             self.playlist = self.decoder.getPlaylist(urlInfo)
+            if(len(self.playlist) == 0):
+                print "Received empty playlist!"
+                self.mediator.stop()
+                self.mediator.notifyError(_("Connection Error"), _("Received empty stream from station"))
             print self.playlist
             self.playNextStream()
 
@@ -102,7 +106,7 @@ class AudioPlayerGStreamer:
             self.player.set_state(gst.STATE_NULL)
             self.playNextStream()
         elif t == gst.MESSAGE_BUFFERING:
-            if message.structure['buffer-percent'] < 100:
+            if message.structure['buffer-percent'] == 0:
                 self.player.set_state(gst.STATE_PAUSED)
             else:
                 self.player.set_state(gst.STATE_PLAYING)

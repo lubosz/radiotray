@@ -19,6 +19,7 @@
 ##########################################################################
 class ConsoleLog:
 
-	def log(self, message):
+    def log(self, message):
 
-		print message
+        print message
+

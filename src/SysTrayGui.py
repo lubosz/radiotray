@@ -54,9 +54,9 @@ class SysTrayGui:
             self.turnOnOff.set_sensitive(False)
             self.turnOnOff2.set_sensitive(False)
         else:
-            self.turnOnOff = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.context.station), False)
+            self.turnOnOff = gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station, False)
             self.turnOnOff.set_sensitive(True)
-            self.turnOnOff2 = gtk.MenuItem(_("Turn On \"%s\"" % self.mediator.context.station), False)                
+            self.turnOnOff2 = gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station, False)                
             self.turnOnOff2.set_sensitive(True)
             
         self.turnOnOff.connect('activate', self.handler.on_turn_on_off)
@@ -192,9 +192,9 @@ class SysTrayGui:
                 self.turnOnOff2.set_label(_('Turned Off'))
                 self.turnOnOff2.set_sensitive(False)
             else:
-                self.turnOnOff.set_label(_('Turn On "%s"' % self.mediator.context.station))
+                self.turnOnOff.set_label(_('Turn On "%s"') % self.mediator.context.station)
                 self.turnOnOff.set_sensitive(True)
-                self.turnOnOff2.set_label(_('Turn On "%s"' % self.mediator.context.station))
+                self.turnOnOff2.set_label(_('Turn On "%s"') % self.mediator.context.station)
                 self.turnOnOff2.set_sensitive(True)
 
             self.icon.set_from_file(APP_ICON_OFF)
@@ -225,7 +225,7 @@ class SysTrayGui:
             else:
                 return C_("Informs what radio and music is being played as a tooltip.", "Playing <b>%s</b> (vol: %s%%)") % (radio, volume)
         else:
-            return C_("Informs what radio and music is being played as a tooltip.", "Idle (vol: %s%%)") % (volume)
+            return C_("Informs Radio Tray is idle as a tooltip.", "Idle (vol: %s%%)") % (volume)
 
 
     def getPluginMenu(self):
