@@ -238,8 +238,8 @@ class BookmarkConfiguration(object):
                 oldName = selectedName
                 self.config.set_title(_('Edit %s') % selectedName)
                 self.nameEntry.grab_focus()
-                self.radioGroup.hide()
-                self.radioGroupLabel.hide()
+                self.radioGroup.show()
+                self.radioGroupLabel.show()
 
                 # show dialog
                 result = self.config.run()
@@ -263,8 +263,8 @@ class BookmarkConfiguration(object):
                 self.configGroup.set_title(_('Edit group'))
                 oldName = selectedName
                 
-                self.parentGroupLabel.hide()
-                self.parentGroup.hide()
+                self.parentGroupLabel.show()
+                self.parentGroup.show()
                 
                 result = self.configGroup.run()
                 if result == 2:
