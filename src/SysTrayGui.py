@@ -69,19 +69,21 @@ class SysTrayGui:
         self.turnOnOff2.connect('activate', self.handler.on_turn_on_off)
         self.turnOnOff2.set_sensitive(False)
         separator  = gtk.MenuItem()
-        self.sleep_timer_menu = gtk.CheckMenuItem(_("Sleep Timer"))
         menu_item1 = gtk.MenuItem(_("Configure Radios..."))
         menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
         menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-        menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
+        menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)
         self.menu.append(self.turnOnOff2)
-        self.menu.append(separator) 
-        self.menu.append(self.sleep_timer_menu)       
+        self.menu.append(separator)  
         self.menu.append(menu_item1)
 
+        # plugins sub-menu
         menu_plugins_item = gtk.MenuItem("Plugins", False)
         self.menu_plugins = gtk.Menu()
         menu_plugins_item.set_submenu(self.menu_plugins)
+        menu_item5 = gtk.MenuItem(_("Configure Plugins..."))
+        self.menu_plugins.append(menu_item5)
+        self.menu_plugins.append(gtk.MenuItem())    #add separator
         self.menu.append(menu_plugins_item) 
 
         self.menu.append(menu_item4)        
@@ -92,17 +94,17 @@ class SysTrayGui:
         menu_item2.show()
         menu_item3.show()
         menu_item4.show()
-        self.sleep_timer_menu.show()
         self.turnOnOff2.show()
         separator.show()   
 
           
+        # set handlers for menu items
         
         menu_item1.connect('activate', self.handler.on_preferences)
         menu_item2.connect('activate', self.handler.on_quit)
         menu_item3.connect('activate', self.handler.on_about)
         menu_item4.connect('activate', self.handler.reload_bookmarks)
-        #self.sleep_timer_menu.connect('activate', self.handler.on_sleep_menu)
+        menu_item5.connect('activate', self.handler.on_plugin_preferences)
                         
         self.menu.show_all()
 

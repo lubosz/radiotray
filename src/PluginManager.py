@@ -35,22 +35,46 @@ class PluginManager:
         self.mediator = mediator
         self.tooltip = tooltip
         self.pluginMenu = pluginMenu
-        self.pluginInfos = []
+        self.pluginInfos = {}
 
+    def getPlugins(self):
+        return self.pluginInfos.values()
 
     def activatePlugins(self):
 
-        for info in self.pluginInfos:
+        active = self.cfgProvider.getConfigList('active_plugins')
 
+        for info in self.pluginInfos.values():
+
+            if info.name in active:
+                plugin = info.instance
+                plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
+
+                plugin.start()
+                self.pluginMenu.append(plugin.getMenuItem())            
+           
+
+            
+    def activatePlugin(self, name):
+
+        info = self.pluginInfos[name]
+        if info != None:
             plugin = info.instance
             plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
             plugin.start()
             self.pluginMenu.append(plugin.getMenuItem())            
-           
+            
 
-            
-            
+    def deactivatePlugin(self, name):
+
+        info = self.pluginInfos[name]
+        if info != None:
+            plugin = info.instance
+            plugin.finalize()
+            self.pluginMenu.remove(plugin.getMenuItem())
+
+
     def discoverPlugins(self):
 
         pluginFiles = []
@@ -67,7 +91,7 @@ class PluginManager:
         self.pluginInfos = self.parsePluginInfo(pluginFiles)
 
 
-        for info in self.pluginInfos:
+        for info in self.pluginInfos.values():
             print info.name + ", " + info.desc + ", " + info.script + ", " + info.author
             m = __import__(info.clazz)
             m2 = getattr(m, info.clazz)
@@ -76,7 +100,7 @@ class PluginManager:
 
     def parsePluginInfo(self, plugins):
 
-        infos = []
+        infos = {}
 
         for p in plugins:
             print p
@@ -97,6 +121,6 @@ class PluginManager:
                 elif line.startswith('class') == True:
                     pInfo.clazz = line.split("=",1)[1]
 
-            infos.append(pInfo)
+            infos[pInfo.name] = pInfo
         return infos
 

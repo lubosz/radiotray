@@ -48,6 +48,9 @@ class Plugin(threading.Thread):
     def activate(self):
         raise NotImplementedError( "Subclasses should override this" )
 
+    def finalize(self):
+        print "Finalizing " + self.name
+
     def setMenuItem(self, item):
         self.menuItem = item
 

@@ -35,6 +35,7 @@ except:
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
+from PluginConfiguration import PluginConfiguration
 from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
 from lib import i18n
 from about import AboutDialog
@@ -199,6 +200,13 @@ class SysTray(object):
         self.updateTooltip()
 
 
+    def on_plugin_preferences(self, data):
+        config = PluginConfiguration(self.pluginManager, self.cfg_provider)
+
+
     def getPluginMenu(self):
         return self.gui.getPluginMenu()
+
+    def setPluginManager(self, pluginManager):
+        self.pluginManager = pluginManager
         

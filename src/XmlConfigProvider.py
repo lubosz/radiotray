@@ -60,6 +60,34 @@ class XmlConfigProvider:
             
         self.saveToFile()
 
+    def getConfigList(self, name):
+        result = self.root.xpath("//option[@name=$var]/item", var=name)
+        return [x.text for x in result]
+
+
+    def setConfigList(self, name, items):
+        setting = self._settingExists(name)
+
+        if (setting == None):
+            setting = etree.SubElement(self.root, 'option')
+            setting.set("name", name)
+        else:
+            print "rmeove all"
+            children = setting.getchildren()
+            for child in children:
+                print "remove child" + child.text
+                setting.remove(child)
+
+
+        
+            
+        
+        for item in items:
+            it = etree.SubElement(setting, 'item')
+            it.text = item
+
+        self.saveToFile()
+            
 
     def _settingExists(self, name):
         setting = None
