@@ -38,6 +38,10 @@ from lib import utils
 from lib import i18n
 import uuid
 
+drop_yes = ("drop_yes", gtk.TARGET_SAME_WIDGET, 0)
+drop_no = ("drop_no", gtk.TARGET_SAME_WIDGET, 0)
+
+
 class BookmarkConfiguration(object):
 
     GROUP_TYPE = 'GROUP'
@@ -121,6 +125,14 @@ class BookmarkConfiguration(object):
                 "on_newGroupButton_clicked" : self.on_newGroupButton_clicked}
             self.wTree.connect_signals(self)
 
+        # enable drag and drop support
+        self.list.enable_model_drag_source(
+            gtk.gdk.BUTTON1_MASK, [drop_yes], gtk.gdk.ACTION_MOVE)
+        self.list.enable_model_drag_dest(
+            [drop_yes], gtk.gdk.ACTION_MOVE)
+        self.list.connect("drag-data-received", self.onDragDataReceived)
+        self.list.connect("drag-motion", self.onDragMotion)
+
     def load_data(self):
     
         # the meaning of the three columns is: description, id, type
@@ -128,7 +140,96 @@ class BookmarkConfiguration(object):
         root = self.dataProvider.getRootGroup()
         self.add_group_data(root, None, treestore)
         self.list.set_model(treestore)
+
+
         
+    #drag and drop support
+    def checkSanity(self, model, source, target):
+        source_path = model.get_path(source)
+        target_path = model.get_path(target)
+        if target_path[0:len(source_path)] == source_path:
+            return False
+        else:
+            return True
+    
+    #drag and drop support
+    def checkParentability(self, model, target, drop_position):
+        if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
+                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER) \
+                and (model.get_value(target, 2) == self.RADIO_TYPE or model.get_value(target, 2) == self.SEPARATOR_TYPE):
+            return False
+        else:
+            return True
+
+    #drag and drop support
+    def expandToPath(self, treeview, path):
+        for i in range(len(path)):
+            treeview.expand_row(path[:i+1], open_all=False)
+
+
+    #drag and drop support
+    def copyRow(self, treeview, model, source, target, drop_position):
+    
+        source_row = model[source]
+        if drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+            new = model.prepend(target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER:
+            new = model.append(target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_BEFORE:
+            new = model.insert_before(None, target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_AFTER:
+            new = model.insert_after(None, target, source_row)
+            
+        for n in range(model.iter_n_children(source)):
+            child = model.iter_nth_child(source, n)
+            self.copyRow(treeview, model, child, new,
+                                 gtk.TREE_VIEW_DROP_INTO_OR_BEFORE)
+                                 
+        source_is_expanded = treeview.row_expanded(model.get_path(source))
+        if source_is_expanded:
+            self.expandToPath(treeview, model.get_path(new))
+ 
+
+    #drag and drop support   
+    def onDragDataReceived(self, treeview, drag_context, x, y, selection_data, info, eventtime):
+        target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
+        model, source = treeview.get_selection().get_selected()
+        target = model.get_iter(target_path)
+        sourceName = model.get_value(source,1)
+        targetName = model.get_value(target,1)
+        
+        is_sane = self.checkSanity(model, source, target)
+        is_parentable = self.checkParentability(model, target, drop_position)
+        if is_sane and is_parentable:
+            self.copyRow(treeview, model, source, target, drop_position)
+            if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
+                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER):
+                treeview.expand_row(target_path, False)
+            drag_context.finish(True, True, eventtime)
+
+            self.dataProvider.moveToPosition(sourceName, targetName, drop_position)
+        else:
+            drag_context.finish(False, False, eventtime)
+
+    
+    #drag and drop support
+    def onDragMotion(self, treeview, drag_context, x, y, eventtime):
+        try:
+            target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
+            model, source = treeview.get_selection().get_selected()
+            target = model.get_iter(target_path)
+        except:
+            return
+        is_sane = self.checkSanity(model, source, target)
+        is_parentable = self.checkParentability(model, target, drop_position)
+        if is_sane and is_parentable:
+            treeview.enable_model_drag_dest([drop_yes], gtk.gdk.ACTION_MOVE)
+        else:
+            treeview.enable_model_drag_dest([drop_no], gtk.gdk.ACTION_MOVE)
+
+
+
+
 
     def add_group_data(self, group, parent, treestore):
 

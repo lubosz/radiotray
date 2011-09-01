@@ -20,7 +20,7 @@
 ##########################################################################
 import os
 from lxml import etree
-
+import gtk
 
 class XmlDataProvider:
 
@@ -259,6 +259,34 @@ class XmlDataProvider:
                         
         return False
     
+
+    def moveToPosition(self, source, target, position):
+
+        print "Moving " + str(source) + " to target " + str(target)
+        itemToMove = self._radioExists(source)
+        if itemToMove == None:
+            itemToMove = self._groupExists(source)
+
+        itemTarget = self._radioExists(target)
+        if itemTarget == None:
+            itemTarget = self._groupExists(target)
+
+        if itemToMove != None and itemTarget != None:
+
+            index = itemTarget.getparent().index(itemTarget)
+
+            if (position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE or position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER):
+                itemTarget.append(itemToMove)
+
+            elif position == gtk.TREE_VIEW_DROP_BEFORE:
+                itemTarget.getparent().insert(index, itemToMove)
+
+            elif position == gtk.TREE_VIEW_DROP_AFTER:
+                itemTarget.getparent().insert(index+1, itemToMove)
+
+            
+            self.saveToFile()
+
     
     def _radioExists(self, name):
         radio = None
