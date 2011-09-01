@@ -118,8 +118,6 @@ class BookmarkConfiguration(object):
                 "on_newSeparatorButton_clicked" : self.on_add_separator_clicked,
                 "on_editBookmarkButton_clicked" : self.on_edit_bookmark_clicked,
                 "on_delBookmarkButton_clicked" : self.on_remove_bookmark_clicked,
-                "on_moveUpButton_clicked" : self.on_moveup_bookmark_clicked,
-                "on_moveDownButton_clicked" : self.on_movedown_bookmark_clicked,
                 "on_close_clickedButton_clicked" : self.on_close_clicked,
                 "on_nameEntry_activated" : self.on_nameEntry_activated,
                 "on_urlEntry_activated" : self.on_urlEntry_activated,
@@ -465,46 +463,6 @@ class BookmarkConfiguration(object):
                 # remove from gui
                 model.remove(iter)
 
-
-    def on_moveup_bookmark_clicked(self, widget):
-
-        #get current selected element
-        selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
-
-        if type(iter).__name__=='TreeIter':
-
-            selectedRadioName = model.get_value(iter,1)
-
-            if (self.dataProvider.moveUp(selectedRadioName) == True):
-
-                path = model.get_path(iter)
-                path_size = len(path)
-                
-                index = path[path_size - 1]
-                
-                if index > 0:
-                    previous_path = path[:path_size-1]
-                    previous_path = previous_path + (index - 1,)
-                    previous = model.get_iter(previous_path )
-
-                    model.move_before(iter, previous)
-
-    def on_movedown_bookmark_clicked(self, widget):
-
-        #get current selected element
-        selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
-
-        if type(iter).__name__=='TreeIter':
-
-            selectedRadioName = model.get_value(iter,1)
-
-            if (self.dataProvider.moveDown(selectedRadioName) == True):
-
-                path = model.get_path(iter)
-                row = model[iter]
-                model.move_after(iter, row.next.iter)
 
 
     def on_close_clicked(self, widget):
