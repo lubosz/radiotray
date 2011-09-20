@@ -1,3 +1,9 @@
+radiotray (0.7.0) maverick; urgency=low
+
+  * Added plugins system 
+
+ -- Carlos Ribeiro <carlos@carlos-multicert>  Tue, 06 Sep 2011 22:23:18 +0100
+
 radiotray (0.6.4) unstable; urgency=low
 
   * Several bug fixes

@@ -18,8 +18,8 @@
 #
 ##########################################################################
 
-from plugins.HelloWorldPlugin import HelloWorldPlugin
 from lib.common import USER_PLUGIN_PATH
+from lib.common import SYSTEM_PLUGIN_PATH
 from PluginInfo import PluginInfo
 import os
 import sys
@@ -79,13 +79,25 @@ class PluginManager:
 
         pluginFiles = []
         if os.path.exists(USER_PLUGIN_PATH):
+            print "finding plugins in user plugin path"
             files = os.listdir(USER_PLUGIN_PATH)
             sys.path.insert(0,USER_PLUGIN_PATH)
             for possible_plugin in files:
                 if possible_plugin.endswith('.plugin'):
                     pluginFiles.append(os.path.join(USER_PLUGIN_PATH, possible_plugin))
         else:
-            print "plugin dir does not exist"
+            print "user plugin dir does not exist. ignoring..."
+
+        print SYSTEM_PLUGIN_PATH
+        if os.path.exists(SYSTEM_PLUGIN_PATH):
+            print "finding plugins in system plugin path"
+            files = os.listdir(SYSTEM_PLUGIN_PATH)
+            sys.path.insert(0,SYSTEM_PLUGIN_PATH)
+            for possible_plugin in files:
+                if possible_plugin.endswith('.plugin'):
+                    pluginFiles.append(os.path.join(SYSTEM_PLUGIN_PATH, possible_plugin))
+        else:
+            print "system plugin dir does not exist. ignoring..."
 
             
         self.pluginInfos = self.parsePluginInfo(pluginFiles)

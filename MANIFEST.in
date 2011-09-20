@@ -1,6 +1,7 @@
 graft data
 graft po
 graft src
+graft plugins
 
 include COPYING
 include dist
