@@ -7,7 +7,7 @@ from xdg.BaseDirectory import xdg_data_home
 try:
     from defs import *
 except:
-    APPVERSION = "0.6.4"
+    APPVERSION = "0.7.0-DEV"
     datadir = "/usr/share"
 
 # Application info
@@ -25,6 +25,7 @@ AUTHORS = [
     'Og Maciel <ogmaciel@gnome.com>',
     'Ed Bruck <ed.bruck1@gmail.com>',
     'Behrooz Shabani <behrooz@rock.com>',
+    'Valdur Kana <valdur55@gmail.com>',
 ]
 
 ARTISTS = []
@@ -75,6 +76,7 @@ DEFAULT_RADIO_LIST = os.path.join(DEFAULT_CFG_PATH, CFG_NAME)
 DEFAULT_CONFIG_FILE = os.path.join(DEFAULT_CFG_PATH, OPTIONS_CFG_NAME)
 
 # Plugins
+SYSTEM_PLUGIN_PATH = os.path.join(DEFAULT_CFG_PATH, 'plugins')
 USER_PLUGIN_PATH = os.path.join(USER_CFG_PATH, 'plugins')
 if os.path.exists(USER_PLUGIN_PATH) != True:
     os.mkdir(USER_PLUGIN_PATH)
