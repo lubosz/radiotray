@@ -63,7 +63,7 @@ class RadioTray(object):
         self.audio = AudioPlayerGStreamer(self.mediator, self.cfg_provider, self.log)
 
         # chooser
-        if(url != None):
+        if(url == '--config'):
             chooser = GuiChooserConfiguration()
             gui_engine = chooser.run()
             self.cfg_provider.setConfigValue("gui_engine", gui_engine)
