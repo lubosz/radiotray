@@ -105,7 +105,7 @@ class RadioTray(object):
 
 
         # start dbus facade
-        #dbus = DbusFacade(self.provider, self.mediator)
+        dbus = DbusFacade(self.provider, self.mediator)
         #dbus_mpris = mpris.RadioTrayMpris(self.provider, self.mediator)
 
 	#load plugin manager

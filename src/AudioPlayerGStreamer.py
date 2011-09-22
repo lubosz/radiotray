@@ -42,7 +42,7 @@ class AudioPlayerGStreamer:
         self.player = gst.element_factory_make("playbin2", "player")		
         fakesink = gst.element_factory_make("fakesink", "fakesink")
         self.player.set_property("video-sink", fakesink)
-        self.player.set_property("buffer-duration", 10000)
+        #self.player.set_property("buffer-duration", 10000)
         bus = self.player.get_bus()
         bus.add_signal_watch()
         bus.connect("message", self.on_message)

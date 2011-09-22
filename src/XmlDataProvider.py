@@ -55,7 +55,7 @@ class XmlDataProvider:
 
     def listRadioNames(self):
 
-        return self.root.xpath("//bookmark/@name")
+        return [a for a in self.root.xpath("//bookmark/@name") if not a.startswith('[separator')]
         
     def listGroupNames(self):
     
