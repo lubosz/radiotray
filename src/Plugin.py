@@ -57,5 +57,8 @@ class Plugin(threading.Thread):
     def getMenuItem(self):
         return self.menuItem
 
+    def hasMenuItem(self):
+        return False
+
     def run(self):
         self.activate()

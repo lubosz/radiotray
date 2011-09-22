@@ -178,3 +178,6 @@ class SleepTimerPlugin(Plugin):
         self.ignore_toggle = False                
         self.tooltip.update()
     
+
+    def hasMenuItem(self):
+        return True

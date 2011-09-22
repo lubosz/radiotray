@@ -18,11 +18,31 @@
 #
 ##########################################################################
 
+from Plugin import Plugin
+import dbus
 
 class GnomeMediaKeysPlugin(Plugin):
 
     def __init__(self):
+        super(GnomeMediaKeysPlugin, self).__init__()
+
+
+    def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
     
+        self.name = name
+        self.notification = notification
+        self.eventSubscriber = eventSubscriber
+        self.provider = provider
+        self.cfgProvider = cfgProvider
+        self.mediator = mediator
+        self.tooltip = tooltip
+
+
+    def getName(self):
+        return self.name
+
+
+    def activate(self):
         try:
             self.bus = dbus.SessionBus()
             self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
@@ -35,10 +55,10 @@ class GnomeMediaKeysPlugin(Plugin):
     def handle_mediakey(self, *mmkeys):
         for key in mmkeys:
             if key == "Play":
-                if (self.mediator.getContext().state == Context.STATE_PLAYING):
+                if (self.mediator.isPlaying()):
                     self.mediator.stop()
-                elif self.mediator.getContext().station:
-                    self.mediator.play(self.mediator.getContext().station)
+                else:
+                    self.mediator.playLast()
             elif key == "Stop":
-                if (self.mediator.getContext().state == Context.STATE_PLAYING):
+                if (self.mediator.isPlaying()):
                     self.mediator.stop()

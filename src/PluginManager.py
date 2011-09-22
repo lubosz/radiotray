@@ -51,7 +51,8 @@ class PluginManager:
                 plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
                 plugin.start()
-                self.pluginMenu.append(plugin.getMenuItem())            
+                if plugin.hasMenuItem():
+                    self.pluginMenu.append(plugin.getMenuItem())            
            
 
             
@@ -63,7 +64,8 @@ class PluginManager:
             plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
 
             plugin.start()
-            self.pluginMenu.append(plugin.getMenuItem())            
+            if plugin.hasMenuItem():
+                self.pluginMenu.append(plugin.getMenuItem())            
             
 
     def deactivatePlugin(self, name):
