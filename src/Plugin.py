@@ -50,6 +50,7 @@ class Plugin(threading.Thread):
 
     def finalize(self):
         print "Finalizing " + self.name
+        self.join()
 
     def setMenuItem(self, item):
         self.menuItem = item

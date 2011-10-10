@@ -26,6 +26,7 @@ class PluginInfo:
     author = None
     clazz = ""
     instance = None
+    configFile = None
 
     def __PluginInfo__(self):
         self.name = ""

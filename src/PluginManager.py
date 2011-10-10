@@ -21,6 +21,7 @@
 from lib.common import USER_PLUGIN_PATH
 from lib.common import SYSTEM_PLUGIN_PATH
 from PluginInfo import PluginInfo
+from XmlConfigProvider import XmlConfigProvider
 import os
 import sys
 
@@ -48,7 +49,13 @@ class PluginManager:
 
             if info.name in active:
                 plugin = info.instance
-                plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
+                #create custom config provider
+                cfgProvider = None
+                if(os.path.exists(info.configFile)):
+                    cfgProvider = XmlConfigProvider(info.configFile)
+                    cfgProvider.loadFromFile()
+
+                plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
 
                 plugin.start()
                 if plugin.hasMenuItem():
@@ -58,23 +65,30 @@ class PluginManager:
             
     def activatePlugin(self, name):
 
-        info = self.pluginInfos[name]
-        if info != None:
-            plugin = info.instance
-            plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, self.cfgProvider, self.mediator, self.tooltip)
+        print 'activate'
+        #info = self.pluginInfos[name]
+        #if info != None:
+        #    plugin = info.instance
+            #create custom config provider
+        #    cfgProvider = None
+        #    if(os.path.exists(info.configFile)):
+        #        cfgProvider = XmlConfigProvider(info.configFile)
+        #        cfgProvider.loadFromFile()
+        #    plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
 
-            plugin.start()
-            if plugin.hasMenuItem():
-                self.pluginMenu.append(plugin.getMenuItem())            
+        #    plugin.start()
+        #    if plugin.hasMenuItem():
+        #        self.pluginMenu.append(plugin.getMenuItem())            
             
 
     def deactivatePlugin(self, name):
 
-        info = self.pluginInfos[name]
-        if info != None:
-            plugin = info.instance
-            plugin.finalize()
-            self.pluginMenu.remove(plugin.getMenuItem())
+        print 'deactivate'
+        #info = self.pluginInfos[name]
+        #if info != None:
+        #    plugin = info.instance
+        #    plugin.finalize()
+        #    self.pluginMenu.remove(plugin.getMenuItem())
 
 
     def discoverPlugins(self):
@@ -134,6 +148,9 @@ class PluginManager:
                     pInfo.author = line.split("=",1)[1]
                 elif line.startswith('class') == True:
                     pInfo.clazz = line.split("=",1)[1]
+            
+            filename = os.path.basename(p)
+            pInfo.configFile = os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
 
             infos[pInfo.name] = pInfo
         return infos
