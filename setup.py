@@ -95,7 +95,7 @@ setup(name='radiotray',
       ('share/radiotray/plugins', glob.glob('data/plugins/*')),
     ],
     package_dir={'radiotray': 'src'},
-    packages = ['radiotray', 'radiotray.lib'],
+    packages = ['radiotray', 'radiotray.lib', 'radiotray.events'],
     cmdclass={'build': BuildData, 'install_data': InstallData,},
     distclass=RadioTrayDist,
  )
