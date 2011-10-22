@@ -146,7 +146,7 @@ class SysTray(object):
                 self.turnOnOff.set_sensitive(True)
                 self.turnOnOff2 = gtk.MenuItem(_('Turn On "%s"') % self.mediator.currentRadio, False)                
                 self.turnOnOff2.set_sensitive(True)
-            
+
             self.turnOnOff.connect('activate', self.on_turn_on_off)
             self.turnOnOff2.connect('activate', self.on_turn_on_off)
             self.update_radios()
@@ -174,7 +174,11 @@ class SysTray(object):
             self.sleep_timer_menu_item.show()
             self.turnOnOff2.show()
             separator.show()      
-            
+
+            #Check bookmarks file status
+            menu_item1.set_sensitive(self.provider.isBookmarkWritable)
+
+            #Connect items
             menu_item1.connect('activate', self.on_preferences)
             menu_item2.connect('activate', self.on_quit)
             menu_item3.connect('activate', self.on_about)
@@ -210,7 +214,7 @@ class SysTray(object):
         try:
             self.bus = dbus.SessionBus()
             self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
-            self.bus_object.GrabMediaPlayerKeys("RadioTray", 0, dbus_interface='org.gnome.SettingsDaemon.MediaKeys')
+
             self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
         except:
             print "Could not bind to Gnome for Media Keys"
@@ -541,6 +545,8 @@ class SysTray(object):
         menu_reload_bookmarks = gtk.MenuItem(_("Reload Bookmarks"))
         volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
         volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
+        #Check bookmarks file status
+        menu_config_radios.set_sensitive(self.provider.isBookmarkWritable)
 
         # build 
         menu.append(self.turnOnOff)                             

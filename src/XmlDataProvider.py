@@ -26,10 +26,12 @@ class XmlDataProvider:
 
     def __init__(self, filename):
 
-        if(os.access(filename, os.W_OK|os.R_OK) == False):
-            raise Exception('Bookmarks file not found: ' + filename)
-        else:
+        if os.access(filename, os.R_OK): #if can read, then use.
             self.filename = filename
+        else: # if can't read, give error.
+            raise Exception('Bookmarks file not found: ' + filename)
+
+        self.isBookmarkWritable = os.access(filename, os.W_OK)
 
     def loadFromFile(self):
         self.root = etree.parse(self.filename).getroot()
