@@ -176,7 +176,7 @@ class SysTray(object):
             separator.show()      
 
             #Check bookmarks file status
-            menu_item1.set_sensitive(self.provider.isBookmarkWritable)
+            menu_item1.set_sensitive(self.provider.isBookmarkWritable())
 
             #Connect items
             menu_item1.connect('activate', self.on_preferences)
@@ -546,7 +546,7 @@ class SysTray(object):
         volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
         volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
         #Check bookmarks file status
-        menu_config_radios.set_sensitive(self.provider.isBookmarkWritable)
+        menu_config_radios.set_sensitive(self.provider.isBookmarkWritable())
 
         # build 
         menu.append(self.turnOnOff)                             

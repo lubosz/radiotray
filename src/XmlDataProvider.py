@@ -31,8 +31,6 @@ class XmlDataProvider:
         else: # if can't read, give error.
             raise Exception('Bookmarks file not found: ' + filename)
 
-        self.isBookmarkWritable = os.access(filename, os.W_OK)
-
     def loadFromFile(self):
         self.root = etree.parse(self.filename).getroot()
         
@@ -317,3 +315,6 @@ class XmlDataProvider:
             self.saveToFile()
         else:
             print "Could not move element group"
+
+    def isBookmarkWritable(self):
+        return os.access(self.filename, os.W_OK)
