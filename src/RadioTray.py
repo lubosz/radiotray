@@ -106,7 +106,7 @@ class RadioTray(object):
         self.default_cfg_filename = DEFAULT_CONFIG_FILE
         print self.default_cfg_filename
 
-        if not os.access(self.filename, os.F_OK: # If bookmarks file doesn't exist
+        if not os.access(self.filename, os.F_OK): # If bookmarks file doesn't exist
 
             #check if it exists an old bookmark file, and then move it to the new location
             oldfilename = os.path.join(OLD_USER_CFG_PATH, CFG_NAME)
