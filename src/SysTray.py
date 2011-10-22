@@ -214,7 +214,7 @@ class SysTray(object):
         try:
             self.bus = dbus.SessionBus()
             self.bus_object = self.bus.get_object('org.gnome.SettingsDaemon', '/org/gnome/SettingsDaemon/MediaKeys')
-
+            self.bus_object.GrabMediaPlayerKeys("RadioTray", 0, dbus_interface='org.gnome.SettingsDaemon.MediaKeys')
             self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
         except:
             print "Could not bind to Gnome for Media Keys"
