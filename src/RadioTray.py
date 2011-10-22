@@ -106,11 +106,11 @@ class RadioTray(object):
         self.default_cfg_filename = DEFAULT_CONFIG_FILE
         print self.default_cfg_filename
 
-        if(os.access(self.filename, os.R_OK|os.W_OK) == False):
+        if not os.access(self.filename, os.F_OK: # If bookmarks file doesn't exist
 
             #check if it exists an old bookmark file, and then move it to the new location
             oldfilename = os.path.join(OLD_USER_CFG_PATH, CFG_NAME)
-            if(os.access(oldfilename, os.R_OK|os.W_OK) == True):
+            if os.access(oldfilename, os.R_OK|os.W_OK):
 
                 print 'Old bookmark configuration moved to new location: ' + USER_CFG_PATH
                 move(oldfilename, self.filename)
@@ -119,7 +119,7 @@ class RadioTray(object):
             else:
                 copy2(DEFAULT_RADIO_LIST, self.filename)
 
-        if(os.access(self.cfg_filename, os.R_OK|os.W_OK) == False):
+        if not os.access(self.cfg_filename, os.R_OK|os.W_OK):
 
             copy2(DEFAULT_CONFIG_FILE, self.cfg_filename)
 
