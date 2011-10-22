@@ -70,11 +70,16 @@ class BookmarkConfiguration(object):
         self.groupNameEntry = self.wTree.get_object("groupNameEntry")
         self.parentGroup = self.wTree.get_object("parentGroup")
         self.parentGroupLabel = self.wTree.get_object("label4")
-        
+
+        # separator move
+        self.sepMove = self.wTree.get_object("sepMove")
+        self.sepGroup = self.wTree.get_object("sepGroup")
+
         # set icon
         self.window.set_icon_from_file(APP_ICON_ON)
         self.config.set_icon_from_file(APP_ICON_ON)
         self.configGroup.set_icon_from_file(APP_ICON_ON)
+        self.sepMove.set_icon_from_file(APP_ICON_ON)
 
         # populate list of radios
         self.load_data()
@@ -94,10 +99,6 @@ class BookmarkConfiguration(object):
         cell4 = gtk.CellRendererText()
         self.radioGroup.pack_start(cell4, True)
         self.radioGroup.add_attribute(cell4, 'text', 0)
-        
-        # separator move
-        self.sepMove = self.wTree.get_object("sepMove")
-        self.sepGroup = self.wTree.get_object("sepGroup")
         
         # separator new group combo ui
         cell3 = gtk.CellRendererText()
@@ -307,7 +308,7 @@ class BookmarkConfiguration(object):
                 groupIndex = self.dataProvider.listGroupNames().index(currentGroup)
                 
                 # populate dialog with radio information
-                self.config.set_title(_('Edit Separator'))
+                self.sepMove.set_title(_('Edit Separator'))
                 self.sepGroup.grab_focus()
                 self.sepGroup.set_active(groupIndex)
 
