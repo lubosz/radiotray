@@ -22,17 +22,19 @@ from lxml import etree
 from lxml import objectify
 from StringIO import StringIO
 from lib.common import USER_AGENT
+import logging
 
 class XspfPlaylistDecoder:
 
     def __init__(self):
-        print "XSPF playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('XSPF playlist decoder')
 
 
     def isStreamValid(self, contentType, firstBytes):
 
         if('application/xspf+xml' in contentType):
-            print "Stream is readable by XSPF Playlist Decoder"
+            self.log.info('Stream is readable by XSPF Playlist Decoder')
             return True
         else:
             return False
@@ -41,7 +43,7 @@ class XspfPlaylistDecoder:
 
     def extractPlaylist(self,  url):
 
-        print "Downloading playlist..."
+        self.log.info('Downloading playlist...')
 
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
@@ -49,8 +51,8 @@ class XspfPlaylistDecoder:
         str = f.read()
         f.close()
 
-        print "Playlist downloaded"
-        print "Decoding playlist..."
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
 
         parser = etree.XMLParser(recover=True)
         root = etree.parse(StringIO(str),parser)

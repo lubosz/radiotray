@@ -49,6 +49,7 @@ from Context import Context
 
 import dbus
 import textwrap
+import logging
 
 class AboutWindow(object):
     def __init__(self, dialog_class):
@@ -77,11 +78,12 @@ def about_dialog(parent=None):
 
 class SysTray(object):
 
-    def __init__(self, mediator, provider, log, cfg_provider, default_cfg_provider, eventManager, tooltipManager):
+    def __init__(self, mediator, provider, cfg_provider, default_cfg_provider, eventManager, tooltipManager):
 
         self.version = APPVERSION
         self.mediator = mediator
         self.eventManager = eventManager
+        self.log = logging.getLogger('radiotray')
 
         # initialize data provider
         self.provider = provider
@@ -97,7 +99,7 @@ class SysTray(object):
             self.gui_engine = default_cfg_provider.getConfigValue("gui_engine")
  
         if(self.gui_engine == None or self.gui_engine == "chooser"):
-            print "show chooser"
+            self.log.debug('show chooser')
             chooser = GuiChooserConfiguration()
             self.gui_engine = chooser.run()
 
@@ -113,9 +115,11 @@ class SysTray(object):
             self.cfg_provider.setConfigValue("enable_application_indicator_support", "false")
 
         if(self.app_indicator_enabled):
+            self.log.debug('App Indicator selected')
             self.gui = AppIndicatorGui(self, self.mediator, self.cfg_provider, self.provider)
   
         else:
+            self.log.debug('Systray selected')
             self.gui = SysTrayGui(self, self.mediator, self.cfg_provider, self.provider)
         
         self.tooltip.setGui(self.gui)
@@ -143,14 +147,14 @@ class SysTray(object):
         config = BookmarkConfiguration(self.provider, self.update_radios)
 
     def on_quit(self, data):
-        print 'Exiting...'
+        self.log.info('Exiting...')
         gtk.main_quit()
 
     def on_about(self, data):
         about_dialog(parent=None)
 
     def on_turn_on_off(self, data):
-        if self.mediator.context.state == 'playing':
+        if self.mediator.context.state == 'playing' or self.mediator.context.state == 'connecting':
             self.mediator.stop()
         else:
             self.mediator.play(self.mediator.context.station)

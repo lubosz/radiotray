@@ -25,15 +25,17 @@ import gst
 from StreamDecoder import StreamDecoder
 from lib.common import USER_AGENT
 from events.EventManager import EventManager
+import logging
 
 class AudioPlayerGStreamer:
 
-    def __init__(self, mediator, cfg_provider, log, eventManager):
+    def __init__(self, mediator, cfg_provider, eventManager):
         self.mediator = mediator
-        self.log = log
         self.eventManager = eventManager
         self.decoder = StreamDecoder(cfg_provider)
         self.playlist = []
+
+        self.log = logging.getLogger('radiotray')
 
         # init player
         self.souphttpsrc = gst.element_factory_make("souphttpsrc", "source")
@@ -54,10 +56,10 @@ class AudioPlayerGStreamer:
         if(urlInfo is not None and urlInfo.isPlaylist()):
             self.playlist = self.decoder.getPlaylist(urlInfo)
             if(len(self.playlist) == 0):
-                print "Received empty playlist!"
+                self.log.warn('Received empty playlist!')
                 self.mediator.stop()
                 self.mediator.notifyError(_("Connection Error"), _("Received empty stream from station"))
-            print self.playlist
+            self.log.debug(self.playlist)
             self.playNextStream()
 
         elif(urlInfo is not None and urlInfo.isPlaylist() == False):
@@ -72,7 +74,7 @@ class AudioPlayerGStreamer:
     def playNextStream(self):
         if(len(self.playlist) > 0):
             stream = self.playlist.pop(0)
-            print "Play " + stream
+            self.log.info('Play "%s"', stream)
 
             urlInfo = self.decoder.getMediaStreamInfo(stream)
             if(urlInfo is not None and urlInfo.isPlaylist() == False):
@@ -102,8 +104,9 @@ class AudioPlayerGStreamer:
 
     def on_message(self, bus, message):
         t = message.type
+
         if t == gst.MESSAGE_EOS:
-            self.log.log("Received MESSAGE_EOS")
+            self.log.debug("Received MESSAGE_EOS")
             self.player.set_state(gst.STATE_NULL)
             self.playNextStream()
         elif t == gst.MESSAGE_BUFFERING:
@@ -112,11 +115,11 @@ class AudioPlayerGStreamer:
             else:
                 self.player.set_state(gst.STATE_PLAYING)
         elif t == gst.MESSAGE_ERROR:
-            self.log.log("Received MESSAGE_ERROR")
+            self.log.debug("Received MESSAGE_ERROR")
             self.player.set_state(gst.STATE_NULL)
             err, debug = message.parse_error()
-            print err
-            print debug
+            self.log.warn(err)
+            self.log.warn(debug)
 
             if(len(self.playlist)>0):
                 self.playNextStream()
@@ -124,7 +127,7 @@ class AudioPlayerGStreamer:
                 self.eventManager.notify(EventManager.STATION_ERROR, {'error':debug})
 
         elif t == gst.MESSAGE_STATE_CHANGED:
-            self.log.log("Received MESSAGE_STATE_CHANGED")
+            self.log.debug("Received MESSAGE_STATE_CHANGED")
             oldstate, newstate, pending = message.parse_state_changed()
 
             if newstate == gst.STATE_PLAYING:

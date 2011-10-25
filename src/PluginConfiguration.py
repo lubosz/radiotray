@@ -32,6 +32,7 @@ try:
     from lib import utils
 except:
     sys.exit(1)
+import logging
 
 class PluginConfiguration(object):
 
@@ -39,6 +40,7 @@ class PluginConfiguration(object):
         
         self.pluginManager = pluginManager
         self.cfgProvider = cfgProvider
+        self.log = logging.getLogger('radiotray')
 
         # load glade and get gui objects
         gladefile = utils.load_ui_file("configPlugins.glade")
@@ -100,19 +102,19 @@ class PluginConfiguration(object):
         model[path][0] = not model[path][0]
         name = model[path][1]
 
-        print 'Setting ' + model[path][1] + ' to ' + str(model[path][0])
-        print self.activePlugins
+        self.log.debug('Setting ' + model[path][1] + ' to ' + str(model[path][0]))
+        self.log.debug(self.activePlugins)
         if(model[path][0] == True):
-            print "apppend " + name
+            self.log.debug('apppend %s', name)
             self.activePlugins.append(name)
             self.pluginManager.activatePlugin(name)
         else:
-            print "remove " + name
+            self.log.debug('remove %s', name)
             self.activePlugins.remove(name)
             self.pluginManager.deactivatePlugin(name)
 
         
-        print self.activePlugins
+        self.log.debug(self.activePlugins)
 
 
     def on_close_clicked(self, widget):

@@ -24,6 +24,7 @@ from PluginInfo import PluginInfo
 from XmlConfigProvider import XmlConfigProvider
 import os
 import sys
+import logging
 
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:
@@ -37,6 +38,7 @@ class PluginManager:
         self.tooltip = tooltip
         self.pluginMenu = pluginMenu
         self.pluginInfos = {}
+        self.log = logging.getLogger('radiotray')
 
     def getPlugins(self):
         return self.pluginInfos.values()
@@ -65,7 +67,7 @@ class PluginManager:
             
     def activatePlugin(self, name):
 
-        print 'activate'
+        self.log.debug('activate')
         #info = self.pluginInfos[name]
         #if info != None:
         #    plugin = info.instance
@@ -83,7 +85,7 @@ class PluginManager:
 
     def deactivatePlugin(self, name):
 
-        print 'deactivate'
+        self.log.debug('deactivate')
         #info = self.pluginInfos[name]
         #if info != None:
         #    plugin = info.instance
@@ -95,25 +97,25 @@ class PluginManager:
 
         pluginFiles = []
         if os.path.exists(USER_PLUGIN_PATH):
-            print "finding plugins in user plugin path"
+            self.log.info('finding plugins in user plugin path')
             files = os.listdir(USER_PLUGIN_PATH)
             sys.path.insert(0,USER_PLUGIN_PATH)
             for possible_plugin in files:
                 if possible_plugin.endswith('.plugin'):
                     pluginFiles.append(os.path.join(USER_PLUGIN_PATH, possible_plugin))
         else:
-            print "user plugin dir does not exist. ignoring..."
+            self.log.info('user plugin dir does not exist. ignoring...')
 
         print SYSTEM_PLUGIN_PATH
         if os.path.exists(SYSTEM_PLUGIN_PATH):
-            print "finding plugins in system plugin path"
+            self.log.info('finding plugins in system plugin path')
             files = os.listdir(SYSTEM_PLUGIN_PATH)
             sys.path.insert(0,SYSTEM_PLUGIN_PATH)
             for possible_plugin in files:
                 if possible_plugin.endswith('.plugin'):
                     pluginFiles.append(os.path.join(SYSTEM_PLUGIN_PATH, possible_plugin))
         else:
-            print "system plugin dir does not exist. ignoring..."
+            self.log.info('system plugin dir does not exist. ignoring...')
 
             
         self.pluginInfos = self.parsePluginInfo(pluginFiles)
@@ -131,7 +133,7 @@ class PluginManager:
         infos = {}
 
         for p in plugins:
-            print p
+            self.log.debug(p)
             f = open(p,"r")
             text = f.read()
             lines = text.splitlines()

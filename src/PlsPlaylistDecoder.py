@@ -19,17 +19,19 @@
 ##########################################################################
 import urllib2
 from lib.common import USER_AGENT
+import logging
 
 class PlsPlaylistDecoder:
 
     def __init__(self):
-        print "PLS playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('PLS playlist decoder')
         
 
     def isStreamValid(self, contentType, firstBytes):
 
         if('audio/x-scpls' in contentType):
-            print "Stream is readable by PLS Playlist Decoder"
+            self.log.info('Stream is readable by PLS Playlist Decoder')
             return True
         else:
             return False
@@ -38,7 +40,7 @@ class PlsPlaylistDecoder:
 
     def extractPlaylist(self,  url):
             
-            print "Downloading playlist..."
+            self.log.info('Downloading playlist...')
             
             req = urllib2.Request(url)
             req.add_header('User-Agent', USER_AGENT)
@@ -46,8 +48,8 @@ class PlsPlaylistDecoder:
             str = f.read()
             f.close()
             
-            print "Playlist downloaded"
-            print "Decoding playlist..."
+            self.log.info('Playlist downloaded')
+            self.log.info('Decoding playlist...')
             
 	    playlist = []
             lines = str.splitlines()

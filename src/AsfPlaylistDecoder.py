@@ -22,17 +22,19 @@ from lib.common import USER_AGENT
 from lxml import etree
 from lxml import objectify
 from StringIO import StringIO
+import logging
 
 class AsfPlaylistDecoder:
 
     def __init__(self):
-        print "ASF playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('Initializing ASF playlist decoder')
 
 
     def isStreamValid(self, contentType, firstBytes):
 
         if('video/x-ms-asf' in contentType and firstBytes.strip().lower().startswith('[reference]')):
-            print "Stream is readable by ASF Playlist Decoder"
+            self.log.info('Stream is readable by ASF Playlist Decoder')
             return True
         else:
             return False
@@ -40,7 +42,7 @@ class AsfPlaylistDecoder:
         
     def extractPlaylist(self,  url):
 
-        print "Downloading playlist..."
+        self.log.info('Downloading playlist..')
 
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
@@ -48,8 +50,8 @@ class AsfPlaylistDecoder:
         str = f.read()
         f.close()
 
-        print "Playlist downloaded"
-        print "Decoding playlist..."
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
 
         playlist = []
         lines = str.split("\n")

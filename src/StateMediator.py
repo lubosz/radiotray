@@ -23,6 +23,7 @@ from Notification import Notification
 from lib.common import APPNAME
 from Context import Context
 from events.EventManager import EventManager
+import logging
 
 class StateMediator(object):
 
@@ -44,7 +45,7 @@ class StateMediator(object):
         if not self.provider.getRadioUrl(radio):
             self.context.station = ''
         
-        
+        self.log = logging.getLogger('radiotray')
         
     def init(self, audioPlayer):
         self.audioPlayer = audioPlayer
@@ -61,6 +62,7 @@ class StateMediator(object):
 
     def play(self, radio):
 
+        self.log.debug('Request to play')
         if(self.context.state == 'playing'):
             self.stop()
             
@@ -78,6 +80,7 @@ class StateMediator(object):
 
     def playUrl(self, url):
 
+        self.log.debug('Request to play: %s', url)
         if(self.isPlaying):
             self.audioPlayer.stop()
         
@@ -105,7 +108,7 @@ class StateMediator(object):
         self.eventManager.notify(EventManager.VOLUME_CHANGED, {'volume':self.getVolume()})
 
     def set_volume(self, value):
-        print "set volume: "+str(value)
+        self.log.debug('set volume: %s', str(value))
         self.audioPlayer.player.set_property("volume", value)
         self.systray.updateTooltip()
         
@@ -120,12 +123,12 @@ class StateMediator(object):
    
     def on_state_changed(self, data):
         self.context.state = data['state']
-        print self.context.state
+        self.log.debug(self.context.state)
         
         
     def on_station_error(self, data):
         self.context.state = 'paused'
-        print self.context.state
+        self.log.debug(self.context.state)
         
         
     def on_song_changed(self, data):
@@ -133,6 +136,5 @@ class StateMediator(object):
         if('artist' in data.keys()):
             self.context.artist = data['artist']
         if('title' in data.keys()):
-            print "set title"
             self.context.title = data['title']
 

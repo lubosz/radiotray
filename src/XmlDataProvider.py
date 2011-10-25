@@ -21,17 +21,25 @@
 import os
 from lxml import etree
 import gtk
+import logging
 
 class XmlDataProvider:
 
     def __init__(self, filename):
+
+        self.log = logging.getLogger('radiotray')
 
         if(os.access(filename, os.W_OK|os.R_OK) == False):
             raise Exception('Bookmarks file not found: ' + filename)
         else:
             self.filename = filename
 
+
+
+
     def loadFromFile(self):
+
+        self.log.info('Loading bookmarks file: %s', self.filename)
         self.root = etree.parse(self.filename).getroot()
         
         # this is necessary for the transition from the old xml to the new one
@@ -48,10 +56,16 @@ class XmlDataProvider:
             self.root.append(new_group)
             self.saveToFile()
 
+        self.log.debug('Bookmarks file loaded with success')
+
+
+
     def saveToFile(self):
+        self.log.info('Saving bookmarks file: %s', self.filename)
         out_file = open(self.filename, "w")
         out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True))
         out_file.close()
+        self.log.debug('Bookmarks file save with success')
 
     def listRadioNames(self):
 
@@ -74,31 +88,34 @@ class XmlDataProvider:
     def addGroup(self, parent_group_name, new_group_name):
     
         # gettting parent group
-        print "parent group : " + parent_group_name
+        self.log.debug('Adding group %s to parent group %s ...', new_group_name, parent_group_name)
         parent_group = self.root.xpath("//group[@name=$var]", var=parent_group_name)
         
         if parent_group != None:
             group = self.root.xpath("//group[@name=$var]", var=new_group_name)
             
             if group == None or len(group) == 0:
-                print "Group is new. Saving with name " + new_group_name
+                self.log.debug('Group is new. Saving with name %s', new_group_name)
                 new_group = etree.SubElement(parent_group[0], 'group')
                 new_group.set("name", unicode(new_group_name))
                 self.saveToFile()                
                 return True        
             
-            print "A group with the name \"%s\" already exists." % new_group_name
+            self.log.warn('A group with the name "%s" already exists.', new_group_name)
             return False
         
-        print "A group with the name \"%s\" does not exist." % parent_group_name
+        self.log.error('Error: a parent group with the name "%s" does not exist.', parent_group_name)
         return False
 
 
     def addRadio(self, rawName, url, group_name='root'):
 
+        name = unicode(rawName)
+
+        self.log.info('Adding radio "%s" to group %s', name, group_name)
+        self.log.debug('Radio URL: %s', url)
         group = self.root.xpath("//group[@name=$var]", var=group_name)
 
-        name = unicode(rawName)
 
         if group != None:
             # First, let us check this name hasn't been used yet.
@@ -108,86 +125,101 @@ class XmlDataProvider:
                 radio = etree.SubElement(group[0], 'bookmark')
                 radio.set("name", unicode(name))
                 radio.set("url", unicode(url))
+                self.log.debug('Radio added with success')
                 self.saveToFile()
                 return True
             
-            print "A radio with the name \"%s\" already exists." % name            
+            self.log.warn('A radio with the name "%s" already exists.', name)
         else:
-            print "A group with the name \"%s\" does not exist." % group_name
+            self.log.error('A group with the name "%s" does not exist.', group_name)
         
         return False
 
 
     def updateRadio(self, oldName, newName, url):
 
+        self.log.info('Updating radio %s', oldName)
+        self.log.debug('Radio %s changed to radio %s with URL %s', oldName, newName, url)
         # Flag used to determine if a radio gets added or not
         radioAdded = None
 
         result = self._radioExists(oldName)
 
         if result is None:
-            print "Could not find a radio with the name \"%s\"." % oldName
+            self.log.error('Could not find a radio with the name "%s"', oldName)
             radioAdded = False
         else:
             if oldName == newName:
                 result.set("url", unicode(url))
                 self.saveToFile()
                 radioAdded = True
+                self.log.debug('Radio updated with success')
             else:
                 radioXml = self._radioExists(newName)
                 if radioXml is not None:
-                    print "A radio with the name \"%s\" already exists." % newName
+                    self.log.warn('A radio with the name "%s" already exists.', newName)
                     radioAdded = False
                 else:
                     result.set("name", unicode(newName))
                     result.set("url", unicode(url))
                     self.saveToFile()
                     radioAdded = True
+                    self.log.debug('Radio updated with success')
 
         return radioAdded
         
         
     def updateGroup(self, oldName, newName):
     
+        self.log.info('Updating group %s to %s', oldName, newName)
         groupAdded = None
         newNameStr = unicode(newName)
         
         result = self._groupExists(oldName)
         
         if result is None:
-            print "Could not find a group with the name \"%s\"." % oldName
+            self.log.error('Could not find a group with the name "%s"', oldName)
             groupAdded = False
         else:
             if oldName != newNameStr:
                 groupEx = self._groupExists(newNameStr)
                 if groupEx is not None:
-                    print "A group with the name \"%s\" already exists." % newName
+                    self.log.warn('A group with the name "%s" already exists.', newName)
                     groupAdded = False
                 else:
                     result.set("name", unicode(newNameStr))
                     self.saveToFile()
                     groupAdded = True
+                    self.log.debug('Group updated with success')
 
         return groupAdded
                     
 
 
-    def removeRadio(self, name):                
+    def removeRadio(self, name):         
+
+        self.log.info('Removing "%s" ...', name)       
         radio = self._radioExists(name)
         
         if radio != None:
+            self.log.debug('Removing radio with name %s', name)
             radio.getparent().remove(radio)            
-            
+            self.log.info('Radio removed with success')
         else:
             group = self._groupExists(name)
             
             if group != None:
+                self.log.debug('Removing group with name %s', name)
                 group.getparent().remove(group)
+                self.log.info('Group removed with success')
                 
         self.saveToFile()
 
 
     def moveRadio(self, name, old_group_name, new_group_name):
+
+        self.log.info('Moving "%s" from %s to %s ...', name, old_group_name, new_group_name)
+
         old_group = self.root.xpath("//group[@name=$var]", var=old_group_name)
         new_group = self.root.xpath("//group[@name=$var]", var=new_group_name)
 
@@ -195,19 +227,23 @@ class XmlDataProvider:
             radioXml = self._radioExists(name)
     
             if radioXml is None:
-                print "Could not find a radio with the name \"%s\"." % name
+                self.log.error('Could not find a radio with the name "%s"', name)
             else:                                          
                 old_group[0].remove(radioXml)
                 radio = etree.SubElement(new_group[0], 'bookmark')
                 radio.set("name", name)
                 radio.set("url", radioXml.get('url'))
+                self.log.debug('%s moved with success', name)
                 self.saveToFile()
                 return True
         
+        self.log.error('Could not find given groups')
         return False
 
 
-    def moveUp(self, name):        
+    def moveUp(self, name):       
+
+        self.log.info('Moving "%s" up...', name) 
         radio = self._radioExists(name)          
 
         if radio != None:
@@ -218,6 +254,7 @@ class XmlDataProvider:
                 index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)                       
                 group.remove(radio)
                 group.insert(int(index)-2,radio)
+                self.log.debug('%s moved with success', name)
                 self.saveToFile()    
                 return True
         else:
@@ -227,14 +264,17 @@ class XmlDataProvider:
                 parent_group = group[0].getparent()                                
                 index=self.root.xpath("count(//group[@name=$var]/preceding-sibling::*)+1", var=name)                                       
                 parent_group.remove(group[0])
-                parent_group.insert(int(index)-2,group[0])                
+                parent_group.insert(int(index)-2,group[0])     
+                self.log.debug('%s moved with success', name)           
                 self.saveToFile()    
                 return True
 
         return False
 
 
-    def moveDown(self, name):        
+    def moveDown(self, name):
+
+        self.log.info('Moving "%s" down...', name)
         radio = self._radioExists(name)
             
         if radio != None:
@@ -244,6 +284,7 @@ class XmlDataProvider:
                 index=self.root.xpath("count(//bookmark[@name=$var]/preceding-sibling::*)+1", var=name)
                 group.remove(radio)
                 group.insert(int(index),radio)
+                self.log.debug('%s moved with success', name)
                 self.saveToFile()
                 return True
         else:
@@ -253,7 +294,8 @@ class XmlDataProvider:
                 parent_group = group[0].getparent()                                
                 index=self.root.xpath("count(//group[@name=$var]/preceding-sibling::*)+1", var=name)                       
                 parent_group.remove(group[0])
-                parent_group.insert(int(index),group[0])                
+                parent_group.insert(int(index),group[0])
+                self.log.debug('%s moved with success', name)
                 self.saveToFile()    
                 return True
                         
@@ -262,7 +304,8 @@ class XmlDataProvider:
 
     def moveToPosition(self, source, target, position):
 
-        print "Moving " + str(source) + " to target " + str(target)
+        self.log.info('Moving "%s" to target "%s"...', str(source), str(target))
+
         itemToMove = self._radioExists(source)
         if itemToMove == None:
             itemToMove = self._groupExists(source)
@@ -284,7 +327,7 @@ class XmlDataProvider:
             elif position == gtk.TREE_VIEW_DROP_AFTER:
                 itemTarget.getparent().insert(index+1, itemToMove)
 
-            
+            self.log.debug('%s moved with success', str(source))
             self.saveToFile()
 
     
@@ -295,7 +338,7 @@ class XmlDataProvider:
             radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
         except IndexError, e:
             # No radio was found
-            print "Could not find a radio with the name \"%s\"." % name
+            self.log.warn('Could not find a radio with the name "%s".', name)
 
         return radio
         
@@ -306,7 +349,7 @@ class XmlDataProvider:
             group = self.root.xpath("//group[@name=$var]", var=name)[0]
         except IndexError, e:
             # No group was found
-            print "Could not find a group with the name \"%s\"." % name
+            self.log.warn('Could not find a group with the name "%s".', name)
 
         return group
 
@@ -342,4 +385,4 @@ class XmlDataProvider:
             group.append(element)
             self.saveToFile()
         else:
-            print "Could not move element group"
+            self.log.warn('Could not move element group')

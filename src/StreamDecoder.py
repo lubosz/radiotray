@@ -27,6 +27,7 @@ from XspfPlaylistDecoder import XspfPlaylistDecoder
 from AsfPlaylistDecoder import AsfPlaylistDecoder
 from RamPlaylistDecoder import RamPlaylistDecoder
 from UrlInfo import UrlInfo
+import logging
 
 class StreamDecoder:
 
@@ -37,6 +38,8 @@ class StreamDecoder:
         xspfDecoder = XspfPlaylistDecoder()
         asfDecoder = AsfPlaylistDecoder()
         ramDecoder = RamPlaylistDecoder()
+
+        self.log = logging.getLogger('radiotray')
         
         self.decoders = [plsDecoder, asxDecoder, asfDecoder, xspfDecoder, ramDecoder, m3uDecoder]
 
@@ -45,24 +48,24 @@ class StreamDecoder:
         try:
             self.url_timeout = cfg_provider.getConfigValue("url_timeout")
             if (self.url_timeout == None):
-                print "Couldn't find url_timeout configuration"
+                self.log.warn("Couldn't find url_timeout configuration")
                 self.url_timeout = 100
                 cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
         except Exception, e:
-            print "Couldn't find url_timeout configuration"
+            self.log.warn("Couldn't find url_timeout configuration")
             self.url_timeout = 100
             cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
 
-        print "Using url timeout = " + str(self.url_timeout)
+        self.log.info('Using url timeout = %s', str(self.url_timeout))
 
 
     def getMediaStreamInfo(self, url):
 
         if url.startswith("http") == False:
-            print "Not an HTTP url. Maybe direct stream..."
+            self.log.info('Not an HTTP url. Maybe direct stream...')
             return UrlInfo(url, False, None)
 
-        print "Requesting stream... " + url
+        self.log.info('Requesting stream... %s', url)
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
 
@@ -71,18 +74,18 @@ class StreamDecoder:
             f = opener.open(req, timeout=float(self.url_timeout))
 
         except urllib2.HTTPError, e:
-            print "HTTP Error: No radio stream found for %s" % url
+            self.log.warn('HTTP Error: No radio stream found for %s', url)
             return None
         except urllib2.URLError, e:
-            print "No radio stream found for %s" % url
+            self.log.info('No radio stream found for %s', url)
             if str(e.reason).startswith('MMS REDIRECT'):
                 newurl = e.reason.split("MMS REDIRECT:",1)[1]
-                print "Found mms redirect for: " + newurl
+                self.log.info('Found mms redirect for: %s', newurl)
                 return UrlInfo(newurl, False, None)
             else:
                 return None
         except Exception, e:
-            print "No radio stream found. Error: %s" % str(e)
+            self.log.warn('No radio stream found. Error: %s', str(e))
             return None
 
         metadata = f.info()
@@ -90,19 +93,19 @@ class StreamDecoder:
         f.close()
         
         try:            
-            print "Metadata obtained..."
+            self.log.debug('Metadata obtained...')
             contentType = metadata["Content-Type"]
-            print "Content-Type: " + contentType
+            self.log.info('Content-Type: %s', contentType)
             
 
         except Exception, e:
-            print "Couldn't read content-type. Maybe direct stream..."
-            print "Error: ",e
+            self.log.info("Couldn't read content-type. Maybe direct stream...")
+            self.log.info('Error: %s',e)
             return UrlInfo(url, False, None)
 
         for decoder in self.decoders:
                 
-            print "Checking decoder"
+            self.log.info('Checking decoder')
             if(decoder.isStreamValid(contentType, firstbytes)):
 
                 return UrlInfo(url, True, contentType, decoder)

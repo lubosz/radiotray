@@ -22,17 +22,19 @@ from lib.common import USER_AGENT
 from lxml import etree
 from lxml import objectify
 from StringIO import StringIO
+import logging
 
 class AsxPlaylistDecoder:
 
     def __init__(self):
-        print "ASX-familiy playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('ASX-familiy playlist decoder')
 
 
     def isStreamValid(self, contentType, firstBytes):
 
         if(('audio/x-ms-wax' in contentType or 'video/x-ms-wvx' in contentType or 'video/x-ms-asf' in contentType or 'video/x-ms-wmv' in contentType) and firstBytes.strip().lower().startswith('<asx')):
-            print "Stream is readable by ASX Playlist Decoder"
+            self.log.info('Stream is readable by ASX Playlist Decoder')
             return True
         else:
             return False
@@ -40,7 +42,7 @@ class AsxPlaylistDecoder:
         
     def extractPlaylist(self,  url):
 
-        print "Downloading playlist..."
+        self.log.info('Downloading playlist...')
 
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
@@ -48,8 +50,8 @@ class AsxPlaylistDecoder:
         str = f.read()
         f.close()
 
-        print "Playlist downloaded"
-        print "Decoding playlist..."
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
 
         parser = etree.XMLParser(recover=True)
         root = etree.parse(StringIO(str),parser)

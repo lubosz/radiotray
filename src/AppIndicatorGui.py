@@ -26,6 +26,7 @@ try:
 except:
     sys.exit(1)
 import textwrap
+import logging
 
 # This class handles the gui interface for the Ubuntu's app indicator API
 class AppIndicatorGui:
@@ -35,6 +36,7 @@ class AppIndicatorGui:
         self.mediator = mediator
         self.cfg_provider = cfg_provider
         self.provider = provider
+        self.log = logging.getLogger('radiotray')
 
 
     def buildMenu(self):
@@ -52,8 +54,8 @@ class AppIndicatorGui:
             self.app_indicator = appindicator.Indicator(APPNAME, APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF, appindicator.CATEGORY_APPLICATION_STATUS)
             self.app_indicator.set_status(appindicator.STATUS_ACTIVE)
         except Exception as e:
-            print e
-            print "Failed to create an Application Indicator!" 
+            self.log.debug(e)
+            self.log.warn("Failed to create an Application Indicator!")
             self.app_indicator = None
 
         

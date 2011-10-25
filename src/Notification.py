@@ -20,6 +20,7 @@
 import pynotify
 import gtk
 from lib.common import APP_ICON, APPNAME
+import logging
 
 class Notification:
 
@@ -27,6 +28,8 @@ class Notification:
         self.notif = None
         self.cfg_provider = cfg_provider
         self.lastMessage = None
+        self.log = logging.getLogger('radiotray')
+
 
     def notify(self, title, message):
 
@@ -44,7 +47,7 @@ class Notification:
                     self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
                     self.notif.show()
                 else:
-                    print "Error: there was a problem initializing the pynotify module"
+                    self.log.error('Error: there was a problem initializing the pynotify module')
             
             else:
                 self.notif.update(title, message)

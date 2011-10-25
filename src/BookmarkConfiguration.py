@@ -37,6 +37,7 @@ from lib.common import APP_ICON_ON
 from lib import utils
 from lib import i18n
 import uuid
+import logging
 
 drop_yes = ("drop_yes", gtk.TARGET_SAME_WIDGET, 0)
 drop_no = ("drop_no", gtk.TARGET_SAME_WIDGET, 0)
@@ -53,6 +54,8 @@ class BookmarkConfiguration(object):
         self.dataProvider = dataProvider
         self.updateFunc = updateFunc
         self.standalone = standalone
+
+        self.log = logging.getLogger('radiotray')
 
         # get gui objects
         gladefile = utils.load_ui_file("configBookmarks.glade")
@@ -319,7 +322,7 @@ class BookmarkConfiguration(object):
 
             for group in self.dataProvider.listGroupNames():
                 liststore.append([group])
-                print "group found: " + group
+                self.log.debug('group found: "%s"', group)
             
 
             if (selectedType == self.RADIO_TYPE):
@@ -358,7 +361,7 @@ class BookmarkConfiguration(object):
                             self.dataProvider.updateElementGroup(selectedRadio, new_group)
                             self.load_data()
                     else:
-                        print 'No radio information provided!'
+                        self.log.debug('No radio information provided!')
                 self.config.hide()
                 
             elif(selectedType == self.GROUP_TYPE):
@@ -392,7 +395,7 @@ class BookmarkConfiguration(object):
                             self.dataProvider.updateElementGroup(selectedGroup, new_group)
                             self.load_data()
                         else:
-                            print 'No group information provided'
+                            self.log.debug('No group information provided')
                     
                 self.configGroup.hide()
 
@@ -429,7 +432,7 @@ class BookmarkConfiguration(object):
         #get current selected element
         selection = self.list.get_selection()
         (model, iter) = selection.get_selected()
-        print type(iter).__name__
+
         if type(iter).__name__=='TreeIter':
 
             selectedRadioName = model.get_value(iter,0)
@@ -496,7 +499,7 @@ class BookmarkConfiguration(object):
 
         for group in self.dataProvider.listGroupNames():
             liststore.append([group])
-            print "group found: " + group
+            self.log.debug('group found: "%s"', group)
             
         self.parentGroup.set_model(liststore)
             
@@ -530,5 +533,5 @@ class BookmarkConfiguration(object):
                 if self.dataProvider.addGroup(parent_group, name):
                     self.load_data()
             else:
-                print 'No group information provided!'
+                self.log.debug('No group information provided!')
         self.configGroup.hide() 
