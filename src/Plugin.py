@@ -20,12 +20,14 @@
 
 import threading
 import gtk
+import logging
 
 # This class should be extended by plugins implementations
 class Plugin(threading.Thread):
 
     def __init__(self):
         threading.Thread.__init__(self)
+        self.log = logging.getLogger('radiotray')
 
     def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
     
