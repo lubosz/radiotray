@@ -144,7 +144,7 @@ class BookmarkConfiguration(object):
             
             if (item.tag == 'bookmark'):
                 if(item.get('name').startswith('[separator')):
-                    treestore.append(iter, [_('-- Separator --'), item.get('name'), self.SEPARATOR_TYPE])
+                    treestore.append(iter, ['-- ' + _('Separator') + ' --', item.get('name'), self.SEPARATOR_TYPE])
                 else:
                     treestore.append(iter, [item.get('name'), item.get('name'), self.RADIO_TYPE])
             else:
