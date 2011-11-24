@@ -29,8 +29,8 @@ import logging
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:
 
-    def __init__(self, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip, pluginMenu):
-        self.notification = notification
+    def __init__(self, eventManagerWrapper, eventSubscriber, provider, cfgProvider, mediator, tooltip, pluginMenu):
+        self.eventManagerWrapper = eventManagerWrapper
         self.eventSubscriber = eventSubscriber
         self.provider = provider
         self.cfgProvider = cfgProvider
@@ -57,7 +57,7 @@ class PluginManager:
                     cfgProvider = XmlConfigProvider(info.configFile)
                     cfgProvider.loadFromFile()
 
-                plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
+                plugin.initialize(info.name, self.eventManagerWrapper, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
 
                 plugin.start()
                 if plugin.hasMenuItem():
@@ -76,7 +76,7 @@ class PluginManager:
         #    if(os.path.exists(info.configFile)):
         #        cfgProvider = XmlConfigProvider(info.configFile)
         #        cfgProvider.loadFromFile()
-        #    plugin.initialize(info.name, self.notification, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
+        #    plugin.initialize(info.name, self.eventManagerWrapper, self.eventSubscriber, self.provider, cfgProvider, self.mediator, self.tooltip)
 
         #    plugin.start()
         #    if plugin.hasMenuItem():

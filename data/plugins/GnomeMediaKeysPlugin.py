@@ -27,10 +27,10 @@ class GnomeMediaKeysPlugin(Plugin):
         super(GnomeMediaKeysPlugin, self).__init__()
 
 
-    def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
+    def initialize(self, name, eventManagerWrapper, eventSubscriber, provider, cfgProvider, mediator, tooltip):
     
         self.name = name
-        self.notification = notification
+        self.eventManagerWrapper = eventManagerWrapper
         self.eventSubscriber = eventSubscriber
         self.provider = provider
         self.cfgProvider = cfgProvider

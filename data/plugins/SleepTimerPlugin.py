@@ -29,10 +29,10 @@ class SleepTimerPlugin(Plugin):
         super(SleepTimerPlugin, self).__init__()
 
 
-    def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
+    def initialize(self, name, eventManagerWrapper, eventSubscriber, provider, cfgProvider, mediator, tooltip):
     
         self.name = name
-        self.notification = notification
+        self.eventManagerWrapper = eventManagerWrapper
         self.eventSubscriber = eventSubscriber
         self.provider = provider
         self.cfgProvider = cfgProvider
@@ -72,7 +72,7 @@ class SleepTimerPlugin(Plugin):
             
             self.sleep_timer_id = None
             self.mediator.stop()
-            self.notification.notify(_("Sleep Timer"), _("Sleep timer expired"))
+            self.eventManagerWrapper.notify(_("Sleep Timer"), _("Sleep timer expired"))
             self.tooltip.update()                                            
             return False
         
@@ -114,13 +114,13 @@ class SleepTimerPlugin(Plugin):
         self.min_to_sleep = interval
         self.min_to_sleep_selected = interval        
         if display_msg:        
-            self.notification.notify(_("Sleep Timer"), _("%s minute sleep timer started") % str(interval))            
+            self.eventManagerWrapper.notify(_("Sleep Timer"), _("%s minute sleep timer started") % str(interval))            
     
     def stop_sleep_timer(self, display_msg):
         gobject.source_remove(self.sleep_timer_id)
         self.sleep_timer_id = None  
         if display_msg:                   
-            self.notification.notify(_("Sleep Timer"), _("Sleep timer stopped"))
+            self.eventManagerWrapper.notify(_("Sleep Timer"), _("Sleep timer stopped"))
 
 
     def get_sleep_timer_value(self, default_value):

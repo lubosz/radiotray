@@ -22,9 +22,9 @@ from XmlConfigProvider import XmlConfigProvider
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from SysTray import SysTray
 from StateMediator import StateMediator
-from Notification import Notification
 from NotificationManager import NotificationManager
 from events.EventManager import EventManager
+from events.EventMngNotificationWrapper import EventMngNotificationWrapper
 from events.EventSubscriber import EventSubscriber
 from DbusFacade import DbusFacade
 from TooltipManager import TooltipManager
@@ -67,11 +67,9 @@ class RadioTray(object):
         self.default_cfg_provider = XmlConfigProvider(self.default_cfg_filename)
         self.default_cfg_provider.loadFromFile()
 
-        # load notification engine
-        notification = Notification(self.cfg_provider)
-
         # load Event Manager
         eventManager = EventManager()
+        eventManagerWrapper = EventMngNotificationWrapper(eventManager)
 
         # mediator
         self.mediator = StateMediator(self.provider, self.cfg_provider, eventManager)
@@ -94,7 +92,7 @@ class RadioTray(object):
         
         
         # notification manager
-        self.notifManager = NotificationManager(eventManager)
+        self.notifManager = NotificationManager(eventManagerWrapper)
 
         # bind events
         eventSubscriber = EventSubscriber(eventManager)
@@ -117,7 +115,7 @@ class RadioTray(object):
         #dbus_mpris = mpris.RadioTrayMpris(self.provider, self.mediator)
 
 	#load plugin manager
-        self.pluginManager = PluginManager(notification, eventSubscriber, self.provider, self.cfg_provider, self.mediator, tooltipManager, self.systray.getPluginMenu())
+        self.pluginManager = PluginManager(eventManagerWrapper, eventSubscriber, self.provider, self.cfg_provider, self.mediator, tooltipManager, self.systray.getPluginMenu())
         self.systray.setPluginManager(self.pluginManager)
         self.pluginManager.discoverPlugins()
         self.pluginManager.activatePlugins()

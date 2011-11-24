@@ -50,6 +50,7 @@ class HelloWorldPlugin(Plugin):
 
     def on_menu(self, data):
         print "menu clicked!"
+        self.eventManagerWrapper.notify('teste', 'testing 1 2 3')
 
 
     def hasMenuItem(self):

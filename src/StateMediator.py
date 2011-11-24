@@ -19,7 +19,6 @@
 ##########################################################################
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from SysTray import SysTray
-from Notification import Notification
 from lib.common import APPNAME
 from Context import Context
 from events.EventManager import EventManager

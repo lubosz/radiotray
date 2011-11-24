@@ -17,14 +17,13 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-from Notification import Notification
 from lib.common import APPNAME
-from events.EventManager import EventManager
+from events.EventMngNotificationWrapper import EventMngNotificationWrapper
 
 class NotificationManager(object):
 
-    def __init__(self, eventManager):
-        self.eventManager = eventManager
+    def __init__(self, eventManagerWrapper):
+        self.eventManagerWrapper = eventManagerWrapper
         
         
     def on_state_changed(self, data):
@@ -33,8 +32,8 @@ class NotificationManager(object):
         
         if(state == 'playing'):
             station = data['station']
-            self.eventManager.notify(EventManager.NOTIFICATION, {'title':'Radio Tray Playing', 'message':station})
-#            self.notification.notify(C_("Notifies which radio is currently playing.", "Radio Tray Playing"), station)
+            self.eventManagerWrapper.notify(_('Radio Tray Playing'), station)
+
             
 
     def on_song_changed(self, data):
@@ -43,32 +42,25 @@ class NotificationManager(object):
         
         station = data['station']
         msgTitle = "%s - %s" % (APPNAME , station)
+        msg = None
 
         if('artist' in data.keys() and 'title' in data.keys()):
             artist = data['artist']
             title = data['title']
             msg = "%s - %s" % (artist, title)            
-            self.eventManager.notify(EventManager.NOTIFICATION, {'title': msgTitle, 'message':msg})
-#            self.notification.notify("%s - %s" % (APPNAME , station), msg)
         elif('artist' in data.keys()):
             msg = data['artist']
-            self.eventManager.notify(EventManager.NOTIFICATION, {'title': msgTitle, 'message':msg})
-#            self.notification.notify("%s - %s" % (APPNAME , station), msg)
         elif('title' in data.keys()):
             msg = data['title']
-            self.eventManager.notify(EventManager.NOTIFICATION, {'title': msgTitle, 'message':msg})
-#            self.notification.notify("%s - %s" % (APPNAME , station), msg)
 
-
+        self.eventManagerWrapper.notify(msgTitle, msg)
         
     def on_station_error(self, data):
     
-        self.eventManager.notify(EventManager.NOTIFICATION, {'title': 'Radio Error', 'message':str(data['error'])})
-#        self.notification.notify(C_("An error notification.", "Radio Error"), str(data['error']))
+        self.eventManagerWrapper.notify(_('Radio Error'), str(data['error']))
 
     def on_bookmarks_reloaded(self, data):
 
-        self.eventManager.notify(EventManager.NOTIFICATION, {'title': _("Bookmarks Reloaded"), 'message':_("Bookmarks Reloaded")})
-#        self.notification.notify(_("Bookmarks Reloaded"), _("Bookmarks Reloaded"))
+        self.eventManagerWrapper.notify(_("Bookmarks Reloaded"), _("Bookmarks Reloaded"))
         
         
