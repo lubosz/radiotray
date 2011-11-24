@@ -93,8 +93,6 @@ class BookmarkConfiguration(object):
         
         # config tree ui
         cell = gtk.CellRendererText()
-#        cell.set_property( 'editable', True )
-        cell.connect( 'edited', self.on_name_edit, cell)
         tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
         self.list.append_column(tvcolumn)
         tvcolumn.add_attribute(cell, 'text', 0)
@@ -540,35 +538,3 @@ class BookmarkConfiguration(object):
             else:
                 self.log.debug('No group information provided!')
         self.configGroup.hide()
-
-    def on_name_edit(self, cell, path, new_text, model):
-
-        #get current selected element
-        selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
-
-        if type(iter).__name__=='TreeIter':
-
-               selectedName = model.get_value(iter,1)
-               selectedType = model.get_value(iter, 2)
-
-        if (selectedType == self.GROUP_TYPE):
-            name = new_text
-            oldName = selectedName
-            if len(name) > 0:
-                   if(self.dataProvider.updateGroup(oldName, name)):
-                        model.set_value(iter,0,name)
-                        model.set_value(iter,1,name)
-
-        elif (selectedType == self.RADIO_TYPE):
-            selectedName = model.get_value(iter,1)
-            name = new_text
-            oldName = selectedName
-            if len(name) > 0:
-                   if(self.dataProvider.updateRadioname(oldName, name)):
-                        model.set_value(iter,0,name)
-                        model.set_value(iter,1,name)
-
-        elif (selectedType == self.SEPARATOR_TYPE):
-            self.log.debug('No point to rename separator')
-

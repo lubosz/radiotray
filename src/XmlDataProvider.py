@@ -167,30 +167,7 @@ class XmlDataProvider:
                     self.log.debug('Radio updated with success')
 
         return radioAdded
-        
-    def updateRadioname (self, oldName, newName):
-
-
-        # Flag used to determine if a radio gets renamed or not
-        radioRenamed = None
-
-        result = self._radioExists(oldName)
-
-        if result is None:
-            print "Could not find a radio with the name \"%s\"." % oldName
-            radioRenamed = False
-        else:
-            radioXml = self._radioExists(newName)
-            if radioXml is not None:
-                print "A radio with the name \"%s\" already exists." % newName
-                radioRenamed = False
-            else:
-                result.set("name", unicode(newName))
-                self.saveToFile()
-                radioRenamed = True
-
-        return radioRenamed
-        
+                
     def updateGroup(self, oldName, newName):
     
         self.log.info('Updating group %s to %s', oldName, newName)
