@@ -93,7 +93,7 @@ class BookmarkConfiguration(object):
         
         # config tree ui
         cell = gtk.CellRendererText()
-        cell.set_property( 'editable', True )
+#        cell.set_property( 'editable', True )
         cell.connect( 'edited', self.on_name_edit, cell)
         tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
         self.list.append_column(tvcolumn)
@@ -136,6 +136,9 @@ class BookmarkConfiguration(object):
             [drop_yes], gtk.gdk.ACTION_MOVE)
         self.list.connect("drag-data-received", self.onDragDataReceived)
         self.list.connect("drag-motion", self.onDragMotion)
+
+        # Connect row activation with bookmarks conf
+        self.list.connect("row-activated", self.on_edit_bookmark_clicked)
 
     def load_data(self):
     
@@ -309,7 +312,7 @@ class BookmarkConfiguration(object):
                 print 'No radio information provided!'
         self.config.hide()
 
-    def on_edit_bookmark_clicked(self, widget):
+    def on_edit_bookmark_clicked(self, widget, row, cell):
 
         #get current selected element
         selection = self.list.get_selection()
