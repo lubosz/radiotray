@@ -94,7 +94,7 @@ class RadioTray(object):
         
         
         # notification manager
-        self.notifManager = NotificationManager(notification)
+        self.notifManager = NotificationManager(eventManager)
 
         # bind events
         eventSubscriber = EventSubscriber(eventManager)

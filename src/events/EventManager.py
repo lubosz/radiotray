@@ -27,11 +27,12 @@ class EventManager:
     STATION_ERROR = 'station_error'
     VOLUME_CHANGED = 'volume_changed'
     BOOKMARKS_RELOADED = 'bookmarks_reloaded'
+    NOTIFICATION = 'notification'
 
     def __init__(self):
 
         
-        self.observersMap = {self.STATE_CHANGED:[], self.SONG_CHANGED:[], self.BOOKMARKS_CHANGED:[], self.STATION_ERROR:[], self.VOLUME_CHANGED:[], self.BOOKMARKS_RELOADED:[]}
+        self.observersMap = {self.STATE_CHANGED:[], self.SONG_CHANGED:[], self.BOOKMARKS_CHANGED:[], self.STATION_ERROR:[], self.VOLUME_CHANGED:[], self.BOOKMARKS_RELOADED:[], self.NOTIFICATION:[]}
         
     
     def getObserversMap(self):
