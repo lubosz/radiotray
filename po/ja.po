@@ -2,13 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Masami Chikahiro <cmasa.z321@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-01-18 23:24+0000\n"
-"PO-Revision-Date: 2011-06-15 00:02+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"POT-Creation-Date: 2011-06-18 11:47+0100\n"
+"PO-Revision-Date: 2011-11-02 12:31+0000\n"
+"Last-Translator: cmasami <cmasa.z321@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.net/projects/p/radiotray/team/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,189 +20,259 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr ""
+msgstr "グループを追加"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Current group:"
-msgstr ""
+msgstr "現在のグループ:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Group :"
-msgstr ""
+msgstr "グループ :"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Move Group"
-msgstr ""
+msgstr "グループを移動"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Move item to another group"
-msgstr ""
+msgstr "項目を別のグループに移動"
 
 #: ../data/configBookmarks.glade.h:6
 msgid "Name :"
-msgstr ""
+msgstr "名前 :"
 
 #: ../data/configBookmarks.glade.h:7
 msgid "New group:"
-msgstr ""
+msgstr "新規グループ:"
 
 #: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
-msgstr ""
+msgstr "上位のグループ :"
 
 #: ../data/configBookmarks.glade.h:9
 msgid "Separator"
-msgstr ""
+msgstr "区切り線"
 
 #: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr ""
+msgstr "ラジオ局の登録"
 
 #: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
-msgstr ""
+msgstr "局名:"
 
 #: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
-msgstr ""
+msgstr "URL :"
+
+#: ../data/configGui.glade.h:1
+msgid "(this choice will be saved in the configuration file)"
+msgstr "(この選択は環境設定ファイルに保存されます)"
+
+#: ../data/configGui.glade.h:2
+msgid "App Indicator"
+msgstr "アプリケーション・インジケータ"
+
+#. Window title for the first time run configuration tool
+#: ../data/configGui.glade.h:4
+msgid "First Time Run Config"
+msgstr "初めて実行したときの環境設定"
+
+#: ../data/configGui.glade.h:5
+msgid "Icon in the Notification Area"
+msgstr "通知領域にアイコン表示"
+
+#: ../data/configGui.glade.h:6
+msgid "Please select how Radio Tray should appear"
+msgstr "ラジオトレイの表示方法を選択してください"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr ""
+msgstr "翻訳者のクレジット"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr ""
+msgstr "%sのウェブサイト"
+
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+msgid "Connection Error"
+msgstr "接続エラー"
+
+#: ../src/AudioPlayerGStreamer.py:56
+msgid "Received empty stream from station"
+msgstr "ラジオ局から空のストリームを受信しました"
+
+#: ../src/AudioPlayerGStreamer.py:66
+msgid "Couldn't read stream from station"
+msgstr "ラジオ局からのストリームを処理できません"
 
 #: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
-msgstr ""
+msgstr "局名"
 
-#: ../src/BookmarkConfiguration.py:172
+#: ../src/BookmarkConfiguration.py:176
 msgid "Add new station"
-msgstr ""
+msgstr "新しいラジオ局を追加"
 
-#: ../src/BookmarkConfiguration.py:220 ../src/BookmarkConfiguration.py:426
-#: ../src/BookmarkConfiguration.py:450
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
-msgstr ""
+msgstr "%sを編集"
 
-#: ../src/BookmarkConfiguration.py:244
+#: ../src/BookmarkConfiguration.py:263
 msgid "Edit group"
-msgstr ""
+msgstr "グループを編集"
 
-#: ../src/BookmarkConfiguration.py:283
+#: ../src/BookmarkConfiguration.py:302
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "\"%s\"を削除してもいいですか?"
 
-#: ../src/BookmarkConfiguration.py:365
+#: ../src/BookmarkConfiguration.py:384
 msgid "Add new group"
-msgstr ""
+msgstr "新しいグループを追加"
 
-#: ../src/BookmarkConfiguration.py:428
+#: ../src/BookmarkConfiguration.py:461
 msgid "Edit Separator"
-msgstr ""
+msgstr "区切り線を編集"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr ""
+msgstr "開発者:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr ""
+msgstr "貢献者:"
 
 #: ../src/StateMediator.py:73 ../src/StateMediator.py:74
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
-msgstr ""
+msgstr "不明なラジオ"
 
 #: ../src/StateMediator.py:105
 msgctxt "An error notification."
 msgid "Radio Error"
-msgstr ""
+msgstr "ラジオ・エラー"
 
 #: ../src/StateMediator.py:116
 msgctxt "Notifies which radio is currently playing."
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "ラジオ・トレイ再生中"
 
-#: ../src/SysTray.py:127 ../src/SysTray.py:128 ../src/SysTray.py:318
-#: ../src/SysTray.py:326 ../src/SysTray.py:497
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
-msgstr ""
+msgstr "停止"
 
-#: ../src/SysTray.py:132 ../src/SysTray.py:134 ../src/SysTray.py:321
-#: ../src/SysTray.py:329 ../src/SysTray.py:500
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
-msgstr ""
+msgstr "\"%s\"を開始"
 
-#: ../src/SysTray.py:144 ../src/SysTray.py:512
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
 msgid "Sleep Timer"
-msgstr ""
+msgstr "スリープ・タイマー"
 
-#: ../src/SysTray.py:145 ../src/SysTray.py:517
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
-msgstr ""
+msgstr "ラジオ局の登録..."
 
-#: ../src/SysTray.py:146 ../src/SysTray.py:518
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
-msgstr ""
+msgstr "ブックマークを読み直す"
 
-#: ../src/SysTray.py:174
+#: ../src/SysTray.py:187
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "待機中 (vol: %s%%)"
 
-#: ../src/SysTray.py:339 ../src/SysTray.py:343 ../src/SysTray.py:354
-#: ../src/SysTray.py:358
+#: ../src/SysTray.py:293
+msgid "Sleep timer expired"
+msgstr "スリープ・タイマーにより停止"
+
+#: ../src/SysTray.py:332
+#, python-format
+msgid "%s minute sleep timer started"
+msgstr "%s 分のスリープ・タイマーを開始しました"
+
+#: ../src/SysTray.py:338
+msgid "Sleep timer stopped"
+msgstr "スリープ・タイマーを取り消しました"
+
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr ""
+msgstr "\"%s\"を停止"
 
-#: ../src/SysTray.py:359
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr ""
+msgstr "%sに接続中"
 
-#: ../src/SysTray.py:378
+#: ../src/SysTray.py:397
+#, python-format
+msgid ", sleep: %s min"
+msgstr ", スリープ: %s 分"
+
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
+"再生中 <b>%s</b> (vol: %s%%%s)\n"
+"<i>%s</i>"
 
-#: ../src/SysTray.py:392
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%%s)"
-msgstr ""
+msgstr "<b>%s</b> 再生中(vol: %s%%%s)"
 
-#: ../src/SysTray.py:397
+#: ../src/SysTray.py:418
 #, python-format
-msgctxt "Informs what radio and music is being played as a tooltip."
+msgid "Playing (vol: %s%%%s)"
+msgstr "再生中 (vol: %s%%%s)"
+
+#: ../src/SysTray.py:421 ../src/SysTray.py:423
+#, python-format
+msgctxt "Informs Radiotray is idle as a tooltip."
 msgid "Idle (vol: %s%%%s)"
-msgstr ""
+msgstr "待機中 (vol: %s%%%s)"
 
-#: ../src/SysTray.py:458
+#: ../src/SysTray.py:481
 msgid "Bookmarks Reloaded"
-msgstr ""
+msgstr "ブックマークを読み込みました"
 
-#: ../src/SysTray.py:519
+#: ../src/SysTray.py:488
+msgid "Edit Sleep Timer"
+msgstr "スリープタイマーを設定"
+
+#: ../src/SysTray.py:494
+msgid "Minutes:"
+msgstr "分:"
+
+#: ../src/SysTray.py:531
+msgid "Idle"
+msgstr "待機中"
+
+#: ../src/SysTray.py:542
 msgid "Volume Up"
-msgstr ""
+msgstr "音量を上げる"
 
-#: ../src/SysTray.py:520
+#: ../src/SysTray.py:543
 msgid "Volume Down"
-msgstr ""
+msgstr "音量を下げる"
 
 
