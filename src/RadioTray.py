@@ -83,7 +83,7 @@ class RadioTray(object):
         tooltipManager = TooltipManager()
 
         # chooser
-        if(url != None):
+        if(url == '--config'):
             chooser = GuiChooserConfiguration()
             gui_engine = chooser.run()
             self.cfg_provider.setConfigValue("gui_engine", gui_engine)
@@ -144,13 +144,13 @@ class RadioTray(object):
 
         self.default_cfg_filename = DEFAULT_CONFIG_FILE
 
-        if(os.access(self.filename, os.R_OK|os.W_OK) == False):
+        if not os.access(self.filename, os.F_OK): # If bookmarks file doesn't exist
 
             self.logger.warn('bookmarks file could not be found. Using default...')
 
             #check if it exists an old bookmark file, and then move it to the new location
             oldfilename = os.path.join(OLD_USER_CFG_PATH, CFG_NAME)
-            if(os.access(oldfilename, os.R_OK|os.W_OK) == True):
+            if os.access(oldfilename, os.R_OK|os.W_OK):
 
                 self.logger.info('Found old bookmark configuration and moved it to new location: %s', USER_CFG_PATH)
                 move(oldfilename, self.filename)
@@ -160,7 +160,7 @@ class RadioTray(object):
                 self.logger.info('Copying default bookmarks file to user directory')
                 copy2(DEFAULT_RADIO_LIST, self.filename)
 
-        if(os.access(self.cfg_filename, os.R_OK|os.W_OK) == False):
+        if not os.access(self.cfg_filename, os.R_OK|os.W_OK):
 
             self.logger.warn('Configuration file not found. Copying default configuration file to user directory')
             copy2(DEFAULT_CONFIG_FILE, self.cfg_filename)

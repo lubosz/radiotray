@@ -70,6 +70,10 @@ class SysTrayGui:
         self.turnOnOff2.set_sensitive(False)
         separator  = gtk.MenuItem()
         menu_item1 = gtk.MenuItem(_("Configure Radios..."))
+
+        #Check bookmarks file status
+        menu_item1.set_sensitive(self.provider.isBookmarkWritable())
+
         menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
         menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)

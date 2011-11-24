@@ -29,10 +29,10 @@ class XmlDataProvider:
 
         self.log = logging.getLogger('radiotray')
 
-        if(os.access(filename, os.W_OK|os.R_OK) == False):
-            raise Exception('Bookmarks file not found: ' + filename)
-        else:
+        if os.access(filename, os.R_OK): #if can read, then use.
             self.filename = filename
+        else: # if can't read, give error.
+            raise Exception('Bookmarks file not found: ' + filename)
 
 
 
@@ -408,3 +408,6 @@ class XmlDataProvider:
             self.saveToFile()
         else:
             self.log.warn('Could not move element group')
+
+    def isBookmarkWritable(self):
+        return os.access(self.filename, os.W_OK)

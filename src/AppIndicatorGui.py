@@ -100,6 +100,9 @@ class AppIndicatorGui:
         volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
         volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
 
+        #Check bookmarks file status
+        menu_config_radios.set_sensitive(self.provider.isBookmarkWritable())
+
         # build 
         menu.append(self.turnOnOff)    
         menu.append(gtk.MenuItem())                        
