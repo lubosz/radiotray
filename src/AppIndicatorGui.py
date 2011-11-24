@@ -61,7 +61,6 @@ class AppIndicatorGui:
         
         self.turnOnOff = None
         self.metadata_menu_item = None
-        self.sleep_timer_menu_item = None
         self.perferences_submenu = None
         self.preferences_menu = None            
         self.radioMenu = gtk.Menu()
@@ -89,8 +88,8 @@ class AppIndicatorGui:
             self.metadata_menu_item = gtk.MenuItem("Idle", False)
             self.metadata_menu_item.set_sensitive(False)
         
-        if self.sleep_timer_menu_item == None:                        
-            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
+#        if self.sleep_timer_menu_item == None:                        
+#            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
         
         if self.preferences_menu == None:
             self.preferences_menu = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)                
@@ -99,7 +98,7 @@ class AppIndicatorGui:
         menu_reload_bookmarks = gtk.MenuItem(_("Reload Bookmarks"))
         volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
         volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
-
+	menu_config_plugin = gtk.MenuItem(_("Configure Plugins..."))
         #Check bookmarks file status
         menu_config_radios.set_sensitive(self.provider.isBookmarkWritable())
 
@@ -113,8 +112,8 @@ class AppIndicatorGui:
         
         menu_config_radios.connect('activate', self.handler.on_preferences)
         menu_reload_bookmarks.connect('activate', self.handler.reload_bookmarks)
-        #self.sleep_timer_menu_item.connect('activate', self.handler.on_sleep_menu)
-        
+        menu_config_plugin.connect('activate', self.handler.on_plugin_preferences)
+
         volume_menu_item_up.connect('activate', self.handler.volume_up)
         volume_menu_item_down.connect('activate', self.handler.volume_down)        
                    
@@ -128,16 +127,18 @@ class AppIndicatorGui:
             self.preferences_menu.set_submenu(self.perferences_submenu)               
             self.perferences_submenu.append(volume_menu_item_up)
             self.perferences_submenu.append(volume_menu_item_down)
-            self.perferences_submenu.append(gtk.MenuItem())          
-            self.perferences_submenu.append(self.sleep_timer_menu_item)       
+            self.perferences_submenu.append(gtk.MenuItem())               
             self.perferences_submenu.append(menu_config_radios)
             self.perferences_submenu.append(menu_reload_bookmarks)
 
         # plugins submenu
         menu_plugins_item = gtk.MenuItem("Plugins", False)
         self.menu_plugins = gtk.Menu()
-        menu_plugins_item.set_submenu(self.menu_plugins)
-        menu.append(menu_plugins_item)
+	self.menu_plugins.append(menu_config_plugin)
+	self.menu_plugins.append(gtk.MenuItem())	#add separator
+	menu_plugins_item.set_submenu(self.menu_plugins)
+	
+	menu.append(menu_plugins_item)
 
         menu_about = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_quit = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
