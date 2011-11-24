@@ -30,6 +30,7 @@ try:
     import gobject
     import os
     from lib import utils
+    from lib.common import APP_ICON_ON
 except:
     sys.exit(1)
 import logging
@@ -47,6 +48,9 @@ class PluginConfiguration(object):
         self.wTree = gladefile
         self.window = self.wTree.get_object("dialog1")
         self.list = self.wTree.get_object("treeview1")
+        
+        # set icon
+        self.window.set_icon_from_file(APP_ICON_ON)
 
         # load plugin data
         liststore = self.load_data()
