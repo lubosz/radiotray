@@ -96,8 +96,6 @@ class AppIndicatorGui:
         
         menu_config_radios = gtk.MenuItem(_("Configure Radios..."))
         menu_reload_bookmarks = gtk.MenuItem(_("Reload Bookmarks"))
-        volume_menu_item_up = gtk.MenuItem(_("Volume Up"))
-        volume_menu_item_down = gtk.MenuItem(_("Volume Down"))
 	menu_config_plugin = gtk.MenuItem(_("Configure Plugins..."))
         #Check bookmarks file status
         menu_config_radios.set_sensitive(self.provider.isBookmarkWritable())
@@ -113,9 +111,7 @@ class AppIndicatorGui:
         menu_config_radios.connect('activate', self.handler.on_preferences)
         menu_reload_bookmarks.connect('activate', self.handler.reload_bookmarks)
         menu_config_plugin.connect('activate', self.handler.on_plugin_preferences)
-
-        volume_menu_item_up.connect('activate', self.handler.volume_up)
-        volume_menu_item_down.connect('activate', self.handler.volume_down)        
+   
                    
         menu.append(gtk.MenuItem())
      
@@ -125,9 +121,7 @@ class AppIndicatorGui:
         if self.perferences_submenu == None:  
             self.perferences_submenu = gtk.Menu()
             self.preferences_menu.set_submenu(self.perferences_submenu)               
-            self.perferences_submenu.append(volume_menu_item_up)
-            self.perferences_submenu.append(volume_menu_item_down)
-            self.perferences_submenu.append(gtk.MenuItem())               
+            #self.perferences_submenu.append(gtk.MenuItem())               
             self.perferences_submenu.append(menu_config_radios)
             self.perferences_submenu.append(menu_reload_bookmarks)
 
