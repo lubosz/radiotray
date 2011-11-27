@@ -136,7 +136,7 @@ class BookmarkConfiguration(object):
         self.list.connect("drag-motion", self.onDragMotion)
 
         # Connect row activation with bookmarks conf
-        self.list.connect("row-activated", self.on_edit_bookmark_clicked)
+        self.list.connect("row-activated", self.on_row_activated)
 
     def load_data(self):
     
@@ -310,7 +310,7 @@ class BookmarkConfiguration(object):
                 print 'No radio information provided!'
         self.config.hide()
 
-    def on_edit_bookmark_clicked(self, widget, row, cell):
+    def on_edit_bookmark_clicked(self, widget):
 
         #get current selected element
         selection = self.list.get_selection()
@@ -430,6 +430,11 @@ class BookmarkConfiguration(object):
                     
                 self.sepMove.hide()
             
+    def on_row_activated(self, widget, row, cell):
+      self.on_edit_bookmark_clicked(widget)
+    
+    
+    
     def on_remove_bookmark_clicked(self, widget):
 
         #get current selected element
