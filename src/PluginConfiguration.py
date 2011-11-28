@@ -78,7 +78,7 @@ class PluginConfiguration(object):
             self.wTree.connect_signals(self)
 
 
-        self.window.run()
+        self.window.show()
 
 
     def load_data(self):
