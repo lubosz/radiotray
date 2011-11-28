@@ -197,6 +197,12 @@ class BookmarkConfiguration(object):
 
     #drag and drop support   
     def onDragDataReceived(self, treeview, drag_context, x, y, selection_data, info, eventtime):
+
+        #check if there's a valid drop location
+        if(treeview.get_dest_row_at_pos(x, y) == None):
+            self.log.debug("Dropped into nothing")
+            return
+
         target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
         model, source = treeview.get_selection().get_selected()
         target = model.get_iter(target_path)
