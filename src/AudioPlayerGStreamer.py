@@ -58,7 +58,7 @@ class AudioPlayerGStreamer:
             if(len(self.playlist) == 0):
                 self.log.warn('Received empty playlist!')
                 self.mediator.stop()
-                self.mediator.notifyError(_("Connection Error"), _("Received empty stream from station"))
+                self.eventManager.notify(EventManager.STATION_ERROR, {'error':"Received empty stream from station"})
             self.log.debug(self.playlist)
             self.playNextStream()
 
