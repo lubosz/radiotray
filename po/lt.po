@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Algimantas Margevičius <gymka@mail.ru>, 2011.
 #   <arvydaspresent@gmail.com>, 2011.
@@ -9,64 +9,55 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-06-18 11:47+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-01 18:04+0000\n"
 "PO-Revision-Date: 2011-08-24 13:33+0000\n"
 "Last-Translator: gymka_ltu <margevicius.algimantas@gmail.com>\n"
-"Language-Team: Lithuanian (http://www.transifex.net/projects/p/radiotray/team/lt/)\n"
+"Language-Team: Lithuanian (http://www.transifex.net/projects/p/radiotray/"
+"team/lt/)\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
 msgstr "Pridėti grupę"
 
 #: ../data/configBookmarks.glade.h:2
-msgid "Current group:"
-msgstr "Dabrtinė grupė:"
-
-#: ../data/configBookmarks.glade.h:3
 msgid "Group :"
 msgstr "Grupė:"
 
-#: ../data/configBookmarks.glade.h:4
-msgid "Move Group"
-msgstr "Perkelti grupę"
-
-#: ../data/configBookmarks.glade.h:5
-msgid "Move item to another group"
+#: ../data/configBookmarks.glade.h:3
+#, fuzzy
+msgid "Move separator to another group"
 msgstr "Perkelti įrašą į kitą grupę"
 
-#: ../data/configBookmarks.glade.h:6
+#: ../data/configBookmarks.glade.h:4
 msgid "Name :"
 msgstr "Pavadinimas:"
 
-#: ../data/configBookmarks.glade.h:7
-msgid "New group:"
-msgstr "Nauja grupė:"
-
-#: ../data/configBookmarks.glade.h:8
+#: ../data/configBookmarks.glade.h:5
 msgid "Parent Group :"
 msgstr "Dabartinė grupė:"
 
-#: ../data/configBookmarks.glade.h:9
+#: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
 msgid "Separator"
 msgstr "Skirtukas"
 
-#: ../data/configBookmarks.glade.h:10
+#: ../data/configBookmarks.glade.h:7
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Radijų tvarkymas"
 
-#: ../data/configBookmarks.glade.h:11
+#: ../data/configBookmarks.glade.h:8
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Radijo pavadinimas:"
 
-#: ../data/configBookmarks.glade.h:12
+#: ../data/configBookmarks.glade.h:9
 msgctxt "yes"
 msgid "URL :"
 msgstr "URL:"
@@ -103,48 +94,36 @@ msgstr ""
 msgid "%s's Website"
 msgstr "%s Tinklalapis"
 
-#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
-msgid "Connection Error"
-msgstr "Prisijungimo klaida"
-
-#: ../src/AudioPlayerGStreamer.py:56
-msgid "Received empty stream from station"
-msgstr "Iš stoties gautas tuščias srautas"
-
-#: ../src/AudioPlayerGStreamer.py:66
-msgid "Couldn't read stream from station"
-msgstr "Nepavyko perskaityt srauto iš stoties"
-
-#: ../src/BookmarkConfiguration.py:88
+#: ../src/BookmarkConfiguration.py:96
 msgid "Radio Name"
 msgstr "Radijo stotys"
 
-#: ../src/BookmarkConfiguration.py:176
+#: ../src/BookmarkConfiguration.py:275
 msgid "Add new station"
 msgstr "Pridėti naują stotį"
 
-#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
-#: ../src/BookmarkConfiguration.py:483
+#: ../src/BookmarkConfiguration.py:352
 #, python-format
 msgid "Edit %s"
 msgstr "Redaguoti %s"
 
-#: ../src/BookmarkConfiguration.py:263
+#: ../src/BookmarkConfiguration.py:388
 msgid "Edit group"
 msgstr "Redaguoti grupę"
 
-#: ../src/BookmarkConfiguration.py:302
+#. populate dialog with radio information
+#: ../src/BookmarkConfiguration.py:422
+msgid "Edit Separator"
+msgstr "Redaguoti skirtuką"
+
+#: ../src/BookmarkConfiguration.py:464
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite pašalinti \"%s\"?"
 
-#: ../src/BookmarkConfiguration.py:384
+#: ../src/BookmarkConfiguration.py:506
 msgid "Add new group"
 msgstr "Pridėti naują grupę"
-
-#: ../src/BookmarkConfiguration.py:461
-msgid "Edit Separator"
-msgstr "Redaguoti skirtuką"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -154,129 +133,154 @@ msgstr "Programos autoriai:"
 msgid "Contributors:"
 msgstr "Pagalbininkai:"
 
-#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
-msgctxt "Unknown radio specified by URL"
-msgid "Unknown radio"
-msgstr "Nežinoma radijo stotis"
-
-#: ../src/StateMediator.py:105
-msgctxt "An error notification."
-msgid "Radio Error"
-msgstr "Radio stoties klaida"
-
-#: ../src/StateMediator.py:116
-msgctxt "Notifies which radio is currently playing."
-msgid "Radio Tray Playing"
-msgstr "Radio Tray groja"
-
-#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
-#: ../src/SysTray.py:350 ../src/SysTray.py:520
+#: ../src/AppIndicatorGui.py:77 ../src/AppIndicatorGui.py:196
+#: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
+#: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
 msgid "Turned Off"
 msgstr "Išjungta"
 
-#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
-#: ../src/SysTray.py:353 ../src/SysTray.py:523
+#: ../src/AppIndicatorGui.py:80 ../src/AppIndicatorGui.py:199
+#: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
+#: ../src/SysTrayGui.py:203
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "Įjungti \"%s\""
 
-#: ../src/SysTray.py:157 ../src/SysTray.py:535
-msgid "Sleep Timer"
-msgstr "Neveiksnos laikmatis"
-
-#: ../src/SysTray.py:158 ../src/SysTray.py:540
+#: ../src/AppIndicatorGui.py:97 ../src/SysTrayGui.py:72
 msgid "Configure Radios..."
 msgstr "Konfigūruoti radijas..."
 
-#: ../src/SysTray.py:159 ../src/SysTray.py:541
+#: ../src/AppIndicatorGui.py:98 ../src/SysTrayGui.py:77
 msgid "Reload Bookmarks"
 msgstr "Perkrauti žymas"
 
-#: ../src/SysTray.py:187
-#, python-format
-msgid "Idle (vol: %s%%)"
-msgstr "Neveiksnus (garsas: %s%%)"
+#: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
+#, fuzzy
+msgid "Configure Plugins..."
+msgstr "Konfigūruoti radijas..."
 
-#: ../src/SysTray.py:293
-msgid "Sleep timer expired"
-msgstr "Neveiksnumo laikmatis išseko"
-
-#: ../src/SysTray.py:332
-#, python-format
-msgid "%s minute sleep timer started"
-msgstr "neveiksnumo laikmatis įsijungė prieš %s minutes"
-
-#: ../src/SysTray.py:338
-msgid "Sleep timer stopped"
-msgstr "Neveiksnumo laikmatis sustabdytas"
-
-#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
-#: ../src/SysTray.py:382
+#: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
+#: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Išjungti \"%s\""
 
-#: ../src/SysTray.py:383
+#: ../src/AppIndicatorGui.py:233
+#, fuzzy, python-format
+msgctxt "Playing status tooltip information"
+msgid "Playing (vol: %s%%)"
+msgstr "Grojama (garsas: %s%%%s)"
+
+#: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
+#, fuzzy, python-format
+msgctxt "Informs Radio Tray is idle as a tooltip."
+msgid "Idle (vol: %s%%)"
+msgstr "Neveiksnus (garsas: %s%%)"
+
+#: ../src/Context.py:32
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Nežinoma radijo stotis"
+
+#: ../src/NotificationManager.py:35
+#, fuzzy
+msgid "Radio Tray Playing"
+msgstr "Radio Tray groja"
+
+#: ../src/NotificationManager.py:60
+#, fuzzy
+msgid "Radio Error"
+msgstr "Radio stoties klaida"
+
+#: ../src/NotificationManager.py:64
+msgid "Bookmarks Reloaded"
+msgstr "Žymos perkrautos"
+
+#: ../src/PluginConfiguration.py:66
+msgid "Active"
+msgstr ""
+
+#: ../src/PluginConfiguration.py:71
+#, fuzzy
+msgid "Name"
+msgstr "Pavadinimas:"
+
+#: ../src/SysTrayGui.py:116
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Neveiksnus (garsas: %s%%)"
+
+#: ../src/SysTrayGui.py:214
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Jungiasi prie %s"
 
-#: ../src/SysTray.py:397
-#, python-format
-msgid ", sleep: %s min"
-msgstr ", miegoti: %s min"
-
-#: ../src/SysTray.py:402
-#, python-format
+#: ../src/SysTrayGui.py:230
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%%s)\n"
+"Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
 "Grojama <b>%s</b> (garsas: %s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTray.py:416
-#, python-format
+#: ../src/SysTrayGui.py:232
+#, fuzzy, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr "Grojama <b>%s</b> (garsas: %s%%%s)"
 
-#: ../src/SysTray.py:418
-#, python-format
-msgid "Playing (vol: %s%%%s)"
-msgstr "Grojama (garsas: %s%%%s)"
+#~ msgid "Current group:"
+#~ msgstr "Dabrtinė grupė:"
 
-#: ../src/SysTray.py:421 ../src/SysTray.py:423
-#, python-format
-msgctxt "Informs Radiotray is idle as a tooltip."
-msgid "Idle (vol: %s%%%s)"
-msgstr "Neveiksnumas (garsas: %s%%%s)"
+#~ msgid "Move Group"
+#~ msgstr "Perkelti grupę"
 
-#: ../src/SysTray.py:481
-msgid "Bookmarks Reloaded"
-msgstr "Žymos perkrautos"
+#~ msgid "New group:"
+#~ msgstr "Nauja grupė:"
 
-#: ../src/SysTray.py:488
-msgid "Edit Sleep Timer"
-msgstr "Redaguoti neveiksnumo laikmatį"
+#~ msgid "Connection Error"
+#~ msgstr "Prisijungimo klaida"
 
-#: ../src/SysTray.py:494
-msgid "Minutes:"
-msgstr "Minutės:"
+#~ msgid "Received empty stream from station"
+#~ msgstr "Iš stoties gautas tuščias srautas"
 
-#: ../src/SysTray.py:531
-msgid "Idle"
-msgstr "Neveiksnus"
+#~ msgid "Couldn't read stream from station"
+#~ msgstr "Nepavyko perskaityt srauto iš stoties"
 
-#: ../src/SysTray.py:542
-msgid "Volume Up"
-msgstr "Pagarsinti"
+#~ msgid "Sleep Timer"
+#~ msgstr "Neveiksnos laikmatis"
 
-#: ../src/SysTray.py:543
-msgid "Volume Down"
-msgstr "Patildyti"
+#~ msgid "Sleep timer expired"
+#~ msgstr "Neveiksnumo laikmatis išseko"
 
+#~ msgid "%s minute sleep timer started"
+#~ msgstr "neveiksnumo laikmatis įsijungė prieš %s minutes"
 
+#~ msgid "Sleep timer stopped"
+#~ msgstr "Neveiksnumo laikmatis sustabdytas"
+
+#~ msgid ", sleep: %s min"
+#~ msgstr ", miegoti: %s min"
+
+#~ msgctxt "Informs Radiotray is idle as a tooltip."
+#~ msgid "Idle (vol: %s%%%s)"
+#~ msgstr "Neveiksnumas (garsas: %s%%%s)"
+
+#~ msgid "Edit Sleep Timer"
+#~ msgstr "Redaguoti neveiksnumo laikmatį"
+
+#~ msgid "Minutes:"
+#~ msgstr "Minutės:"
+
+#~ msgid "Idle"
+#~ msgstr "Neveiksnus"
+
+#~ msgid "Volume Up"
+#~ msgstr "Pagarsinti"
+
+#~ msgid "Volume Down"
+#~ msgstr "Patildyti"

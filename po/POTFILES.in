@@ -17,7 +17,6 @@ src/__init__.py
 src/lib/common.py
 src/lib/utils.py
 src/M3uPlaylistDecoder.py
-src/Notification.py
 src/PlsPlaylistDecoder.py
 src/radiotray.py
 src/RadioTray.py
@@ -27,3 +26,8 @@ src/SysTray.py
 src/XmlConfigProvider.py
 src/XmlDataProvider.py
 src/XspfPlaylistDecoder.py
+src/AppIndicatorGui.py
+src/Context.py
+src/NotificationManager.py
+src/PluginConfiguration.py
+src/SysTrayGui.py
