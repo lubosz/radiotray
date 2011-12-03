@@ -31,7 +31,9 @@ from TooltipManager import TooltipManager
 from PluginManager import PluginManager
 import os
 from shutil import move, copy2
-from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH, DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE
+from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH,\
+    DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE,\
+    USER_PLUGIN_PATH, LOGFILE
 import mpris
 from GuiChooserConfiguration import GuiChooserConfiguration
 import logging
@@ -40,21 +42,13 @@ from logging import handlers
 class RadioTray(object):
 
     def __init__(self, url=None):
-
-        # config logging
-        self.logger = logging.getLogger('radiotray')
-        self.logger.setLevel(logging.DEBUG)
-        logfile = os.path.join(USER_CFG_PATH,'radiotray.log')
-        handler = logging.handlers.RotatingFileHandler(logfile, maxBytes=2000000, backupCount=1)
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
+        
+        self.loadConfiguration()
         
         self.logger.info('Starting Radio Tray...')
 
         # load configuration
-        self.loadConfiguration()
-
+        
         # load bookmarks data provider and initializes it
         self.provider = XmlDataProvider(self.filename)
         self.provider.loadFromFile()
@@ -130,12 +124,18 @@ class RadioTray(object):
 
 
     def loadConfiguration(self):
-        self.logger.debug("Loading configuration...")
 
         if not os.path.exists(USER_CFG_PATH):
-            self.logger.info("user's directory created")
+            #self.logger.info("user's directory created")
             os.mkdir(USER_CFG_PATH)
-
+            
+        if not os.path.exists(USER_PLUGIN_PATH):
+            os.mkdir(USER_PLUGIN_PATH)
+        
+        self.configLogging()
+        
+        self.logger.debug("Loading configuration...")
+        
         self.filename = os.path.join(USER_CFG_PATH, CFG_NAME)
 
         self.cfg_filename = os.path.join(USER_CFG_PATH, OPTIONS_CFG_NAME)
@@ -162,6 +162,16 @@ class RadioTray(object):
 
             self.logger.warn('Configuration file not found. Copying default configuration file to user directory')
             copy2(DEFAULT_CONFIG_FILE, self.cfg_filename)
+
+
+    def configLogging(self):
+        # config logging
+        self.logger = logging.getLogger('radiotray')
+        self.logger.setLevel(logging.DEBUG)
+        handler = logging.handlers.RotatingFileHandler(LOGFILE, maxBytes=2000000, backupCount=1)
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
 
 if __name__ == "__main__":
         radio = RadioTray()
