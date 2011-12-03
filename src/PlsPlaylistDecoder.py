@@ -30,7 +30,7 @@ class PlsPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if('audio/x-scpls' in contentType):
+        if(('audio/x-scpls' in contentType) or ('application/pls+xml' in contentType) or (firstBytes.strip().lower().startswith('[playlist]'))):
             self.log.info('Stream is readable by PLS Playlist Decoder')
             return True
         else:

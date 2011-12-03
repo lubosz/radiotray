@@ -111,6 +111,7 @@ class StreamDecoder:
                 return UrlInfo(url, True, contentType, decoder)
             
         # no playlist decoder found. Maybe a direct stream
+        self.log.info('No playlist decoder could handle the stream. Maybe direct stream...')
         return UrlInfo(url, False, contentType)
         
 
