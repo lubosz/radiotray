@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-06-15 00:02+0000\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
 "Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
-"Language-Team: Arabic (http://www.transifex.net/projects/p/radiotray/team/"
-"ar/)\n"
-"Language: ar\n"
+"Language-Team: Arabic (http://www.transifex.net/projects/p/radiotray/team/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -27,9 +26,8 @@ msgid "Group :"
 msgstr "المجموعة:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "نقل المحطة إلى مجوعة أخرى"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -149,9 +147,8 @@ msgid "Reload Bookmarks"
 msgstr "إعادة تحميل العلامات"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "يتم الان إعداد المحطات..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -178,14 +175,12 @@ msgid "Unknown radio"
 msgstr "محطة غير معروفة"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "التطبيق يعمل الآن "
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "خطأ "
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -196,9 +191,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "الأسم: "
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -225,11 +219,4 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
 msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "المجموعة الحالية:"
 
-#~ msgid "Move Group"
-#~ msgstr "نقل المجموعة"
-
-#~ msgid "New group:"
-#~ msgstr "مجموعة جديدة: "

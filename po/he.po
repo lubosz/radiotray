@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Ariel Nemtzov <reldude84@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-07-12 10:56+0000\n"
-"Last-Translator: rel_dude <reldude84@gmail.com>\n"
-"Language-Team: Hebrew (http://www.transifex.net/projects/p/radiotray/team/"
-"he/)\n"
-"Language: he\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"Language-Team: Hebrew (http://www.transifex.net/projects/p/radiotray/team/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -27,9 +27,8 @@ msgid "Group :"
 msgstr "קבוצה:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "הזז פריט לקבוצה אחרת"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -149,9 +148,8 @@ msgid "Reload Bookmarks"
 msgstr "טען סימניות מחדש"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "הגדר תחנות..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -161,16 +159,16 @@ msgid "Turn Off \"%s\""
 msgstr "כבה \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "מנגן (עוצמת שמע: %s%%%s)"
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "מושהה (עוצמת שמע: %s%%)"
+msgstr ""
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -178,14 +176,12 @@ msgid "Unknown radio"
 msgstr "תחנה לא ידועה"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Radio Tray מנגן"
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "שגיאה בתחנה"
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -196,9 +192,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "שם:"
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -212,69 +207,17 @@ msgid "Connecting to %s"
 msgstr "מתחבר לתחנה %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"מנגן <b>%s</b>(עוצמת שמע:%s%%%s)\n"
-"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "מנגן <b>%s</b>(עוצמת שמע:%s%%%s)"
+msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "קבוצה נוכחית:"
 
-#~ msgid "Move Group"
-#~ msgstr "הזז קבוצה"
-
-#~ msgid "New group:"
-#~ msgstr "קבוצה חדשה:"
-
-#~ msgid "Connection Error"
-#~ msgstr "שגיאת התחברות"
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "התקבל שידור ריק מהתחנה"
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "לא ניתן לקרוא את השידור מהתחנה"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "טיימר כיבוי"
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "טיימר כיבוי פג"
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "%s טיימר כיבוי החל בדקה"
-
-#~ msgid "Sleep timer stopped"
-#~ msgstr "טיימר כיבוי הופסק"
-
-#~ msgid ", sleep: %s min"
-#~ msgstr ", כיבוי: %s דקות"
-
-#~ msgctxt "Informs Radiotray is idle as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "מושהה (עוצמת שמע: %s%%%s)"
-
-#~ msgid "Edit Sleep Timer"
-#~ msgstr "ערוך טיימר כיבוי"
-
-#~ msgid "Minutes:"
-#~ msgstr "דקות:"
-
-#~ msgid "Idle"
-#~ msgstr "מושהה"
-
-#~ msgid "Volume Up"
-#~ msgstr "הגבר שמע"
-
-#~ msgid "Volume Down"
-#~ msgstr "הנמך שמע"

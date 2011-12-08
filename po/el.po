@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-06-15 00:02+0000\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
 "Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
-"Language-Team: Greek (http://www.transifex.net/projects/p/radiotray/team/"
-"el/)\n"
-"Language: el\n"
+"Language-Team: Greek (http://www.transifex.net/projects/p/radiotray/team/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -27,9 +27,8 @@ msgid "Group :"
 msgstr "Ομάδα:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "Μετακίνηση στοιχείου σε άλλη ομάδα"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -149,9 +148,8 @@ msgid "Reload Bookmarks"
 msgstr "Ανανέωση σελιδοδεικτών"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "Ρυθμίσεις Σταθμών..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -161,16 +159,16 @@ msgid "Turn Off \"%s\""
 msgstr "Απενεργοποίηση \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Αναπαραγωγή <b>%s</b> (ένταση: %s%%%s)"
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "Ανενεργό (ένταση: %s%%)"
+msgstr ""
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -178,14 +176,12 @@ msgid "Unknown radio"
 msgstr "Άγνωστος σταθμός"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Αναπαραγωγή Radio Tray"
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "Σφάλμα Σταθμού"
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -196,9 +192,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "Όνομα:"
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -212,39 +207,17 @@ msgid "Connecting to %s"
 msgstr "Σύνδεση με %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Αναπαραγωγή <b>%s</b> (ένταση: %s%%%s)\n"
-"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Αναπαραγωγή <b>%s</b> (ένταση: %s%%%s)"
+msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "Τρέχουσα ομάδα:"
 
-#~ msgid "Move Group"
-#~ msgstr "Μετακίνηση ομάδας"
-
-#~ msgid "New group:"
-#~ msgstr "Νέα ομάδα:"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "Χρονοδιακόπτης ύπνου"
-
-#~ msgctxt "Informs what radio and music is being played as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "Ανενεργό (ένταση: %s%%%s)"
-
-#~ msgid "Volume Up"
-#~ msgstr "Αύξηση έντασης"
-
-#~ msgid "Volume Down"
-#~ msgstr "Μείωση έντασης"

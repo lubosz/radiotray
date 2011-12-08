@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Tadej Borovšak <tadeboro@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-07-17 15:39+0000\n"
-"Last-Translator: tadeboro <tadeboro@gmail.com>\n"
-"Language-Team: Slovenian (http://www.transifex.net/projects/p/radiotray/team/"
-"sl/)\n"
-"Language: sl\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"Language-Team: Slovenian (http://www.transifex.net/projects/p/radiotray/team/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3)\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -28,9 +27,8 @@ msgid "Group :"
 msgstr "Skupina:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "Premakno vnos v drugo skupino"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -150,9 +148,8 @@ msgid "Reload Bookmarks"
 msgstr "Ponovno naloži zaznamke"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "Nastavi radijske postaje ..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,16 +159,16 @@ msgid "Turn Off \"%s\""
 msgstr "Izklopi \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Predvajam <b>%s</b> (glasnost: %s%%%s)"
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "V mirovanju (glasnost: %s%%)"
+msgstr ""
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -179,14 +176,12 @@ msgid "Unknown radio"
 msgstr "Neznana radijska postaja"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Radio Tray predvaja"
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "Napaka postaje"
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -197,9 +192,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "Ime:"
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,50 +207,17 @@ msgid "Connecting to %s"
 msgstr "Povezujem se na %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Predvajam <b>%s</b> (glasnost: %s%%%s)\n"
-"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Predvajam <b>%s</b> (glasnost: %s%%%s)"
+msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "Trenutna skupina:"
 
-#~ msgid "Move Group"
-#~ msgstr "Premakni skupino"
-
-#~ msgid "New group:"
-#~ msgstr "Nova skupina:"
-
-#~ msgid "Connection Error"
-#~ msgstr "Napaka pri "
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "Prejel prazen niz od "
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "Niza s postaje ni mogoče "
-
-#~ msgid "Sleep Timer"
-#~ msgstr "Števec "
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "Števec spanja "
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "%s "
-
-#~ msgid "Volume Up"
-#~ msgstr "Povečaj glasnost"
-
-#~ msgid "Volume Down"
-#~ msgstr "Zmanjšaj glasnost"

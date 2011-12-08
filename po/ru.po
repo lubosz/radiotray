@@ -1,25 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Alexey Ivanov <alexey.ivanes@gmail.com>, 2011.
 #   <evamel@tut.by>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-08-10 12:29+0000\n"
-"Last-Translator: Amelkov <evamel@tut.by>\n"
-"Language-Team: Russian (http://www.transifex.net/projects/p/radiotray/team/"
-"ru/)\n"
-"Language: ru\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/radiotray/team/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -30,9 +28,8 @@ msgid "Group :"
 msgstr "Группа:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "Переместить элемент в другую группу "
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -155,9 +152,8 @@ msgid "Reload Bookmarks"
 msgstr "Перезагрузить закладки"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "Настройки радиостанций..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -167,16 +163,16 @@ msgid "Turn Off \"%s\""
 msgstr "Выключить \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Воспроизведение (vol: %s%%%s)"
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "Режим ожидания (громкость: %s%%)"
+msgstr ""
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -184,14 +180,12 @@ msgid "Unknown radio"
 msgstr "Неизвестная радиостанция"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Воспроизводится"
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "Ошибка"
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -202,9 +196,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "Имя:"
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -218,69 +211,17 @@ msgid "Connecting to %s"
 msgstr "Соединение с  %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Воспроизводится <b>%s</b> (громкость: %s%%%s)\n"
-"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%%s)"
+msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "Текущая группа:"
 
-#~ msgid "Move Group"
-#~ msgstr "Переместить группу"
-
-#~ msgid "New group:"
-#~ msgstr "Новая группа:"
-
-#~ msgid "Connection Error"
-#~ msgstr "Ошибка при подключении"
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "Получен пустой поток от станции"
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "Не удалось прочитать поток станции"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "Таймер сна"
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "Таймер сна истек"
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "%s минутный таймер сна запущен"
-
-#~ msgid "Sleep timer stopped"
-#~ msgstr "Таймер сна остановлен"
-
-#~ msgid ", sleep: %s min"
-#~ msgstr ", сон: %s мин"
-
-#~ msgctxt "Informs Radiotray is idle as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "Режим ожидания (vol: %s%%%s)"
-
-#~ msgid "Edit Sleep Timer"
-#~ msgstr "Изменить таймер сна"
-
-#~ msgid "Minutes:"
-#~ msgstr "Минуты:"
-
-#~ msgid "Idle"
-#~ msgstr "Режим ожидания"
-
-#~ msgid "Volume Up"
-#~ msgstr "Звук громче"
-
-#~ msgid "Volume Down"
-#~ msgstr "Звук тише"

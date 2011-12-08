@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
-#   <carlosmribeiro1@gmail.com>, 2011.
+# 
+# Translators:
 # carlosm <carlosmribeiro1@gmail.com>, 2011.
+#   <carlosmribeiro1@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-07-08 15:55+0000\n"
+"PO-Revision-Date: 2011-12-01 18:26+0000\n"
 "Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
-"Language-Team: Portuguese (http://www.transifex.net/projects/p/radiotray/"
-"team/pt/)\n"
-"Language: pt\n"
+"Language-Team: Portuguese (http://www.transifex.net/projects/p/radiotray/team/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -28,9 +28,8 @@ msgid "Group :"
 msgstr "Grupo :"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "Mover item para outro grupo"
+msgstr "Mover separador para outro grupo"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -150,9 +149,8 @@ msgid "Reload Bookmarks"
 msgstr "Actualizar Marcadores"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "Configurar rádios..."
+msgstr "Configurar Plugins..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,13 +160,13 @@ msgid "Turn Off \"%s\""
 msgstr "Desligar \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "A reproduzir (vol:%s%s%%)"
+msgstr "A reproduzir (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
 msgstr "Inactivo (vol: %s%%)"
@@ -179,12 +177,10 @@ msgid "Unknown radio"
 msgstr "Rádio Desconhecida"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Rádio Tray a Reproduzir"
+msgstr "A reproduzir"
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
 msgstr "Erro"
 
@@ -194,12 +190,11 @@ msgstr "Marcadores Actualizados"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "Nome :"
+msgstr "Nome"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,69 +208,19 @@ msgid "Connecting to %s"
 msgstr "A conectar-se a %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"Reproduzindo <b>%s</b> (vol: %s%%%s)\n"
+"A reproduzir <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Reproduzindo <b>%s</b> (vol: %s%%%s)"
+msgstr "A reproduzir <b>%s</b> (vol: %s%%)"
 
-#~ msgid "Current group:"
-#~ msgstr "Grupo actual :"
 
-#~ msgid "Move Group"
-#~ msgstr "Mover grupo"
-
-#~ msgid "New group:"
-#~ msgstr "Novo grupo :"
-
-#~ msgid "Connection Error"
-#~ msgstr "Erro de conexão"
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "Recebida informação vazia da estação"
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "Não foi possível ler da estação"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "Temporizador"
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "Temporizador expirou"
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "%s minutos temporizador iniciou"
-
-#~ msgid "Sleep timer stopped"
-#~ msgstr "Temporizador desligado"
-
-#~ msgid ", sleep: %s min"
-#~ msgstr ", temporizador: %s min"
-
-#~ msgctxt "Informs Radiotray is idle as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "Inativo (vol:%s%%%s)"
-
-#~ msgid "Edit Sleep Timer"
-#~ msgstr "Editar Temporizador"
-
-#~ msgid "Minutes:"
-#~ msgstr "Minutos:"
-
-#~ msgid "Idle"
-#~ msgstr "Inativo"
-
-#~ msgid "Volume Up"
-#~ msgstr "Aumentar Volume"
-
-#~ msgid "Volume Down"
-#~ msgstr "Diminuir Volume"

@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Kasutaja <kasutaja@kasutaja-desktop>, 2011.
 #   <valdur55@gmail.com>, 2011.
-# Valdur Kana <valdur55@gmail.com>, 2011.
 # valdur55 <valdur55@gmail.com>, 2011.
+# Valdur Kana <valdur55@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-07-13 14:00+0000\n"
+"PO-Revision-Date: 2011-12-06 13:38+0000\n"
 "Last-Translator: valdur55 <valdur55@gmail.com>\n"
-"Language-Team: Estonian (http://www.transifex.net/projects/p/radiotray/team/"
-"et/)\n"
-"Language: et\n"
+"Language-Team: Estonian (http://www.transifex.net/projects/p/radiotray/team/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -30,9 +30,8 @@ msgid "Group :"
 msgstr "Rühm:"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "Liiguta kirje teise rühma"
+msgstr "Liiguta eraldaja teise rühma."
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -128,7 +127,7 @@ msgstr "Arendajad:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Annetajad:"
+msgstr "Kaastöötajad:"
 
 #: ../src/AppIndicatorGui.py:77 ../src/AppIndicatorGui.py:196
 #: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
@@ -152,9 +151,8 @@ msgid "Reload Bookmarks"
 msgstr "Järjehoidjate värskendamine"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "Raadiote seadistamine"
+msgstr "Pluginate seadistamine"
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -164,13 +162,13 @@ msgid "Turn Off \"%s\""
 msgstr "Peata \"%s\""
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Mängib (vol:%s%%%s)"
+msgstr "Esitamine (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
 msgstr "Jõude (vol: %s%%)"
@@ -181,14 +179,12 @@ msgid "Unknown radio"
 msgstr "Tundmatu raadio"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "Raadio Tray Mängib"
+msgstr "Raadio Tray esitab"
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "Raadio viga"
+msgstr "Raadio Error"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -196,12 +192,11 @@ msgstr "Järjehoidjad on värskendatud"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Aktiivne"
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "Nimi:"
+msgstr "Nimi"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -215,69 +210,19 @@ msgid "Connecting to %s"
 msgstr "Ühendan %s"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"<b>%s</b> estiamine (vol: %s%%%s)\n"
+"<b>%s</b> esitamine (vol: %s%%)\n"
 "<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "<b>%s</b> esitamine (vol: %s%%%s)"
+msgstr "<b>%s</b> esitamine (vol: %s%%)"
 
-#~ msgid "Current group:"
-#~ msgstr "Praegune rühm:"
 
-#~ msgid "Move Group"
-#~ msgstr "Rühma liigutamine"
-
-#~ msgid "New group:"
-#~ msgstr "Uus rühm:"
-
-#~ msgid "Connection Error"
-#~ msgstr "Ühenduse viga"
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "Raadiovoog on tühi"
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "Raadiovoost ei saadud aru"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "Taimer"
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "Ja vaikus saabuski."
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "Vaikus saabub %s minuti pärast"
-
-#~ msgid "Sleep timer stopped"
-#~ msgstr "Taimer seiskus"
-
-#~ msgid ", sleep: %s min"
-#~ msgstr ", taimer: %s min"
-
-#~ msgctxt "Informs Radiotray is idle as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "Jõude (vol:%s%%%s)"
-
-#~ msgid "Edit Sleep Timer"
-#~ msgstr "Taimeri muutmine"
-
-#~ msgid "Minutes:"
-#~ msgstr "Minutid:"
-
-#~ msgid "Idle"
-#~ msgstr "Jõude"
-
-#~ msgid "Volume Up"
-#~ msgstr "Heli valjemaks"
-
-#~ msgid "Volume Down"
-#~ msgstr "Heli vaiksemaks"

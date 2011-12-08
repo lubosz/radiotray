@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Masami Chikahiro <cmasa.z321@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-11-02 12:31+0000\n"
-"Last-Translator: cmasami <cmasa.z321@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.net/projects/p/radiotray/team/"
-"ja/)\n"
-"Language: ja\n"
+"PO-Revision-Date: 2011-12-01 18:21+0000\n"
+"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.net/projects/p/radiotray/team/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../data/configBookmarks.glade.h:1
@@ -28,9 +27,8 @@ msgid "Group :"
 msgstr "グループ :"
 
 #: ../data/configBookmarks.glade.h:3
-#, fuzzy
 msgid "Move separator to another group"
-msgstr "項目を別のグループに移動"
+msgstr ""
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -150,9 +148,8 @@ msgid "Reload Bookmarks"
 msgstr "ブックマークを読み直す"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-#, fuzzy
 msgid "Configure Plugins..."
-msgstr "ラジオ局の登録..."
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,16 +159,16 @@ msgid "Turn Off \"%s\""
 msgstr "\"%s\"を停止"
 
 #: ../src/AppIndicatorGui.py:233
-#, fuzzy, python-format
+#, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "再生中 (vol: %s%%%s)"
+msgstr ""
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "待機中 (vol: %s%%)"
+msgstr ""
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -179,14 +176,12 @@ msgid "Unknown radio"
 msgstr "不明なラジオ"
 
 #: ../src/NotificationManager.py:35
-#, fuzzy
 msgid "Radio Tray Playing"
-msgstr "ラジオ・トレイ再生中"
+msgstr ""
 
 #: ../src/NotificationManager.py:60
-#, fuzzy
 msgid "Radio Error"
-msgstr "ラジオ・エラー"
+msgstr ""
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -197,9 +192,8 @@ msgid "Active"
 msgstr ""
 
 #: ../src/PluginConfiguration.py:71
-#, fuzzy
 msgid "Name"
-msgstr "名前 :"
+msgstr ""
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,69 +207,17 @@ msgid "Connecting to %s"
 msgstr "%sに接続中"
 
 #: ../src/SysTrayGui.py:230
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
-"再生中 <b>%s</b> (vol: %s%%%s)\n"
-"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
-#, fuzzy, python-format
+#, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "<b>%s</b> 再生中(vol: %s%%%s)"
+msgstr ""
 
-#~ msgid "Current group:"
-#~ msgstr "現在のグループ:"
 
-#~ msgid "Move Group"
-#~ msgstr "グループを移動"
-
-#~ msgid "New group:"
-#~ msgstr "新規グループ:"
-
-#~ msgid "Connection Error"
-#~ msgstr "接続エラー"
-
-#~ msgid "Received empty stream from station"
-#~ msgstr "ラジオ局から空のストリームを受信しました"
-
-#~ msgid "Couldn't read stream from station"
-#~ msgstr "ラジオ局からのストリームを処理できません"
-
-#~ msgid "Sleep Timer"
-#~ msgstr "スリープ・タイマー"
-
-#~ msgid "Sleep timer expired"
-#~ msgstr "スリープ・タイマーにより停止"
-
-#~ msgid "%s minute sleep timer started"
-#~ msgstr "%s 分のスリープ・タイマーを開始しました"
-
-#~ msgid "Sleep timer stopped"
-#~ msgstr "スリープ・タイマーを取り消しました"
-
-#~ msgid ", sleep: %s min"
-#~ msgstr ", スリープ: %s 分"
-
-#~ msgctxt "Informs Radiotray is idle as a tooltip."
-#~ msgid "Idle (vol: %s%%%s)"
-#~ msgstr "待機中 (vol: %s%%%s)"
-
-#~ msgid "Edit Sleep Timer"
-#~ msgstr "スリープタイマーを設定"
-
-#~ msgid "Minutes:"
-#~ msgstr "分:"
-
-#~ msgid "Idle"
-#~ msgstr "待機中"
-
-#~ msgid "Volume Up"
-#~ msgstr "音量を上げる"
-
-#~ msgid "Volume Down"
-#~ msgstr "音量を下げる"
