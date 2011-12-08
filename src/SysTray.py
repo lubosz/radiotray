@@ -94,16 +94,22 @@ class SysTray(object):
         self.ignore_toggle = False
 
         # execute gui chooser
-        self.gui_engine = self.cfg_provider.getConfigValue("gui_engine")
-        if(self.gui_engine == None):
-            self.gui_engine = default_cfg_provider.getConfigValue("gui_engine")
+        try:
+            import appindicator
+            self.gui_engine = self.cfg_provider.getConfigValue("gui_engine")
+            if(self.gui_engine == None):
+                self.gui_engine = default_cfg_provider.getConfigValue("gui_engine")
  
-        if(self.gui_engine == None or self.gui_engine == "chooser"):
-            self.log.debug('show chooser')
-            chooser = GuiChooserConfiguration()
-            self.gui_engine = chooser.run()
+            if(self.gui_engine == None or self.gui_engine == "chooser"):
+                self.log.debug('show chooser')
+                chooser = GuiChooserConfiguration()
+                self.gui_engine = chooser.run()
 
-        self.cfg_provider.setConfigValue("gui_engine", self.gui_engine)
+            self.cfg_provider.setConfigValue("gui_engine", self.gui_engine)
+
+        except Exception as e:
+            self.log.debug('No appindicator support found. Choosing notification area...')
+            self.gui_engine = "systray"
 
 
 

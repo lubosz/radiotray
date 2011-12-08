@@ -66,10 +66,11 @@ class HistoryPlugin(Plugin):
 
 
     def on_menu(self, data):
-        self.window.run()
+        self.window.show()
 
     def on_close_clicked(self, widget):
         self.window.hide()
+        return True
 
     def hasMenuItem(self):
         return True
