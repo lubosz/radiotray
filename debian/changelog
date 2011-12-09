@@ -1,6 +1,16 @@
-radiotray (0.7.0) maverick; urgency=low
+radiotray (0.7) unstable; urgency=low
 
-  * Added plugins system 
+  * Added plugins system
+  * Moved sleep timer functionality to a plugin
+  * Improved user interaction in bookmarks configuration dialog
+  * Moved gnome media shortcut keys funcionality to a plugin
+  * Moved notifications to a plugin
+  * New Song History plugin
+  * Added a proper logging
+  * Read-only bookmark support
+  * Updated translations
+  * Increased default radio stations list
+  * Fix for MMS redirects 
 
  -- Carlos Ribeiro <carlos@carlos-multicert>  Tue, 06 Sep 2011 22:23:18 +0100
 

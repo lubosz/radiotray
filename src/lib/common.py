@@ -7,7 +7,7 @@ from xdg.BaseDirectory import xdg_data_home
 try:
     from defs import *
 except:
-    APPVERSION = "0.7.0-DEV"
+    APPVERSION = "0.7"
     datadir = "/usr/share"
 
 # Application info
