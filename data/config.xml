@@ -6,4 +6,5 @@
   <option name="enable_application_indicator_theme_support" value="false"/>
   <!-- valid options are 'appindicator', 'systray' and 'chooser' -->
   <option name="gui_engine" value="chooser"/>
+  <option name="active_plugins"><item>Notifications</item></option>
 </config>
