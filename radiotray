@@ -10,6 +10,6 @@ except ImportError:
 	workdir = join(basedir,'src')
 	sys.path.insert(0, workdir)
 	os.chdir(workdir)
-	import radiotray 
+	from radiotray import radiotray 
 	
 radiotray.main(sys.argv[1:])
