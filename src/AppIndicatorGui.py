@@ -181,7 +181,7 @@ class AppIndicatorGui:
             self.turnOnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % station)
             self.turnOnOff.set_sensitive(True)
             
-            self.app_indicator.set_icon(APP_INDICATOR_ICON_ON) # APP_ICON_ON)
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_ON)
             
         elif(state == 'paused'):
             if not self.mediator.context.station:
