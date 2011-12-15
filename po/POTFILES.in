@@ -5,6 +5,7 @@
 data/radiotray.desktop
 [type: gettext/glade]data/configBookmarks.glade
 [type: gettext/glade]data/configGui.glade
+[type: gettext/glade]data/configPlugins.glade
 src/about.py
 src/AsfPlaylistDecoder.py
 src/AsxPlaylistDecoder.py
