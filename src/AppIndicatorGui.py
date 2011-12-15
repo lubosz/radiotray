@@ -41,17 +41,9 @@ class AppIndicatorGui:
 
     def buildMenu(self):
 
-        self.app_indicator_use_theme = self.cfg_provider.getConfigValue("enable_application_indicator_theme_support")
-        if self.app_indicator_use_theme == None:
-            self.app_indicator_use_theme = False
-            self.cfg_provider.setConfigValue("enable_application_indicator_theme_support", "false")
-        else:
-            self.app_indicator_use_theme = (self.app_indicator_use_theme == "true")
-
-
         try:            
             import appindicator
-            self.app_indicator = appindicator.Indicator(APPNAME, APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF, appindicator.CATEGORY_APPLICATION_STATUS)
+            self.app_indicator = appindicator.Indicator(APPNAME, APP_INDICATOR_ICON_ON , appindicator.CATEGORY_APPLICATION_STATUS)
             self.app_indicator.set_status(appindicator.STATUS_ACTIVE)
         except Exception as e:
             self.log.debug(e)
@@ -189,7 +181,7 @@ class AppIndicatorGui:
             self.turnOnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % station)
             self.turnOnOff.set_sensitive(True)
             
-            self.app_indicator.set_icon(APP_INDICATOR_ICON_ON if self.app_indicator_use_theme else APP_ICON_ON)
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_ON) # APP_ICON_ON)
             
         elif(state == 'paused'):
             if not self.mediator.context.station:
@@ -199,7 +191,7 @@ class AppIndicatorGui:
                 self.turnOnOff.set_label(_('Turn On "%s"' % self.mediator.context.station))
                 self.turnOnOff.set_sensitive(True)
             
-            self.app_indicator.set_icon(APP_INDICATOR_ICON_OFF if self.app_indicator_use_theme else APP_ICON_OFF)
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_OFF)
         
         elif(state == 'connecting'):
             station = data['station']
