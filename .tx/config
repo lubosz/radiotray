@@ -1,5 +1,5 @@
 [main]
-host = http://www.transifex.net
+host = https://www.transifex.net
 
 [radiotray.tip-po-untitled-pot]
 file_filter = po/<lang>.po
