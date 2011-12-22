@@ -2,16 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 
-# Translators:
 # Alexey Ivanov <alexey.ivanes@gmail.com>, 2011.
-#   <evamel@tut.by>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"POT-Creation-Date: 2011-06-18 11:47+0100\n"
+"PO-Revision-Date: 2011-07-17 00:23+0000\n"
+"Last-Translator: ivanes <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/radiotray/team/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,43 +22,55 @@ msgid "Add Group"
 msgstr "Добавить группу"
 
 #: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "Текущая группа:"
+
+#: ../data/configBookmarks.glade.h:3
 msgid "Group :"
 msgstr "Группа:"
 
-#: ../data/configBookmarks.glade.h:3
-msgid "Move separator to another group"
-msgstr ""
-
 #: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "Переместить группу"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "Переместить элемент в другую группу "
+
+#: ../data/configBookmarks.glade.h:6
 msgid "Name :"
 msgstr "Имя:"
 
-#: ../data/configBookmarks.glade.h:5
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "Новая группа:"
+
+#: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
 msgstr "Родительская группа:"
 
-#: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
+#: ../data/configBookmarks.glade.h:9
 msgid "Separator"
 msgstr "Разделитель"
 
-#: ../data/configBookmarks.glade.h:7
+#: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "Настройки радиостанций"
 
-#: ../data/configBookmarks.glade.h:8
+#: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "Радиостанция:"
 
-#: ../data/configBookmarks.glade.h:9
+#: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
 msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "(Ваш выбор будет сохранен в файле)"
+msgstr ""
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
@@ -69,7 +79,7 @@ msgstr "Индикатор приложения"
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr "Первый запуск средства настройки"
+msgstr ""
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
@@ -91,36 +101,48 @@ msgstr ""
 msgid "%s's Website"
 msgstr "Веб-сайт %s"
 
-#: ../src/BookmarkConfiguration.py:96
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+msgid "Connection Error"
+msgstr "Ошибка при подключении"
+
+#: ../src/AudioPlayerGStreamer.py:56
+msgid "Received empty stream from station"
+msgstr "Получен пустой поток от станции"
+
+#: ../src/AudioPlayerGStreamer.py:66
+msgid "Couldn't read stream from station"
+msgstr "Не удалось прочитать поток станции"
+
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "Радиостанция"
 
-#: ../src/BookmarkConfiguration.py:275
+#: ../src/BookmarkConfiguration.py:176
 msgid "Add new station"
 msgstr "Добавить новую радиостанцию"
 
-#: ../src/BookmarkConfiguration.py:352
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
 msgstr "Редактировать %s"
 
-#: ../src/BookmarkConfiguration.py:388
+#: ../src/BookmarkConfiguration.py:263
 msgid "Edit group"
 msgstr "Редактировать группу"
 
-#. populate dialog with radio information
-#: ../src/BookmarkConfiguration.py:422
-msgid "Edit Separator"
-msgstr "Разделитель"
-
-#: ../src/BookmarkConfiguration.py:464
+#: ../src/BookmarkConfiguration.py:302
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Вы уверены, что хотите удалить:  \"%s\"?"
 
-#: ../src/BookmarkConfiguration.py:506
+#: ../src/BookmarkConfiguration.py:384
 msgid "Add new group"
 msgstr "Добавить новую группу"
+
+#: ../src/BookmarkConfiguration.py:461
+msgid "Edit Separator"
+msgstr "Разделитель"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -130,98 +152,129 @@ msgstr "Разработчики:"
 msgid "Contributors:"
 msgstr "Участники:"
 
-#: ../src/AppIndicatorGui.py:77 ../src/AppIndicatorGui.py:196
-#: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
-#: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "Неизвестная радиостанция"
+
+#: ../src/StateMediator.py:105
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "Ошибка"
+
+#: ../src/StateMediator.py:116
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr "Воспроизводится"
+
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
 msgstr "Выключить радио"
 
-#: ../src/AppIndicatorGui.py:80 ../src/AppIndicatorGui.py:199
-#: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
-#: ../src/SysTrayGui.py:203
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "Включить \"%s\""
 
-#: ../src/AppIndicatorGui.py:97 ../src/SysTrayGui.py:72
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
+msgid "Sleep Timer"
+msgstr "Таймер сна"
+
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
 msgstr "Настройки радиостанций..."
 
-#: ../src/AppIndicatorGui.py:98 ../src/SysTrayGui.py:77
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
 msgstr "Перезагрузить закладки"
 
-#: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-msgid "Configure Plugins..."
-msgstr ""
+#: ../src/SysTray.py:187
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "Режим ожидания (громкость: %s%%)"
 
-#: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
-#: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
+#: ../src/SysTray.py:293
+msgid "Sleep timer expired"
+msgstr "Таймер сна истек"
+
+#: ../src/SysTray.py:332
+#, python-format
+msgid "%s minute sleep timer started"
+msgstr "%s минутный таймер сна запущен"
+
+#: ../src/SysTray.py:338
+msgid "Sleep timer stopped"
+msgstr "Таймер сна остановлен"
+
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "Выключить \"%s\""
 
-#: ../src/AppIndicatorGui.py:233
-#, python-format
-msgctxt "Playing status tooltip information"
-msgid "Playing (vol: %s%%)"
-msgstr ""
-
-#: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, python-format
-msgctxt "Informs Radio Tray is idle as a tooltip."
-msgid "Idle (vol: %s%%)"
-msgstr ""
-
-#: ../src/Context.py:32
-msgctxt "Unknown radio specified by URL"
-msgid "Unknown radio"
-msgstr "Неизвестная радиостанция"
-
-#: ../src/NotificationManager.py:35
-msgid "Radio Tray Playing"
-msgstr ""
-
-#: ../src/NotificationManager.py:60
-msgid "Radio Error"
-msgstr ""
-
-#: ../src/NotificationManager.py:64
-msgid "Bookmarks Reloaded"
-msgstr "Закладки перезагружены"
-
-#: ../src/PluginConfiguration.py:66
-msgid "Active"
-msgstr ""
-
-#: ../src/PluginConfiguration.py:71
-msgid "Name"
-msgstr ""
-
-#: ../src/SysTrayGui.py:116
-#, python-format
-msgid "Idle (vol: %s%%)"
-msgstr "Режим ожидания (громкость: %s%%)"
-
-#: ../src/SysTrayGui.py:214
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "Соединение с  %s"
 
-#: ../src/SysTrayGui.py:230
+#: ../src/SysTray.py:397
+#, python-format
+msgid ", sleep: %s min"
+msgstr ", сон: %s мин"
+
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
+"Воспроизводится <b>%s</b> (громкость: %s%%%s)\n"
+"<i>%s</i>"
 
-#: ../src/SysTrayGui.py:232
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr "Воспроизводится  <b>%s</b> (громкость: %s%%%s)"
+
+#: ../src/SysTray.py:418
+#, python-format
+msgid "Playing (vol: %s%%%s)"
+msgstr "Воспроизведение (vol: %s%%%s)"
+
+#: ../src/SysTray.py:421 ../src/SysTray.py:423
+#, python-format
+msgctxt "Informs Radiotray is idle as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr "Режим ожидания (vol: %s%%%s)"
+
+#: ../src/SysTray.py:481
+msgid "Bookmarks Reloaded"
+msgstr "Закладки перезагружены"
+
+#: ../src/SysTray.py:488
+msgid "Edit Sleep Timer"
+msgstr "Изменить таймер сна"
+
+#: ../src/SysTray.py:494
+msgid "Minutes:"
+msgstr "Минуты:"
+
+#: ../src/SysTray.py:531
+msgid "Idle"
+msgstr "Режим ожидания"
+
+#: ../src/SysTray.py:542
+msgid "Volume Up"
+msgstr "Звук громче"
+
+#: ../src/SysTray.py:543
+msgid "Volume Down"
+msgstr "Звук тише"
 
 

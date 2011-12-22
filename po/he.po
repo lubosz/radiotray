@@ -2,16 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 
-# Translators:
-#   <ami.geva@gmail.com>, 2011.
 # Ariel Nemtzov <reldude84@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-13 06:23+0000\n"
-"Last-Translator: ami7878 <ami.geva@gmail.com>\n"
+"POT-Creation-Date: 2011-06-18 11:47+0100\n"
+"PO-Revision-Date: 2011-07-12 10:56+0000\n"
+"Last-Translator: rel_dude <reldude84@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.net/projects/p/radiotray/team/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,36 +22,48 @@ msgid "Add Group"
 msgstr "הוסף קבוצה"
 
 #: ../data/configBookmarks.glade.h:2
+msgid "Current group:"
+msgstr "קבוצה נוכחית:"
+
+#: ../data/configBookmarks.glade.h:3
 msgid "Group :"
 msgstr "קבוצה:"
 
-#: ../data/configBookmarks.glade.h:3
-msgid "Move separator to another group"
-msgstr "העברת המפריד לקבוצה אחרת"
-
 #: ../data/configBookmarks.glade.h:4
+msgid "Move Group"
+msgstr "הזז קבוצה"
+
+#: ../data/configBookmarks.glade.h:5
+msgid "Move item to another group"
+msgstr "הזז פריט לקבוצה אחרת"
+
+#: ../data/configBookmarks.glade.h:6
 msgid "Name :"
 msgstr "שם:"
 
-#: ../data/configBookmarks.glade.h:5
+#: ../data/configBookmarks.glade.h:7
+msgid "New group:"
+msgstr "קבוצה חדשה:"
+
+#: ../data/configBookmarks.glade.h:8
 msgid "Parent Group :"
 msgstr "קבוצת אב:"
 
-#: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
+#: ../data/configBookmarks.glade.h:9
 msgid "Separator"
 msgstr "חוצץ"
 
-#: ../data/configBookmarks.glade.h:7
+#: ../data/configBookmarks.glade.h:10
 msgctxt "yes"
 msgid "Configure Radios"
 msgstr "הגדר תחנות"
 
-#: ../data/configBookmarks.glade.h:8
+#: ../data/configBookmarks.glade.h:11
 msgctxt "yes"
 msgid "Radio name:"
 msgstr "שם תחנה:"
 
-#: ../data/configBookmarks.glade.h:9
+#: ../data/configBookmarks.glade.h:12
 msgctxt "yes"
 msgid "URL :"
 msgstr "כתובת:"
@@ -88,36 +98,48 @@ msgstr "קרדיט-מתרגם"
 msgid "%s's Website"
 msgstr "אתר האינטרנט של %s"
 
-#: ../src/BookmarkConfiguration.py:96
+#: ../src/AudioPlayerGStreamer.py:56 ../src/AudioPlayerGStreamer.py:66
+msgid "Connection Error"
+msgstr "שגיאת התחברות"
+
+#: ../src/AudioPlayerGStreamer.py:56
+msgid "Received empty stream from station"
+msgstr "התקבל שידור ריק מהתחנה"
+
+#: ../src/AudioPlayerGStreamer.py:66
+msgid "Couldn't read stream from station"
+msgstr "לא ניתן לקרוא את השידור מהתחנה"
+
+#: ../src/BookmarkConfiguration.py:88
 msgid "Radio Name"
 msgstr "שם תחנה"
 
-#: ../src/BookmarkConfiguration.py:275
+#: ../src/BookmarkConfiguration.py:176
 msgid "Add new station"
 msgstr "הוסף תחנה חדשה"
 
-#: ../src/BookmarkConfiguration.py:352
+#: ../src/BookmarkConfiguration.py:239 ../src/BookmarkConfiguration.py:459
+#: ../src/BookmarkConfiguration.py:483
 #, python-format
 msgid "Edit %s"
 msgstr "ערוך %s"
 
-#: ../src/BookmarkConfiguration.py:388
+#: ../src/BookmarkConfiguration.py:263
 msgid "Edit group"
 msgstr "ערוך קבוצה"
 
-#. populate dialog with radio information
-#: ../src/BookmarkConfiguration.py:422
-msgid "Edit Separator"
-msgstr "ערוך חוצץ"
-
-#: ../src/BookmarkConfiguration.py:464
+#: ../src/BookmarkConfiguration.py:302
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "האם אתה בטוח שברצונך למחוק את \"%s\"?"
 
-#: ../src/BookmarkConfiguration.py:506
+#: ../src/BookmarkConfiguration.py:384
 msgid "Add new group"
 msgstr "הוסף קבוצה חדשה"
+
+#: ../src/BookmarkConfiguration.py:461
+msgid "Edit Separator"
+msgstr "ערוך חוצץ"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -127,100 +149,129 @@ msgstr "מפתחים:"
 msgid "Contributors:"
 msgstr "תורמים:"
 
-#: ../src/AppIndicatorGui.py:77 ../src/AppIndicatorGui.py:196
-#: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
-#: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
+#: ../src/StateMediator.py:73 ../src/StateMediator.py:74
+msgctxt "Unknown radio specified by URL"
+msgid "Unknown radio"
+msgstr "תחנה לא ידועה"
+
+#: ../src/StateMediator.py:105
+msgctxt "An error notification."
+msgid "Radio Error"
+msgstr "שגיאה בתחנה"
+
+#: ../src/StateMediator.py:116
+msgctxt "Notifies which radio is currently playing."
+msgid "Radio Tray Playing"
+msgstr "Radio Tray מנגן"
+
+#: ../src/SysTray.py:140 ../src/SysTray.py:141 ../src/SysTray.py:342
+#: ../src/SysTray.py:350 ../src/SysTray.py:520
 msgid "Turned Off"
 msgstr "כבוי"
 
-#: ../src/AppIndicatorGui.py:80 ../src/AppIndicatorGui.py:199
-#: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
-#: ../src/SysTrayGui.py:203
+#: ../src/SysTray.py:145 ../src/SysTray.py:147 ../src/SysTray.py:345
+#: ../src/SysTray.py:353 ../src/SysTray.py:523
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "הדלק \"%s\""
 
-#: ../src/AppIndicatorGui.py:97 ../src/SysTrayGui.py:72
+#: ../src/SysTray.py:157 ../src/SysTray.py:535
+msgid "Sleep Timer"
+msgstr "טיימר כיבוי"
+
+#: ../src/SysTray.py:158 ../src/SysTray.py:540
 msgid "Configure Radios..."
 msgstr "הגדר תחנות..."
 
-#: ../src/AppIndicatorGui.py:98 ../src/SysTrayGui.py:77
+#: ../src/SysTray.py:159 ../src/SysTray.py:541
 msgid "Reload Bookmarks"
 msgstr "טען סימניות מחדש"
 
-#: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
-msgid "Configure Plugins..."
-msgstr "הגדרת תוספים..."
+#: ../src/SysTray.py:187
+#, python-format
+msgid "Idle (vol: %s%%)"
+msgstr "מושהה (עוצמת שמע: %s%%)"
 
-#: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
-#: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
+#: ../src/SysTray.py:293
+msgid "Sleep timer expired"
+msgstr "טיימר כיבוי פג"
+
+#: ../src/SysTray.py:332
+#, python-format
+msgid "%s minute sleep timer started"
+msgstr "%s טיימר כיבוי החל בדקה"
+
+#: ../src/SysTray.py:338
+msgid "Sleep timer stopped"
+msgstr "טיימר כיבוי הופסק"
+
+#: ../src/SysTray.py:363 ../src/SysTray.py:367 ../src/SysTray.py:378
+#: ../src/SysTray.py:382
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "כבה \"%s\""
 
-#: ../src/AppIndicatorGui.py:233
-#, python-format
-msgctxt "Playing status tooltip information"
-msgid "Playing (vol: %s%%)"
-msgstr "משמיע (עוצמה: %s%%)"
-
-#: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
-#, python-format
-msgctxt "Informs Radio Tray is idle as a tooltip."
-msgid "Idle (vol: %s%%)"
-msgstr "בהמתנה (עוצמה: %s%%)"
-
-#: ../src/Context.py:32
-msgctxt "Unknown radio specified by URL"
-msgid "Unknown radio"
-msgstr "תחנה לא ידועה"
-
-#: ../src/NotificationManager.py:35
-msgid "Radio Tray Playing"
-msgstr "נגן הרדיו פועל"
-
-#: ../src/NotificationManager.py:60
-msgid "Radio Error"
-msgstr "שגיאה ברדיו"
-
-#: ../src/NotificationManager.py:64
-msgid "Bookmarks Reloaded"
-msgstr "סימניות נטענו מחדש"
-
-#: ../src/PluginConfiguration.py:66
-msgid "Active"
-msgstr "פעיל"
-
-#: ../src/PluginConfiguration.py:71
-msgid "Name"
-msgstr "שם"
-
-#: ../src/SysTrayGui.py:116
-#, python-format
-msgid "Idle (vol: %s%%)"
-msgstr "מושהה (עוצמת שמע: %s%%)"
-
-#: ../src/SysTrayGui.py:214
+#: ../src/SysTray.py:383
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
 msgstr "מתחבר לתחנה %s"
 
-#: ../src/SysTrayGui.py:230
+#: ../src/SysTray.py:397
+#, python-format
+msgid ", sleep: %s min"
+msgstr ", כיבוי: %s דקות"
+
+#: ../src/SysTray.py:402
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
-"Playing <b>%s</b> (vol: %s%%)\n"
+"Playing <b>%s</b> (vol: %s%%%s)\n"
 "<i>%s</i>"
 msgstr ""
-"משמיע <b>%s</b> (עוצמה: %s%%)\n"
+"מנגן <b>%s</b>(עוצמת שמע:%s%%%s)\n"
 "<i>%s</i>"
 
-#: ../src/SysTrayGui.py:232
+#: ../src/SysTray.py:416
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
-msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "משמיע <b>%s</b> (עוצמה: %s%%)"
+msgid "Playing <b>%s</b> (vol: %s%%%s)"
+msgstr "מנגן <b>%s</b>(עוצמת שמע:%s%%%s)"
+
+#: ../src/SysTray.py:418
+#, python-format
+msgid "Playing (vol: %s%%%s)"
+msgstr "מנגן (עוצמת שמע: %s%%%s)"
+
+#: ../src/SysTray.py:421 ../src/SysTray.py:423
+#, python-format
+msgctxt "Informs Radiotray is idle as a tooltip."
+msgid "Idle (vol: %s%%%s)"
+msgstr "מושהה (עוצמת שמע: %s%%%s)"
+
+#: ../src/SysTray.py:481
+msgid "Bookmarks Reloaded"
+msgstr "סימניות נטענו מחדש"
+
+#: ../src/SysTray.py:488
+msgid "Edit Sleep Timer"
+msgstr "ערוך טיימר כיבוי"
+
+#: ../src/SysTray.py:494
+msgid "Minutes:"
+msgstr "דקות:"
+
+#: ../src/SysTray.py:531
+msgid "Idle"
+msgstr "מושהה"
+
+#: ../src/SysTray.py:542
+msgid "Volume Up"
+msgstr "הגבר שמע"
+
+#: ../src/SysTray.py:543
+msgid "Volume Down"
+msgstr "הנמך שמע"
 
 
