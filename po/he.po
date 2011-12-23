@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <ami.geva@gmail.com>, 2011.
 # Ariel Nemtzov <reldude84@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2011-12-13 06:23+0000\n"
+"Last-Translator: ami7878 <ami.geva@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.net/projects/p/radiotray/team/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "קבוצה:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "העברת המפריד לקבוצה אחרת"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -149,7 +150,7 @@ msgstr "טען סימניות מחדש"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "הגדרת תוספים..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,13 +163,13 @@ msgstr "כבה \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "משמיע (עוצמה: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "בהמתנה (עוצמה: %s%%)"
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -177,11 +178,11 @@ msgstr "תחנה לא ידועה"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "נגן הרדיו פועל"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "שגיאה ברדיו"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -189,11 +190,11 @@ msgstr "סימניות נטענו מחדש"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "פעיל"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,11 +214,13 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"משמיע <b>%s</b> (עוצמה: %s%%)\n"
+"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "משמיע <b>%s</b> (עוצמה: %s%%)"
 
 

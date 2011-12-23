@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
+#   <yannispoulak@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2011-12-13 22:23+0000\n"
+"Last-Translator: yannispo <yannispoulak@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.net/projects/p/radiotray/team/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "Ομάδα:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Μετακίνηση του διαχωριστή σε άλλη ομάδα"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -59,28 +60,30 @@ msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr ""
+msgstr "(αυτή η επιλογή θα αποθηκευθεί στο αρχείο ρυθμίσεων)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr ""
+msgstr "App Indicator"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr ""
+msgstr "Ρύθμιση Πρώτης Εκτέλεσης"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr ""
+msgstr "Εικονίδιο στην Περιοχή Ειδοποιήσεων"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε πώς θα εμφανίζεται το Radio Tray"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Dimitris Glezos <glezos@indifex.com>"
+msgstr ""
+"Dimitris Glezos <glezos@indifex.com>\n"
+"Yannis Poulakakis <yannispoulakakis@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
@@ -98,7 +101,7 @@ msgstr "Προσθήκη νέου σταθμού"
 #: ../src/BookmarkConfiguration.py:352
 #, python-format
 msgid "Edit %s"
-msgstr "Επεξεργασία '%s'"
+msgstr "Επεξεργασία %s"
 
 #: ../src/BookmarkConfiguration.py:388
 msgid "Edit group"
@@ -107,7 +110,7 @@ msgstr "Επεξεργασία ομάδας"
 #. populate dialog with radio information
 #: ../src/BookmarkConfiguration.py:422
 msgid "Edit Separator"
-msgstr "Επεξεργασία διαχωριστικού"
+msgstr "Επεξεργασία Διαχωριστικού"
 
 #: ../src/BookmarkConfiguration.py:464
 #, python-format
@@ -149,7 +152,7 @@ msgstr "Ανανέωση σελιδοδεικτών"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Ρύθμιση Πρόσθετων..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,13 +165,13 @@ msgstr "Απενεργοποίηση \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Αναπαραγωγή (ένταση: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Σε αδράνεια (ένταση: %s%%) "
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -177,11 +180,11 @@ msgstr "Άγνωστος σταθμός"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Το Radio Tray Αναπαράγει"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "Πρόβλημα Ραδιοφώνου"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -189,11 +192,11 @@ msgstr "Έγινε επαναφόρτωση σελιδοδεικτών"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Ενεργό"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,11 +216,13 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"Αναπαραγωγή <b>%s</b> (ένταση: %s%%)⏎\n"
+"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Αναπαραγωγή <b>%s</b> (ένταση: %s%%)"
 
 

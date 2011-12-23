@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2011-12-17 18:12+0000\n"
+"Last-Translator: Dani Solà <wildboy4@hotmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.net/projects/p/radiotray/team/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "Grup"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Mogui el separador a un altre grup"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -59,24 +59,24 @@ msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr ""
+msgstr "(la selecció serà guardada a l'arxiu de configuració)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr ""
+msgstr "Indicador d'aplicació"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr ""
+msgstr "Configuració inicial"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr ""
+msgstr "Icona a l'àrea de notificacions"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr ""
+msgstr "Seleccioni com vol que Radio Tray aparegui"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -149,7 +149,7 @@ msgstr "Refrescar marcadors"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Configurar plugins..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -162,13 +162,13 @@ msgstr "Apagar \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Sonant (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "En repòs (vol: %s%%)"
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -177,11 +177,11 @@ msgstr "Ràdio desconeguda"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Radio Tray Sonant"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "Error"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -189,11 +189,11 @@ msgstr "Marcadors refrescats"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Actiu"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -213,11 +213,13 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"Sonant <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Sonant <b>%s</b> (vol: %s%%)"
 
 
