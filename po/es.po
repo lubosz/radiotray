@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2012-01-05 13:16+0000\n"
+"Last-Translator: Jellby <jellby@yahoo.com>\n"
 "Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/radiotray/team/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,23 +20,23 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr "Agrega Grupo"
+msgstr "Agregar grupo"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Group :"
-msgstr "Grupo :"
+msgstr "Grupo:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Mover separador a otro grupo"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
-msgstr "Nombre :"
+msgstr "Nombre:"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Parent Group :"
-msgstr "Grupo Superior :"
+msgstr "Grupo superior:"
 
 #: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
 msgid "Separator"
@@ -45,30 +45,30 @@ msgstr "Separador"
 #: ../data/configBookmarks.glade.h:7
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr "Configurar Radios"
+msgstr "Configurar radios"
 
 #: ../data/configBookmarks.glade.h:8
 msgctxt "yes"
 msgid "Radio name:"
-msgstr "Nombre de la Radio:"
+msgstr "Nombre de la radio:"
 
 #: ../data/configBookmarks.glade.h:9
 msgctxt "yes"
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "(Esta opción se guarda en el fichero de configuración)"
+msgstr "(esta opción se guarda en el fichero de configuración)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr "App Indicator"
+msgstr "Indicador de aplicaciones"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr "Configurar por primera vez"
+msgstr "Configuración inicial"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
@@ -76,7 +76,7 @@ msgstr "Icono en el área de notificación"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr "Por favor, seleccionar como debe aparecer Radio Tray "
+msgstr "Seleccione cómo debe mostrarse Radio Tray"
 
 #: ../src/about.py:16
 msgid "translator-credits"
@@ -94,16 +94,16 @@ msgstr "Sitio web de %s"
 
 #: ../src/BookmarkConfiguration.py:96
 msgid "Radio Name"
-msgstr "Nombre de Radio"
+msgstr "Nombre de la radio"
 
 #: ../src/BookmarkConfiguration.py:275
 msgid "Add new station"
-msgstr "Agrega nueva emisora"
+msgstr "Agregar nueva emisora"
 
 #: ../src/BookmarkConfiguration.py:352
 #, python-format
 msgid "Edit %s"
-msgstr "Editar  %s"
+msgstr "Editar %s"
 
 #: ../src/BookmarkConfiguration.py:388
 msgid "Edit group"
@@ -112,16 +112,16 @@ msgstr "Editar grupo"
 #. populate dialog with radio information
 #: ../src/BookmarkConfiguration.py:422
 msgid "Edit Separator"
-msgstr "Editar Separador"
+msgstr "Editar separador"
 
 #: ../src/BookmarkConfiguration.py:464
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Está seguro que desea eliminar \"%s\" ?"
+msgstr "¿Está seguro de que desea eliminar «%s»?"
 
 #: ../src/BookmarkConfiguration.py:506
 msgid "Add new group"
-msgstr "Agrega nuevo grupo"
+msgstr "Agregar nuevo grupo"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -142,38 +142,38 @@ msgstr "Apagada"
 #: ../src/SysTrayGui.py:203
 #, python-format
 msgid "Turn On \"%s\""
-msgstr "Encender \"%s\""
+msgstr "Encender «%s»"
 
 #: ../src/AppIndicatorGui.py:97 ../src/SysTrayGui.py:72
 msgid "Configure Radios..."
-msgstr "Configurar Radios..."
+msgstr "Configurar radios..."
 
 #: ../src/AppIndicatorGui.py:98 ../src/SysTrayGui.py:77
 msgid "Reload Bookmarks"
-msgstr "Recargar Preferidos"
+msgstr "Volver a cargar preferidos"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Configurar complementos..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Apagar \"%s\""
+msgstr "Apagar «%s»"
 
 #: ../src/AppIndicatorGui.py:233
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Reproduciendo (vol.: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Apagada (vol.: %s%%)"
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -182,34 +182,34 @@ msgstr "Radio desconocida"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Radio Tray reproduciendo"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "Error en la radio"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
-msgstr "Preferidos Recargados"
+msgstr "Preferidos cargados"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr "Apagada (vol: %s%%)"
+msgstr "Apagada (vol.: %s%%)"
 
 #: ../src/SysTrayGui.py:214
 #, python-format
 msgctxt "Connecting to a music stream."
 msgid "Connecting to %s"
-msgstr "Conectándose a %s"
+msgstr "Conectándose a «%s»"
 
 #: ../src/SysTrayGui.py:230
 #, python-format
@@ -218,11 +218,13 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"Reproduciendo <b>%s</b> (vol.: %s%%)\n"
+"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Reproduciendo <b>%s</b> (vol.: %s%%)"
 
 

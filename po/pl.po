@@ -5,13 +5,14 @@
 # Translators:
 # Daniel  <dawiddaniel@gmail.com>, 2011.
 # fims <msmolnik@fims.pl>, 2011.
+#   <kontakt@soee.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-01 18:21+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2012-01-07 11:52+0000\n"
+"Last-Translator: soee <kontakt@soee.pl>\n"
 "Language-Team: Polish (http://www.transifex.net/projects/p/radiotray/team/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,7 +151,7 @@ msgstr "Przeładuj zakładki"
 
 #: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Konfiguruj wtyczki..."
 
 #: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -190,11 +191,11 @@ msgstr "Zakładki zostały przeładowane"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Aktywny"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 #: ../src/SysTrayGui.py:116
 #, python-format

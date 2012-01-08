@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-12 18:55+0000\n"
+"PO-Revision-Date: 2011-12-24 13:43+0000\n"
 "Last-Translator: Ricardo Junin <ricardoborges.jr@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) (http://www.transifex.net/projects/p/radiotray/team/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Grupo:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Mover separador para outro grupo"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -60,7 +60,7 @@ msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "(a escolha será salva no arquivo de configuração)"
+msgstr "(a escolha será salvar no arquivo de configuração)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
@@ -165,13 +165,13 @@ msgstr "Desligar \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Tocando (vol: %s%%)"
+msgstr "Reproduzindo (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Inativo (vol: %s%%)"
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -180,11 +180,11 @@ msgstr "Estação de rádio desconhecida"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "O Radio Tray está reproduzindo"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "Erro da estação de rádio"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -192,11 +192,11 @@ msgstr "Marcadores Recarregados"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Ativar"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -216,11 +216,13 @@ msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
 msgstr ""
+"Reproduzindo: <b>%s</b> (vol: %s%%)\n"
+"<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Reproduzindo: <b>%s</b> (vol: %s%%)"
 
 
