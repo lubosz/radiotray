@@ -74,7 +74,7 @@ class StreamDecoder:
             f = opener.open(req, timeout=float(self.url_timeout))
 
         except urllib2.HTTPError, e:
-            self.log.warn('HTTP Error: No radio stream found for %s', url)
+            self.log.warn('HTTP Error: No radio stream found for %s - %s', url, str(e))
             return None
         except urllib2.URLError, e:
             self.log.info('No radio stream found for %s', url)
