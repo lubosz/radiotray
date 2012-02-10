@@ -1,0 +1,6 @@
+[RadioTrayPlugin]
+name=HelloWorld
+desc=This is a test plugin
+script=HelloWorld.py
+class=HelloWorldPlugin
+author=Carlos Ribeiro

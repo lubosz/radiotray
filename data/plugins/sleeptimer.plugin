@@ -1,0 +1,6 @@
+[RadioTrayPlugin]
+name=Sleep Timer
+desc=Stops playing after a predefined time
+script=SleepTimerPlugin.py
+class=SleepTimerPlugin
+author=Carlos Ribeiro

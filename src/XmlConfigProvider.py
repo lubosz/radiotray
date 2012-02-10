@@ -20,11 +20,13 @@
 import os
 from lxml import etree
 from lxml import objectify
+import logging
 
 
 class XmlConfigProvider:
 
     def __init__(self, filename):
+        self.log = logging.getLogger('radiotray')
         if(os.access(filename, os.R_OK) == False):
             raise Exception('Configuration file not found: ' + filename)
         else:
@@ -60,6 +62,34 @@ class XmlConfigProvider:
             
         self.saveToFile()
 
+    def getConfigList(self, name):
+        result = self.root.xpath("//option[@name=$var]/item", var=name)
+        return [x.text for x in result]
+
+
+    def setConfigList(self, name, items):
+        setting = self._settingExists(name)
+
+        if (setting == None):
+            setting = etree.SubElement(self.root, 'option')
+            setting.set("name", name)
+        else:
+            self.log.debug('remove all')
+            children = setting.getchildren()
+            for child in children:
+                self.log.debug('remove child %s', child.text)
+                setting.remove(child)
+
+
+        
+            
+        
+        for item in items:
+            it = etree.SubElement(setting, 'item')
+            it.text = item
+
+        self.saveToFile()
+            
 
     def _settingExists(self, name):
         setting = None
@@ -68,6 +98,6 @@ class XmlConfigProvider:
             setting = self.root.xpath("//option[@name=$var]", var=name)[0]
         except IndexError, e:
             # Setting wasn't found
-            print "Could not find setting with the name \"%s\"." % name
+            self.log.warn('Could not find setting with the name "%s".', name)
 
         return setting

@@ -17,29 +17,29 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import pynotify
-import gtk
-from lib.common import APP_ICON, APPNAME
 
-class Notification:
+class Context:
 
-    def __init__(self):
-        self.notif = None
+    station = None
+    url = ""
+    title = ""
+    artist = None
+    album = None
+    state = None
+    STATE_PLAYING = "playing"
+    STATE_CONNECT = "connecting"
+    STATE_PAUSED = "paused"
+    UNKNOWN_RADIO = C_("Unknown radio specified by URL", "Unknown radio")
+    
+    
+    def getSongInfo(self):
 
-    def notify(self, title, message):
-
-        if self.notif == None:
-        
-            if pynotify.init(APPNAME):
-                self.notif = pynotify.Notification(title, message)
-                self.notif.set_urgency(pynotify.URGENCY_LOW)
-                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
-                self.notif.set_icon_from_pixbuf(pixbuf)
-                self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
-                self.notif.show()
-            else:
-                print "Error: there was a problem initializing the pynotify module"
-            
+        if(self.title and len(self.title) > 0 and self.artist and len(self.artist) > 0):
+            return self.artist + " - " + self.title
+        elif(self.title and len(self.title) > 0):
+            return self.title
+        elif(self.artist and len(self.artist) > 0):
+            return self.artist
         else:
-            self.notif.update(title, message)
-            self.notif.show()
+            return 'unknown'
+            

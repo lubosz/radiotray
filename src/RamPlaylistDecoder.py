@@ -19,16 +19,18 @@
 ##########################################################################
 import urllib2
 from lib.common import USER_AGENT
+import logging
 
 class RamPlaylistDecoder:
 
     def __init__(self):
-        print "RAM playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('RAM playlist decoder')
 
     def isStreamValid(self, contentType, firstBytes):
 
         if('audio/x-pn-realaudio' in contentType or 'audio/vnd.rn-realaudio' in contentType):
-            print 'Stream is readable by RAM Playlist Decoder'
+            self.log.info('Stream is readable by RAM Playlist Decoder')
             return True
         else:
             return False
@@ -36,7 +38,7 @@ class RamPlaylistDecoder:
 
 
     def extractPlaylist(self,  url):
-        print "Downloading playlist..."
+        self.log.info('Downloading playlist...')
 
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
@@ -44,8 +46,8 @@ class RamPlaylistDecoder:
         str = f.read()
         f.close()
 
-        print "Playlist downloaded"
-        print "Decoding playlist..."
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
 
         lines = str.splitlines()
         playlist = []

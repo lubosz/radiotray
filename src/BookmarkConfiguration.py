@@ -37,6 +37,11 @@ from lib.common import APP_ICON_ON
 from lib import utils
 from lib import i18n
 import uuid
+import logging
+
+drop_yes = ("drop_yes", gtk.TARGET_SAME_WIDGET, 0)
+drop_no = ("drop_no", gtk.TARGET_SAME_WIDGET, 0)
+
 
 class BookmarkConfiguration(object):
 
@@ -49,6 +54,8 @@ class BookmarkConfiguration(object):
         self.dataProvider = dataProvider
         self.updateFunc = updateFunc
         self.standalone = standalone
+
+        self.log = logging.getLogger('radiotray')
 
         # get gui objects
         gladefile = utils.load_ui_file("configBookmarks.glade")
@@ -70,7 +77,7 @@ class BookmarkConfiguration(object):
         self.groupNameEntry = self.wTree.get_object("groupNameEntry")
         self.parentGroup = self.wTree.get_object("parentGroup")
         self.parentGroupLabel = self.wTree.get_object("label4")
-
+        
         # separator move
         self.sepMove = self.wTree.get_object("sepMove")
         self.sepGroup = self.wTree.get_object("sepGroup")
@@ -114,13 +121,22 @@ class BookmarkConfiguration(object):
                 "on_newSeparatorButton_clicked" : self.on_add_separator_clicked,
                 "on_editBookmarkButton_clicked" : self.on_edit_bookmark_clicked,
                 "on_delBookmarkButton_clicked" : self.on_remove_bookmark_clicked,
-                "on_moveUpButton_clicked" : self.on_moveup_bookmark_clicked,
-                "on_moveDownButton_clicked" : self.on_movedown_bookmark_clicked,
                 "on_close_clickedButton_clicked" : self.on_close_clicked,
                 "on_nameEntry_activated" : self.on_nameEntry_activated,
                 "on_urlEntry_activated" : self.on_urlEntry_activated,
                 "on_newGroupButton_clicked" : self.on_newGroupButton_clicked}
             self.wTree.connect_signals(self)
+
+        # enable drag and drop support
+        self.list.enable_model_drag_source(
+            gtk.gdk.BUTTON1_MASK, [drop_yes], gtk.gdk.ACTION_MOVE)
+        self.list.enable_model_drag_dest(
+            [drop_yes], gtk.gdk.ACTION_MOVE)
+        self.list.connect("drag-data-received", self.onDragDataReceived)
+        self.list.connect("drag-motion", self.onDragMotion)
+
+        # Connect row activation with bookmarks conf
+        self.list.connect("row-activated", self.on_row_activated)
 
     def load_data(self):
     
@@ -129,7 +145,102 @@ class BookmarkConfiguration(object):
         root = self.dataProvider.getRootGroup()
         self.add_group_data(root, None, treestore)
         self.list.set_model(treestore)
+
+
         
+    #drag and drop support
+    def checkSanity(self, model, source, target):
+        source_path = model.get_path(source)
+        target_path = model.get_path(target)
+        if target_path[0:len(source_path)] == source_path:
+            return False
+        else:
+            return True
+    
+    #drag and drop support
+    def checkParentability(self, model, target, drop_position):
+        if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
+                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER) \
+                and (model.get_value(target, 2) == self.RADIO_TYPE or model.get_value(target, 2) == self.SEPARATOR_TYPE):
+            return False
+        else:
+            return True
+
+    #drag and drop support
+    def expandToPath(self, treeview, path):
+        for i in range(len(path)):
+            treeview.expand_row(path[:i+1], open_all=False)
+
+
+    #drag and drop support
+    def copyRow(self, treeview, model, source, target, drop_position):
+    
+        source_row = model[source]
+        if drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+            new = model.prepend(target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER:
+            new = model.append(target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_BEFORE:
+            new = model.insert_before(None, target, source_row)
+        elif drop_position == gtk.TREE_VIEW_DROP_AFTER:
+            new = model.insert_after(None, target, source_row)
+            
+        for n in range(model.iter_n_children(source)):
+            child = model.iter_nth_child(source, n)
+            self.copyRow(treeview, model, child, new,
+                                 gtk.TREE_VIEW_DROP_INTO_OR_BEFORE)
+                                 
+        source_is_expanded = treeview.row_expanded(model.get_path(source))
+        if source_is_expanded:
+            self.expandToPath(treeview, model.get_path(new))
+ 
+
+    #drag and drop support   
+    def onDragDataReceived(self, treeview, drag_context, x, y, selection_data, info, eventtime):
+
+        #check if there's a valid drop location
+        if(treeview.get_dest_row_at_pos(x, y) == None):
+            self.log.debug("Dropped into nothing")
+            return
+
+        target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
+        model, source = treeview.get_selection().get_selected()
+        target = model.get_iter(target_path)
+        sourceName = model.get_value(source,1)
+        targetName = model.get_value(target,1)
+        
+        is_sane = self.checkSanity(model, source, target)
+        is_parentable = self.checkParentability(model, target, drop_position)
+        if is_sane and is_parentable:
+            self.copyRow(treeview, model, source, target, drop_position)
+            if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
+                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER):
+                treeview.expand_row(target_path, False)
+            drag_context.finish(True, True, eventtime)
+
+            self.dataProvider.moveToPosition(sourceName, targetName, drop_position)
+        else:
+            drag_context.finish(False, False, eventtime)
+
+    
+    #drag and drop support
+    def onDragMotion(self, treeview, drag_context, x, y, eventtime):
+        try:
+            target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
+            model, source = treeview.get_selection().get_selected()
+            target = model.get_iter(target_path)
+        except:
+            return
+        is_sane = self.checkSanity(model, source, target)
+        is_parentable = self.checkParentability(model, target, drop_position)
+        if is_sane and is_parentable:
+            treeview.enable_model_drag_dest([drop_yes], gtk.gdk.ACTION_MOVE)
+        else:
+            treeview.enable_model_drag_dest([drop_no], gtk.gdk.ACTION_MOVE)
+
+
+
+
 
     def add_group_data(self, group, parent, treestore):
 
@@ -220,7 +331,7 @@ class BookmarkConfiguration(object):
 
             for group in self.dataProvider.listGroupNames():
                 liststore.append([group])
-                print "group found: " + group
+                self.log.debug('group found: "%s"', group)
             
 
             if (selectedType == self.RADIO_TYPE):
@@ -259,7 +370,7 @@ class BookmarkConfiguration(object):
                             self.dataProvider.updateElementGroup(selectedRadio, new_group)
                             self.load_data()
                     else:
-                        print 'No radio information provided!'
+                        self.log.debug('No radio information provided!')
                 self.config.hide()
                 
             elif(selectedType == self.GROUP_TYPE):
@@ -293,7 +404,7 @@ class BookmarkConfiguration(object):
                             self.dataProvider.updateElementGroup(selectedGroup, new_group)
                             self.load_data()
                         else:
-                            print 'No group information provided'
+                            self.log.debug('No group information provided')
                     
                 self.configGroup.hide()
 
@@ -325,12 +436,17 @@ class BookmarkConfiguration(object):
                     
                 self.sepMove.hide()
             
+    def on_row_activated(self, widget, row, cell):
+      self.on_edit_bookmark_clicked(widget)
+    
+    
+    
     def on_remove_bookmark_clicked(self, widget):
 
         #get current selected element
         selection = self.list.get_selection()
         (model, iter) = selection.get_selected()
-        print type(iter).__name__
+
         if type(iter).__name__=='TreeIter':
 
             selectedRadioName = model.get_value(iter,0)
@@ -365,46 +481,6 @@ class BookmarkConfiguration(object):
                 model.remove(iter)
 
 
-    def on_moveup_bookmark_clicked(self, widget):
-
-        #get current selected element
-        selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
-
-        if type(iter).__name__=='TreeIter':
-
-            selectedRadioName = model.get_value(iter,1)
-
-            if (self.dataProvider.moveUp(selectedRadioName) == True):
-
-                path = model.get_path(iter)
-                path_size = len(path)
-                
-                index = path[path_size - 1]
-                
-                if index > 0:
-                    previous_path = path[:path_size-1]
-                    previous_path = previous_path + (index - 1,)
-                    previous = model.get_iter(previous_path )
-
-                    model.move_before(iter, previous)
-
-    def on_movedown_bookmark_clicked(self, widget):
-
-        #get current selected element
-        selection = self.list.get_selection()
-        (model, iter) = selection.get_selected()
-
-        if type(iter).__name__=='TreeIter':
-
-            selectedRadioName = model.get_value(iter,1)
-
-            if (self.dataProvider.moveDown(selectedRadioName) == True):
-
-                path = model.get_path(iter)
-                row = model[iter]
-                model.move_after(iter, row.next.iter)
-
 
     def on_close_clicked(self, widget):
 
@@ -437,7 +513,7 @@ class BookmarkConfiguration(object):
 
         for group in self.dataProvider.listGroupNames():
             liststore.append([group])
-            print "group found: " + group
+            self.log.debug('group found: "%s"', group)
             
         self.parentGroup.set_model(liststore)
             
@@ -471,5 +547,5 @@ class BookmarkConfiguration(object):
                 if self.dataProvider.addGroup(parent_group, name):
                     self.load_data()
             else:
-                print 'No group information provided!'
-        self.configGroup.hide() 
+                self.log.debug('No group information provided!')
+        self.configGroup.hide()

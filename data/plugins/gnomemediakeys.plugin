@@ -1,0 +1,7 @@
+[RadioTrayPlugin]
+name=Gnome Media Keys
+desc=Controls Radio Tray through keyboard multimedia keys
+script=GnomeMediaKeysPlugin.py
+class=GnomeMediaKeysPlugin
+author=Carlos Ribeiro
+

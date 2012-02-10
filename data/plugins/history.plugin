@@ -1,0 +1,6 @@
+[RadioTrayPlugin]
+name=History
+desc=Shows song history
+script=HistoryPlugin.py
+class=HistoryPlugin
+author=Carlos Ribeiro

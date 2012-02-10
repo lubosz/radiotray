@@ -19,16 +19,18 @@
 ##########################################################################
 import urllib2
 from lib.common import USER_AGENT
+import logging
 
 class M3uPlaylistDecoder:
 
     def __init__(self):
-        print "M3U playlist decoder"
+        self.log = logging.getLogger('radiotray')
+        self.log.debug('M3U playlist decoder')
 
     def isStreamValid(self, contentType, firstBytes):
 
         if('audio/mpegurl' in contentType or 'audio/x-mpegurl' in contentType):
-            print 'Stream is readable by M3U Playlist Decoder'
+            self.log.info('Stream is readable by M3U Playlist Decoder')
             return True
         else:
             lines = firstBytes.splitlines()
@@ -40,7 +42,7 @@ class M3uPlaylistDecoder:
 
 
     def extractPlaylist(self,  url):
-        print "Downloading playlist..."
+        self.log.info('Downloading playlist...')
 
         req = urllib2.Request(url)
         req.add_header('User-Agent', USER_AGENT)
@@ -48,8 +50,8 @@ class M3uPlaylistDecoder:
         str = f.read()
         f.close()
 
-        print "Playlist downloaded"
-        print "Decoding playlist..."
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
 
         lines = str.splitlines()
         playlist = []

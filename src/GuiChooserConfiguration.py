@@ -36,6 +36,7 @@ from lib.common import APP_ICON_ON
 from lib import utils
 from lib import i18n
 import uuid
+import logging
 
 class GuiChooserConfiguration(object):
 
@@ -45,7 +46,7 @@ class GuiChooserConfiguration(object):
         self.dialog = self.wTree.get_object("guiChooserDialog")
         self.rb_systray = self.wTree.get_object("rb_systray")
         self.rb_appindicator = self.wTree.get_object("rb_appindicator")
-
+        self.log = logging.getLogger('radiotray')
 
     def run(self):
         result = self.dialog.run()
@@ -56,9 +57,9 @@ class GuiChooserConfiguration(object):
             exit(0)
 
         if(self.rb_systray.get_active()):
-            print "user chose notification area"
+            self.log.info('user chose notification area')
             return "systray"
         else:
-            print "user chose app indicator"
+            self.log.info('user chose app indicator')
             return "appindicator"
 

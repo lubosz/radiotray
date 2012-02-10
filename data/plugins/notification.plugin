@@ -1,0 +1,6 @@
+[NotificationPlugin]
+name=Notifications
+desc=Shows message notifications on the desktop
+script=NotificationPlugin.py
+class=NotificationPlugin
+author=Carlos Ribeiro
