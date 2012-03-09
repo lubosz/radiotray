@@ -131,7 +131,7 @@ class StateMediator(object):
         
         
     def on_song_changed(self, data):
-        print data
+
         if('artist' in data.keys()):
             self.context.artist = data['artist']
         if('title' in data.keys()):

@@ -19,26 +19,32 @@
 ##########################################################################
 from lib.common import APPNAME
 from events.EventMngNotificationWrapper import EventMngNotificationWrapper
+import urllib2
+from lib.common import USER_AGENT, ICON_FILE
+import logging
+import traceback
 
 class NotificationManager(object):
 
     def __init__(self, eventManagerWrapper):
         self.eventManagerWrapper = eventManagerWrapper
-        
+        self.log = logging.getLogger('radiotray')
+        self.lastState = None
         
     def on_state_changed(self, data):
     
         state = data['state']
         
-        if(state == 'playing'):
+        if(state == 'playing' and state != self.lastState):
             station = data['station']
+            self.lastState = state
             self.eventManagerWrapper.notify(_('Radio Tray Playing'), station)
 
             
 
     def on_song_changed(self, data):
     
-        print data.keys()
+        self.log.debug(data)
         
         station = data['station']
         msgTitle = "%s - %s" % (APPNAME , station)
@@ -53,7 +59,28 @@ class NotificationManager(object):
         elif('title' in data.keys()):
             msg = data['title']
 
-        self.eventManagerWrapper.notify(msgTitle, msg)
+        if('homepage' in data.keys() and (data['homepage'].endswith('png') or data['homepage'].endswith('jpg'))):
+            #download image
+            try:
+                req = urllib2.Request(data['homepage'])
+                req.add_header('User-Agent', USER_AGENT)
+                response = urllib2.urlopen(req)
+                pix = response.read()
+                f = open(ICON_FILE,'wb')
+                try:
+                    f.write(pix)
+                except Exception, e:
+                    log.warn('Error saving icon')
+                finally:
+                    f.close()
+
+                self.eventManagerWrapper.notify_icon(msgTitle, msg, ICON_FILE)
+                
+            except Exception, e:
+                traceback.print_exc()
+                self.eventManagerWrapper.notify(msgTitle, msg)
+        else:
+            self.eventManagerWrapper.notify(msgTitle, msg)
         
     def on_station_error(self, data):
     

@@ -46,10 +46,10 @@ class AudioPlayerGStreamer:
         self.player.set_property("video-sink", fakesink)
 
         #buffer size
-        bufferSize = cfg_provider.getConfigValue("buffer_size")
+        bufferSize = int(cfg_provider.getConfigValue("buffer_size"))
         if (bufferSize > 0):
             
-            self.log.debug("Setting buffer size to " + bufferSize)
+            self.log.debug("Setting buffer size to " + str(bufferSize))
             self.player.set_property("buffer-size", bufferSize)
 
         bus = self.player.get_bus()
@@ -144,27 +144,31 @@ class AudioPlayerGStreamer:
                 self.eventManager.notify(EventManager.STATION_ERROR, {'error':debug})
 
         elif t == gst.MESSAGE_STATE_CHANGED:
-            self.log.debug("Received MESSAGE_STATE_CHANGED")
             oldstate, newstate, pending = message.parse_state_changed()
+            self.log.debug(("Received MESSAGE_STATE_CHANGED (%s -> %s)") % (oldstate, newstate))
 
             if newstate == gst.STATE_PLAYING:
                 station = self.mediator.getContext().station
                 self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'playing', 'station':station})
-            #elif newstate == gst.STATE_NULL:
-                #self.mediator.notifyStopped()
+            elif oldstate == gst.STATE_PLAYING and newstate == gst.STATE_PAUSED:
+                self.log.info("Received PAUSE state. Trying next stream...")
+                #self.playNextStream()
 
         elif t == gst.MESSAGE_TAG:
 
            taglist = message.parse_tag()
-           station = self.mediator.getContext().station
-           metadata = {}
 
-           for key in taglist.keys():      
-               metadata[key] = taglist[key]
+           #if there is no song information, there's no point in triggering song change event
+           if('artist' in taglist.keys() or 'title' in taglist.keys()):
+               station = self.mediator.getContext().station
+               metadata = {}
 
-           metadata['station'] = station
+               for key in taglist.keys():      
+                   metadata[key] = taglist[key]
+
+               metadata['station'] = station
            
-           self.eventManager.notify(EventManager.SONG_CHANGED, metadata)
+               self.eventManager.notify(EventManager.SONG_CHANGED, metadata)
 
         return True
 

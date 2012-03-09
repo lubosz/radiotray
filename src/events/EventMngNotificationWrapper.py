@@ -29,3 +29,6 @@ class EventMngNotificationWrapper:
 
     def notify(self, title, message):
         self.eventManager.notify(self.eventManager.NOTIFICATION, {'title': title, 'message':message})
+
+    def notify_icon(self, title, message, icon):
+        self.eventManager.notify(self.eventManager.NOTIFICATION, {'title': title, 'message':message, 'icon':icon})

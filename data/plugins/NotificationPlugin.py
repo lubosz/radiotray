@@ -18,6 +18,7 @@
 #
 ##########################################################################
 
+
 from Plugin import Plugin
 import gtk
 import gobject
@@ -51,11 +52,9 @@ class NotificationPlugin(Plugin):
 
 
     def on_notification(self, data):
-        self.notify(data['title'], data['message'])
-
-
-    def notify(self, title, message):
-
+        
+        message = data['message']
+        title = data['title']
         if self.lastMessage != message:
 
             self.lastMessage = message
@@ -65,13 +64,29 @@ class NotificationPlugin(Plugin):
                 if pynotify.init(APPNAME):
                     self.notif = pynotify.Notification(title, message)
                     self.notif.set_urgency(pynotify.URGENCY_LOW)
-                    pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
-                    self.notif.set_icon_from_pixbuf(pixbuf)
+                    self.set_icon(data)
                     self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
                     self.notif.show()
                 else:
                     self.log.error('Error: there was a problem initializing the pynotify module')
             
             else:
+                self.set_icon(data)
                 self.notif.update(title, message)
                 self.notif.show()
+
+
+    def set_icon(self, data):
+        #some radios publish cover data in the 'homepage' tag
+        if('icon' in data.keys()):
+
+            try:
+                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(data['icon'], 48, 48)
+                self.notif.set_icon_from_pixbuf(pixbuf)
+            except Exception, e:
+                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
+                self.notif.set_icon_from_pixbuf(pixbuf)
+                print e
+        else:
+            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
+            self.notif.set_icon_from_pixbuf(pixbuf)

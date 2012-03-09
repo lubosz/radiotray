@@ -82,6 +82,9 @@ USER_PLUGIN_PATH = os.path.join(USER_CFG_PATH, 'plugins')
 #Logfile
 LOGFILE = os.path.join(USER_CFG_PATH,'radiotray.log')
 
+#temporary icon file
+ICON_FILE = os.path.join(USER_CFG_PATH,'icon')
+
 # user-agent
 try:
 	import platform
