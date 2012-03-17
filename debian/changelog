@@ -3,7 +3,7 @@ radiotray (0.7.2) unstable; urgency=low
   * Added several translations
   * Fixed issue with icon on appindicator
 
- -- Carlos Ribeiro <carlosmribeiro1@gmail.com> Thu, 02 Jan 2012 00:59:11 +0100
+ -- Valdur Kana <valdur55@gmail.com> Thu, 02 Jan 2012 00:59:11 +0100
 
 
 radiotray (0.7.1) unstable; urgency=low
