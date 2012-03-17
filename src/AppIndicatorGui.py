@@ -134,7 +134,7 @@ class AppIndicatorGui:
         menu.append(menu_quit)
 
         menu.show_all()
-
+        
         try:
             self.app_indicator.connect("scroll-event", self.app_indicator_scroll)
         except:
