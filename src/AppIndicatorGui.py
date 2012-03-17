@@ -18,7 +18,7 @@
 #
 ##########################################################################
 import sys
-from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
+from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF, APP_INDICATOR_ICON_CONNECT
 try:
     import gtk
     import gtk.glade
@@ -43,7 +43,7 @@ class AppIndicatorGui:
 
         try:            
             import appindicator
-            self.app_indicator = appindicator.Indicator(APPNAME, APP_INDICATOR_ICON_ON , appindicator.CATEGORY_APPLICATION_STATUS)
+            self.app_indicator = appindicator.Indicator(APPNAME, APP_INDICATOR_ICON_OFF , appindicator.CATEGORY_APPLICATION_STATUS)
             self.app_indicator.set_status(appindicator.STATUS_ACTIVE)
         except Exception as e:
             self.log.debug(e)
@@ -140,13 +140,13 @@ class AppIndicatorGui:
         except:
             # not available in this version of app indicator
             self.log.info("App indicator scroll events are not available.")
- 
+
     def app_indicator_scroll(self, indicator, delta, direction):
         if direction == 0:
             self.mediator.volume_up()
-        else:    
+        else:
             self.mediator.volume_down()
-            
+
 
     def update_radios(self):
         for child in self.radioMenu.get_children():
@@ -209,7 +209,7 @@ class AppIndicatorGui:
             station = data['station']
             self.turnOnOff.set_sensitive(True)
             self.turnOnOff.set_label(C_('Turns off the current radio.', 'Turn Off "%s"') % station)
-            
+            self.app_indicator.set_icon(APP_INDICATOR_ICON_CONNECT)
 
 
     def setTooltip(self, text):
