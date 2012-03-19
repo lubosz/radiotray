@@ -18,7 +18,7 @@
 #
 ##########################################################################
 import sys
-from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF, APP_INDICATOR_ICON_CONNECT
+from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF, APP_INDICATOR_ICON_CONNECT, IMAGE_PATH
 try:
     import gtk
     import gtk.glade
@@ -50,7 +50,7 @@ class AppIndicatorGui:
             self.log.warn("Failed to create an Application Indicator!")
             self.app_indicator = None
 
-        
+        self.app_indicator.set_icon_theme_path(IMAGE_PATH)
         self.turnOnOff = None
         self.metadata_menu_item = None
         self.perferences_submenu = None
