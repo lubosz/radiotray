@@ -166,6 +166,7 @@ class SysTray(object):
             self.mediator.play(self.mediator.context.station)
 
     def on_start(self, data, radio):
+        self.mediator.context.resetSongInfo()
         self.mediator.play(radio)
     
         

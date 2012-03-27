@@ -36,7 +36,11 @@ class TooltipManager(object):
     def update(self):
         complete = ''
         for src in self.tooltipSources:
-            complete += src() + '\n'
+            s = src()
+            if s != None:
+                complete += s + '\n'
+
+        complete = complete.strip("\n")
 
         self.gui.setTooltip(complete)
 

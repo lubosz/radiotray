@@ -20,20 +20,23 @@
 
 class Context:
 
-    station = None
-    url = ""
-    title = ""
-    artist = None
-    album = None
-    state = None
     STATE_PLAYING = "playing"
     STATE_CONNECT = "connecting"
     STATE_PAUSED = "paused"
     UNKNOWN_RADIO = C_("Unknown radio specified by URL", "Unknown radio")
+    station = None
+    state = None
     
+    def __init__(self):
+        self.resetSongInfo()
+
+    def resetSongInfo(self):       
+        self.url = ""
+        self.title = ""
+        self.artist = None
+        self.album = None
     
     def getSongInfo(self):
-
         if(self.title and len(self.title) > 0 and self.artist and len(self.artist) > 0):
             return self.artist + " - " + self.title
         elif(self.title and len(self.title) > 0):
@@ -41,5 +44,5 @@ class Context:
         elif(self.artist and len(self.artist) > 0):
             return self.artist
         else:
-            return 'unknown'
+            return 'Playing'
             

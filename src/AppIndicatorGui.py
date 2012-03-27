@@ -80,15 +80,15 @@ class AppIndicatorGui:
             self.metadata_menu_item = gtk.MenuItem("Idle", False)
             self.metadata_menu_item.set_sensitive(False)
         
-#        if self.sleep_timer_menu_item == None:                        
-#            self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
+        # if self.sleep_timer_menu_item == None:                        
+        #     self.sleep_timer_menu_item = gtk.CheckMenuItem(_("Sleep Timer"))
         
         if self.preferences_menu == None:
             self.preferences_menu = gtk.ImageMenuItem(gtk.STOCK_PREFERENCES)                
         
         menu_config_radios = gtk.MenuItem(_("Configure Radios..."))
         menu_reload_bookmarks = gtk.MenuItem(_("Reload Bookmarks"))
-	menu_config_plugin = gtk.MenuItem(_("Configure Plugins..."))
+        menu_config_plugin = gtk.MenuItem(_("Configure Plugins..."))
         #Check bookmarks file status
         menu_config_radios.set_sensitive(self.provider.isBookmarkWritable())
 
@@ -120,11 +120,11 @@ class AppIndicatorGui:
         # plugins submenu
         menu_plugins_item = gtk.MenuItem("Plugins", False)
         self.menu_plugins = gtk.Menu()
-	self.menu_plugins.append(menu_config_plugin)
-	self.menu_plugins.append(gtk.MenuItem())	#add separator
-	menu_plugins_item.set_submenu(self.menu_plugins)
-	
-	menu.append(menu_plugins_item)
+        self.menu_plugins.append(menu_config_plugin)
+        self.menu_plugins.append(gtk.MenuItem())	#add separator
+        menu_plugins_item.set_submenu(self.menu_plugins)
+
+        menu.append(menu_plugins_item)
 
         menu_about = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_quit = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
@@ -140,6 +140,7 @@ class AppIndicatorGui:
         except:
             # not available in this version of app indicator
             self.log.info("App indicator scroll events are not available.")
+
 
     def app_indicator_scroll(self, indicator, delta, direction):
         if direction == 0:
@@ -217,7 +218,6 @@ class AppIndicatorGui:
 
     def getCommonTooltipData(self):
 
-        radio = self.mediator.getContext().station
         songInfo = self.mediator.getContext().getSongInfo()
         volume = self.mediator.getVolume()
 

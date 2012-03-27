@@ -107,7 +107,10 @@ class SleepTimerPlugin(Plugin):
 
 
     def populate_tooltip(self):
-        return _("sleep: %smin") % str(self.min_to_sleep)
+        if self.sleep_timer_id != None:
+            return _("Sleep: %smin") % str(self.min_to_sleep)
+        else:
+            return None
 
     def start_sleep_timer(self, interval, display_msg):
         self.sleep_timer_id = gobject.timeout_add(interval*60000, self.on_sleep_timer)
