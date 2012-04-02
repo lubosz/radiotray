@@ -25,6 +25,7 @@ from XmlConfigProvider import XmlConfigProvider
 import os
 import sys
 import logging
+import shutil
 
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:
@@ -106,7 +107,7 @@ class PluginManager:
         else:
             self.log.info('user plugin dir does not exist. ignoring...')
 
-        print SYSTEM_PLUGIN_PATH
+        
         if os.path.exists(SYSTEM_PLUGIN_PATH):
             self.log.info('finding plugins in system plugin path')
             files = os.listdir(SYSTEM_PLUGIN_PATH)
@@ -152,8 +153,18 @@ class PluginManager:
                     pInfo.clazz = line.split("=",1)[1]
             
             filename = os.path.basename(p)
-            pInfo.configFile = os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
+            originalFile = os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
+            correctFile = os.path.join(USER_PLUGIN_PATH, filename[:filename.find('.')] + '.config')
 
+            if(os.path.exists(originalFile)):
+		    
+
+		    os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
+
+		    if (not os.path.exists(correctFile)):
+		        shutil.copyfile(originalFile, correctFile)
+
+            pInfo.configFile = correctFile
             infos[pInfo.name] = pInfo
         return infos
 
