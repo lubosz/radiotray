@@ -1,0 +1,7 @@
+[RadioTrayPlugin]
+name=Mate Media Keys
+desc=Controls Radio Tray through keyboard multimedia keys
+script=MateMediaKeysPlugin.py
+class=MateMediaKeysPlugin
+author=Ken
+
