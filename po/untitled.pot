@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-23 02:28+0200\n"
+"POT-Creation-Date: 2012-06-13 22:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,8 +81,13 @@ msgstr ""
 msgid "Available Plugins:"
 msgstr ""
 
-#. Plugins configuration window title
+#. Warning message about need to restart application after plugin change
 #: ../data/configPlugins.glade.h:3
+msgid "Changes will only be visible after restarting Radio Tray"
+msgstr ""
+
+#. Plugins configuration window title
+#: ../data/configPlugins.glade.h:5
 msgid "Config Plugins"
 msgstr ""
 
@@ -134,13 +139,13 @@ msgstr ""
 msgid "Contributors:"
 msgstr ""
 
-#: ../src/AppIndicatorGui.py:69 ../src/AppIndicatorGui.py:188
+#: ../src/AppIndicatorGui.py:69 ../src/AppIndicatorGui.py:201
 #: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
 #: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
 msgid "Turned Off"
 msgstr ""
 
-#: ../src/AppIndicatorGui.py:72 ../src/AppIndicatorGui.py:191
+#: ../src/AppIndicatorGui.py:72 ../src/AppIndicatorGui.py:204
 #: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
 #: ../src/SysTrayGui.py:203
 #, python-format
@@ -159,39 +164,39 @@ msgstr ""
 msgid "Configure Plugins..."
 msgstr ""
 
-#: ../src/AppIndicatorGui.py:181 ../src/AppIndicatorGui.py:199
+#: ../src/AppIndicatorGui.py:194 ../src/AppIndicatorGui.py:212
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr ""
 
-#: ../src/AppIndicatorGui.py:225
+#: ../src/AppIndicatorGui.py:237
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
 msgstr ""
 
-#: ../src/AppIndicatorGui.py:227 ../src/SysTrayGui.py:234
+#: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
 msgstr ""
 
-#: ../src/Context.py:32
+#: ../src/Context.py:26
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr ""
 
-#: ../src/NotificationManager.py:35
+#: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
 msgstr ""
 
-#: ../src/NotificationManager.py:60
+#: ../src/NotificationManager.py:87
 msgid "Radio Error"
 msgstr ""
 
-#: ../src/NotificationManager.py:64
+#: ../src/NotificationManager.py:91
 msgid "Bookmarks Reloaded"
 msgstr ""
 
