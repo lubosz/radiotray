@@ -5,15 +5,16 @@
 # Translators:
 # Daniel  <dawiddaniel@gmail.com>, 2011.
 # fims <msmolnik@fims.pl>, 2011.
+# Kamil Ś <k.sciana@gmail.com>, 2012.
 #   <kontakt@soee.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2012-01-07 11:52+0000\n"
-"Last-Translator: soee <kontakt@soee.pl>\n"
-"Language-Team: Polish (http://www.transifex.net/projects/p/radiotray/team/pl/)\n"
+"PO-Revision-Date: 2012-04-20 21:07+0000\n"
+"Last-Translator: Kamil Ś <k.sciana@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.net/projects/p/radiotray/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,19 +27,19 @@ msgstr "Dodaj grupę"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Group :"
-msgstr "Grupa :"
+msgstr "Grupa:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Przenieś separator do innej grupy"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
-msgstr "Nazwa :"
+msgstr "Nazwa:"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Parent Group :"
-msgstr "Grupa nadrzędna :"
+msgstr "Grupa nadrzędna:"
 
 #: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
 msgid "Separator"
@@ -57,7 +58,7 @@ msgstr "Nazwa stacji:"
 #: ../data/configBookmarks.glade.h:9
 msgctxt "yes"
 msgid "URL :"
-msgstr "URL :"
+msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
@@ -164,13 +165,13 @@ msgstr "Zatrzymaj \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Odtwarzanie (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Gotowy (vol: %s%%)"
 
 #: ../src/Context.py:32
 msgctxt "Unknown radio specified by URL"
@@ -179,11 +180,11 @@ msgstr "Nieznana stacja radiowa"
 
 #: ../src/NotificationManager.py:35
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Odtwarzanie w Radio Tray"
 
 #: ../src/NotificationManager.py:60
 msgid "Radio Error"
-msgstr ""
+msgstr "Błąd stacji radiowej"
 
 #: ../src/NotificationManager.py:64
 msgid "Bookmarks Reloaded"
@@ -214,12 +215,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr ""
+msgstr "Odtwarzanie <b>%s</b> (vol: %s%%)\n<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
-
-
+msgstr "Odtwarzanie <b>%s</b> (vol: %s%%)"
