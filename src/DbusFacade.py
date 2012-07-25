@@ -42,7 +42,7 @@ class DbusFacade(dbus.service.Object):
         if self.mediator.isPlaying():
             return self.mediator.getContext().station
         else:
-            return "not playing"
+            return self.mediator.getContext().station + " (not playing)"
 
     @dbus.service.method('net.sourceforge.radiotray')
     def playRadio(self, radioName):
@@ -67,3 +67,10 @@ class DbusFacade(dbus.service.Object):
     @dbus.service.method('net.sourceforge.radiotray')
     def getCurrentMetaData(self):
         return self.mediator.getContext().getSongInfo()
+
+    @dbus.service.method('net.sourceforge.radiotray')
+    def togglePlay(self):
+        if self.mediator.context.state == 'playing' or self.mediator.context.state == 'connecting':
+            self.mediator.stop()
+        else:
+            self.mediator.playLast()
