@@ -5,7 +5,9 @@ import dbus
 import sys, os, string
 from RadioTray import RadioTray
 from dbus import DBusException
+from dbus.mainloop.glib import threads_init
 
+threads_init()
 current_path = os.path.realpath(__file__)
 basedir = os.path.dirname(os.path.realpath(__file__))
 if not os.path.exists(os.path.join(basedir, "radiotray.py")):
