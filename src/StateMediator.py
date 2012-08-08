@@ -92,6 +92,7 @@ class StateMediator(object):
             self.play(self.context.station)
 
     def stop(self):
+        self.log.debug('Stopping...')
         self.audioPlayer.stop()
 
 

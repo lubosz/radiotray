@@ -25,6 +25,7 @@ import gst
 from StreamDecoder import StreamDecoder
 from lib.common import USER_AGENT
 from events.EventManager import EventManager
+from threading import Timer
 import logging
 
 class AudioPlayerGStreamer:
@@ -34,6 +35,7 @@ class AudioPlayerGStreamer:
         self.eventManager = eventManager
         self.decoder = StreamDecoder(cfg_provider)
         self.playlist = []
+        self.retrying = False
 
         self.log = logging.getLogger('radiotray')
 
@@ -53,6 +55,7 @@ class AudioPlayerGStreamer:
                 self.log.debug("Setting buffer size to " + str(bufferSize))
                 self.player.set_property("buffer-size", bufferSize)
 
+        
         bus = self.player.get_bus()
         bus.add_signal_watch()
         bus.connect("message", self.on_message)
@@ -86,8 +89,7 @@ class AudioPlayerGStreamer:
 
             urlInfo = self.decoder.getMediaStreamInfo(stream)
             if(urlInfo is not None and urlInfo.isPlaylist() == False):
-                self.player.set_property("uri", stream)
-                self.player.set_state(gst.STATE_PAUSED) # buffer before starting playback
+                self.playStream(stream)
             elif(urlInfo is not None and urlInfo.isPlaylist()):
                 self.playlist = self.decoder.getPlaylist(urlInfo) + self.playlist
                 self.playNextStream()
@@ -97,6 +99,11 @@ class AudioPlayerGStreamer:
             self.stop()
             self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'paused'})
         self.mediator.updateVolume(self.player.get_property("volume"))
+
+
+    def playStream(self, uri):
+        self.player.set_property("uri", uri)
+        self.player.set_state(gst.STATE_PAUSED) # buffer before starting playback
 
     def stop(self):
         self.player.set_state(gst.STATE_NULL)
@@ -116,8 +123,8 @@ class AudioPlayerGStreamer:
         stru = message.structure
         if(stru != None):
             name = stru.get_name()
-            self.log.debug(name)
             if(name == 'redirect'):
+                slef.log.info("redirect received")
                 self.player.set_state(gst.STATE_NULL)
                 stru.foreach(self.redirect, None)
 
@@ -128,7 +135,9 @@ class AudioPlayerGStreamer:
             self.player.set_state(gst.STATE_NULL)
             self.playNextStream()
         elif t == gst.MESSAGE_BUFFERING:
-            if message.structure['buffer-percent'] == 0:
+            percent = message.structure['buffer-percent']
+            if percent < 100:
+                self.log.debug("Buffering %s" % percent)
                 self.player.set_state(gst.STATE_PAUSED)
             else:
                 self.player.set_state(gst.STATE_PLAYING)
@@ -149,11 +158,19 @@ class AudioPlayerGStreamer:
             self.log.debug(("Received MESSAGE_STATE_CHANGED (%s -> %s)") % (oldstate, newstate))
 
             if newstate == gst.STATE_PLAYING:
+                self.retrying = False
                 station = self.mediator.getContext().station
                 self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'playing', 'station':station})
             elif oldstate == gst.STATE_PLAYING and newstate == gst.STATE_PAUSED:
-                self.log.info("Received PAUSE state. Trying next stream...")
-                #self.playNextStream()
+                self.log.info("Received PAUSE state.")
+                
+                if self.retrying == False:
+                    self.retrying = True
+                    timer = Timer(20.0, self.checkTimeout)
+                    timer.start()
+                    self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'paused'})
+                    
+            
 
         elif t == gst.MESSAGE_TAG:
 
@@ -177,3 +194,13 @@ class AudioPlayerGStreamer:
         if(name == 'new-location'):
             self.start(value)
         return True
+
+
+    def checkTimeout(self):
+        self.log.debug("Checking timeout...")
+        if self.retrying == True:
+            self.log.info("Timed out. Retrying...")
+            uri = self.player.get_property("uri")
+            self.playStream(uri)
+        else: 
+            self.log.info("Timed out, but not retrying anymore")
