@@ -4,15 +4,16 @@
 # 
 # Translators:
 #   <ami.geva@gmail.com>, 2011.
-# Ariel Nemtzov <reldude84@gmail.com>, 2011.
+# Ariel Nemtzov <reldude84@gmail.com>, 2011, 2012.
+# zach  <zachary.j@gmx.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
-"POT-Creation-Date: 2011-12-01 18:04+0000\n"
-"PO-Revision-Date: 2011-12-13 06:23+0000\n"
-"Last-Translator: ami7878 <ami.geva@gmail.com>\n"
-"Language-Team: Hebrew (http://www.transifex.net/projects/p/radiotray/team/he/)\n"
+"POT-Creation-Date: 2012-06-13 22:38+0100\n"
+"PO-Revision-Date: 2012-06-20 12:39+0000\n"
+"Last-Translator: Ariel Nemtzov <reldude84@gmail.com>\n"
+"Language-Team: Hebrew (http://www.transifex.com/projects/p/radiotray/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr "הוסף קבוצה"
+msgstr "הוספת קבוצה"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Group :"
@@ -46,7 +47,7 @@ msgstr "חוצץ"
 #: ../data/configBookmarks.glade.h:7
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr "הגדר תחנות"
+msgstr "הגדרת תחנות"
 
 #: ../data/configBookmarks.glade.h:8
 msgctxt "yes"
@@ -79,9 +80,23 @@ msgstr "אייקון באזור ההודעות"
 msgid "Please select how Radio Tray should appear"
 msgstr "אנא שים לב כיצד התוכנה אמורה להיראות"
 
+#: ../data/configPlugins.glade.h:1
+msgid "Available Plugins:"
+msgstr "תוספים זמינים:"
+
+#. Warning message about need to restart application after plugin change
+#: ../data/configPlugins.glade.h:3
+msgid "Changes will only be visible after restarting Radio Tray"
+msgstr "ניתן יהיה לראות שינויים רק לאחר הפעלת התוכנה מחדש."
+
+#. Plugins configuration window title
+#: ../data/configPlugins.glade.h:5
+msgid "Config Plugins"
+msgstr "התאם תוספים"
+
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "קרדיט-מתרגם"
+msgstr "Transifex Contributions: \\n\n  ami7878 https://www.transifex.net/accounts/profile/ami7878/ \\n\n  Ariel Nemtzov https://www.transifex.net/accounts/profile/rel_dude/ \\n\n  carlosm https://www.transifex.net/accounts/profile/carlosm/ \\n"
 
 #: ../src/about.py:30
 #, python-format
@@ -94,21 +109,21 @@ msgstr "שם תחנה"
 
 #: ../src/BookmarkConfiguration.py:275
 msgid "Add new station"
-msgstr "הוסף תחנה חדשה"
+msgstr "הוספת תחנה חדשה"
 
 #: ../src/BookmarkConfiguration.py:352
 #, python-format
 msgid "Edit %s"
-msgstr "ערוך %s"
+msgstr "עריכה %s"
 
 #: ../src/BookmarkConfiguration.py:388
 msgid "Edit group"
-msgstr "ערוך קבוצה"
+msgstr "עריכת קבוצה"
 
 #. populate dialog with radio information
 #: ../src/BookmarkConfiguration.py:422
 msgid "Edit Separator"
-msgstr "ערוך חוצץ"
+msgstr "עריכת חוצץ"
 
 #: ../src/BookmarkConfiguration.py:464
 #, python-format
@@ -117,7 +132,7 @@ msgstr "האם אתה בטוח שברצונך למחוק את \"%s\"?"
 
 #: ../src/BookmarkConfiguration.py:506
 msgid "Add new group"
-msgstr "הוסף קבוצה חדשה"
+msgstr "הוספת קבוצה חדשה"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
@@ -127,66 +142,66 @@ msgstr "מפתחים:"
 msgid "Contributors:"
 msgstr "תורמים:"
 
-#: ../src/AppIndicatorGui.py:77 ../src/AppIndicatorGui.py:196
+#: ../src/AppIndicatorGui.py:69 ../src/AppIndicatorGui.py:201
 #: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
 #: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
 msgid "Turned Off"
 msgstr "כבוי"
 
-#: ../src/AppIndicatorGui.py:80 ../src/AppIndicatorGui.py:199
+#: ../src/AppIndicatorGui.py:72 ../src/AppIndicatorGui.py:204
 #: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
 #: ../src/SysTrayGui.py:203
 #, python-format
 msgid "Turn On \"%s\""
 msgstr "הדלק \"%s\""
 
-#: ../src/AppIndicatorGui.py:97 ../src/SysTrayGui.py:72
+#: ../src/AppIndicatorGui.py:89 ../src/SysTrayGui.py:72
 msgid "Configure Radios..."
-msgstr "הגדר תחנות..."
+msgstr "הגדרת תחנות..."
 
-#: ../src/AppIndicatorGui.py:98 ../src/SysTrayGui.py:77
+#: ../src/AppIndicatorGui.py:90 ../src/SysTrayGui.py:77
 msgid "Reload Bookmarks"
-msgstr "טען סימניות מחדש"
+msgstr "טעינת הסימניות מחדש"
 
-#: ../src/AppIndicatorGui.py:99 ../src/SysTrayGui.py:88
+#: ../src/AppIndicatorGui.py:91 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
 msgstr "הגדרת תוספים..."
 
-#: ../src/AppIndicatorGui.py:189 ../src/AppIndicatorGui.py:207
+#: ../src/AppIndicatorGui.py:194 ../src/AppIndicatorGui.py:212
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
 msgstr "כבה \"%s\""
 
-#: ../src/AppIndicatorGui.py:233
+#: ../src/AppIndicatorGui.py:237
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
 msgstr "משמיע (עוצמה: %s%%)"
 
-#: ../src/AppIndicatorGui.py:235 ../src/SysTrayGui.py:234
+#: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "בהמתנה (עוצמה: %s%%)"
+msgstr "מושהה (עוצמת שמע: %s%%)"
 
-#: ../src/Context.py:32
+#: ../src/Context.py:26
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
 msgstr "תחנה לא ידועה"
 
-#: ../src/NotificationManager.py:35
+#: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
 msgstr "נגן הרדיו פועל"
 
-#: ../src/NotificationManager.py:60
+#: ../src/NotificationManager.py:87
 msgid "Radio Error"
-msgstr "שגיאה ברדיו"
+msgstr "שגיאה בתחנה"
 
-#: ../src/NotificationManager.py:64
+#: ../src/NotificationManager.py:91
 msgid "Bookmarks Reloaded"
-msgstr "סימניות נטענו מחדש"
+msgstr "הסימניות נטענו מחדש"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
@@ -213,14 +228,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr ""
-"משמיע <b>%s</b> (עוצמה: %s%%)\n"
-"<i>%s</i>"
+msgstr "משמיע <b>%s</b> (עוצמת שמע: %s%%)\n<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "משמיע <b>%s</b> (עוצמה: %s%%)"
-
-
+msgstr "משמיע <b>%s</b> (עוצמת שמע: %s%%)"
