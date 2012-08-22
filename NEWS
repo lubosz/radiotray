@@ -1,3 +1,18 @@
+Radio Tray 0.7.3 - 09/08/2012
+=============================
+
+* Added buffer size control to configuration file ("buffer_sizer")
+* Added partial support for album cover download
+* Fixed issues with icon not appearing in some platforms
+* Improved tooltip on sleeptimer
+* Fixed issue with configuration location (issue #120)
+* Added plugin for multimedia keys under Mate (thanks to Ken)
+* Improved plugin configuration dialog
+* Updated translations
+* Added toggle operation to DBus interface
+* Fix problem with segmentatinon faults
+* Fix problem with temporary network failures
+
 Radio Tray 0.7.2 - 02/02/2012
 =============================
 
