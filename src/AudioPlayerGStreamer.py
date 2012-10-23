@@ -124,7 +124,7 @@ class AudioPlayerGStreamer:
         if(stru != None):
             name = stru.get_name()
             if(name == 'redirect'):
-                slef.log.info("redirect received")
+                self.log.info("redirect received")
                 self.player.set_state(gst.STATE_NULL)
                 stru.foreach(self.redirect, None)
 
