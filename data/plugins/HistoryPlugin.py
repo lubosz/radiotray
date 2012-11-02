@@ -72,5 +72,9 @@ class HistoryPlugin(Plugin):
         self.window.hide()
         return True
 
+    def on_delete_event(self, widget, event, data=None):
+        self.window.hide()
+        return True
+
     def hasMenuItem(self):
         return True
