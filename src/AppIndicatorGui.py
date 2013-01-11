@@ -36,6 +36,7 @@ class AppIndicatorGui:
         self.mediator = mediator
         self.cfg_provider = cfg_provider
         self.provider = provider
+        self.menu_plugins_item = None
         self.log = logging.getLogger('radiotray')
 
 
@@ -118,13 +119,14 @@ class AppIndicatorGui:
             self.perferences_submenu.append(menu_reload_bookmarks)
 
         # plugins submenu
-        menu_plugins_item = gtk.MenuItem("Plugins", False)
-        self.menu_plugins = gtk.Menu()
-        self.menu_plugins.append(menu_config_plugin)
-        self.menu_plugins.append(gtk.MenuItem())	#add separator
-        menu_plugins_item.set_submenu(self.menu_plugins)
-
-        menu.append(menu_plugins_item)
+        if self.menu_plugins_item == None:
+            self.menu_plugins_item = gtk.MenuItem("Plugins", False)
+            self.menu_plugins = gtk.Menu()
+            self.menu_plugins.append(menu_config_plugin)
+            self.menu_plugins.append(gtk.MenuItem())	#add separator
+            self.menu_plugins_item.set_submenu(self.menu_plugins)
+        
+        menu.append(self.menu_plugins_item)
 
         menu_about = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu_quit = gtk.ImageMenuItem(gtk.STOCK_QUIT)        
