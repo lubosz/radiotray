@@ -39,7 +39,8 @@
     </group>
     <group name="Oldies">
         <bookmark name="AM 1710" url="http://lin2.ash.fast-serv.com:9022/listen.pls"/>
-        <bookmark name="WNAR" url="http://live.wnar-am.com:8500/listen.pls"/>
+        <bookmark name="AM 600" url="http://redmanstreams.com:8740/listen.pls"/>
+        <bookmark name="WNAR-AM RADIO" url="http://yp.shoutcast.com/sbin/tunein-station.pls?id=134236"/>
         <bookmark name="SKY.fm Oldies" url="http://listen.sky.fm/public1/oldies.pls"/>
     </group>
     <group name="Chill">
