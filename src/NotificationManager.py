@@ -30,22 +30,23 @@ class NotificationManager(object):
         self.eventManagerWrapper = eventManagerWrapper
         self.log = logging.getLogger('radiotray')
         self.lastState = None
-        
+
     def on_state_changed(self, data):
-    
+
         state = data['state']
-        
+
         if(state == 'playing' and state != self.lastState):
             station = data['station']
-            self.lastState = state
             self.eventManagerWrapper.notify(_('Radio Tray Playing'), station)
 
-            
+        self.lastState = state
+
+
 
     def on_song_changed(self, data):
-    
+
         self.log.debug(data)
-        
+
         station = data['station']
         msgTitle = "%s - %s" % (APPNAME , station)
         msg = None
@@ -53,7 +54,7 @@ class NotificationManager(object):
         if('artist' in data.keys() and 'title' in data.keys()):
             artist = data['artist']
             title = data['title']
-            msg = "%s - %s" % (artist, title)            
+            msg = "%s - %s" % (artist, title)
         elif('artist' in data.keys()):
             msg = data['artist']
         elif('title' in data.keys()):
@@ -70,24 +71,24 @@ class NotificationManager(object):
                 try:
                     f.write(pix)
                 except Exception, e:
-                    log.warn('Error saving icon')
+                    self.log.warn('Error saving icon')
                 finally:
                     f.close()
 
                 self.eventManagerWrapper.notify_icon(msgTitle, msg, ICON_FILE)
-                
+
             except Exception, e:
                 traceback.print_exc()
                 self.eventManagerWrapper.notify(msgTitle, msg)
         else:
             self.eventManagerWrapper.notify(msgTitle, msg)
-        
+
     def on_station_error(self, data):
-    
+
         self.eventManagerWrapper.notify(_('Radio Error'), str(data['error']))
 
     def on_bookmarks_reloaded(self, data):
 
         self.eventManagerWrapper.notify(_("Bookmarks Reloaded"), _("Bookmarks Reloaded"))
-        
-        
+
+
