@@ -1,0 +1,6 @@
+[RadioTrayPlugin]
+name=StationSwitcher
+desc=Allows cycling through stations
+script=StationSwitcherPlugin.py
+class=StationSwitcherPlugin
+author=Mark F
