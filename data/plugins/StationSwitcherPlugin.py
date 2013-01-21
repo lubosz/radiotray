@@ -107,7 +107,7 @@ class StationSwitcherPlugin(Plugin):
         return allRadios[randomStationIndex]
     
     def hasMenuItem(self):
-        return True
+        return False
     
     def on_menu(self, data):
         #plugin config gui goes here.  Need to add option for random station select
