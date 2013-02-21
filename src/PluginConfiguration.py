@@ -27,7 +27,8 @@ except:
 try:
     import gtk
     import gtk.glade
-    import gobject
+    from gi.repository import Gobject
+    GObject.threads_init()
     import os
     from lib import utils
     from lib.common import APP_ICON_ON
@@ -88,7 +89,7 @@ class PluginConfiguration(object):
 #            self.cfgProvider.setConfigValue('active_plugins'
 
 
-        liststore = gtk.ListStore(gobject.TYPE_BOOLEAN, gobject.TYPE_STRING)
+        liststore = gtk.ListStore(GObject.TYPE_BOOLEAN, GObject.TYPE_STRING)
         plugins = self.pluginManager.getPlugins()
   
         for p in plugins:

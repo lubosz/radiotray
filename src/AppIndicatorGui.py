@@ -22,7 +22,6 @@ from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_
 try:
     import gtk
     import gtk.glade
-    import gobject
 except:
     sys.exit(1)
 import textwrap

@@ -26,7 +26,6 @@ except:
 try:
     import gtk
     import gtk.glade
-    import gobject
 except:
     sys.exit(1)
 

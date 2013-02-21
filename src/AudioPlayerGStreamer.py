@@ -18,10 +18,12 @@
 #
 ##########################################################################
 import sys, os
-import pygtk, gtk, gobject
-import pygst
-pygst.require("0.10")
-import gst
+import pygtk, gtk
+
+from gi.repository import Gobject, Gst
+GObject.threads_init()
+Gst.init(None)
+
 from StreamDecoder import StreamDecoder
 from lib.common import USER_AGENT
 from events.EventManager import EventManager
@@ -40,11 +42,11 @@ class AudioPlayerGStreamer:
         self.log = logging.getLogger('radiotray')
 
         # init player
-        self.souphttpsrc = gst.element_factory_make("souphttpsrc", "source")
+        self.souphttpsrc = Gst.element_factory_make("souphttpsrc", "source")
         self.souphttpsrc.set_property("user-agent", USER_AGENT)
 		
-        self.player = gst.element_factory_make("playbin2", "player")		
-        fakesink = gst.element_factory_make("fakesink", "fakesink")
+        self.player = Gst.ElementFactory.make("playbin2", "player")
+        fakesink = Gst.ElementFactory.make("fakesink", "fakesink")
         self.player.set_property("video-sink", fakesink)
 
         #buffer size
@@ -103,10 +105,10 @@ class AudioPlayerGStreamer:
 
     def playStream(self, uri):
         self.player.set_property("uri", uri)
-        self.player.set_state(gst.STATE_PAUSED) # buffer before starting playback
+        self.player.set_state(Gst.State.PAUSED) # buffer before starting playback
 
     def stop(self):
-        self.player.set_state(gst.STATE_NULL)
+        self.player.set_state(Gst.State.NULL)
         self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'paused'})
 
     def volume_up(self, volume_increment):   
@@ -125,25 +127,25 @@ class AudioPlayerGStreamer:
             name = stru.get_name()
             if(name == 'redirect'):
                 self.log.info("redirect received")
-                self.player.set_state(gst.STATE_NULL)
+                self.player.set_state(Gst.State.NULL)
                 stru.foreach(self.redirect, None)
 
                 
 
-        if t == gst.MESSAGE_EOS:
+        if t == Gst.MessageType.EOS:
             self.log.debug("Received MESSAGE_EOS")
-            self.player.set_state(gst.STATE_NULL)
+            self.player.set_state(Gst.State.NULL)
             self.playNextStream()
-        elif t == gst.MESSAGE_BUFFERING:
+        elif t == Gst.MessageType.BUFFERING:
             percent = message.structure['buffer-percent']
             if percent < 100:
                 self.log.debug("Buffering %s" % percent)
-                self.player.set_state(gst.STATE_PAUSED)
+                self.player.set_state(Gst.State.PAUSED)
             else:
-                self.player.set_state(gst.STATE_PLAYING)
-        elif t == gst.MESSAGE_ERROR:
+                self.player.set_state(Gst.State.PLAYING)
+        elif t == Gst.MessageType.ERROR:
             self.log.debug("Received MESSAGE_ERROR")
-            self.player.set_state(gst.STATE_NULL)
+            self.player.set_state(Gst.State.NULL)
             err, debug = message.parse_error()
             self.log.warn(err)
             self.log.warn(debug)
@@ -153,15 +155,15 @@ class AudioPlayerGStreamer:
             else:
                 self.eventManager.notify(EventManager.STATION_ERROR, {'error':debug})
 
-        elif t == gst.MESSAGE_STATE_CHANGED:
+        elif t == Gst.MessageType.STATE_CHANGED:
             oldstate, newstate, pending = message.parse_state_changed()
             self.log.debug(("Received MESSAGE_STATE_CHANGED (%s -> %s)") % (oldstate, newstate))
 
-            if newstate == gst.STATE_PLAYING:
+            if newstate == Gst.State.PLAYING:
                 self.retrying = False
                 station = self.mediator.getContext().station
                 self.eventManager.notify(EventManager.STATE_CHANGED, {'state':'playing', 'station':station})
-            elif oldstate == gst.STATE_PLAYING and newstate == gst.STATE_PAUSED:
+            elif oldstate == Gst.State.PLAYING and newstate == Gst.State.PAUSED:
                 self.log.info("Received PAUSE state.")
                 
                 if self.retrying == False:
@@ -172,7 +174,7 @@ class AudioPlayerGStreamer:
                     
             
 
-        elif t == gst.MESSAGE_TAG:
+        elif t == Gst.MessageType.TAG:
 
            taglist = message.parse_tag()
 
