@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# papernick <n.pavlov10@yahoo.com>, 2013
+# papernick <n.pavlov10@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2012-06-13 22:38+0100\n"
-"PO-Revision-Date: 2012-06-13 21:39+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2013-03-07 15:16+0000\n"
+"Last-Translator: papernick <n.pavlov10@yahoo.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/radiotray/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -27,7 +29,7 @@ msgstr "Група:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Премести разделителя в друга група"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -44,7 +46,7 @@ msgstr "Разделител"
 #: ../data/configBookmarks.glade.h:7
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr "Настройване на радиа"
+msgstr "Настройки на радиата"
 
 #: ../data/configBookmarks.glade.h:8
 msgctxt "yes"
@@ -58,42 +60,42 @@ msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr ""
+msgstr "(Вашият избор ще бъде съхранен във файл)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr ""
+msgstr "В индикаторът за приложения"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr ""
+msgstr "Настройте за първи път"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr ""
+msgstr "В лентата за известия"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr ""
+msgstr "Изберете къде искате да се показва RadioTray."
 
 #: ../data/configPlugins.glade.h:1
 msgid "Available Plugins:"
-msgstr ""
+msgstr "Налични плъгини:"
 
 #. Warning message about need to restart application after plugin change
 #: ../data/configPlugins.glade.h:3
 msgid "Changes will only be visible after restarting Radio Tray"
-msgstr ""
+msgstr "Промените ще се приложат след рестарт на RadioTray"
 
 #. Plugins configuration window title
 #: ../data/configPlugins.glade.h:5
 msgid "Config Plugins"
-msgstr ""
+msgstr "Настройки на плъгините"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "заслуги за превода"
+msgstr "Nikolay Pavlov <n.pavlov10@yahoo.com>"
 
 #: ../src/about.py:30
 #, python-format
@@ -150,7 +152,7 @@ msgstr "Изключено"
 #: ../src/SysTrayGui.py:203
 #, python-format
 msgid "Turn On \"%s\""
-msgstr ""
+msgstr "Включи \"%s\""
 
 #: ../src/AppIndicatorGui.py:89 ../src/SysTrayGui.py:72
 msgid "Configure Radios..."
@@ -162,26 +164,26 @@ msgstr "Презареждане на отметките"
 
 #: ../src/AppIndicatorGui.py:91 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Настройване на плъгините"
 
 #: ../src/AppIndicatorGui.py:194 ../src/AppIndicatorGui.py:212
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
 #, python-format
 msgctxt "Turns off the current radio."
 msgid "Turn Off \"%s\""
-msgstr "Изключване на \"%s\""
+msgstr "Изключи \"%s\""
 
 #: ../src/AppIndicatorGui.py:237
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Възпроизвеждане: (сила на звука: %s%%)"
 
 #: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Неактивен (сила на звука: %s%%)"
 
 #: ../src/Context.py:26
 msgctxt "Unknown radio specified by URL"
@@ -190,11 +192,11 @@ msgstr "Неизвестно радио"
 
 #: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Radio Tray Възпроизвежда"
 
 #: ../src/NotificationManager.py:87
 msgid "Radio Error"
-msgstr ""
+msgstr "Грешка с радиото"
 
 #: ../src/NotificationManager.py:91
 msgid "Bookmarks Reloaded"
@@ -202,16 +204,16 @@ msgstr "Отметките са презаредени"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Активно"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr "Не се възпроизвежда нищо (сила на звука: %s%%)"
+msgstr "Неактивен (сила на звука: %s%%)"
 
 #: ../src/SysTrayGui.py:214
 #, python-format
@@ -225,10 +227,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr ""
+msgstr "Възпроизвеждане: <b>%s</b> (сила на звука: %s%%)\n<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Възпроизвеждане: <b>%s</b> (сила на звука: %s%%)"

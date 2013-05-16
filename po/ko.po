@@ -3,21 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# boram <boramism@gmail.com>, 2011.
-#   <boramism@gmail.com>, 2011.
+# boram <boramism@gmail.com>, 2011
+# boram <boramism@gmail.com>, 2011
+# 이준연 이 <leejo0531@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2012-06-13 22:38+0100\n"
-"PO-Revision-Date: 2012-06-13 21:39+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2013-03-12 09:06+0000\n"
+"Last-Translator: 이준연 이 <leejo0531@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/radiotray/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -60,7 +61,7 @@ msgstr "주소 :"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "(선택한 옵션은 설정 파일에 저장합니다)"
+msgstr "(선택한 옵션을 설정 파일에 저장합니다)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
@@ -69,29 +70,29 @@ msgstr "프로그램 "
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr "설정을 처음 실행했습니다"
+msgstr "첫 실행을 위해 설정을 시작합니다"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr "알림 영역에 아이콘 "
+msgstr "알림 영역의 아이콘"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr "라디오 트레이를 어떻게 표시할지 "
+msgstr "라디오 트레이를 어떻게 표시할지 선택하세요"
 
 #: ../data/configPlugins.glade.h:1
 msgid "Available Plugins:"
-msgstr ""
+msgstr "이용 가능한 플러그인"
 
 #. Warning message about need to restart application after plugin change
 #: ../data/configPlugins.glade.h:3
 msgid "Changes will only be visible after restarting Radio Tray"
-msgstr ""
+msgstr "플러그인 사용을 위해 라디오 트레이를 재시작합니다"
 
 #. Plugins configuration window title
 #: ../data/configPlugins.glade.h:5
 msgid "Config Plugins"
-msgstr ""
+msgstr "플러그인 설정"
 
 #: ../src/about.py:16
 msgid "translator-credits"

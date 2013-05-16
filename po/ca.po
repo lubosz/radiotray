@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Dani Solà <wildboy4@hotmail.com>, 2011.
-#   <toni75@gmail.com>, 2012.
+# Dani Solà <wildboy4@hotmail.com>, 2011
+# t0n3t <toni75@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2012-06-13 22:38+0100\n"
-"PO-Revision-Date: 2012-08-01 14:03+0000\n"
+"PO-Revision-Date: 2012-10-07 16:44+0000\n"
 "Last-Translator: t0n3t <toni75@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/radiotray/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -29,7 +29,7 @@ msgstr "Grup:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr "Mogui el separador a un altre grup"
+msgstr "Bellugueu el separador a un altre grup"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -77,7 +77,7 @@ msgstr "Icona a l'àrea de notificacions"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr "Seleccioni com vol que Radio Tray aparegui"
+msgstr "Seleccioneu com voleu que Radio Tray aparegui"
 
 #: ../data/configPlugins.glade.h:1
 msgid "Available Plugins:"
@@ -95,7 +95,7 @@ msgstr "Configurar plugins"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Dani Solà / Toni Panadès"
+msgstr "Dani Solà\nToni Panadès"
 
 #: ../src/about.py:30
 #, python-format
@@ -177,7 +177,7 @@ msgstr "Apagar \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Sonant (vol: %s%%)"
+msgstr "Reproduint (vol: %s%%)"
 
 #: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
@@ -192,7 +192,7 @@ msgstr "Ràdio desconeguda"
 
 #: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
-msgstr "Radio Tray sonant"
+msgstr "Radio Tray reproduint"
 
 #: ../src/NotificationManager.py:87
 msgid "Radio Error"
@@ -227,10 +227,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr "Sonant <b>%s</b> (vol: %s%%)\n<i>%s</i>"
+msgstr "Reproduint <b>%s</b> (vol: %s%%)\n<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Sonant <b>%s</b> (vol: %s%%)"
+msgstr "Reproduint <b>%s</b> (vol: %s%%)"

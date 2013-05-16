@@ -3,21 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <henkjan.kleinpoelhuis@hotmail.com>, 2011.
-# sgrs <henkjan.kleinpoelhuis@hotmail.com>, 2011.
+# sgrs <henkjan.kleinpoelhuis@hotmail.com>, 2011
+# nvanvliet <nico@nvanvliet.nl>, 2012
+# sgrs <henkjan.kleinpoelhuis@hotmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2012-06-13 22:38+0100\n"
-"PO-Revision-Date: 2012-06-13 21:39+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2012-11-25 11:28+0000\n"
+"Last-Translator: nvanvliet <nico@nvanvliet.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/radiotray/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
@@ -29,7 +30,7 @@ msgstr "Groep :"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr ""
+msgstr "Verplaats de seperator naar een andere groep"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -60,42 +61,42 @@ msgstr "Stream-URL :"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "("
+msgstr "(deze keuze wordt bewaard in het configuratiebestand)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr ""
+msgstr "Programma aanwijzer"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr ""
+msgstr "Eerste gebruik configuratie"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr ""
+msgstr "Pictogram in het meldingsvak"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr ""
+msgstr "Selecteer s.v.p. hoe Radio Tray eruit moet zien"
 
 #: ../data/configPlugins.glade.h:1
 msgid "Available Plugins:"
-msgstr ""
+msgstr "Beschikbare plugins:"
 
 #. Warning message about need to restart application after plugin change
 #: ../data/configPlugins.glade.h:3
 msgid "Changes will only be visible after restarting Radio Tray"
-msgstr ""
+msgstr "Wijzigingen worden pas zichtbaar na het herstarten van Radio Tray"
 
 #. Plugins configuration window title
 #: ../data/configPlugins.glade.h:5
 msgid "Config Plugins"
-msgstr ""
+msgstr "Configureer plugins"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>"
+msgstr "Henk-Jan klein Poelhuis <henkjan.kleinpoelhuis@hotmail.com>\nNico van Vliet"
 
 #: ../src/about.py:30
 #, python-format
@@ -164,7 +165,7 @@ msgstr "Favorieten bijwerken"
 
 #: ../src/AppIndicatorGui.py:91 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr ""
+msgstr "Configureer plugins"
 
 #: ../src/AppIndicatorGui.py:194 ../src/AppIndicatorGui.py:212
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -177,13 +178,13 @@ msgstr "\"%s\" uitzetten"
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr ""
+msgstr "Speelt (vol:%s%%)"
 
 #: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr ""
+msgstr "Gepauzeerd (vol:%s%%)"
 
 #: ../src/Context.py:26
 msgctxt "Unknown radio specified by URL"
@@ -192,11 +193,11 @@ msgstr "Onbekende radiozender"
 
 #: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
-msgstr ""
+msgstr "Radio Tray speelt"
 
 #: ../src/NotificationManager.py:87
 msgid "Radio Error"
-msgstr ""
+msgstr "Radio fout"
 
 #: ../src/NotificationManager.py:91
 msgid "Bookmarks Reloaded"
@@ -204,11 +205,11 @@ msgstr "Favorieten bijgewerkt"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr ""
+msgstr "Aktief"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: ../src/SysTrayGui.py:116
 #, python-format
@@ -227,10 +228,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr ""
+msgstr "Speelt <b>%s</b> (vol: %s%%)⏎ <i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr ""
+msgstr "Speelt <b>%s</b> (vol: %s%%)"

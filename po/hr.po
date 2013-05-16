@@ -3,33 +3,37 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Miro  <mirozagreb@ubuntu-hr.org>, 2011, 2012.
-#   <trebelnik2@gmail.com>, 2012.
+# CroatianFan <meluksic@yahoo.com>, 2013
+# Miro <mirozagreb@ubuntu-hr.org>, 2011-2012
+# Miro <mirozagreb@ubuntu-hr.org>, 2011, 2012
+# CroatianFan <meluksic@yahoo.com>, 2013
+# gogo <trebelnik2@gmail.com>, 2012
+# gogo <trebelnik2@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Radio Tray\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=295096&atid=1246146\n"
 "POT-Creation-Date: 2012-06-13 22:38+0100\n"
-"PO-Revision-Date: 2012-06-13 21:39+0000\n"
-"Last-Translator: carlosm <carlosmribeiro1@gmail.com>\n"
+"PO-Revision-Date: 2013-01-09 04:35+0000\n"
+"Last-Translator: CroatianFan <meluksic@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/radiotray/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../data/configBookmarks.glade.h:1
 msgid "Add Group"
-msgstr "Dodaj grupu"
+msgstr "Dodaj skupinu"
 
 #: ../data/configBookmarks.glade.h:2
 msgid "Group :"
-msgstr "Grupa:"
+msgstr "Skupina:"
 
 #: ../data/configBookmarks.glade.h:3
 msgid "Move separator to another group"
-msgstr "Premjesti razdjelnik u drugu grupu"
+msgstr "Premjesti razdjelnik u drugu skupinu"
 
 #: ../data/configBookmarks.glade.h:4
 msgid "Name :"
@@ -37,7 +41,7 @@ msgstr "Naziv:"
 
 #: ../data/configBookmarks.glade.h:5
 msgid "Parent Group :"
-msgstr "Glavna grupa:"
+msgstr "Početna skupina:"
 
 #: ../data/configBookmarks.glade.h:6 ../src/BookmarkConfiguration.py:258
 msgid "Separator"
@@ -46,12 +50,12 @@ msgstr "Razdjelnik"
 #: ../data/configBookmarks.glade.h:7
 msgctxt "yes"
 msgid "Configure Radios"
-msgstr "Podešavanje radia"
+msgstr "Podesi radio-postaje"
 
 #: ../data/configBookmarks.glade.h:8
 msgctxt "yes"
 msgid "Radio name:"
-msgstr "Naziv radia:"
+msgstr "Naziv radio-postaje:"
 
 #: ../data/configBookmarks.glade.h:9
 msgctxt "yes"
@@ -60,55 +64,55 @@ msgstr "URL:"
 
 #: ../data/configGui.glade.h:1
 msgid "(this choice will be saved in the configuration file)"
-msgstr "(ovaj izbor će  biti spremljen u datoteku podešavanja)"
+msgstr "(ovaj će izbor biti spremljen u datoteku podešavanja)"
 
 #: ../data/configGui.glade.h:2
 msgid "App Indicator"
-msgstr "Programčić pokazivača"
+msgstr "Programski pokazivač"
 
 #. Window title for the first time run configuration tool
 #: ../data/configGui.glade.h:4
 msgid "First Time Run Config"
-msgstr "Podešavanje prvog puta"
+msgstr "Podešavanje prvog pokretanja"
 
 #: ../data/configGui.glade.h:5
 msgid "Icon in the Notification Area"
-msgstr "Ikona u području obavijesti"
+msgstr "Sličica u obavijesnom području"
 
 #: ../data/configGui.glade.h:6
 msgid "Please select how Radio Tray should appear"
-msgstr "Odaberite kako će se Radio Tray pojaviti"
+msgstr "Molim odaberi kako će se Radio Tray pojaviti"
 
 #: ../data/configPlugins.glade.h:1
 msgid "Available Plugins:"
-msgstr ""
+msgstr "Dostupni priključci:"
 
 #. Warning message about need to restart application after plugin change
 #: ../data/configPlugins.glade.h:3
 msgid "Changes will only be visible after restarting Radio Tray"
-msgstr ""
+msgstr "Promjene će biti vidljive tek nakon ponovnog pokretanja Radio Traya"
 
 #. Plugins configuration window title
 #: ../data/configPlugins.glade.h:5
 msgid "Config Plugins"
-msgstr ""
+msgstr "Podesi priključke"
 
 #: ../src/about.py:16
 msgid "translator-credits"
-msgstr "SilverSpace <mirozagreb@gmail.com>\ngogo <trebelnik2gmail.com>"
+msgstr "SilverSpace <mirozagreb@gmail.com>\ngogo <trebelnik2@gmail.com>\nMislav E. L. <croatianfan@gmail.com>"
 
 #: ../src/about.py:30
 #, python-format
 msgid "%s's Website"
-msgstr "%s web stranica"
+msgstr "Mrežna stranica %sa"
 
 #: ../src/BookmarkConfiguration.py:96
 msgid "Radio Name"
-msgstr "Naziv radia"
+msgstr "Naziv radio-postaje"
 
 #: ../src/BookmarkConfiguration.py:275
 msgid "Add new station"
-msgstr "Dodaj novu stanicu"
+msgstr "Dodaj novu postaju"
 
 #: ../src/BookmarkConfiguration.py:352
 #, python-format
@@ -117,7 +121,7 @@ msgstr "Uredi %s"
 
 #: ../src/BookmarkConfiguration.py:388
 msgid "Edit group"
-msgstr "Uredi grupu"
+msgstr "Uredi skupinu"
 
 #. populate dialog with radio information
 #: ../src/BookmarkConfiguration.py:422
@@ -131,21 +135,21 @@ msgstr "Sigurno želite obrisati \"%s\"?"
 
 #: ../src/BookmarkConfiguration.py:506
 msgid "Add new group"
-msgstr "Dodaj novu grupu"
+msgstr "Dodaj novu skupinu"
 
 #: ../src/lib/common.py:22
 msgid "Developers:"
-msgstr "Razvojni programer:"
+msgstr "Razvijatelji:"
 
 #: ../src/lib/common.py:24
 msgid "Contributors:"
-msgstr "Doprinjeli:"
+msgstr "Doprinijeli:"
 
 #: ../src/AppIndicatorGui.py:69 ../src/AppIndicatorGui.py:201
 #: ../src/SysTrayGui.py:52 ../src/SysTrayGui.py:53 ../src/SysTrayGui.py:68
 #: ../src/SysTrayGui.py:196 ../src/SysTrayGui.py:198
 msgid "Turned Off"
-msgstr "Isključen"
+msgstr "Isključeno"
 
 #: ../src/AppIndicatorGui.py:72 ../src/AppIndicatorGui.py:204
 #: ../src/SysTrayGui.py:57 ../src/SysTrayGui.py:59 ../src/SysTrayGui.py:201
@@ -156,7 +160,7 @@ msgstr "Uključi \"%s\""
 
 #: ../src/AppIndicatorGui.py:89 ../src/SysTrayGui.py:72
 msgid "Configure Radios..."
-msgstr "Podešavanje radia..."
+msgstr "Podesi radio-postaje..."
 
 #: ../src/AppIndicatorGui.py:90 ../src/SysTrayGui.py:77
 msgid "Reload Bookmarks"
@@ -164,7 +168,7 @@ msgstr "Osvježi zabilješke"
 
 #: ../src/AppIndicatorGui.py:91 ../src/SysTrayGui.py:88
 msgid "Configure Plugins..."
-msgstr "Podesite priključak..."
+msgstr "Podesi priključke..."
 
 #: ../src/AppIndicatorGui.py:194 ../src/AppIndicatorGui.py:212
 #: ../src/SysTrayGui.py:187 ../src/SysTrayGui.py:190 ../src/SysTrayGui.py:211
@@ -177,34 +181,34 @@ msgstr "Isključi \"%s\""
 #, python-format
 msgctxt "Playing status tooltip information"
 msgid "Playing (vol: %s%%)"
-msgstr "Reprodukcija (glasnoća zvuka: %s%%)"
+msgstr "Sviranje (glasnoća: %s%%)"
 
 #: ../src/AppIndicatorGui.py:239 ../src/SysTrayGui.py:234
 #, python-format
 msgctxt "Informs Radio Tray is idle as a tooltip."
 msgid "Idle (vol: %s%%)"
-msgstr "Mirovanje (glasnoća zvuka: %s%%)"
+msgstr "Mirovanje (glasnoća: %s%%)"
 
 #: ../src/Context.py:26
 msgctxt "Unknown radio specified by URL"
 msgid "Unknown radio"
-msgstr "Nepoznati radio"
+msgstr "Nepoznata radio-postaja"
 
 #: ../src/NotificationManager.py:41
 msgid "Radio Tray Playing"
-msgstr "Radio Tray reprodukcija"
+msgstr "Radio Tray svira"
 
 #: ../src/NotificationManager.py:87
 msgid "Radio Error"
-msgstr "Greška radio stanice"
+msgstr "Radijska pogrješka"
 
 #: ../src/NotificationManager.py:91
 msgid "Bookmarks Reloaded"
-msgstr "Zabilješke su osvježene "
+msgstr "Zabilješke su osvježene"
 
 #: ../src/PluginConfiguration.py:66
 msgid "Active"
-msgstr "Aktivan"
+msgstr "Djelatan"
 
 #: ../src/PluginConfiguration.py:71
 msgid "Name"
@@ -213,7 +217,7 @@ msgstr "Naziv"
 #: ../src/SysTrayGui.py:116
 #, python-format
 msgid "Idle (vol: %s%%)"
-msgstr "Mirovanje (glasnoća zvuka: %s%%)"
+msgstr "Mirovanje (glasnoća: %s%%)"
 
 #: ../src/SysTrayGui.py:214
 #, python-format
@@ -227,10 +231,10 @@ msgctxt "Informs what radio and music is being played as a tooltip."
 msgid ""
 "Playing <b>%s</b> (vol: %s%%)\n"
 "<i>%s</i>"
-msgstr "Reprodukcija <b>%s</b> (glasnoća zvuka: %s%%)\n<i>%s</i>"
+msgstr "Sviranje <b>%s</b> (glasnoća: %s%%)\n<i>%s</i>"
 
 #: ../src/SysTrayGui.py:232
 #, python-format
 msgctxt "Informs what radio and music is being played as a tooltip."
 msgid "Playing <b>%s</b> (vol: %s%%)"
-msgstr "Reprodukcija <b>%s</b> (glasnoća zvuka: %s%%)"
+msgstr "Sviranje <b>%s</b> (glasnoća: %s%%)"
