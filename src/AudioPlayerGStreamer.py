@@ -18,11 +18,8 @@
 #
 ##########################################################################
 import sys, os
-import pygtk, gtk
 
-from gi.repository import Gobject, Gst
-GObject.threads_init()
-Gst.init(None)
+from gi.repository import Gst
 
 from StreamDecoder import StreamDecoder
 from lib.common import USER_AGENT
@@ -41,16 +38,18 @@ class AudioPlayerGStreamer:
 
         self.log = logging.getLogger('radiotray')
 
+        Gst.init(None)
+
         # init player
-        self.souphttpsrc = Gst.element_factory_make("souphttpsrc", "source")
+        self.souphttpsrc = Gst.ElementFactory.make("souphttpsrc", "source")
         self.souphttpsrc.set_property("user-agent", USER_AGENT)
 		
-        self.player = Gst.ElementFactory.make("playbin2", "player")
+        self.player = Gst.ElementFactory.make("playbin", "player")
         fakesink = Gst.ElementFactory.make("fakesink", "fakesink")
         self.player.set_property("video-sink", fakesink)
 
         #buffer size
-        if(cfg_provider._settingExists("buffer_size")):
+        if(cfg_provider._settingExists("buffer_size") is not None):
             bufferSize = int(cfg_provider.getConfigValue("buffer_size"))
             if (bufferSize > 0):
             
@@ -121,23 +120,12 @@ class AudioPlayerGStreamer:
 
     def on_message(self, bus, message):
         t = message.type
-
-        stru = message.structure
-        if(stru != None):
-            name = stru.get_name()
-            if(name == 'redirect'):
-                self.log.info("redirect received")
-                self.player.set_state(Gst.State.NULL)
-                stru.foreach(self.redirect, None)
-
-                
-
         if t == Gst.MessageType.EOS:
             self.log.debug("Received MESSAGE_EOS")
             self.player.set_state(Gst.State.NULL)
             self.playNextStream()
         elif t == Gst.MessageType.BUFFERING:
-            percent = message.structure['buffer-percent']
+            percent = message.parse_buffering()
             if percent < 100:
                 self.log.debug("Buffering %s" % percent)
                 self.player.set_state(Gst.State.PAUSED)
@@ -154,6 +142,15 @@ class AudioPlayerGStreamer:
                 self.playNextStream()
             else:
                 self.eventManager.notify(EventManager.STATION_ERROR, {'error':debug})
+        elif t == Gst.MessageType.STRUCTURE_CHANGE:
+            self.log.debug("Received STRUCTURE_CHANGE")
+            stru = message.get_structure()
+            if(stru != None):
+                name = stru.get_name()
+                if(name == 'redirect'):
+                    slef.log.info("redirect received")
+                    self.player.set_state(Gst.State.NULL)
+                    stru.foreach(self.redirect, None)
 
         elif t == Gst.MessageType.STATE_CHANGED:
             oldstate, newstate, pending = message.parse_state_changed()
@@ -179,12 +176,19 @@ class AudioPlayerGStreamer:
            taglist = message.parse_tag()
 
            #if there is no song information, there's no point in triggering song change event
-           if('artist' in taglist.keys() or 'title' in taglist.keys()):
+           tagdict = {}
+
+           for i in range(0, taglist.n_tags()):
+              tagname = taglist.nth_tag_name(i)
+              value = taglist.get_value_index(tagname, 0)
+              tagdict[tagname] = value
+
+           if('artist' in tagdict.keys() or 'title' in tagdict.keys()):
                station = self.mediator.getContext().station
                metadata = {}
 
-               for key in taglist.keys():      
-                   metadata[key] = taglist[key]
+               for key in tagdict.keys():
+                   metadata[key] = tagdict[key]
 
                metadata['station'] = station
            
