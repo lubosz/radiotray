@@ -18,18 +18,7 @@
 #
 ##########################################################################
 import sys
-
-try:
-    import pygtk
-    pygtk.require("2.0")
-except:
-    pass
-try:
-    import gtk
-    import gtk.glade
-    import os
-except:
-    sys.exit(1)
+import os
 
 from lib.common import APP_ICON_ON
 from lib import utils

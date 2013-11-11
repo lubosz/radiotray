@@ -19,7 +19,8 @@
 ##########################################################################
 
 import threading
-import gtk
+
+from gi.repository import Gtk
 import logging
 
 # This class should be extended by plugins implementations
@@ -38,7 +39,7 @@ class Plugin(threading.Thread):
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        self.menuItem = gtk.MenuItem(self.getName(), False)
+        self.menuItem = Gtk.MenuItem(self.getName())
         self.menuItem.connect('activate', self.on_menu)
         self.menuItem.show()
 

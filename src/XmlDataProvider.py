@@ -20,7 +20,7 @@
 ##########################################################################
 import os
 from lxml import etree
-import gtk
+from gi.repository import Gtk
 import logging
 
 class XmlDataProvider:
@@ -317,13 +317,13 @@ class XmlDataProvider:
 
             index = itemTarget.getparent().index(itemTarget)
 
-            if (position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE or position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER):
+            if (position == Gtk.TreeViewDropPosition.INTO_OR_BEFORE or position == Gtk.TreeViewDropPosition.INTO_OR_AFTER):
                 itemTarget.append(itemToMove)
 
-            elif position == gtk.TREE_VIEW_DROP_BEFORE:
+            elif position == Gtk.TreeViewDropPosition.BEFORE:
                 itemTarget.getparent().insert(index, itemToMove)
 
-            elif position == gtk.TREE_VIEW_DROP_AFTER:
+            elif position == Gtk.TreeViewDropPosition.AFTER:
                 itemTarget.getparent().insert(index+1, itemToMove)
 
             self.log.debug('%s moved with success', str(source))

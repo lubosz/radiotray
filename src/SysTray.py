@@ -19,18 +19,8 @@
 ##########################################################################
 import sys,os
 import time
-try:
-    import pygtk
-    pygtk.require("2.1")
-    import gtk
-except:
-    pass
-try:
-    import gtk
-    import gtk.glade
-except:
-    sys.exit(1)
 
+from gi.repository import Gtk, Gdk
 from AudioPlayerGStreamer import AudioPlayerGStreamer
 from XmlDataProvider import XmlDataProvider
 from BookmarkConfiguration import BookmarkConfiguration
@@ -153,7 +143,7 @@ class SysTray(object):
 
     def on_quit(self, data):
         self.log.info('Exiting...')
-        gtk.main_quit()
+        Gtk.main_quit()
 
     def on_about(self, data):
         about_dialog(parent=None)
@@ -181,8 +171,8 @@ class SysTray(object):
     
         
     def run(self):
-        gtk.gdk.threads_init()
-        gtk.main()
+        Gdk.threads_init()
+        Gtk.main()
 
 
     

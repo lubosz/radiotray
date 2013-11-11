@@ -17,17 +17,8 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-try:
-    import pygtk
-    pygtk.require("2.1")
-    import gtk
-except:
-    pass
-try:
-    import gtk
-    import gtk.glade
-except:
-    sys.exit(1)
+
+from gi.repository import Gtk
 
 from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
 from lib.utils import html_escape
@@ -45,17 +36,17 @@ class SysTrayGui:
     def buildMenu(self):
         
         # radios menu
-        self.radioMenu = gtk.Menu()
+        self.radioMenu = Gtk.Menu()
             
         if not self.mediator.context.station:
-            self.turnOnOff = gtk.MenuItem(_("Turned Off"), False)
-            self.turnOnOff2 = gtk.MenuItem(_("Turned Off"), False)
+            self.turnOnOff = Gtk.MenuItem(_("Turned Off"))
+            self.turnOnOff2 = Gtk.MenuItem(_("Turned Off"))
             self.turnOnOff.set_sensitive(False)
             self.turnOnOff2.set_sensitive(False)
         else:
-            self.turnOnOff = gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station, False)
+            self.turnOnOff = Gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station)
             self.turnOnOff.set_sensitive(True)
-            self.turnOnOff2 = gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station, False)                
+            self.turnOnOff2 = Gtk.MenuItem(_('Turn On "%s"') % self.mediator.context.station)
             self.turnOnOff2.set_sensitive(True)
             
         self.turnOnOff.connect('activate', self.handler.on_turn_on_off)
@@ -63,34 +54,34 @@ class SysTrayGui:
         self.update_radios()
 
         # config menu
-        self.menu = gtk.Menu()
-        self.turnOnOff2 = gtk.MenuItem(_("Turned Off"))
+        self.menu = Gtk.Menu()
+        self.turnOnOff2 = Gtk.MenuItem(_("Turned Off"))
         self.turnOnOff2.connect('activate', self.handler.on_turn_on_off)
         self.turnOnOff2.set_sensitive(False)
-        separator  = gtk.MenuItem()
-        menu_item1 = gtk.MenuItem(_("Configure Radios..."))
+        separator  = Gtk.MenuItem()
+        menu_item1 = Gtk.MenuItem(_("Configure Radios..."))
 
         #Check bookmarks file status
         menu_item1.set_sensitive(self.provider.isBookmarkWritable())
 
-        menu_item4 = gtk.MenuItem(_("Reload Bookmarks"))        
-        menu_item3 = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-        menu_item2 = gtk.ImageMenuItem(gtk.STOCK_QUIT)
+        menu_item4 = Gtk.MenuItem(_("Reload Bookmarks"))
+        menu_item3 = Gtk.ImageMenuItem.new_from_stock(Gtk.STOCK_ABOUT, None)
+        menu_item2 = Gtk.ImageMenuItem.new_from_stock(Gtk.STOCK_QUIT, None)
         self.menu.append(self.turnOnOff2)
         self.menu.append(separator)  
         self.menu.append(menu_item1)
 
         # plugins sub-menu
-        menu_plugins_item = gtk.MenuItem("Plugins", False)
-        self.menu_plugins = gtk.Menu()
+        menu_plugins_item = Gtk.MenuItem("Plugins")
+        self.menu_plugins = Gtk.Menu()
         menu_plugins_item.set_submenu(self.menu_plugins)
-        menu_item5 = gtk.MenuItem(_("Configure Plugins..."))
+        menu_item5 = Gtk.MenuItem(_("Configure Plugins..."))
         self.menu_plugins.append(menu_item5)
-        self.menu_plugins.append(gtk.MenuItem())    #add separator
+        self.menu_plugins.append(Gtk.MenuItem())    #add separator
         self.menu.append(menu_plugins_item) 
 
         self.menu.append(menu_item4)        
-        self.menu.append(gtk.MenuItem())        
+        self.menu.append(Gtk.MenuItem())
         self.menu.append(menu_item3)
         self.menu.append(menu_item2)        
         menu_item1.show()
@@ -111,16 +102,14 @@ class SysTrayGui:
                         
         self.menu.show_all()
 
-        self.icon = gtk.status_icon_new_from_file(APP_ICON_OFF)
+        self.icon = Gtk.StatusIcon.new_from_file(APP_ICON_OFF)
         self.icon.set_tooltip_markup(_("Idle (vol: %s%%)") % (self.mediator.getVolume()))
         self.icon.connect('button_press_event', self.button_press)
         self.icon.connect('scroll_event', self.handler.scroll)
 
-
     def button_press(self,widget,event):
-
         if(event.button == 1):
-            self.radioMenu.popup(None, None, gtk.status_icon_position_menu, 0, event.get_time(), widget)
+            self.radioMenu.popup(None, None, Gtk.StatusIcon.position_menu, widget, event.button, event.get_time())
         elif (event.button == 2):
             if (self.mediator.getContext().state == 'playing'):
                 self.mediator.stop()
@@ -128,19 +117,17 @@ class SysTrayGui:
                 if self.mediator.getContext().station:
                     self.mediator.play(self.mediator.getContext().station)
         else:
-            self.menu.popup(None, None, gtk.status_icon_position_menu, 2, event.get_time(), widget)
+            self.menu.popup(None, None, Gtk.StatusIcon.position_menu, widget, event.button, event.get_time())
 
 
     def update_radios(self):
-
         for child in self.radioMenu.get_children():
             self.radioMenu.remove(child)
-
 
         self.radioMenu.append(self.turnOnOff)
         self.turnOnOff.show()
 
-        separator = gtk.MenuItem()
+        separator = Gtk.MenuItem()
         self.radioMenu.append(separator)
         separator.show()
 
@@ -148,15 +135,13 @@ class SysTrayGui:
         self.provider.walk_bookmarks(self.group_callback, self.bookmark_callback, self.radioMenu)
         self.radioMenu.show_all()
 
-
     def group_callback(self, group_name, user_data):
-
         new_user_data = None
         
         if group_name != 'root':
-            group = gtk.MenuItem(group_name, False)
+            group = Gtk.MenuItem(group_name)
             user_data.append(group)  
-            new_user_data = gtk.Menu()
+            new_user_data = Gtk.Menu()
             group.set_submenu(new_user_data)
         else:
             new_user_data = self.radioMenu
@@ -167,11 +152,11 @@ class SysTrayGui:
     def bookmark_callback(self, radio_name, user_data):
 
         if radio_name.startswith("[separator-"):
-            separator = gtk.MenuItem() 
+            separator = Gtk.MenuItem()
             user_data.append(separator)
             separator.show()
         else:         
-            radio = gtk.MenuItem(radio_name, False)
+            radio = Gtk.MenuItem(radio_name)
             radio.show()
             radio.connect('activate', self.handler.on_start, radio_name)
             user_data.append(radio)
