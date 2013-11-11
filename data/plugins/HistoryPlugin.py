@@ -20,43 +20,40 @@
 from events.EventSubscriber import EventSubscriber
 from events.EventManager import EventManager
 from Plugin import Plugin
-import gtk
 from lib import utils
 from lib.common import SYSTEM_PLUGIN_PATH, USER_PLUGIN_PATH
 import os
 
 class HistoryPlugin(Plugin):
-
     def __init__(self):
         super(HistoryPlugin, self).__init__()
-
 
     def getName(self):
         return self.name
 
-
-
     def activate(self):
         self.eventSubscriber.bind(EventManager.SONG_CHANGED, self.on_song_changed)
 
-        if os.path.exists(os.path.join(USER_PLUGIN_PATH, "history.glade")):
-            self.gladefile = utils.load_ui_file(os.path.join(USER_PLUGIN_PATH, "history.glade"))
-        elif os.path.exists(os.path.join(SYSTEM_PLUGIN_PATH, "history.glade")):
-            self.gladefile = utils.load_ui_file(os.path.join(SYSTEM_PLUGIN_PATH, "history.glade"))
+        gladepath = ""
+        gladefile = "history.glade"
+        userpath = os.path.join(USER_PLUGIN_PATH, gladefile)
+        systempath = os.path.join(SYSTEM_PLUGIN_PATH, gladefile)
+        if os.path.exists(userpath):
+            gladepath = userpath
+        elif os.path.exists(systempath):
+            gladepath = systempath
         else:
             self.log.error('Error initializing History plugin: history.glade not found')
+        self.gladefile = utils.load_ui_file(gladepath)
 
         self.text = self.gladefile.get_object('textview1')
         self.window = self.gladefile.get_object("dialog1")
         self.last_title = 'none'
 
         if (self.window):
-            #dic = { "on_close_clicked" : self.on_close_clicked}
             self.gladefile.connect_signals(self)
 
-
     def on_song_changed(self, data):
-
         if('title' in data.keys()):
             title = data['title']
             if title != self.last_title:

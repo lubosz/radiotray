@@ -20,7 +20,6 @@
 from events.EventSubscriber import EventSubscriber
 from events.EventManager import EventManager
 from Plugin import Plugin
-import gtk
 import time
 
 # Basic example of a plugin
@@ -28,9 +27,7 @@ class HelloWorldPlugin(Plugin):
 
     def __init__(self):
         super(HelloWorldPlugin, self).__init__()
-        
         print "started"
-        
 
     def getName(self):
         return self.name

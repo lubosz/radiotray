@@ -20,9 +20,7 @@
 
 
 from Plugin import Plugin
-import gtk
-import gobject
-import pynotify
+from gi.repository import Notify, GdkPixbuf
 from lib.common import APP_ICON, APPNAME
 from events.EventManager import EventManager
 
@@ -35,7 +33,6 @@ class NotificationPlugin(Plugin):
         return self.name
 
     def initialize(self, name, notification, eventSubscriber, provider, cfgProvider, mediator, tooltip):
-    
         self.name = name
         self.notification = notification
         self.eventSubscriber = eventSubscriber
@@ -43,7 +40,6 @@ class NotificationPlugin(Plugin):
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        
 
     def activate(self):
         self.notif = None
@@ -59,34 +55,33 @@ class NotificationPlugin(Plugin):
 
             self.lastMessage = message
             
+            icon = self.make_icon(data)
             if self.notif == None:
         
-                if pynotify.init(APPNAME):
-                    self.notif = pynotify.Notification(title, message)
-                    self.notif.set_urgency(pynotify.URGENCY_LOW)
-                    self.set_icon(data)
-                    self.notif.set_timeout(pynotify.EXPIRES_DEFAULT)
+                if Notify.init(APPNAME):
+                    self.notif = Notify.Notification.new(title, message, None)
+                    self.notif.set_urgency(Notify.Urgency.LOW)
+                    self.notif.set_timeout(Notify.EXPIRES_DEFAULT)
+                    self.notif.set_icon_from_pixbuf(icon)
                     self.notif.show()
                 else:
-                    self.log.error('Error: there was a problem initializing the pynotify module')
+                    self.log.error('Error: there was a problem initializing the Notify module')
             
             else:
-                self.set_icon(data)
-                self.notif.update(title, message)
+                self.notif.update(title, message, None)
+                self.notif.set_icon_from_pixbuf(icon)
                 self.notif.show()
 
-
-    def set_icon(self, data):
+    def make_icon(self, data):
+        pixbuf = None
         #some radios publish cover data in the 'homepage' tag
         if('icon' in data.keys()):
-
             try:
-                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(data['icon'], 48, 48)
-                self.notif.set_icon_from_pixbuf(pixbuf)
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(data['icon'], 48, 48)
             except Exception, e:
-                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
-                self.notif.set_icon_from_pixbuf(pixbuf)
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(APP_ICON, 48, 48)
                 print e
         else:
-            pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(APP_ICON, 48, 48)
-            self.notif.set_icon_from_pixbuf(pixbuf)
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(APP_ICON, 48, 48)
+
+        return pixbuf

@@ -19,8 +19,7 @@
 ##########################################################################
 
 from Plugin import Plugin
-import gtk
-import gobject
+from gi.repository import Gtk, GObject
 from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
 
 class SleepTimerPlugin(Plugin):
@@ -38,7 +37,7 @@ class SleepTimerPlugin(Plugin):
         self.cfgProvider = cfgProvider
         self.mediator = mediator
         self.tooltip = tooltip
-        self.menuItem = gtk.CheckMenuItem(self.getName(), False)
+        self.menuItem = Gtk.CheckMenuItem(self.getName())
         self.menuItem.connect('activate', self.on_menu)
         self.menuItem.show()
 
@@ -108,19 +107,19 @@ class SleepTimerPlugin(Plugin):
 
     def populate_tooltip(self):
         if self.sleep_timer_id != None:
-            return _("Sleep: %s min") % str(self.min_to_sleep)
+            return _("Sleep: %smin") % str(self.min_to_sleep)
         else:
             return None
 
     def start_sleep_timer(self, interval, display_msg):
-        self.sleep_timer_id = gobject.timeout_add(60000, self.on_sleep_timer)
+        self.sleep_timer_id = GObject.timeout_add(interval*60000, self.on_sleep_timer)
         self.min_to_sleep = interval
         self.min_to_sleep_selected = interval        
         if display_msg:        
             self.eventManagerWrapper.notify(_("Sleep Timer"), _("%s minute sleep timer started") % str(interval))            
     
     def stop_sleep_timer(self, display_msg):
-        gobject.source_remove(self.sleep_timer_id)
+        GObject.source_remove(self.sleep_timer_id)
         self.sleep_timer_id = None  
         if display_msg:                   
             self.eventManagerWrapper.notify(_("Sleep Timer"), _("Sleep timer stopped"))
@@ -128,15 +127,15 @@ class SleepTimerPlugin(Plugin):
 
     def get_sleep_timer_value(self, default_value):
 
-        #gtk.gdk.threads_enter()
-
-        dialog = gtk.Dialog(_("Edit Sleep Timer"), None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                            (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT, gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+        #Gdk.threads_enter()
+        dialog = Gtk.Dialog(_("Edit Sleep Timer"), None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                            (Gtk.STOCK_CANCEL, Gtk.ResponseType.REJECT, Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT))
                         
-        entry = gtk.Entry(4)       
+        entry = Gtk.Entry()
+        entry.set_max_length(4)
         entry.set_text(str(default_value)) 
-        hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(_("Minutes:")), False, 5, 5)
+        hbox = Gtk.HBox()
+        hbox.pack_start(Gtk.Label(_("Minutes:")), False, 5, 5)
         hbox.pack_end(entry, True, True, 5)
         dialog.vbox.pack_end(hbox, True, True, 20)
         dialog.set_icon_from_file(APP_ICON_ON)
@@ -146,13 +145,13 @@ class SleepTimerPlugin(Plugin):
                         
         sleep_timer_value = 0
         
-        if ret == gtk.RESPONSE_ACCEPT:
+        if ret == Gtk.ResponseType.ACCEPT:
             if entry.get_text().isdigit():
                 sleep_timer_value = int(entry.get_text())
                 
         dialog.destroy()
         
-        #gtk.gdk.threads_leave()
+        #Gdk.threads_leave()
         return sleep_timer_value
 
     def on_menu(self, data):
