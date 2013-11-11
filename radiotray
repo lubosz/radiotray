@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import sys,os
+import signal
 from os.path import dirname, join, pardir
 
 try:
@@ -12,4 +13,6 @@ except ImportError:
 	os.chdir(workdir)
 	import radiotray 
 	
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+
 radiotray.main(sys.argv[1:])
