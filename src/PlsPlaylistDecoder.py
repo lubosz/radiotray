@@ -18,8 +18,8 @@
 #
 ##########################################################################
 import urllib.request, urllib.error, urllib.parse
-from lib.common import USER_AGENT
 import logging
+from .lib.common import USER_AGENT
 
 class PlsPlaylistDecoder:
 

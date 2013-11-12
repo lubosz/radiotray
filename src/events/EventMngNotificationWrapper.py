@@ -18,7 +18,7 @@
 #
 ##########################################################################
 
-import events.EventManager
+from . import EventManager
 
 class EventMngNotificationWrapper:
 

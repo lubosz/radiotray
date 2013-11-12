@@ -20,9 +20,9 @@
 import sys
 import os
 
-from lib.common import APP_ICON_ON
-from lib import utils
-from lib import i18n
+from .lib.common import APP_ICON_ON
+from .lib import utils
+from .lib import i18n
 import uuid
 import logging
 

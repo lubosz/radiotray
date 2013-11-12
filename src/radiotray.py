@@ -3,9 +3,13 @@
 
 import dbus
 import sys, os, string
-from RadioTray import RadioTray
 from dbus import DBusException
 from dbus.mainloop.glib import threads_init
+
+try:
+    from src.RadioTray import RadioTray
+except ImportError:
+    from radiotray.RadioTray import RadioTray
 
 threads_init()
 current_path = os.path.realpath(__file__)

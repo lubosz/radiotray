@@ -17,7 +17,7 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-from events.EventManager import EventManager
+from .events.EventManager import EventManager
 
 class TooltipManager(object):
 

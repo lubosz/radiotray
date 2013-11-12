@@ -21,9 +21,9 @@ import sys, os
 
 from gi.repository import Gst
 
-from StreamDecoder import StreamDecoder
-from lib.common import USER_AGENT
-from events.EventManager import EventManager
+from .StreamDecoder import StreamDecoder
+from .lib.common import USER_AGENT
+from .events.EventManager import EventManager
 from threading import Timer
 import logging
 

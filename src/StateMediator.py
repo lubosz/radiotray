@@ -17,11 +17,11 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-from AudioPlayerGStreamer import AudioPlayerGStreamer
-from SysTray import SysTray
-from lib.common import APPNAME
-from Context import Context
-from events.EventManager import EventManager
+from .AudioPlayerGStreamer import AudioPlayerGStreamer
+from .SysTray import SysTray
+from .lib.common import APPNAME
+from .Context import Context
+from .events.EventManager import EventManager
 import logging
 
 class StateMediator(object):

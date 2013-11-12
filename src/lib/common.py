@@ -47,10 +47,18 @@ along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 """ % COPYRIGHT_YEAR
 
 # Media path
-if os.path.exists(os.path.abspath('../data/images/')):
-    IMAGE_PATH = os.path.abspath('../data/images/')
+path1 = os.path.abspath('data/images/')
+path2 = os.path.abspath('../data/images/')
+path3 = '%s/%s/images' % (datadir, APPDIRNAME)
+
+if os.path.exists(path1):
+    IMAGE_PATH = path1
+elif os.path.exists(path2):
+    IMAGE_PATH = path2
+elif os.path.exists(path3):
+    IMAGE_PATH = path3
 else:
-    IMAGE_PATH = '%s/%s/images' % (datadir, APPDIRNAME)
+    print("No valid path found.")
 
 # Images
 APP_ICON = os.path.join(IMAGE_PATH, 'radiotray.png')
@@ -66,11 +74,19 @@ OPTIONS_CFG_NAME = 'config.xml'
 USER_CFG_PATH =  os.path.join(xdg_data_home, APPDIRNAME)
 OLD_USER_CFG_PATH = os.environ['HOME'] + "/.radiotray/"
 
-REL_CFG_DIR = os.path.abspath('../data/')
-if os.path.exists(os.path.join(REL_CFG_DIR, CFG_NAME)):
-    DEFAULT_CFG_PATH = REL_CFG_DIR
+
+path1 = os.path.abspath('data')
+path2 = os.path.abspath('../data')
+path3 = '%s/%s/' % (datadir, APPDIRNAME)
+
+if os.path.exists(os.path.join(path1, CFG_NAME)):
+    DEFAULT_CFG_PATH = path1
+elif os.path.exists(os.path.join(path2, CFG_NAME)):
+    DEFAULT_CFG_PATH = path2
+elif os.path.exists(os.path.join(path3, CFG_NAME)):
+    DEFAULT_CFG_PATH = path3
 else:
-    DEFAULT_CFG_PATH = '%s/%s/' % (datadir, APPDIRNAME)
+    print("No valid cfg path found.")
 
 DEFAULT_RADIO_LIST = os.path.join(DEFAULT_CFG_PATH, CFG_NAME)
 DEFAULT_CONFIG_FILE = os.path.join(DEFAULT_CFG_PATH, OPTIONS_CFG_NAME)

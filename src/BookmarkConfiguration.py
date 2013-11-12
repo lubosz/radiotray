@@ -21,10 +21,10 @@ import sys
 
 from gi.repository import Gtk, Gdk
 
-from XmlDataProvider import XmlDataProvider
-from lib.common import APP_ICON_ON
-from lib import utils
-from lib import i18n
+from .XmlDataProvider import XmlDataProvider
+from .lib.common import APP_ICON_ON
+from .lib import utils
+from .lib import i18n
 import uuid
 import logging
 

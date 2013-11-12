@@ -18,15 +18,15 @@
 #
 ##########################################################################
 import urllib.request, urllib.error, urllib.parse
-from lib.common import USER_AGENT
-from lib.DummyMMSHandler import DummyMMSHandler
-from PlsPlaylistDecoder import PlsPlaylistDecoder
-from M3uPlaylistDecoder import M3uPlaylistDecoder
-from AsxPlaylistDecoder import AsxPlaylistDecoder
-from XspfPlaylistDecoder import XspfPlaylistDecoder
-from AsfPlaylistDecoder import AsfPlaylistDecoder
-from RamPlaylistDecoder import RamPlaylistDecoder
-from UrlInfo import UrlInfo
+from .lib.common import USER_AGENT
+from .lib.DummyMMSHandler import DummyMMSHandler
+from .PlsPlaylistDecoder import PlsPlaylistDecoder
+from .M3uPlaylistDecoder import M3uPlaylistDecoder
+from .AsxPlaylistDecoder import AsxPlaylistDecoder
+from .XspfPlaylistDecoder import XspfPlaylistDecoder
+from .AsfPlaylistDecoder import AsfPlaylistDecoder
+from .RamPlaylistDecoder import RamPlaylistDecoder
+from .UrlInfo import UrlInfo
 import logging
 
 class StreamDecoder:

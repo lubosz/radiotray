@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from gi.repository import Gtk, GdkPixbuf
-from lib import i18n
-import lib.common as common
+from .lib import i18n
+from .lib import common
 
 TRANSLATORS = _("translator-credits")
 

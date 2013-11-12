@@ -21,20 +21,20 @@ import sys,os
 import time
 
 from gi.repository import Gtk, Gdk
-from AudioPlayerGStreamer import AudioPlayerGStreamer
-from XmlDataProvider import XmlDataProvider
-from BookmarkConfiguration import BookmarkConfiguration
-from PluginConfiguration import PluginConfiguration
-from lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
-from lib import i18n
-from about import AboutDialog
-from lib.utils import html_escape
-from GuiChooserConfiguration import GuiChooserConfiguration
-from events.EventManager import EventManager
-from SysTrayGui import SysTrayGui
-from AppIndicatorGui import AppIndicatorGui
-from TooltipManager import TooltipManager
-from Context import Context
+from .lib.common import APPNAME, APPVERSION, APP_ICON_ON, APP_ICON_OFF, APP_ICON_CONNECT, APP_INDICATOR_ICON_ON, APP_INDICATOR_ICON_OFF
+from .lib import i18n
+from .lib.utils import html_escape
+from .AudioPlayerGStreamer import AudioPlayerGStreamer
+from .XmlDataProvider import XmlDataProvider
+from .BookmarkConfiguration import BookmarkConfiguration
+from .PluginConfiguration import PluginConfiguration
+from .about import AboutDialog
+from .GuiChooserConfiguration import GuiChooserConfiguration
+from .events.EventManager import EventManager
+from .SysTrayGui import SysTrayGui
+from .AppIndicatorGui import AppIndicatorGui
+from .TooltipManager import TooltipManager
+from .Context import Context
 
 import dbus
 import textwrap
@@ -66,7 +66,6 @@ def about_dialog(parent=None):
 
 
 class SysTray(object):
-
     def __init__(self, mediator, provider, cfg_provider, default_cfg_provider, eventManager, tooltipManager):
 
         self.version = APPVERSION

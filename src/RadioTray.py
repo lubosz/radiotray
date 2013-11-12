@@ -17,25 +17,25 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-from XmlDataProvider import XmlDataProvider
-from XmlConfigProvider import XmlConfigProvider
-from AudioPlayerGStreamer import AudioPlayerGStreamer
-from SysTray import SysTray
-from StateMediator import StateMediator
-from NotificationManager import NotificationManager
-from events.EventManager import EventManager
-from events.EventMngNotificationWrapper import EventMngNotificationWrapper
-from events.EventSubscriber import EventSubscriber
-from DbusFacade import DbusFacade
-from TooltipManager import TooltipManager
-from PluginManager import PluginManager
+from .XmlDataProvider import XmlDataProvider
+from .XmlConfigProvider import XmlConfigProvider
+from .AudioPlayerGStreamer import AudioPlayerGStreamer
+from .SysTray import SysTray
+from .StateMediator import StateMediator
+from .NotificationManager import NotificationManager
+from .events.EventManager import EventManager
+from .events.EventMngNotificationWrapper import EventMngNotificationWrapper
+from .events.EventSubscriber import EventSubscriber
+from .DbusFacade import DbusFacade
+from .TooltipManager import TooltipManager
+from .PluginManager import PluginManager
 import os
 from shutil import move, copy2
-from lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH,\
+from .lib.common import APPDIRNAME, USER_CFG_PATH, CFG_NAME, OLD_USER_CFG_PATH,\
     DEFAULT_RADIO_LIST, OPTIONS_CFG_NAME, DEFAULT_CONFIG_FILE,\
     USER_PLUGIN_PATH, LOGFILE
-import mpris
-from GuiChooserConfiguration import GuiChooserConfiguration
+from . import mpris
+from .GuiChooserConfiguration import GuiChooserConfiguration
 import logging
 from logging import handlers
 

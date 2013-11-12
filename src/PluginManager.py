@@ -18,14 +18,15 @@
 #
 ##########################################################################
 
-from lib.common import USER_PLUGIN_PATH
-from lib.common import SYSTEM_PLUGIN_PATH
-from PluginInfo import PluginInfo
-from XmlConfigProvider import XmlConfigProvider
 import os
 import sys
 import logging
 import shutil
+
+from .lib.common import USER_PLUGIN_PATH
+from .lib.common import SYSTEM_PLUGIN_PATH
+from .PluginInfo import PluginInfo
+from .XmlConfigProvider import XmlConfigProvider
 
 # The purpose of this class is handle all plugin lifecycle operations
 class PluginManager:

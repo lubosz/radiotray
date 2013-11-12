@@ -5,13 +5,9 @@ import signal
 from os.path import dirname, join, pardir
 
 try:
-	from radiotray import radiotray
+    from src import radiotray
 except ImportError:
-	basedir = os.path.dirname(os.path.realpath(__file__))
-	workdir = join(basedir,'src')
-	sys.path.insert(0, workdir)
-	os.chdir(workdir)
-	import radiotray 
+    from radiotray import radiotray
 	
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 

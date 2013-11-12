@@ -20,9 +20,9 @@ An implementation of the MPRIS D-Bus protocol for use with radiotray based on Ex
 import dbus
 import dbus.service
 
-import mpris_root
-import mpris_tracklist
-import mpris_player
+from . import mpris_root
+from . import mpris_tracklist
+from . import mpris_player
 
 OBJECT_NAME = 'org.mpris.radiotray'
 

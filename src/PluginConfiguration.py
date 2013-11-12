@@ -22,8 +22,8 @@ import sys
 from gi.repository import Gtk, GObject
 import logging
 
-from lib import utils
-from lib.common import APP_ICON_ON
+from .lib import utils
+from .lib.common import APP_ICON_ON
 
 class PluginConfiguration(object):
 

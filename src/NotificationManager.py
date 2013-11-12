@@ -17,10 +17,10 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-from lib.common import APPNAME
-from events.EventMngNotificationWrapper import EventMngNotificationWrapper
+from .lib.common import APPNAME
+from .events.EventMngNotificationWrapper import EventMngNotificationWrapper
 import urllib.request, urllib.error, urllib.parse
-from lib.common import USER_AGENT, ICON_FILE
+from .lib.common import USER_AGENT, ICON_FILE
 import logging
 import traceback
 
