@@ -19,17 +19,7 @@
 ##########################################################################
 import sys
 
-try:
-    import pygtk
-    pygtk.require("2.0")
-except:
-    pass
-try:
-    import gtk
-    import gtk.glade
-    import os
-except:
-    sys.exit(1)
+from gi.repository import Gtk, Gdk
 
 from XmlDataProvider import XmlDataProvider
 from lib.common import APP_ICON_ON
@@ -38,9 +28,8 @@ from lib import i18n
 import uuid
 import logging
 
-drop_yes = ("drop_yes", gtk.TARGET_SAME_WIDGET, 0)
-drop_no = ("drop_no", gtk.TARGET_SAME_WIDGET, 0)
-
+drop_yes = ("drop_yes", Gtk.TargetFlags.SAME_WIDGET, 0)
+drop_no = ("drop_no", Gtk.TargetFlags.SAME_WIDGET, 0)
 
 class BookmarkConfiguration(object):
 
@@ -49,7 +38,6 @@ class BookmarkConfiguration(object):
     SEPARATOR_TYPE = 'SEPARATOR'
 
     def __init__(self, dataProvider, updateFunc, standalone=False):
-
         self.dataProvider = dataProvider
         self.updateFunc = updateFunc
         self.standalone = standalone
@@ -91,28 +79,25 @@ class BookmarkConfiguration(object):
         self.load_data()
         
         # config tree ui
-        cell = gtk.CellRendererText()
-        tvcolumn = gtk.TreeViewColumn(_('Radio Name'), cell)
+        cell = Gtk.CellRendererText()
+        tvcolumn = Gtk.TreeViewColumn(_('Radio Name'), cell)
         self.list.append_column(tvcolumn)
         tvcolumn.add_attribute(cell, 'text', 0)
         
         # config combo ui
-        cell2 = gtk.CellRendererText()
+        cell2 = Gtk.CellRendererText()
         self.parentGroup.pack_start(cell2, True)
         self.parentGroup.add_attribute(cell2, 'text', 0)
              
         # config add radio group combo ui
-        cell4 = gtk.CellRendererText()
+        cell4 = Gtk.CellRendererText()
         self.radioGroup.pack_start(cell4, True)
         self.radioGroup.add_attribute(cell4, 'text', 0)
         
         # separator new group combo ui
-        cell3 = gtk.CellRendererText()
+        cell3 = Gtk.CellRendererText()
         self.sepGroup.pack_start(cell3, True)
         self.sepGroup.add_attribute(cell3, 'text', 0)
-
-
-        
 
         # connect events
         if (self.window):
@@ -128,38 +113,65 @@ class BookmarkConfiguration(object):
 
         # enable drag and drop support
         self.list.enable_model_drag_source(
-            gtk.gdk.BUTTON1_MASK, [drop_yes], gtk.gdk.ACTION_MOVE)
+            Gdk.ModifierType.BUTTON1_MASK, [drop_yes], Gdk.DragAction.MOVE)
         self.list.enable_model_drag_dest(
-            [drop_yes], gtk.gdk.ACTION_MOVE)
-        self.list.connect("drag-data-received", self.onDragDataReceived)
-        self.list.connect("drag-motion", self.onDragMotion)
+            [drop_yes], Gdk.DragAction.MOVE)
+
+        self.list.connect("drag-drop", self.drag_drop_cb)
 
         # Connect row activation with bookmarks conf
         self.list.connect("row-activated", self.on_row_activated)
 
+    def drag_drop_cb(self, treeview, dragcontext, x, y, eventtime):
+        #check if there's a valid drop location
+        if(treeview.get_dest_row_at_pos(x, y) == None):
+            print("Dropped into nothing")
+            return
+
+        target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
+        model, source = treeview.get_selection().get_selected()
+        target = model.get_iter(target_path)
+        sourceName = model.get_value(source,1)
+        targetName = model.get_value(target,1)
+
+        is_parentable = self.checkParentability(model, target, drop_position)
+
+        if is_parentable:
+            writeData = False
+            if drop_position == Gtk.TreeViewDropPosition.INTO_OR_BEFORE:
+                pass
+                #model.insert_before (source, target)
+                #model.prepend(source, target)
+            elif drop_position == Gtk.TreeViewDropPosition.INTO_OR_AFTER:
+                pass
+                #model.insert_after (source, target)
+                #model.append(source, target)
+            elif drop_position == Gtk.TreeViewDropPosition.BEFORE:
+                if model.iter_depth(source) == model.iter_depth(target):
+                    writeData = True
+                    model.move_before(source, target)
+            elif drop_position == Gtk.TreeViewDropPosition.AFTER:
+                if model.iter_depth(source) == model.iter_depth(target):
+                    writeData = True
+                    model.move_after(source, target)
+
+            dragcontext.finish(True, False, eventtime)
+            if writeData:
+                self.dataProvider.moveToPosition(sourceName, targetName, drop_position)
+        else:
+            return dragcontext.finish(False, False, eventtime)
+
     def load_data(self):
-    
         # the meaning of the three columns is: description, id, type
-        treestore = gtk.TreeStore(str, str, str)
+        treestore = Gtk.TreeStore(str, str, str)
         root = self.dataProvider.getRootGroup()
         self.add_group_data(root, None, treestore)
         self.list.set_model(treestore)
 
-
-        
-    #drag and drop support
-    def checkSanity(self, model, source, target):
-        source_path = model.get_path(source)
-        target_path = model.get_path(target)
-        if target_path[0:len(source_path)] == source_path:
-            return False
-        else:
-            return True
-    
     #drag and drop support
     def checkParentability(self, model, target, drop_position):
-        if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
-                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER) \
+        if (drop_position == Gtk.TreeViewDropPosition.INTO_OR_BEFORE
+                or drop_position == Gtk.TreeViewDropPosition.INTO_OR_AFTER) \
                 and (model.get_value(target, 2) == self.RADIO_TYPE or model.get_value(target, 2) == self.SEPARATOR_TYPE):
             return False
         else:
@@ -169,77 +181,6 @@ class BookmarkConfiguration(object):
     def expandToPath(self, treeview, path):
         for i in range(len(path)):
             treeview.expand_row(path[:i+1], open_all=False)
-
-
-    #drag and drop support
-    def copyRow(self, treeview, model, source, target, drop_position):
-    
-        source_row = model[source]
-        if drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
-            new = model.prepend(target, source_row)
-        elif drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER:
-            new = model.append(target, source_row)
-        elif drop_position == gtk.TREE_VIEW_DROP_BEFORE:
-            new = model.insert_before(None, target, source_row)
-        elif drop_position == gtk.TREE_VIEW_DROP_AFTER:
-            new = model.insert_after(None, target, source_row)
-            
-        for n in range(model.iter_n_children(source)):
-            child = model.iter_nth_child(source, n)
-            self.copyRow(treeview, model, child, new,
-                                 gtk.TREE_VIEW_DROP_INTO_OR_BEFORE)
-                                 
-        source_is_expanded = treeview.row_expanded(model.get_path(source))
-        if source_is_expanded:
-            self.expandToPath(treeview, model.get_path(new))
- 
-
-    #drag and drop support   
-    def onDragDataReceived(self, treeview, drag_context, x, y, selection_data, info, eventtime):
-
-        #check if there's a valid drop location
-        if(treeview.get_dest_row_at_pos(x, y) == None):
-            self.log.debug("Dropped into nothing")
-            return
-
-        target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
-        model, source = treeview.get_selection().get_selected()
-        target = model.get_iter(target_path)
-        sourceName = model.get_value(source,1)
-        targetName = model.get_value(target,1)
-        
-        is_sane = self.checkSanity(model, source, target)
-        is_parentable = self.checkParentability(model, target, drop_position)
-        if is_sane and is_parentable:
-            self.copyRow(treeview, model, source, target, drop_position)
-            if (drop_position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE
-                or drop_position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER):
-                treeview.expand_row(target_path, False)
-            drag_context.finish(True, True, eventtime)
-
-            self.dataProvider.moveToPosition(sourceName, targetName, drop_position)
-        else:
-            drag_context.finish(False, False, eventtime)
-
-    
-    #drag and drop support
-    def onDragMotion(self, treeview, drag_context, x, y, eventtime):
-        try:
-            target_path, drop_position = treeview.get_dest_row_at_pos(x, y)
-            model, source = treeview.get_selection().get_selected()
-            target = model.get_iter(target_path)
-        except:
-            return
-        is_sane = self.checkSanity(model, source, target)
-        is_parentable = self.checkParentability(model, target, drop_position)
-        if is_sane and is_parentable:
-            treeview.enable_model_drag_dest([drop_yes], gtk.gdk.ACTION_MOVE)
-        else:
-            treeview.enable_model_drag_dest([drop_no], gtk.gdk.ACTION_MOVE)
-
-
-
-
 
     def add_group_data(self, group, parent, treestore):
 
@@ -277,7 +218,7 @@ class BookmarkConfiguration(object):
         self.radioGroupLabel.show()
         
         # populate groups
-        liststore = gtk.ListStore(str)
+        liststore = Gtk.ListStore(str)
 
         for group in self.dataProvider.listGroupNames():
             liststore.append([group])
@@ -326,7 +267,7 @@ class BookmarkConfiguration(object):
             selectedName = model.get_value(iter,1)
             selectedType = model.get_value(iter, 2)
             
-            liststore = gtk.ListStore(str)
+            liststore = Gtk.ListStore(str)
 
             for group in self.dataProvider.listGroupNames():
                 liststore.append([group])
@@ -437,9 +378,7 @@ class BookmarkConfiguration(object):
             
     def on_row_activated(self, widget, row, cell):
       self.on_edit_bookmark_clicked(widget)
-    
-    
-    
+
     def on_remove_bookmark_clicked(self, widget):
 
         #get current selected element
@@ -455,16 +394,15 @@ class BookmarkConfiguration(object):
             # if separator then just remove it
             if not separatorFlag.startswith("[separator-"):
 
-                confirmation = gtk.MessageDialog(
+                confirmation = Gtk.MessageDialog(
                     self.window,
-                    gtk.DIALOG_MODAL,
-                    gtk.MESSAGE_QUESTION,
-                    gtk.BUTTONS_YES_NO,
+                    Gtk.DialogFlags.MODAL,
+                    Gtk.MessageType.QUESTION,
+                    Gtk.ButtonsType.YES_NO,
                     _("Are you sure you want to delete \"%s\"?") % selectedRadioName
                 )
 
                 result = confirmation.run()
-
 
                 if result == -8:
                     # remove from data provider
@@ -489,7 +427,7 @@ class BookmarkConfiguration(object):
     # close the window and quit
     def on_delete_event(self, widget, event, data=None):
         if self.standalone:
-            gtk.main_quit()
+            Gtk.main_quit()
         return False
 
     def on_nameEntry_activated(self, widget):
@@ -508,7 +446,7 @@ class BookmarkConfiguration(object):
         self.groupNameEntry.grab_focus()
         
         # populate parent groups
-        liststore = gtk.ListStore(str)
+        liststore = Gtk.ListStore(str)
 
         for group in self.dataProvider.listGroupNames():
             liststore.append([group])
