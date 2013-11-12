@@ -17,7 +17,7 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from lib.common import USER_AGENT
 from lib.DummyMMSHandler import DummyMMSHandler
 from PlsPlaylistDecoder import PlsPlaylistDecoder
@@ -51,7 +51,7 @@ class StreamDecoder:
                 self.log.warn("Couldn't find url_timeout configuration")
                 self.url_timeout = 100
                 cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
-        except Exception, e:
+        except Exception as e:
             self.log.warn("Couldn't find url_timeout configuration")
             self.url_timeout = 100
             cfg_provider.setConfigValue("url_timeout", str(self.url_timeout))
@@ -66,17 +66,17 @@ class StreamDecoder:
             return UrlInfo(url, False, None)
 
         self.log.info('Requesting stream... %s', url)
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         req.add_header('User-Agent', USER_AGENT)
 
         try:
-            opener = urllib2.build_opener(DummyMMSHandler())
+            opener = urllib.request.build_opener(DummyMMSHandler())
             f = opener.open(req, timeout=float(self.url_timeout))
 
-        except urllib2.HTTPError, e:
+        except urllib.error.HTTPError as e:
             self.log.warn('HTTP Error: No radio stream found for %s - %s', url, str(e))
             return None
-        except urllib2.URLError, e:
+        except urllib.error.URLError as e:
             self.log.info('No radio stream found for %s', url)
             if str(e.reason).startswith('MMS REDIRECT'):
                 newurl = e.reason.split("MMS REDIRECT:",1)[1]
@@ -84,7 +84,7 @@ class StreamDecoder:
                 return UrlInfo(newurl, False, None)
             else:
                 return None
-        except Exception, e:
+        except Exception as e:
             self.log.warn('No radio stream found. Error: %s', str(e))
             return None
 
@@ -98,7 +98,7 @@ class StreamDecoder:
             self.log.info('Content-Type: %s', contentType)
             
 
-        except Exception, e:
+        except Exception as e:
             self.log.info("Couldn't read content-type. Maybe direct stream...")
             self.log.info('Error: %s',e)
             return UrlInfo(url, False, None)

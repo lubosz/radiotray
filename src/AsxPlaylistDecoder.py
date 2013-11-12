@@ -17,11 +17,11 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from lib.common import USER_AGENT
 from lxml import etree
 from lxml import objectify
-from StringIO import StringIO
+from io import StringIO
 import logging
 
 class AsxPlaylistDecoder:
@@ -44,9 +44,9 @@ class AsxPlaylistDecoder:
 
         self.log.info('Downloading playlist...')
 
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         req.add_header('User-Agent', USER_AGENT)
-        f = urllib2.urlopen(req)
+        f = urllib.request.urlopen(req)
         str = f.read()
         f.close()
 
@@ -62,7 +62,7 @@ class AsxPlaylistDecoder:
             tmp = element.tag
             element.tag = tmp.lower()
 
-            for key in element.attrib.iterkeys():
+            for key in element.attrib.keys():
                 element.attrib[key.lower()] = element.attrib[key]
 
 

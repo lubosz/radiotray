@@ -63,7 +63,7 @@ class XmlDataProvider:
     def saveToFile(self):
         self.log.info('Saving bookmarks file: %s', self.filename)
         out_file = open(self.filename, "w")
-        out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True))
+        out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True).decode())
         out_file.close()
         self.log.debug('Bookmarks file save with success')
 
@@ -97,7 +97,7 @@ class XmlDataProvider:
             if group == None or len(group) == 0:
                 self.log.debug('Group is new. Saving with name %s', new_group_name)
                 new_group = etree.SubElement(parent_group[0], 'group')
-                new_group.set("name", unicode(new_group_name))
+                new_group.set("name", str(new_group_name))
                 self.saveToFile()                
                 return True        
             
@@ -110,7 +110,7 @@ class XmlDataProvider:
 
     def addRadio(self, rawName, url, group_name='root'):
 
-        name = unicode(rawName)
+        name = str(rawName)
 
         self.log.info('Adding radio "%s" to group %s', name, group_name)
         self.log.debug('Radio URL: %s', url)
@@ -123,8 +123,8 @@ class XmlDataProvider:
     
             if result is None:
                 radio = etree.SubElement(group[0], 'bookmark')
-                radio.set("name", unicode(name))
-                radio.set("url", unicode(url))
+                radio.set("name", str(name))
+                radio.set("url", str(url))
                 self.log.debug('Radio added with success')
                 self.saveToFile()
                 return True
@@ -150,7 +150,7 @@ class XmlDataProvider:
             radioAdded = False
         else:
             if oldName == newName:
-                result.set("url", unicode(url))
+                result.set("url", str(url))
                 self.saveToFile()
                 radioAdded = True
                 self.log.debug('Radio updated with success')
@@ -160,8 +160,8 @@ class XmlDataProvider:
                     self.log.warn('A radio with the name "%s" already exists.', newName)
                     radioAdded = False
                 else:
-                    result.set("name", unicode(newName))
-                    result.set("url", unicode(url))
+                    result.set("name", str(newName))
+                    result.set("url", str(url))
                     self.saveToFile()
                     radioAdded = True
                     self.log.debug('Radio updated with success')
@@ -172,7 +172,7 @@ class XmlDataProvider:
     
         self.log.info('Updating group %s to %s', oldName, newName)
         groupAdded = None
-        newNameStr = unicode(newName)
+        newNameStr = str(newName)
         
         result = self._groupExists(oldName)
         
@@ -186,7 +186,7 @@ class XmlDataProvider:
                     self.log.warn('A group with the name "%s" already exists.', newName)
                     groupAdded = False
                 else:
-                    result.set("name", unicode(newNameStr))
+                    result.set("name", str(newNameStr))
                     self.saveToFile()
                     groupAdded = True
                     self.log.debug('Group updated with success')
@@ -335,7 +335,7 @@ class XmlDataProvider:
 
         try:
             radio = self.root.xpath("//bookmark[@name=$var]", var=name)[0]
-        except IndexError, e:
+        except IndexError as e:
             # No radio was found
             self.log.warn('Could not find a radio with the name "%s".', name)
 
@@ -346,7 +346,7 @@ class XmlDataProvider:
 
         try:
             group = self.root.xpath("//group[@name=$var]", var=name)[0]
-        except IndexError, e:
+        except IndexError as e:
             # No group was found
             self.log.warn('Could not find a group with the name "%s".', name)
 

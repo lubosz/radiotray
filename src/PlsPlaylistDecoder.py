@@ -17,7 +17,7 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from lib.common import USER_AGENT
 import logging
 
@@ -30,7 +30,7 @@ class PlsPlaylistDecoder:
 
     def isStreamValid(self, contentType, firstBytes):
 
-        if(('audio/x-scpls' in contentType) or ('application/pls+xml' in contentType) or (firstBytes.strip().lower().startswith('[playlist]'))):
+        if(('audio/x-scpls' in contentType) or ('application/pls+xml' in contentType) or (firstBytes.strip().lower().startswith(b'[playlist]'))):
             self.log.info('Stream is readable by PLS Playlist Decoder')
             return True
         else:
@@ -39,28 +39,23 @@ class PlsPlaylistDecoder:
 
 
     def extractPlaylist(self,  url):
+        self.log.info('Downloading playlist...')
             
-            self.log.info('Downloading playlist...')
+        req = urllib.request.Request(url)
+        req.add_header('User-Agent', USER_AGENT)
+        f = urllib.request.urlopen(req)
+        str = f.read()
+        f.close()
             
-            req = urllib2.Request(url)
-            req.add_header('User-Agent', USER_AGENT)
-            f = urllib2.urlopen(req)
-            str = f.read()
-            f.close()
+        self.log.info('Playlist downloaded')
+        self.log.info('Decoding playlist...')
             
-            self.log.info('Playlist downloaded')
-            self.log.info('Decoding playlist...')
-            
-	    playlist = []
-            lines = str.splitlines()
-            for line in lines:
-
-                if line.startswith("File") == True:
-
-                        list = line.split("=", 1)
-                        playlist.append(list[1])
-      
-            
-            return playlist
+        playlist = []
+        lines = str.splitlines()
+        for line in lines:
+            if line.startswith(b"File") == True:
+                list = line.decode().split("=", 1)
+                playlist.append(list[1])
+        return playlist
             
             

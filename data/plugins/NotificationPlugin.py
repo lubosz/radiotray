@@ -75,12 +75,12 @@ class NotificationPlugin(Plugin):
     def make_icon(self, data):
         pixbuf = None
         #some radios publish cover data in the 'homepage' tag
-        if('icon' in data.keys()):
+        if('icon' in list(data.keys())):
             try:
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(data['icon'], 48, 48)
-            except Exception, e:
+            except Exception as e:
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(APP_ICON, 48, 48)
-                print e
+                print(e)
         else:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(APP_ICON, 48, 48)
 

@@ -222,7 +222,7 @@ class BookmarkConfiguration(object):
 
         for group in self.dataProvider.listGroupNames():
             liststore.append([group])
-            print "group found: " + group
+            print("group found: " + group)
             
         self.radioGroup.set_model(liststore)
         
@@ -253,7 +253,7 @@ class BookmarkConfiguration(object):
                 if self.dataProvider.addRadio(name, url, new_group):
                     self.load_data()
             else:
-                print 'No radio information provided!'
+                print('No radio information provided!')
         self.config.hide()
 
     def on_edit_bookmark_clicked(self, widget):
@@ -389,7 +389,7 @@ class BookmarkConfiguration(object):
 
             selectedRadioName = model.get_value(iter,0)
             separatorFlag = model.get_value(iter,1)
-            print selectedRadioName + " - " + separatorFlag
+            print(selectedRadioName + " - " + separatorFlag)
 
             # if separator then just remove it
             if not separatorFlag.startswith("[separator-"):

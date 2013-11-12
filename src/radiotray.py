@@ -18,7 +18,7 @@ os.chdir(basedir)
 
 def main(argv):
     if(len(argv) == 1):
-        print "Trying to load URL: " + argv[0]
+        print("Trying to load URL: " + argv[0])
 
         try:
             bus = dbus.SessionBus()
@@ -26,9 +26,9 @@ def main(argv):
 
 
             if argv[0] == '--config':
-                print "Radio Tray already running."
+                print("Radio Tray already running.")
             else:
-                print "Setting current radio through DBus..."
+                print("Setting current radio through DBus...")
 
                 playUrl = radiotray.get_dbus_method('playUrl', 'net.sourceforge.radiotray')
                 playUrl(argv[0])

@@ -17,7 +17,7 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from lib.common import USER_AGENT
 import logging
 
@@ -35,7 +35,7 @@ class M3uPlaylistDecoder:
         else:
             lines = firstBytes.splitlines()
             for line in lines:
-                if(line.startswith("http://")):
+                if(line.startswith(b"http://")):
                     return True
         return False
 
@@ -44,9 +44,9 @@ class M3uPlaylistDecoder:
     def extractPlaylist(self,  url):
         self.log.info('Downloading playlist...')
 
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         req.add_header('User-Agent', USER_AGENT)
-        f = urllib2.urlopen(req)
+        f = urllib.request.urlopen(req)
         str = f.read()
         f.close()
 

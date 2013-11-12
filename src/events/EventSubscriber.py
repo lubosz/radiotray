@@ -37,4 +37,4 @@ class EventSubscriber:
         try:
             observersList.remove(observer)
         except:
-            print "no observer in list"
+            print("no observer in list")

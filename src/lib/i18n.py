@@ -10,7 +10,7 @@ LC_ALL = locale.setlocale(locale.LC_ALL, '')
 try:
     import gettext
     from gettext import gettext as _, ngettext
-    gettext.install(program, unicode=True)
+    gettext.install(program)
     gettext.textdomain(program)
     if hasattr(locale, 'textdomain'):
         locale.textdomain(program)
@@ -24,13 +24,13 @@ try:
             # no translation found, return input string
             return s
         return translated
-    import __builtin__
-    __builtin__.__dict__['ngettext'] = ngettext
-    __builtin__.__dict__['C_'] = C_
+    import builtins
+    builtins.__dict__['ngettext'] = ngettext
+    builtins.__dict__['C_'] = C_
 except ImportError:
     import sys
-    print >> sys.stderr, ("You don't have gettext module, no " \
-        "internationalization will be used.")
-    import __builtin__
-    __builtin__.__dict__['_'] = lambda x: x
-    __builtin__.__dict__['ngettext'] = lambda x, y, n: (n == 1) and x or y
+    print(("You don't have gettext module, no " \
+        "internationalization will be used."), file=sys.stderr)
+    import builtins
+    builtins.__dict__['_'] = lambda x: x
+    builtins.__dict__['ngettext'] = lambda x, y, n: (n == 1) and x or y

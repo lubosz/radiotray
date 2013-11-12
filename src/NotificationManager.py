@@ -19,7 +19,7 @@
 ##########################################################################
 from lib.common import APPNAME
 from events.EventMngNotificationWrapper import EventMngNotificationWrapper
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from lib.common import USER_AGENT, ICON_FILE
 import logging
 import traceback
@@ -30,65 +30,64 @@ class NotificationManager(object):
         self.eventManagerWrapper = eventManagerWrapper
         self.log = logging.getLogger('radiotray')
         self.lastState = None
-
+        
     def on_state_changed(self, data):
-
+    
         state = data['state']
-
+        
         if(state == 'playing' and state != self.lastState):
             station = data['station']
+            self.lastState = state
             self.eventManagerWrapper.notify(_('Radio Tray Playing'), station)
 
-        self.lastState = state
-
-
+            
 
     def on_song_changed(self, data):
-
+    
         self.log.debug(data)
-
+        
         station = data['station']
         msgTitle = "%s - %s" % (APPNAME , station)
         msg = None
 
-        if('artist' in data.keys() and 'title' in data.keys()):
+        if('artist' in list(data.keys()) and 'title' in list(data.keys())):
             artist = data['artist']
             title = data['title']
-            msg = "%s - %s" % (artist, title)
-        elif('artist' in data.keys()):
+            msg = "%s - %s" % (artist, title)            
+        elif('artist' in list(data.keys())):
             msg = data['artist']
-        elif('title' in data.keys()):
+        elif('title' in list(data.keys())):
             msg = data['title']
 
-        if('homepage' in data.keys() and (data['homepage'].endswith('png') or data['homepage'].endswith('jpg'))):
+        if('homepage' in list(data.keys()) and (data['homepage'].endswith('png') or data['homepage'].endswith('jpg'))):
             #download image
             try:
-                req = urllib2.Request(data['homepage'])
+                req = urllib.request.Request(data['homepage'])
                 req.add_header('User-Agent', USER_AGENT)
-                response = urllib2.urlopen(req)
+                response = urllib.request.urlopen(req)
                 pix = response.read()
                 f = open(ICON_FILE,'wb')
                 try:
                     f.write(pix)
-                except Exception, e:
-                    self.log.warn('Error saving icon')
+                except Exception as e:
+                    log.warn('Error saving icon')
                 finally:
                     f.close()
 
                 self.eventManagerWrapper.notify_icon(msgTitle, msg, ICON_FILE)
-
-            except Exception, e:
+                
+            except Exception as e:
                 traceback.print_exc()
                 self.eventManagerWrapper.notify(msgTitle, msg)
         else:
             self.eventManagerWrapper.notify(msgTitle, msg)
-
+        
     def on_station_error(self, data):
-
+    
         self.eventManagerWrapper.notify(_('Radio Error'), str(data['error']))
 
     def on_bookmarks_reloaded(self, data):
 
         self.eventManagerWrapper.notify(_("Bookmarks Reloaded"), _("Bookmarks Reloaded"))
-
-
+        
+        

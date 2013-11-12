@@ -17,10 +17,10 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
-class DummyMMSHandler(urllib2.BaseHandler):
+class DummyMMSHandler(urllib.request.BaseHandler):
         
     def mms_open(self, request):
-        print request.get_full_url()
-        raise urllib2.URLError("MMS REDIRECT:"+request.get_full_url())
+        print(request.get_full_url())
+        raise urllib.error.URLError("MMS REDIRECT:"+request.get_full_url())

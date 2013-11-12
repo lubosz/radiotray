@@ -36,21 +36,21 @@ class XmlConfigProvider:
     def loadFromFile(self):
         self.root = etree.parse(self.filename).getroot()
 
-
     def saveToFile(self):
         out_file = open(self.filename, "w")
-        out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True))
+        out_file.write(etree.tostring(self.root, method='xml', encoding='UTF-8', pretty_print=True).decode())
+
         out_file.close()
 
 
     def getConfigValue(self, name):
         result = self.root.xpath("//option[@name=$var]/@value", var=name)
+
         if(len(result) >= 1):
             return result[0]
 
 
     def setConfigValue(self, name, value):
-        
         setting = self._settingExists(name)
 
         if (setting == None):
@@ -80,10 +80,6 @@ class XmlConfigProvider:
                 self.log.debug('remove child %s', child.text)
                 setting.remove(child)
 
-
-        
-            
-        
         for item in items:
             it = etree.SubElement(setting, 'item')
             it.text = item
@@ -96,7 +92,7 @@ class XmlConfigProvider:
 
         try:
             setting = self.root.xpath("//option[@name=$var]", var=name)[0]
-        except IndexError, e:
+        except IndexError as e:
             # Setting wasn't found
             self.log.warn('Could not find setting with the name "%s".', name)
 

@@ -49,7 +49,7 @@ class MateMediaKeysPlugin(Plugin):
             self.bus_object.GrabMediaPlayerKeys("RadioTray", 0, dbus_interface='org.mate.SettingsDaemon.MediaKeys')
             self.bus_object.connect_to_signal('MediaPlayerKeyPressed', self.handle_mediakey)
         except:
-            print "Could not bind to mate for Media Keys"
+            print("Could not bind to mate for Media Keys")
             
             
     def handle_mediakey(self, *mmkeys):

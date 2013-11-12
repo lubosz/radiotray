@@ -52,7 +52,7 @@ class Plugin(threading.Thread):
         raise NotImplementedError( "Subclasses should override this" )
 
     def finalize(self):
-        print "Finalizing " + self.name
+        print("Finalizing " + self.name)
         self.join()
 
     def setMenuItem(self, item):

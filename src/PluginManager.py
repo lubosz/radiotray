@@ -42,13 +42,13 @@ class PluginManager:
         self.log = logging.getLogger('radiotray')
 
     def getPlugins(self):
-        return self.pluginInfos.values()
+        return list(self.pluginInfos.values())
 
     def activatePlugins(self):
 
         active = self.cfgProvider.getConfigList('active_plugins')
 
-        for info in self.pluginInfos.values():
+        for info in list(self.pluginInfos.values()):
 
             if info.name in active:
                 plugin = info.instance
@@ -122,15 +122,14 @@ class PluginManager:
         self.pluginInfos = self.parsePluginInfo(pluginFiles)
 
 
-        for info in self.pluginInfos.values():
-            print info.name + ", " + info.desc + ", " + info.script + ", " + info.author
+        for info in list(self.pluginInfos.values()):
+            print(info.name + ", " + info.desc + ", " + info.script + ", " + info.author)
             m = __import__(info.clazz)
             m2 = getattr(m, info.clazz)
             info.instance = m2()
 
 
     def parsePluginInfo(self, plugins):
-
         infos = {}
 
         for p in plugins:
@@ -156,13 +155,10 @@ class PluginManager:
             originalFile = os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
             correctFile = os.path.join(USER_PLUGIN_PATH, filename[:filename.find('.')] + '.config')
 
-            if(os.path.exists(originalFile)):
-		    
-
-		    os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
-
-		    if (not os.path.exists(correctFile)):
-		        shutil.copyfile(originalFile, correctFile)
+            if os.path.exists(originalFile):
+		            os.path.join(os.path.dirname(p), filename[:filename.find('.')] + '.config')
+		            if not os.path.exists(correctFile):
+		                shutil.copyfile(originalFile, correctFile)
 
             pInfo.configFile = correctFile
             infos[pInfo.name] = pInfo

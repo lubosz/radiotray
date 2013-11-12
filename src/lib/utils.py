@@ -21,9 +21,9 @@ from os.path import exists, join
 from gi.repository import Gtk
 
 def load_ui_file(name):
-    import common
+    import lib.common
     ui = Gtk.Builder()
-    ui.add_from_file(join(common.DEFAULT_CFG_PATH, name))
+    ui.add_from_file(join(lib.common.DEFAULT_CFG_PATH, name))
     return ui
 
 paths = ("/usr/local/share/radiotray","/usr/share/radiotray")
@@ -33,21 +33,21 @@ def tryopen(filename):
     try:
         f = open(filename)
         return f
-    except IOError, e:
+    except IOError as e:
         for p in paths:
             try:
                 f = open(join(p,filename))
                 return f
-            except IOError, e:
+            except IOError as e:
                 0
-    raise IOError, "Unable to find file "+filename
+    raise IOError("Unable to find file "+filename)
 
 def findfile(filename):
     """Looks for filename, searching a built-in list of directories; returns the path where it finds the file."""
     if exists(filename): return filename
     for p in paths:
         x = join(p,filename)
-        print x
+        print(x)
         if exists(x): return x
 
 
