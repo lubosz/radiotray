@@ -32,13 +32,13 @@ def main(argv):
 
         for opt, arg in opts:
             if opt in ("-h", "--help"):
-                print "Available commands: list, radio=, stop, up, down, current, metadata, url="
+                print("Available commands: list, radio=, stop, up, down, current, metadata, url=")
                 sys.exit()
             elif opt in ("-l", "--list"):
                 listRadios = radiotray.get_dbus_method('listRadios', 'net.sourceforge.radiotray')
                 radios = listRadios()
                 for radio in radios:
-                    print radio
+                    print(radio)
 
             elif opt in ("-r", "--radio"):
                 playRadio = radiotray.get_dbus_method('playRadio', 'net.sourceforge.radiotray')
@@ -58,14 +58,14 @@ def main(argv):
 
             elif opt in ("--current"):
                 getRadio = radiotray.get_dbus_method('getCurrentRadio', 'net.sourceforge.radiotray')
-                print getRadio()
+                print(getRadio())
 
             elif opt in ("--metadata"):
                 getMetadata = radiotray.get_dbus_method('getCurrentMetaData', 'net.sourceforge.radiotray')
-                print getMetadata()
+                print(getMetadata())
 
             elif opt in ("--url"):
-                print "play url"
+                print("play url")
                 playUrl = radiotray.get_dbus_method('playUrl', 'net.sourceforge.radiotray')
                 playUrl(arg)
 
