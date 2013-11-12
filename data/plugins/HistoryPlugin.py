@@ -24,6 +24,8 @@ from lib import utils
 from lib.common import SYSTEM_PLUGIN_PATH, USER_PLUGIN_PATH
 import os
 
+from gi.repository import Gdk
+
 class HistoryPlugin(Plugin):
     def __init__(self):
         super(HistoryPlugin, self).__init__()
@@ -44,29 +46,34 @@ class HistoryPlugin(Plugin):
             gladepath = systempath
         else:
             self.log.error('Error initializing History plugin: history.glade not found')
-        self.gladefile = utils.load_ui_file(gladepath)
 
+        Gdk.threads_enter()
+        self.gladefile = utils.load_ui_file(gladepath)
         self.text = self.gladefile.get_object('textview1')
         self.window = self.gladefile.get_object("dialog1")
         self.last_title = 'none'
 
         if (self.window):
             self.gladefile.connect_signals(self)
+        Gdk.threads_leave()
 
     def on_song_changed(self, data):
         if('title' in data.keys()):
             title = data['title']
             if title != self.last_title:
                 self.last_title = title
-                buffer = self.text.get_buffer()
-                buffer.insert(buffer.get_end_iter(),title+'\n')
+                if self.text:
+                  buffer = self.text.get_buffer()
+                  buffer.insert(buffer.get_end_iter(),title+'\n')
 
 
     def on_menu(self, data):
-        self.window.show()
+        if self.window:
+          self.window.show()
 
     def on_close_clicked(self, widget):
-        self.window.hide()
+        if self.window:
+          self.window.hide()
         return True
 
     def on_delete_event(self, widget, event, data=None):
