@@ -111,5 +111,5 @@ class StationSwitcherPlugin(Plugin):
     
     def on_menu(self, data):
         #plugin config gui goes here.  Need to add option for random station select
-        print ""
+        print("")
 
