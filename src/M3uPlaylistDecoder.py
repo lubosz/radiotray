@@ -44,20 +44,25 @@ class M3uPlaylistDecoder:
     def extractPlaylist(self,  url):
         self.log.info('Downloading playlist...')
 
-        req = urllib.request.Request(url)
-        req.add_header('User-Agent', USER_AGENT)
-        f = urllib.request.urlopen(req)
-        str = f.read()
-        f.close()
+        request = urllib.request.Request(
+            url,
+            headers={
+                'User-Agent': USER_AGENT
+            }
+        )
+
+        with urllib.request.urlopen(request) as handle:
+            encoding = handle.headers.get_content_charset() or "UTF-8"
+            content = handle.read()
 
         self.log.info('Playlist downloaded')
         self.log.info('Decoding playlist...')
 
-        lines = str.splitlines()
         playlist = []
 
-        for line in lines:
-            if line.startswith("#") == False and len(line) > 0:
+        for line in content.decode(encoding).splitlines():
+            line = line.rstrip()
+            if line and not line.startswith("#"):
                 playlist.append(line)
 
         return playlist
