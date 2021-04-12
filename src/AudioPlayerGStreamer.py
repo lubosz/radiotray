@@ -17,8 +17,9 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import sys, os
+import gi, os, sys
 
+gi.require_version('Gst', '1.0')
 from gi.repository import Gst
 
 from .StreamDecoder import StreamDecoder

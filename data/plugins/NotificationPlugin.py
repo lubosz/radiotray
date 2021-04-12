@@ -18,9 +18,12 @@
 #
 ##########################################################################
 
-
+import gi
 from Plugin import Plugin
+
+gi.require_version('Notify', '0.7')
 from gi.repository import Notify, GdkPixbuf
+
 from lib.common import APP_ICON, APPNAME
 from events.EventManager import EventManager
 

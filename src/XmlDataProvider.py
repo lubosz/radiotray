@@ -18,10 +18,11 @@
 # along with Radio Tray.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-import os
+import gi, logging, os
 from lxml import etree
+
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
-import logging
 
 class XmlDataProvider:
 
