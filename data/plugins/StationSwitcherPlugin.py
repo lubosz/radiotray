@@ -20,7 +20,7 @@
 
 # author Mark F  Jan 2013
 from Plugin import Plugin
-import gtk
+from gi.repository import Gtk
 import random
 
 class StationSwitcherPlugin(Plugin):
@@ -43,13 +43,13 @@ class StationSwitcherPlugin(Plugin):
         
     def activate(self):
         # only Next >> button added to avoid cluttering menu.  Play previous can be triggered using other means
-        nextMenuItem = gtk.MenuItem("Next >>", False)
+        nextMenuItem = Gtk.MenuItem("Next >>", False)
         
         # locate the turn on/off menu item and add next button after
         i = 0
         insertIndex = 0
         for child in self.tooltip.gui.radioMenu.get_children():
-            if not isinstance(child, gtk.SeparatorMenuItem):
+            if not isinstance(child, Gtk.SeparatorMenuItem):
                 if child.get_label().startswith("Turn"): 
                     insertIndex = i+1
                     break
