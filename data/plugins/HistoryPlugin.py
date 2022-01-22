@@ -23,6 +23,7 @@ from Plugin import Plugin
 from lib import utils
 from lib.common import SYSTEM_PLUGIN_PATH, USER_PLUGIN_PATH
 import os
+from datetime import datetime
 
 from gi.repository import Gdk
 
@@ -52,6 +53,7 @@ class HistoryPlugin(Plugin):
         self.text = self.gladefile.get_object('textview1')
         self.window = self.gladefile.get_object("dialog1")
         self.last_title = 'none'
+        self.time = datetime.now().replace(microsecond=0)
 
         if (self.window):
             self.gladefile.connect_signals(self)
@@ -60,11 +62,15 @@ class HistoryPlugin(Plugin):
     def on_song_changed(self, data):
         if('title' in data.keys()):
             title = data['title']
+            time = datetime.now().replace(microsecond=0)
+            delta = time-self.time
+            time_str = str(delta)
             if title != self.last_title:
                 self.last_title = title
                 if self.text:
                   buffer = self.text.get_buffer()
-                  buffer.insert(buffer.get_end_iter(),title+'\n')
+                  buffer.insert(buffer.get_end_iter(),' '+time_str+'\n'+title)
+            self.time = time
 
 
     def on_menu(self, data):
